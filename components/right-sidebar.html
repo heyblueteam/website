@@ -58,22 +58,19 @@
        }">
     <div class="pt-32 p-6 overflow-y-auto flex flex-col h-full">
         <div class="flex-1">
-            <h3 class="text-sm font-semibold text-gray-900 mb-4">On this page</h3>
-            <nav class="space-y-1" id="toc-nav" x-show="tocItems.length > 0">
-                <template x-for="item in tocItems" :key="item.id">
-                    <a :href="'#' + item.id" 
-                       @click.prevent="scrollToSection(item.id)"
-                       :class="activeSection === item.id ? 'text-brand-blue bg-blue-50 font-medium' : 'text-gray-600 hover:text-brand-blue'"
-                       class="toc-link block text-sm px-2 py-1.5 rounded-md relative transition-colors duration-200">
-                        <span x-text="item.title"></span>
-                        <span class="toc-arrow transition-transform duration-200" x-text="getArrowDirection(item.id)"></span>
-                    </a>
-                </template>
-            </nav>
-            
-            <!-- Show message when no TOC available -->
-            <div x-show="tocItems.length === 0" class="text-sm text-gray-500 italic">
-                No headings found on this page.
+            <div x-show="tocItems.length > 0">
+                <h3 class="text-sm font-semibold text-gray-900 mb-4">On this page</h3>
+                <nav class="space-y-1" id="toc-nav">
+                    <template x-for="item in tocItems" :key="item.id">
+                        <a :href="'#' + item.id" 
+                           @click.prevent="scrollToSection(item.id)"
+                           :class="activeSection === item.id ? 'text-brand-blue bg-blue-50 font-medium' : 'text-gray-600 hover:text-brand-blue'"
+                           class="toc-link block text-sm px-2 py-1.5 rounded-md relative transition-colors duration-200">
+                            <span x-text="item.title"></span>
+                            <span class="toc-arrow transition-transform duration-200" x-text="getArrowDirection(item.id)"></span>
+                        </a>
+                    </template>
+                </nav>
             </div>
         </div>
         

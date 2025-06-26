@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	
+
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
@@ -53,17 +53,18 @@ type PageData struct {
 
 // Router handles file-based routing for HTML pages
 type Router struct {
-	pagesDir        string
-	layoutsDir      string
-	componentsDir   string
-	contentDir      string
-	navigation      *Navigation
-	docsNavigation  *Navigation
-	apiNavigation   *Navigation
-	legalNavigation *Navigation
-	seoService      *SEOService
+	pagesDir         string
+	layoutsDir       string
+	componentsDir    string
+	contentDir       string
+	navigation       *Navigation
+	docsNavigation   *Navigation
+	apiNavigation    *Navigation
+	legalNavigation  *Navigation
+	seoService       *SEOService
 	changelogService *ChangelogService
-	markdown        goldmark.Markdown
+	markdown         goldmark.Markdown
+	tocExcludedPaths []string
 }
 
 // NewRouter creates a new router instance
@@ -82,19 +83,19 @@ func NewRouter(pagesDir string) *Router {
 			html.WithXHTML(),
 		),
 	)
-	
+
 	// Initialize SEO service
 	seoService := NewSEOService()
 	if err := seoService.LoadData(); err != nil {
 		log.Printf("Error loading SEO data: %v", err)
 	}
-	
+
 	// Initialize changelog service
 	changelogService := NewChangelogService()
 	if err := changelogService.LoadChangelog(); err != nil {
 		log.Printf("Error loading changelog data: %v", err)
 	}
-	
+
 	router := &Router{
 		pagesDir:         pagesDir,
 		layoutsDir:       "layouts",
@@ -103,34 +104,38 @@ func NewRouter(pagesDir string) *Router {
 		markdown:         md,
 		seoService:       seoService,
 		changelogService: changelogService,
+		tocExcludedPaths: []string{ // These pages will not show toc
+			"/changelog",
+			"/roadmap",
+		},
 	}
-	
+
 	// Load navigation data
 	if err := router.loadNavigation(); err != nil {
 		log.Printf("Error loading navigation: %v", err)
 	}
-	
+
 	// Generate dynamic navigation for docs
 	if docsNav, err := router.generateContentNavigation("content/docs", "/docs"); err != nil {
 		log.Printf("Error generating docs navigation: %v", err)
 	} else {
 		router.docsNavigation = docsNav
 	}
-	
+
 	// Generate dynamic navigation for API
 	if apiNav, err := router.generateContentNavigation("content/api-docs", "/api"); err != nil {
 		log.Printf("Error generating API navigation: %v", err)
 	} else {
 		router.apiNavigation = apiNav
 	}
-	
+
 	// Generate dynamic navigation for Legal
 	if legalNav, err := router.generateContentNavigation("content/legal", "/legal"); err != nil {
 		log.Printf("Error generating legal navigation: %v", err)
 	} else {
 		router.legalNavigation = legalNav
 	}
-	
+
 	return router
 }
 
@@ -140,7 +145,7 @@ func (r *Router) loadNavigation() error {
 	if err != nil {
 		return err
 	}
-	
+
 	r.navigation = &Navigation{}
 	return json.Unmarshal(data, r.navigation)
 }
@@ -154,20 +159,20 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 	// Get the requested path
 	path := req.URL.Path
-	
+
 	// Check for redirects first
 	if redirectTo, statusCode, shouldRedirect := r.seoService.CheckRedirect(path); shouldRedirect {
 		http.Redirect(w, req, redirectTo, statusCode)
 		return
 	}
-	
+
 	// Redirect .html URLs to clean URLs
 	if strings.HasSuffix(path, ".html") && path != "/" {
 		cleanURL := strings.TrimSuffix(path, ".html")
 		http.Redirect(w, req, cleanURL, http.StatusMovedPermanently)
 		return
 	}
-	
+
 	// Convert URL path to file path
 	var filePath string
 	if path == "/" {
@@ -176,14 +181,14 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	} else {
 		// Remove leading slash
 		cleanPath := strings.TrimPrefix(path, "/")
-		
+
 		if strings.HasSuffix(cleanPath, "/") {
 			// Directory path, look for index.html
 			filePath = filepath.Join(r.pagesDir, cleanPath, "index.html")
 		} else {
 			// Try as direct .html file first
 			filePath = filepath.Join(r.pagesDir, cleanPath+".html")
-			
+
 			// If that doesn't exist, try as directory with index.html
 			if _, err := os.Stat(filePath); os.IsNotExist(err) {
 				indexPath := filepath.Join(r.pagesDir, cleanPath, "index.html")
@@ -199,7 +204,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	var contentBytes []byte
 	var isMarkdown bool
 	var frontmatter *Frontmatter
-	
+
 	// Check if HTML page file exists
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		// HTML page doesn't exist, try markdown
@@ -208,7 +213,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Read markdown file
 		mdBytes, err := os.ReadFile(markdownPath)
 		if err != nil {
@@ -216,7 +221,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			log.Printf("Markdown reading error: %v", err)
 			return
 		}
-		
+
 		// Parse frontmatter
 		var markdownContent []byte
 		frontmatter, markdownContent, err = r.seoService.ParseFrontmatter(mdBytes)
@@ -229,7 +234,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		} else {
 			log.Printf("No frontmatter found in file")
 		}
-		
+
 		// Convert markdown to HTML
 		var htmlBuffer strings.Builder
 		if err := r.markdown.Convert(markdownContent, &htmlBuffer); err != nil {
@@ -237,7 +242,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			log.Printf("Markdown conversion error: %v", err)
 			return
 		}
-		
+
 		contentBytes = []byte(htmlBuffer.String())
 		isMarkdown = true
 	} else {
@@ -250,12 +255,12 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 		isMarkdown = false
-		
+
 		// Special handling for pages that need template processing
 		if path == "/changelog" {
 			// Process the changelog.html as a template with page data
 			pageData := r.preparePageData(path, "", isMarkdown, frontmatter, r.getNavigationForPath(path))
-			
+
 			// Create a template for the changelog content
 			contentTmpl := template.New("changelog").Funcs(template.FuncMap{
 				"toJSON": func(v any) template.JS {
@@ -263,14 +268,14 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 					return template.JS(data)
 				},
 			})
-			
+
 			contentTmpl, err = contentTmpl.Parse(string(contentBytes))
 			if err != nil {
 				http.Error(w, "Error parsing changelog template", http.StatusInternalServerError)
 				log.Printf("Changelog template parsing error: %v", err)
 				return
 			}
-			
+
 			// Execute the changelog template with the page data
 			var renderedContent strings.Builder
 			if err = contentTmpl.Execute(&renderedContent, pageData); err != nil {
@@ -278,7 +283,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 				log.Printf("Changelog template execution error: %v", err)
 				return
 			}
-			
+
 			contentBytes = []byte(renderedContent.String())
 		}
 	}
@@ -287,7 +292,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	templateFiles := []string{
 		filepath.Join(r.layoutsDir, "main.html"),
 	}
-	
+
 	// Auto-scan all component templates
 	componentFiles, err := filepath.Glob(filepath.Join(r.componentsDir, "*.html"))
 	if err != nil {
@@ -295,7 +300,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		log.Printf("Component scanning error: %v", err)
 		return
 	}
-	
+
 	// Add all component files
 	templateFiles = append(templateFiles, componentFiles...)
 
@@ -306,8 +311,8 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			return template.JS(data)
 		},
 	})
-	
-	// Parse all template files  
+
+	// Parse all template files
 	tmpl, err = tmpl.ParseFiles(templateFiles...)
 	if err != nil {
 		http.Error(w, "Error loading templates", http.StatusInternalServerError)
@@ -327,31 +332,30 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-
 // getNavigationForPath returns the appropriate navigation based on the URL path
 func (r *Router) getNavigationForPath(path string) *Navigation {
 	// Always start with static navigation
 	if r.navigation == nil {
 		return &Navigation{}
 	}
-	
+
 	// Make a copy of the static navigation
 	nav := &Navigation{
 		Sections: make([]NavItem, len(r.navigation.Sections)),
 	}
 	copy(nav.Sections, r.navigation.Sections)
-	
+
 	// Always add Documentation section if available
 	if r.docsNavigation != nil {
 		docSection := NavItem{
 			ID:       "documentation",
-			Name:     "Documentation", 
+			Name:     "Documentation",
 			Expanded: strings.HasPrefix(path, "/docs"), // Only expand when on docs pages
 			Children: r.docsNavigation.Sections,
 		}
 		nav.Sections = append(nav.Sections, docSection)
 	}
-	
+
 	// Always add API Reference section if available
 	if r.apiNavigation != nil {
 		apiSection := NavItem{
@@ -362,7 +366,7 @@ func (r *Router) getNavigationForPath(path string) *Navigation {
 		}
 		nav.Sections = append(nav.Sections, apiSection)
 	}
-	
+
 	// Always add Legal section if available (placed at end for bottom positioning)
 	if r.legalNavigation != nil {
 		legalSection := NavItem{
@@ -373,7 +377,7 @@ func (r *Router) getNavigationForPath(path string) *Navigation {
 		}
 		nav.Sections = append(nav.Sections, legalSection)
 	}
-	
+
 	return nav
 }
 
@@ -381,24 +385,24 @@ func (r *Router) getNavigationForPath(path string) *Navigation {
 func (r *Router) findMarkdownFile(path string) (string, error) {
 	// Convert URL path to potential file paths
 	cleanPath := strings.Trim(path, "/")
-	
+
 	// For content paths, we need to map clean URLs back to numbered files/directories
 	if strings.HasPrefix(cleanPath, "docs/") || strings.HasPrefix(cleanPath, "api/") || strings.HasPrefix(cleanPath, "api-docs/") || strings.HasPrefix(cleanPath, "legal/") {
 		return r.findNumberedMarkdownFile(cleanPath)
 	}
-	
+
 	// Try simple patterns for non-content paths
 	patterns := []string{
 		filepath.Join(r.contentDir, cleanPath+".md"),
 		filepath.Join(r.contentDir, cleanPath, "index.md"),
 	}
-	
+
 	for _, pattern := range patterns {
 		if _, err := os.Stat(pattern); err == nil {
 			return pattern, nil
 		}
 	}
-	
+
 	return "", os.ErrNotExist
 }
 
@@ -408,7 +412,7 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 	if len(parts) < 2 {
 		return "", os.ErrNotExist
 	}
-	
+
 	// Map content type to directory
 	contentType := parts[0]
 	var contentDir string
@@ -422,21 +426,21 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 	default:
 		return "", os.ErrNotExist
 	}
-	
+
 	// Build path progressively, finding numbered directories/files
 	currentPath := contentDir
 	for i := 1; i < len(parts); i++ {
 		cleanSegment := parts[i]
-		
+
 		if i == len(parts)-1 {
 			// Last segment - look for numbered file in the current specific directory
 			// Try multiple patterns to handle spaces vs hyphens vs case variations
 			patterns := []string{
-				"*" + cleanSegment + ".md",                                    // e.g., *download-apps.md
-				"*" + strings.ReplaceAll(cleanSegment, "-", " ") + ".md",      // e.g., *download apps.md
-				"*" + strings.ReplaceAll(cleanSegment, "-", "_") + ".md",      // e.g., *download_apps.md
+				"*" + cleanSegment + ".md",                               // e.g., *download-apps.md
+				"*" + strings.ReplaceAll(cleanSegment, "-", " ") + ".md", // e.g., *download apps.md
+				"*" + strings.ReplaceAll(cleanSegment, "-", "_") + ".md", // e.g., *download_apps.md
 			}
-			
+
 			// Try each pattern with case-insensitive matching
 			for _, pattern := range patterns {
 				glob := filepath.Join(currentPath, pattern)
@@ -444,13 +448,13 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 				if err == nil && len(matches) > 0 {
 					return matches[0], nil
 				}
-				
+
 				// If no matches, try case-insensitive search by reading directory
 				if err := r.findFileIgnoreCase(currentPath, pattern, &matches); err == nil && len(matches) > 0 {
 					return matches[0], nil
 				}
 			}
-			
+
 			// Also try as directory with index
 			glob := filepath.Join(currentPath, "*"+cleanSegment, "index.md")
 			matches, err := filepath.Glob(glob)
@@ -461,11 +465,11 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 			// Intermediate segment - look for numbered directory
 			// Try multiple patterns to handle spaces vs hyphens in directory names
 			dirPatterns := []string{
-				"*" + cleanSegment,                                    // e.g., *start-guide
-				"*" + strings.ReplaceAll(cleanSegment, "-", " "),      // e.g., *start guide
-				"*" + strings.ReplaceAll(cleanSegment, "-", "_"),      // e.g., *start_guide
+				"*" + cleanSegment, // e.g., *start-guide
+				"*" + strings.ReplaceAll(cleanSegment, "-", " "), // e.g., *start guide
+				"*" + strings.ReplaceAll(cleanSegment, "-", "_"), // e.g., *start_guide
 			}
-			
+
 			found := false
 			for _, pattern := range dirPatterns {
 				glob := filepath.Join(currentPath, pattern)
@@ -476,13 +480,13 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 					break
 				}
 			}
-			
+
 			if !found {
 				return "", os.ErrNotExist
 			}
 		}
 	}
-	
+
 	return "", os.ErrNotExist
 }
 
@@ -493,18 +497,18 @@ func (r *Router) findFileIgnoreCase(dir, pattern string, matches *[]string) erro
 	if err != nil {
 		return err
 	}
-	
+
 	// Extract the pattern without the wildcard and directory
 	patternName := strings.TrimPrefix(pattern, "*")
 	patternLower := strings.ToLower(patternName)
-	
+
 	for _, entry := range entries {
 		if entry.IsDir() {
 			continue
 		}
-		
+
 		fileName := entry.Name()
-		
+
 		// Check if file matches pattern (case-insensitive)
 		if strings.HasSuffix(strings.ToLower(fileName), patternLower) {
 			// Also check if it has a numeric prefix (to match our numbered file pattern)
@@ -518,21 +522,20 @@ func (r *Router) findFileIgnoreCase(dir, pattern string, matches *[]string) erro
 			}
 		}
 	}
-	
+
 	return os.ErrNotExist
 }
-
 
 // generateContentNavigation creates navigation tree from content directory
 func (r *Router) generateContentNavigation(contentDir, baseURL string) (*Navigation, error) {
 	var sections []NavItem
-	
+
 	// Read the content directory
 	entries, err := os.ReadDir(contentDir)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	// Process each directory/file
 	for _, entry := range entries {
 		if entry.IsDir() {
@@ -548,7 +551,7 @@ func (r *Router) generateContentNavigation(contentDir, baseURL string) (*Navigat
 			// Handle individual markdown files at root level
 			fileName := strings.TrimSuffix(entry.Name(), ".md")
 			fileTitle := r.cleanTitle(fileName)
-			
+
 			// Try to get title from frontmatter
 			if filePath := filepath.Join(contentDir, entry.Name()); filePath != "" {
 				if data, err := os.ReadFile(filePath); err == nil {
@@ -557,9 +560,9 @@ func (r *Router) generateContentNavigation(contentDir, baseURL string) (*Navigat
 					}
 				}
 			}
-			
+
 			href := baseURL + "/" + r.cleanID(fileName)
-			
+
 			sections = append(sections, NavItem{
 				ID:         r.cleanID(fileName),
 				Name:       fileTitle,
@@ -568,10 +571,10 @@ func (r *Router) generateContentNavigation(contentDir, baseURL string) (*Navigat
 			})
 		}
 	}
-	
+
 	// Sort sections by numeric prefix
 	r.sortNavItems(sections)
-	
+
 	return &Navigation{Sections: sections}, nil
 }
 
@@ -586,7 +589,7 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 			title = dirMeta.Title
 		}
 	}
-	
+
 	// Create nav item
 	navItem := &NavItem{
 		ID:         r.cleanID(dirName),
@@ -594,21 +597,21 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 		Expanded:   false,
 		OriginalID: dirName,
 	}
-	
+
 	// Read directory contents
 	entries, err := os.ReadDir(dirPath)
 	if err != nil {
 		return navItem, nil
 	}
-	
+
 	var children []NavItem
-	
+
 	// Process subdirectories and files
 	for _, entry := range entries {
 		if entry.Name() == "_dir.yml" {
 			continue
 		}
-		
+
 		if entry.IsDir() {
 			// Recursive subdirectory
 			childNav, err := r.processDirectory(filepath.Join(dirPath, entry.Name()), entry.Name(), baseURL)
@@ -623,7 +626,7 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 			// Markdown file
 			fileName := strings.TrimSuffix(entry.Name(), ".md")
 			fileTitle := r.cleanTitle(fileName)
-			
+
 			// Try to get title from frontmatter
 			if filePath := filepath.Join(dirPath, entry.Name()); filePath != "" {
 				if data, err := os.ReadFile(filePath); err == nil {
@@ -632,11 +635,11 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 					}
 				}
 			}
-			
+
 			// Create relative path for href
 			// Remove both content dir and the specific content type (docs/api-docs)
 			relDir := strings.TrimPrefix(dirPath, r.contentDir+"/")
-			
+
 			// Remove the content type prefix (e.g., "docs/" or "api-docs/" or "legal/")
 			if strings.HasPrefix(relDir, "docs/") {
 				relDir = strings.TrimPrefix(relDir, "docs/")
@@ -645,12 +648,12 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 			} else if strings.HasPrefix(relDir, "legal/") {
 				relDir = strings.TrimPrefix(relDir, "legal/")
 			}
-			
+
 			// Clean numeric prefixes from directory path
 			relDir = r.cleanDirectoryPath(relDir)
-			
+
 			href := baseURL + "/" + relDir + "/" + r.cleanID(fileName)
-			
+
 			children = append(children, NavItem{
 				ID:         r.cleanID(fileName),
 				Name:       fileTitle,
@@ -659,14 +662,14 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 			})
 		}
 	}
-	
+
 	// Sort children by numeric prefix
 	r.sortNavItems(children)
-	
+
 	if len(children) > 0 {
 		navItem.Children = children
 	}
-	
+
 	return navItem, nil
 }
 
@@ -677,11 +680,11 @@ func (r *Router) cleanTitle(name string) string {
 	if len(parts) == 2 {
 		name = parts[1]
 	}
-	
+
 	// Replace hyphens/underscores with spaces and title case
 	name = strings.ReplaceAll(name, "-", " ")
 	name = strings.ReplaceAll(name, "_", " ")
-	
+
 	// Simple title case
 	words := strings.Fields(name)
 	for i, word := range words {
@@ -689,7 +692,7 @@ func (r *Router) cleanTitle(name string) string {
 			words[i] = strings.ToUpper(word[:1]) + strings.ToLower(word[1:])
 		}
 	}
-	
+
 	return strings.Join(words, " ")
 }
 
@@ -700,12 +703,12 @@ func (r *Router) cleanID(name string) string {
 	if len(parts) == 2 {
 		name = parts[1]
 	}
-	
+
 	// Convert to lowercase and replace spaces/special chars with hyphens
 	name = strings.ToLower(name)
 	name = strings.ReplaceAll(name, " ", "-")
 	name = strings.ReplaceAll(name, "_", "-")
-	
+
 	return name
 }
 
@@ -727,7 +730,7 @@ func (r *Router) sortNavItems(items []NavItem) {
 			// Extract numeric prefixes for comparison using original IDs
 			num1 := r.extractNumericPrefix(items[i].OriginalID)
 			num2 := r.extractNumericPrefix(items[j].OriginalID)
-			
+
 			if num1 > num2 {
 				items[i], items[j] = items[j], items[i]
 			}
@@ -753,16 +756,26 @@ func (r *Router) extractNumericPrefix(name string) int {
 			return num
 		}
 	}
-	
+
 	// Fallback: assign high number for non-numbered items
 	return 9999
+}
+
+// isTOCExcluded checks if a path should be excluded from TOC generation
+func (r *Router) isTOCExcluded(path string) bool {
+	for _, excludedPath := range r.tocExcludedPaths {
+		if path == excludedPath {
+			return true
+		}
+	}
+	return false
 }
 
 // preparePageData creates PageData with metadata for the given path
 func (r *Router) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigation *Navigation) PageData {
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := r.seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
-	
+
 	// Prepare changelog data - only include if on changelog page
 	var changelog []ChangelogMonth
 	if path == "/changelog" && r.changelogService != nil {
@@ -771,10 +784,10 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 	} else {
 		log.Printf("Not loading changelog: path=%s, service=%v", path, r.changelogService != nil)
 	}
-	
-	// Extract table of contents
+
+	// Extract table of contents (skip if path is excluded)
 	var toc []TOCEntry
-	if string(content) != "" {
+	if !r.isTOCExcluded(path) && string(content) != "" {
 		var err error
 		if isMarkdown {
 			// For markdown content, we need the original markdown source
@@ -784,14 +797,16 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 			// For HTML pages, extract from HTML content
 			toc, err = ExtractHTMLTOC(string(content))
 		}
-		
+
 		if err != nil {
 			log.Printf("Error extracting TOC for path=%s: %v", path, err)
 		} else {
 			log.Printf("Extracted %d TOC entries for path=%s", len(toc), path)
 		}
+	} else if r.isTOCExcluded(path) {
+		log.Printf("TOC generation skipped for excluded path: %s", path)
 	}
-	
+
 	// Return PageData with all components
 	return PageData{
 		Title:       title,
