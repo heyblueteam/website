@@ -26,7 +26,7 @@
 14. Dynamic sidebar for docs and api docs ✅
 15. Centralized redirets in redirects.json ✅
 16. Prose styling
-17. Right sidebar dynamic both for html pages and markdown files with up and down arrows
+17. Right sidebar dynamic both for html pages and markdown files with up and down arrows ✅
 18. Replace font-awesome with svgs for arrows and light/dark mode?
 19. dark mode implementation
 20. Make legal navigation dynamic and page rendering working ✅
@@ -38,6 +38,10 @@
 26. Realtime search ✅
 27. YouTube widget for markdown ✅
 28. Improve search
+29. Take all old redirects from previous website
+30. Align all elements in respective footers perfectly. 
+31. Customers page (testimonial videos essentially)
+32. Individual insight 
 
 
 
