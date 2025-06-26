@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://blue-website.com/sitemap.xml
+
+# Disallow admin/private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/ 

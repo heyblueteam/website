@@ -1,0 +1,28 @@
+{{define "main.html"}}
+<!DOCTYPE html>
+<html lang="en">
+{{template "head" .}}
+<body class="bg-gray-50">
+    {{template "topbar" .}}
+    
+    <!-- Main Layout -->
+    <div class="flex pt-16 min-h-screen">
+        {{template "left-sidebar" .}}
+        
+        <!-- Main Content Area -->
+        <main class="flex-1 bg-white">
+            <div class="flex">
+                <!-- Content Area -->
+                <div class="flex-1 p-8">
+                    <div class="max-w-6xl mx-auto">
+                        {{.Content}}
+                    </div>
+                </div>
+                
+                {{template "right-sidebar" .}}
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+{{end}}

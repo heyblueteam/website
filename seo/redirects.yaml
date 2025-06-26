@@ -1,0 +1,18 @@
+# URL Redirects Configuration
+# Format: old_path: new_path
+
+redirects:
+  # Example redirects
+  # /old-page: /new-page
+  # /blog/old-post: /blog/new-post
+  
+# Redirect rules
+rules:
+  # Force HTTPS
+  force_https: true
+  
+  # Trailing slash handling
+  trailing_slash: "add"  # "add", "remove", or "ignore"
+  
+  # WWW handling  
+  www_redirect: "non-www"  # "www", "non-www", or "ignore" 

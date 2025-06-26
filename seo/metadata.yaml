@@ -1,0 +1,34 @@
+# SEO Metadata for Blue Website
+site:
+  name: "Blue Website"
+  description: "Welcome to Blue Website"
+  url: "https://blue.cc"
+  language: "en"
+  author: ""
+  
+pages:
+  home:
+    title: "Home - Blue Website"
+    description: "Welcome to our homepage with amazing content and services"
+    keywords: ["blue", "website", "home"]
+    
+  about:
+    title: "About Us - Blue Website"
+    description: "Learn more about our company and what we do"
+    keywords: ["about", "company", "team"]
+    
+  services:
+    title: "Services - Blue Website"
+    description: "Discover our professional services and solutions"
+    keywords: ["services", "solutions", "professional"]
+    
+  contact:
+    title: "Contact Us - Blue Website"
+    description: "Get in touch with our team for inquiries and support"
+    keywords: ["contact", "support", "inquiries"]
+
+# Default fallbacks
+defaults:
+  title_suffix: " - Blue Website"
+  description: "Blue Website - Your trusted partner"
+  keywords: ["blue", "website"] 
