@@ -10,6 +10,7 @@
 /* Global styles */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 8rem; /* Account for fixed header height */
 }
 
 /* Alpine.js cloak to prevent flashing */
