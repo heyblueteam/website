@@ -156,6 +156,20 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	if strings.HasPrefix(req.URL.Path, "/public/") {
 		return
 	}
+	
+	// Serve component files
+	if strings.HasPrefix(req.URL.Path, "/components/") {
+		componentPath := strings.TrimPrefix(req.URL.Path, "/components/")
+		filePath := filepath.Join(r.componentsDir, componentPath)
+		
+		// Add .html extension if not present
+		if !strings.HasSuffix(filePath, ".html") {
+			filePath += ".html"
+		}
+		
+		http.ServeFile(w, req, filePath)
+		return
+	}
 
 	// Get the requested path
 	path := req.URL.Path
