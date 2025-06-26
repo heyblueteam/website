@@ -5,7 +5,7 @@
     "/api-docs": "/api-docs/introduction",
     "/releases": "/platform/changelog",
     "/platform/releases": "/platform/changelog",
-    "/changelog": "/platform/changelog",
+    "/platform/changelog": "/changelog",
     "/blog": "/insights",
     "/insights": "/resources/insights",
     "/blog/deep-work": "/insights/deep-work",
