@@ -1,8 +1,8 @@
 package web
 
 import (
-	"regexp"
 	"strings"
+
 	"golang.org/x/net/html"
 )
 
@@ -17,16 +17,16 @@ type TOCEntry struct {
 // Looks for H2 elements with ID attributes
 func ExtractHTMLTOC(content string) ([]TOCEntry, error) {
 	var toc []TOCEntry
-	
+
 	// Wrap content in a proper HTML structure for parsing
 	htmlContent := "<html><body>" + content + "</body></html>"
-	
+
 	// Parse HTML
 	doc, err := html.Parse(strings.NewReader(htmlContent))
 	if err != nil {
 		return toc, err
 	}
-	
+
 	// Walk the HTML tree to find sections with IDs
 	var walker func(*html.Node)
 	walker = func(n *html.Node) {
@@ -39,7 +39,7 @@ func ExtractHTMLTOC(content string) ([]TOCEntry, error) {
 					break
 				}
 			}
-			
+
 			// If section has ID, create TOC entry from ID
 			if id != "" {
 				// Generate title from ID (e.g., "key-features" → "Key Features")
@@ -51,13 +51,13 @@ func ExtractHTMLTOC(content string) ([]TOCEntry, error) {
 				})
 			}
 		}
-		
+
 		// Recursively walk children
 		for child := n.FirstChild; child != nil; child = child.NextSibling {
 			walker(child)
 		}
 	}
-	
+
 	walker(doc)
 	return toc, nil
 }
@@ -66,16 +66,16 @@ func ExtractHTMLTOC(content string) ([]TOCEntry, error) {
 // Looks for H2 elements with ID attributes (used for markdown-generated pages)
 func ExtractH2TOC(content string) ([]TOCEntry, error) {
 	var toc []TOCEntry
-	
+
 	// Wrap content in a proper HTML structure for parsing
 	htmlContent := "<html><body>" + content + "</body></html>"
-	
+
 	// Parse HTML
 	doc, err := html.Parse(strings.NewReader(htmlContent))
 	if err != nil {
 		return toc, err
 	}
-	
+
 	// Walk the HTML tree to find H2 elements with IDs
 	var walker func(*html.Node)
 	walker = func(n *html.Node) {
@@ -88,7 +88,7 @@ func ExtractH2TOC(content string) ([]TOCEntry, error) {
 					break
 				}
 			}
-			
+
 			// If h2 has ID, extract the text content as title
 			if id != "" {
 				// Extract text content from h2 element
@@ -104,7 +104,7 @@ func ExtractH2TOC(content string) ([]TOCEntry, error) {
 				}
 				extractText(n)
 				title := strings.TrimSpace(textBuilder.String())
-				
+
 				if title != "" {
 					toc = append(toc, TOCEntry{
 						ID:    id,
@@ -114,38 +114,15 @@ func ExtractH2TOC(content string) ([]TOCEntry, error) {
 				}
 			}
 		}
-		
+
 		// Recursively walk children
 		for child := n.FirstChild; child != nil; child = child.NextSibling {
 			walker(child)
 		}
 	}
-	
+
 	walker(doc)
 	return toc, nil
-}
-
-
-// generateHeadingID generates a heading ID from text (similar to goldmark's algorithm)
-func generateHeadingID(text string) string {
-	// Convert to lowercase
-	id := strings.ToLower(text)
-	
-	// Replace spaces with hyphens
-	id = strings.ReplaceAll(id, " ", "-")
-	
-	// Remove non-alphanumeric characters except hyphens
-	reg := regexp.MustCompile(`[^a-z0-9\-]`)
-	id = reg.ReplaceAllString(id, "")
-	
-	// Remove multiple consecutive hyphens
-	reg = regexp.MustCompile(`-+`)
-	id = reg.ReplaceAllString(id, "-")
-	
-	// Trim leading/trailing hyphens
-	id = strings.Trim(id, "-")
-	
-	return id
 }
 
 // generateTitleFromID converts section IDs to readable titles
@@ -154,7 +131,7 @@ func generateTitleFromID(id string) string {
 	// Replace hyphens with spaces
 	title := strings.ReplaceAll(id, "-", " ")
 	title = strings.ReplaceAll(title, "_", " ")
-	
+
 	// Apply smart title casing
 	return formatTitle(title)
 }
@@ -166,7 +143,7 @@ func formatTitle(title string) string {
 	if title == "" {
 		return title
 	}
-	
+
 	// Smart title case: preserve acronyms (all caps words)
 	words := strings.Fields(title)
 	for i, word := range words {
@@ -179,7 +156,7 @@ func formatTitle(title string) string {
 					break
 				}
 			}
-			
+
 			// Preserve acronyms, otherwise apply title case
 			if isAcronym && len(word) > 1 {
 				words[i] = word // Keep as-is for acronyms
@@ -188,6 +165,6 @@ func formatTitle(title string) string {
 			}
 		}
 	}
-	
+
 	return strings.Join(words, " ")
 }
