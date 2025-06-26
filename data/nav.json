@@ -99,14 +99,5 @@
         {"id": "partner-program", "name": "Partner Program", "href": "/company/partners"}
       ]
     }
-  ],
-  "legal": [
-    {"id": "terms", "name": "Terms & Conditions", "href": "/legal/terms"},
-    {"id": "privacy", "name": "Privacy", "href": "/legal/privacy"},
-    {"id": "security", "name": "Security", "href": "/legal/security"},
-    {"id": "gdpr", "name": "GDPR", "href": "/legal/gdpr"},
-    {"id": "hipaa", "name": "HIPAA", "href": "/legal/hipaa"},
-    {"id": "dpa", "name": "Data Processing Agreement", "href": "/legal/dpa"},
-    {"id": "baa", "name": "Business Associate Agreement", "href": "/legal/baa"}
   ]
 }

@@ -1,7 +1,8 @@
 {{define "left-sidebar"}}
 <!-- Left Sidebar - Folder Navigation -->
 <nav x-data="{ 
-         sections: {{.Navigation.Sections | toJSON}},
+         sections: {{.Navigation.Sections | toJSON}}.filter(s => s.id !== 'legal'),
+         legalSection: {{.Navigation.Sections | toJSON}}.find(s => s.id === 'legal'),
          currentPath: window.location.pathname,
          isActive(href) {
              return this.currentPath === href || this.currentPath === href + '/' || this.currentPath + '/' === href;
@@ -107,12 +108,13 @@
         </div>
     </div>
     
-    <!-- Legal Section at Bottom -->
-    <div class="p-4 mt-auto">
-        <div x-data="{ expanded: false, legal: {{.Navigation.Legal | toJSON}} }" class="folder-group">
+    <!-- Legal Section at Bottom - Dynamically Generated -->
+    <div x-show="legalSection" class="p-4 mt-auto">
+        <div x-data="{ expanded: legalSection?.expanded || false }" class="folder-group">
             <div x-show="expanded" x-collapse class="ml-7 space-y-0.5 order-first">
-                <template x-for="item in legal" :key="item.id">
-                    <a :href="item.href" class="nav-item block px-3 py-1.5 text-sm text-gray-600 rounded-md relative">
+                <template x-for="item in legalSection?.children || []" :key="item.id">
+                    <a :href="item.href" 
+                       :class="isActive(item.href) ? 'nav-link relative block px-3 py-1.5 text-sm rounded-md bg-gray-100 text-brand-blue font-medium' : 'nav-link relative block px-3 py-1.5 text-sm text-gray-600 rounded-md hover:bg-gray-100 hover:text-brand-blue transition-colors duration-150'">
                         <span x-text="item.name"></span>
                         <span class="nav-arrow">→</span>
                     </a>
@@ -125,7 +127,7 @@
                      fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="font-medium text-sm">Legal</span>
+                <span class="font-medium text-sm" x-text="legalSection?.name || 'Legal'"></span>
             </button>
         </div>
     </div>

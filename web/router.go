@@ -29,7 +29,6 @@ type NavItem struct {
 // Navigation holds the complete navigation structure
 type Navigation struct {
 	Sections []NavItem `json:"sections"`
-	Legal    []NavItem `json:"legal"`
 }
 
 // DirMetadata represents _dir.yml file content
@@ -60,6 +59,7 @@ type Router struct {
 	navigation      *Navigation
 	docsNavigation  *Navigation
 	apiNavigation   *Navigation
+	legalNavigation *Navigation
 	seoService      *SEOService
 	changelogService *ChangelogService
 	markdown        goldmark.Markdown
@@ -118,6 +118,13 @@ func NewRouter(pagesDir string) *Router {
 		log.Printf("Error generating API navigation: %v", err)
 	} else {
 		router.apiNavigation = apiNav
+	}
+	
+	// Generate dynamic navigation for Legal
+	if legalNav, err := router.generateContentNavigation("content/legal", "/legal"); err != nil {
+		log.Printf("Error generating legal navigation: %v", err)
+	} else {
+		router.legalNavigation = legalNav
 	}
 	
 	return router
@@ -327,7 +334,6 @@ func (r *Router) getNavigationForPath(path string) *Navigation {
 	// Make a copy of the static navigation
 	nav := &Navigation{
 		Sections: make([]NavItem, len(r.navigation.Sections)),
-		Legal:    r.navigation.Legal,
 	}
 	copy(nav.Sections, r.navigation.Sections)
 	
@@ -353,6 +359,17 @@ func (r *Router) getNavigationForPath(path string) *Navigation {
 		nav.Sections = append(nav.Sections, apiSection)
 	}
 	
+	// Always add Legal section if available (placed at end for bottom positioning)
+	if r.legalNavigation != nil {
+		legalSection := NavItem{
+			ID:       "legal",
+			Name:     "Legal",
+			Expanded: strings.HasPrefix(path, "/legal"), // Only expand when on legal pages
+			Children: r.legalNavigation.Sections,
+		}
+		nav.Sections = append(nav.Sections, legalSection)
+	}
+	
 	return nav
 }
 
@@ -362,7 +379,7 @@ func (r *Router) findMarkdownFile(path string) (string, error) {
 	cleanPath := strings.Trim(path, "/")
 	
 	// For content paths, we need to map clean URLs back to numbered files/directories
-	if strings.HasPrefix(cleanPath, "docs/") || strings.HasPrefix(cleanPath, "api/") || strings.HasPrefix(cleanPath, "api-docs/") {
+	if strings.HasPrefix(cleanPath, "docs/") || strings.HasPrefix(cleanPath, "api/") || strings.HasPrefix(cleanPath, "api-docs/") || strings.HasPrefix(cleanPath, "legal/") {
 		return r.findNumberedMarkdownFile(cleanPath)
 	}
 	
@@ -396,6 +413,8 @@ func (r *Router) findNumberedMarkdownFile(cleanPath string) (string, error) {
 		contentDir = "content/docs"
 	case "api", "api-docs":
 		contentDir = "content/api-docs"
+	case "legal":
+		contentDir = "content/legal"
 	default:
 		return "", os.ErrNotExist
 	}
@@ -521,6 +540,28 @@ func (r *Router) generateContentNavigation(contentDir, baseURL string) (*Navigat
 			if navItem != nil {
 				sections = append(sections, *navItem)
 			}
+		} else if strings.HasSuffix(entry.Name(), ".md") {
+			// Handle individual markdown files at root level
+			fileName := strings.TrimSuffix(entry.Name(), ".md")
+			fileTitle := r.cleanTitle(fileName)
+			
+			// Try to get title from frontmatter
+			if filePath := filepath.Join(contentDir, entry.Name()); filePath != "" {
+				if data, err := os.ReadFile(filePath); err == nil {
+					if frontmatter, _, err := r.seoService.ParseFrontmatter(data); err == nil && frontmatter != nil && frontmatter.Title != "" {
+						fileTitle = frontmatter.Title
+					}
+				}
+			}
+			
+			href := baseURL + "/" + r.cleanID(fileName)
+			
+			sections = append(sections, NavItem{
+				ID:         r.cleanID(fileName),
+				Name:       fileTitle,
+				Href:       href,
+				OriginalID: fileName,
+			})
 		}
 	}
 	
@@ -592,11 +633,13 @@ func (r *Router) processDirectory(dirPath, dirName, baseURL string) (*NavItem, e
 			// Remove both content dir and the specific content type (docs/api-docs)
 			relDir := strings.TrimPrefix(dirPath, r.contentDir+"/")
 			
-			// Remove the content type prefix (e.g., "docs/" or "api-docs/")
+			// Remove the content type prefix (e.g., "docs/" or "api-docs/" or "legal/")
 			if strings.HasPrefix(relDir, "docs/") {
 				relDir = strings.TrimPrefix(relDir, "docs/")
 			} else if strings.HasPrefix(relDir, "api-docs/") {
 				relDir = strings.TrimPrefix(relDir, "api-docs/")
+			} else if strings.HasPrefix(relDir, "legal/") {
+				relDir = strings.TrimPrefix(relDir, "legal/")
 			}
 			
 			// Clean numeric prefixes from directory path
