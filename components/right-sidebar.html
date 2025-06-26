@@ -1,6 +1,7 @@
 {{define "right-sidebar"}}
 <!-- Right Sidebar - Table of Contents -->
-<aside class="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden transition-all duration-300 w-64">
+<aside :class="sidebarsOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'"
+       class="sticky top-16 h-[calc(100vh-4rem)] overflow-hidden transition-all duration-300 w-64 transform">
     <div class="p-6 overflow-y-auto flex flex-col h-full">
         <div class="flex-1">
             <h3 class="text-sm font-semibold text-gray-900 mb-4">On this page</h3>
