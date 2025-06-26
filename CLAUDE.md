@@ -5,6 +5,7 @@
 ## Rules
 
 - Write and setup idiomatic golang
+- Tailwind CLI is alwasy in watch mode, no need for you to rebuild.
 
 
 ## Plan
@@ -23,7 +24,19 @@
 12. Metadata.json for dynmaic titles and so on ✅
 13. Markdown generation ✅
 14. Dynamic sidebar for docs and api docs ✅
-15. Centralized redirets in redirects.json
+15. Centralized redirets in redirects.json ✅
+16. Prose styling
+17. Right sidebar dynamic both for html pages and markdown files with up and down arrows
+18. Replace font-awesome with svgs for arrows and light/dark mode?
+19. dark mode implementation
+20. Make legal navigation dynamic and page rendering working ✅
+21. Sales modal?
+22. Changelog Implementation ✅
+23. Pricing Page
+24. Roadmap 
+25. Review what components to "borrow" from other sites.
+26. Realtime search
+
 
 
 
