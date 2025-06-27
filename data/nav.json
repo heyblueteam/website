@@ -5,7 +5,7 @@
       "name": "Platform",
       "expanded": false,
       "children": [
-        {"id": "roadmap", "name": "Roadmap", "href": "/roadmap"},
+        {"id": "roadmap", "name": "Roadmap", "href": "/platform/roadmap"},
         {"id": "changelog", "name": "Changelog", "href": "/changelog"},
         {"id": "faq", "name": "FAQ", "href": "/faq"},
         {"id": "automations", "name": "Automations", "href": "/automations"},
