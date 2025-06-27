@@ -1,0 +1,310 @@
+<div class="roadmap-page" x-data="roadmapData()">
+    <div class="roadmap-header mb-8">
+        <div class="flex justify-between items-end">
+            <div>
+                <h1 class="text-4xl font-bold mb-4">Product Roadmap</h1>
+                <p class="text-xl text-gray-600">Track our progress and see what's coming next</p>
+            </div>
+            <div class="relative w-64">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400 text-sm"></i>
+                </div>
+                <input 
+                    type="text" 
+                    x-model="searchQuery"
+                    class="block w-full pl-10 pr-4 py-2 border border-transparent bg-gray-100 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:bg-white focus:border-gray-300 transition-all duration-200"
+                    placeholder="Search features..."
+                    autocomplete="off"
+                >
+            </div>
+        </div>
+    </div>
+
+    <div class="kanban-board grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Ideas Column -->
+        <div class="kanban-column">
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Ideas</h3>
+            <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+                <template x-for="card in filteredIdeas" :key="card.id">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 cursor-pointer">
+                        <h3 class="font-medium text-gray-900 dark:text-white" x-text="card.title"></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-1" x-text="card.description"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Planned Column -->
+        <div class="kanban-column">
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Planned</h3>
+            <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+                <template x-for="card in filteredPlanned" :key="card.id">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 cursor-pointer">
+                        <h3 class="font-medium text-gray-900 dark:text-white" x-text="card.title"></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-1" x-text="card.description"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- In Progress Column -->
+        <div class="kanban-column">
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">In Progress</h3>
+            <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+                <template x-for="card in filteredInProgress" :key="card.id">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 cursor-pointer">
+                        <h3 class="font-medium text-gray-900 dark:text-white" x-text="card.title"></h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-1" x-text="card.description"></p>
+            
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Testing Column -->
+        <div class="kanban-column">
+            <h3 class="text-lg font-semibold mb-4 text-gray-700">Testing</h3>
+            <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+                <!-- Changelog Link Card - Always visible -->
+                <template x-if="!searchQuery.trim()">
+                    <a href="/changelog.html" class="block">
+                        <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-4 border-2 border-brand-blue dark:border-blue-400 cursor-pointer">
+                            <h3 class="font-medium text-gray-900 dark:text-white">Check out our changelog</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">See latest features and improvements.</p>
+                        </div>
+                    </a>
+                </template>
+                
+                <template x-for="card in filteredTesting" :key="card.id">
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 cursor-pointer">
+                        <h3 class="font-medium text-gray-900 dark:text-white" x-text="card.title"></h3>
+                        <p class="text-sm text-gray-600" x-text="card.description"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function roadmapData() {
+    return {
+        searchQuery: '',
+        ideas: [
+            {
+                id: 1,
+                title: "Voice notes",
+                description: "Add voice notes with transcriptions in comment areas",
+            },
+            {
+                id: 2,
+                title: "AI Project Assistant",
+                description: "Intelligent assistant for project management",
+            },
+            {
+                id: 3,
+                title: "AI Email Automations",
+                description: "Enhance email automations with AI",
+            },
+            {
+                id: 4,
+                title: "REST API",
+                description: "Add a REST API on top of existing GraphQL API",
+            },
+            {
+                id: 5,
+                title: "n8n Integration",
+                description: "Connect Blue with n8n for advanced workflow automation",
+            },
+            {
+                id: 6,
+                title: "MCP Server",
+                description: "Model Context Protocol server for AI integrations",
+            }
+        ],
+        planned: [
+            {
+                id: 4,
+                title: "Data Residency Options",
+                description: "Choose data storage location in US/EU/APAC",
+            },
+            {
+                id: 5,
+                title: "Time Tracking",
+                description: "Track time and generate downloadable time sheets",
+            },
+            {
+                id: 6,
+                title: "Saved Filtered Views",
+                description: "Create and save custom filtered project views",
+            },
+            {
+                id: 7,
+                title: "Customizable Project Tabs",
+                description: "Personalize project interface with custom tabs",
+            },
+            {
+                id: 8,
+                title: "Public Views",
+                description: "Share project views as public view-only links",
+            },
+            {
+                id: 9,
+                title: "Multiple Company Owners",
+                description: "Support for multiple company owners",
+            },
+            {
+                id: 10,
+                title: "Customizable Cards",
+                description: "Choose fields to display on card front",
+            },
+            {
+                id: 11,
+                title: "Enhanced Login Options",
+                description: "More login methods and security features",
+            },
+            {
+                id: 12,
+                title: "Project Level Dashboard",
+                description: "Project-specific dashboard",
+            },
+            {
+                id: 13,
+                title: "Reseller Platform",
+                description: "Dedicated platform for resellers",
+            },
+            {
+                id: 14,
+                title: "Threaded Comments",
+                description: "Allow replies and threads in comments",
+            },
+            {
+                id: 15,
+                title: "Dashboard Tables",
+                description: "Create customizable tables in dashboards",            
+            },
+            {
+                id: 16,
+                title: "Share File Folders",
+                description: "Create public sharing links for folders",
+            }
+        ],
+        inProgress: [
+            {
+                id: 7,
+                title: "Multi-homing Records",
+                description: "Allow records to exist in multiple projects simultaneously",
+            },
+            {
+                id: 8,
+                title: "Memory Usage Optimization",
+                description: "Improve performance and reduce memory footprint",
+            },
+            {
+                id: 9,
+                title: "Scheduled Automations",
+                description: "Set up automations to run at specific times or intervals",
+            },
+            {
+                id: 10,
+                title: "Relative Date Actions",
+                description: "Create actions based on dynamic date calculations",
+            },
+            {
+                id: 11,
+                title: "System Upgrade",
+                description: "Vue2 to Vue3 Upgrade and new caching engine",
+            },
+            {
+                id: 12,
+                title: "New Design System",
+                description: "Vuetify2 to Vuetify3 Upgrade",
+            },
+            {
+                id: 13,
+                title: "Mobile App Speed Improvements",
+                description: "iOS & Android performance enhancements",
+            },
+            {
+                id: 14,
+                title: "Copy Automation",
+                description: "Ability to copy automation within a project",
+            },
+            {
+                id: 15,
+                title: "Conditional Automations",
+                description: "Add And/Or logic to automation triggers",
+            }
+        ],
+        testing: [
+            {
+                id: 11,
+                title: "Zapier Integration",
+                description: "Connect Blue with thousands of apps through Zapier",
+            },
+            {
+                id: 12,
+                title: "Relative Date Triggers",
+                description: "Trigger automations based on days before or after due dates",
+            },
+            {
+                id: 13,
+                title: "Enhanced Cover Images",
+                description: "Better image handling with cropping and optimization features",
+            },
+            {
+                id: 14,
+                title: "Custom Date Automations",
+                description: "Create automations based on custom date field values",
+            },
+            {
+                id: 15,
+                title: "File Renaming",
+                description: "Rename uploaded files directly within Blue",
+            },
+            {
+                id: 16,
+                title: "Granular Deletion Permissions",
+                description: "Control record deletion rights for specific user roles",
+            },
+            {
+                id: 17,
+                title: "Owner Project Access",
+                description: "Allow company owners to self-invite to any project",
+            }
+        ],
+        get filteredIdeas() {
+            if (!this.searchQuery.trim()) return this.ideas;
+            const query = this.searchQuery.toLowerCase();
+            return this.ideas.filter(card => 
+                card.title.toLowerCase().includes(query) || 
+                card.description.toLowerCase().includes(query)
+            );
+        },
+        get filteredPlanned() {
+            if (!this.searchQuery.trim()) return this.planned;
+            const query = this.searchQuery.toLowerCase();
+            return this.planned.filter(card => 
+                card.title.toLowerCase().includes(query) || 
+                card.description.toLowerCase().includes(query)
+            );
+        },
+        get filteredInProgress() {
+            if (!this.searchQuery.trim()) return this.inProgress;
+            const query = this.searchQuery.toLowerCase();
+            return this.inProgress.filter(card => 
+                card.title.toLowerCase().includes(query) || 
+                card.description.toLowerCase().includes(query)
+            );
+        },
+        get filteredTesting() {
+            if (!this.searchQuery.trim()) return this.testing;
+            const query = this.searchQuery.toLowerCase();
+            return this.testing.filter(card => 
+                card.title.toLowerCase().includes(query) || 
+                card.description.toLowerCase().includes(query)
+            );
+        }
+    }
+}
+</script>
