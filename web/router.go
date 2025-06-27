@@ -38,17 +38,18 @@ type DirMetadata struct {
 
 // PageData holds data for template rendering
 type PageData struct {
-	Title       string
-	Content     template.HTML
-	Navigation  *Navigation
-	PageMeta    *PageMetadata
-	SiteMeta    *SiteMetadata
-	Description string
-	Keywords    []string
-	IsMarkdown  bool
-	Frontmatter *Frontmatter
-	Changelog   []ChangelogMonth
-	TOC         []TOCEntry
+	Title          string
+	Content        template.HTML
+	Navigation     *Navigation
+	PageMeta       *PageMetadata
+	SiteMeta       *SiteMetadata
+	Description    string
+	Keywords       []string
+	IsMarkdown     bool
+	Frontmatter    *Frontmatter
+	Changelog      []ChangelogMonth
+	TOC            []TOCEntry
+	CustomerNumber int
 }
 
 // Router handles file-based routing for HTML pages
@@ -156,17 +157,17 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	if strings.HasPrefix(req.URL.Path, "/public/") {
 		return
 	}
-	
+
 	// Serve component files
 	if strings.HasPrefix(req.URL.Path, "/components/") {
 		componentPath := strings.TrimPrefix(req.URL.Path, "/components/")
 		filePath := filepath.Join(r.componentsDir, componentPath)
-		
+
 		// Add .html extension if not present
 		if !strings.HasSuffix(filePath, ".html") {
 			filePath += ".html"
 		}
-		
+
 		http.ServeFile(w, req, filePath)
 		return
 	}
@@ -270,36 +271,33 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 		isMarkdown = false
 
-		// Special handling for pages that need template processing
-		if path == "/changelog" {
-			// Process the changelog.html as a template with page data
-			pageData := r.preparePageData(path, "", isMarkdown, frontmatter, r.getNavigationForPath(path))
+		// Process all HTML pages as templates to enable template variables
+		pageData := r.preparePageData(path, "", isMarkdown, frontmatter, r.getNavigationForPath(path))
 
-			// Create a template for the changelog content
-			contentTmpl := template.New("changelog").Funcs(template.FuncMap{
-				"toJSON": func(v any) template.JS {
-					data, _ := json.Marshal(v)
-					return template.JS(data)
-				},
-			})
+		// Create a template for the page content
+		contentTmpl := template.New("page-content").Funcs(template.FuncMap{
+			"toJSON": func(v any) template.JS {
+				data, _ := json.Marshal(v)
+				return template.JS(data)
+			},
+		})
 
-			contentTmpl, err = contentTmpl.Parse(string(contentBytes))
-			if err != nil {
-				http.Error(w, "Error parsing changelog template", http.StatusInternalServerError)
-				log.Printf("Changelog template parsing error: %v", err)
-				return
-			}
-
-			// Execute the changelog template with the page data
-			var renderedContent strings.Builder
-			if err = contentTmpl.Execute(&renderedContent, pageData); err != nil {
-				http.Error(w, "Error rendering changelog template", http.StatusInternalServerError)
-				log.Printf("Changelog template execution error: %v", err)
-				return
-			}
-
-			contentBytes = []byte(renderedContent.String())
+		contentTmpl, err = contentTmpl.Parse(string(contentBytes))
+		if err != nil {
+			http.Error(w, "Error parsing page template", http.StatusInternalServerError)
+			log.Printf("Page template parsing error: %v", err)
+			return
 		}
+
+		// Execute the page template with the page data
+		var renderedContent strings.Builder
+		if err = contentTmpl.Execute(&renderedContent, pageData); err != nil {
+			http.Error(w, "Error rendering page template", http.StatusInternalServerError)
+			log.Printf("Page template execution error: %v", err)
+			return
+		}
+
+		contentBytes = []byte(renderedContent.String())
 	}
 
 	// Prepare template files - start with layout
@@ -822,16 +820,17 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 
 	// Return PageData with all components
 	return PageData{
-		Title:       title,
-		Content:     content,
-		Navigation:  navigation,
-		PageMeta:    pageMeta,
-		SiteMeta:    siteMeta,
-		Description: description,
-		Keywords:    keywords,
-		IsMarkdown:  isMarkdown,
-		Frontmatter: frontmatter,
-		Changelog:   changelog,
-		TOC:         toc,
+		Title:          title,
+		Content:        content,
+		Navigation:     navigation,
+		PageMeta:       pageMeta,
+		SiteMeta:       siteMeta,
+		Description:    description,
+		Keywords:       keywords,
+		IsMarkdown:     isMarkdown,
+		Frontmatter:    frontmatter,
+		Changelog:      changelog,
+		TOC:            toc,
+		CustomerNumber: 17000,
 	}
 }
