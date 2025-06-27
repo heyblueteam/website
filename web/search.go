@@ -32,8 +32,14 @@ type SearchFrontmatter struct {
 func GenerateSearchIndex() error {
 	var searchItems []SearchItem
 
+	// Load metadata.json for title lookup
+	metadata, err := loadMetadata()
+	if err != nil {
+		fmt.Printf("Warning: Could not load metadata.json: %v\n", err)
+	}
+
 	// Index HTML pages
-	if err := indexHTMLPages(&searchItems); err != nil {
+	if err := indexHTMLPages(&searchItems, metadata); err != nil {
 		return fmt.Errorf("failed to index HTML pages: %w", err)
 	}
 
@@ -46,8 +52,34 @@ func GenerateSearchIndex() error {
 	return writeSearchIndex(searchItems)
 }
 
+// loadMetadata loads the metadata.json file
+func loadMetadata() (*Metadata, error) {
+	data, err := os.ReadFile("data/metadata.json")
+	if err != nil {
+		return nil, err
+	}
+
+	var metadata Metadata
+	if err := json.Unmarshal(data, &metadata); err != nil {
+		return nil, err
+	}
+
+	return &metadata, nil
+}
+
+// getPageKey converts URL path to metadata key
+func getPageKey(path string) string {
+	if path == "/" {
+		return "home"
+	}
+
+	// Remove leading/trailing slashes
+	cleanPath := strings.Trim(path, "/")
+	return cleanPath
+}
+
 // indexHTMLPages indexes all HTML pages in the pages directory
-func indexHTMLPages(items *[]SearchItem) error {
+func indexHTMLPages(items *[]SearchItem, metadata *Metadata) error {
 	return filepath.WalkDir("pages", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -75,12 +107,8 @@ func indexHTMLPages(items *[]SearchItem) error {
 			url = "/"
 		}
 
-		// Extract title from HTML (basic extraction)
-		title := extractHTMLTitle(string(content))
-		if title == "" {
-			// Simple title generation from filename
-			title = strings.ReplaceAll(filepath.Base(path), "-", " ")
-		}
+		// Extract title using the new algorithm
+		title := extractPageTitle(string(content), url, path, metadata)
 
 		// Extract text content (remove HTML tags)
 		textContent := extractTextFromHTML(string(content))
@@ -94,6 +122,83 @@ func indexHTMLPages(items *[]SearchItem) error {
 
 		return nil
 	})
+}
+
+// extractPageTitle implements the title extraction algorithm:
+// 1. Check metadata.json first
+// 2. Extract from H1 tags
+// 3. Generate clean title from filename
+func extractPageTitle(htmlContent, url, filePath string, metadata *Metadata) string {
+	// 1. Check metadata.json first
+	if metadata != nil {
+		pageKey := getPageKey(url)
+		if pageMeta, exists := metadata.Pages[pageKey]; exists && pageMeta.Title != "" {
+			return pageMeta.Title
+		}
+	}
+
+	// 2. Try to extract from H1 tags
+	if title := extractH1Title(htmlContent); title != "" {
+		return title
+	}
+
+	// 3. Try to extract from title tags (fallback)
+	if title := extractHTMLTitle(htmlContent); title != "" {
+		return title
+	}
+
+	// 4. Generate clean title from filename
+	return generateTitleFromFilename(filePath)
+}
+
+// extractH1Title extracts title from the first H1 element
+func extractH1Title(html string) string {
+	// Look for <h1> tags
+	start := strings.Index(strings.ToLower(html), "<h1")
+	if start == -1 {
+		return ""
+	}
+
+	// Find the end of the opening tag
+	tagEnd := strings.Index(html[start:], ">")
+	if tagEnd == -1 {
+		return ""
+	}
+	contentStart := start + tagEnd + 1
+
+	// Find the closing tag
+	end := strings.Index(strings.ToLower(html[contentStart:]), "</h1>")
+	if end == -1 {
+		return ""
+	}
+
+	// Extract and clean the title content
+	titleContent := html[contentStart : contentStart+end]
+
+	// Remove any nested HTML tags and clean up
+	title := extractTextFromHTML(titleContent)
+	return strings.TrimSpace(title)
+}
+
+// generateTitleFromFilename creates a clean title from filename
+func generateTitleFromFilename(filePath string) string {
+	// Get just the filename without extension
+	filename := filepath.Base(filePath)
+	filename = strings.TrimSuffix(filename, ".html")
+
+	// Replace hyphens and underscores with spaces
+	title := strings.ReplaceAll(filename, "-", " ")
+	title = strings.ReplaceAll(title, "_", " ")
+
+	// Capitalize each word
+	words := strings.Fields(title)
+	for i, word := range words {
+		if len(word) > 0 {
+			words[i] = strings.ToUpper(word[:1]) + strings.ToLower(word[1:])
+		}
+	}
+
+	return strings.Join(words, " ")
 }
 
 // indexMarkdownContent indexes all markdown files in the content directory
@@ -125,7 +230,7 @@ func indexMarkdownContent(items *[]SearchItem) error {
 		// Convert file path to URL with cleaning
 		url := "/" + strings.TrimSuffix(path, ".md")
 		url = strings.ReplaceAll(url, "content/", "")
-		
+
 		// Clean URL parts: remove number prefixes and normalize
 		urlParts := strings.Split(url, "/")
 		for i, part := range urlParts {
@@ -189,7 +294,7 @@ func splitFrontmatter(content string) (string, string) {
 	// Normalize line endings to handle both \n and \r\n
 	content = strings.ReplaceAll(content, "\r\n", "\n")
 	content = strings.ReplaceAll(content, "\r", "\n")
-	
+
 	if !strings.HasPrefix(content, "---\n") {
 		return "", content
 	}
@@ -222,7 +327,7 @@ func extractHTMLTitle(html string) string {
 func extractTextFromHTML(html string) string {
 	// Simple tag removal - for production you might want a proper HTML parser
 	text := html
-	
+
 	// Remove script and style content
 	for {
 		start := strings.Index(text, "<script")
@@ -235,7 +340,7 @@ func extractTextFromHTML(html string) string {
 		}
 		text = text[:start] + text[start+end+9:]
 	}
-	
+
 	for {
 		start := strings.Index(text, "<style")
 		if start == -1 {
@@ -247,7 +352,7 @@ func extractTextFromHTML(html string) string {
 		}
 		text = text[:start] + text[start+end+8:]
 	}
-	
+
 	// Remove all HTML tags
 	for {
 		start := strings.Index(text, "<")
@@ -260,9 +365,9 @@ func extractTextFromHTML(html string) string {
 		}
 		text = text[:start] + " " + text[start+end+1:]
 	}
-	
+
 	// Clean up whitespace
 	text = strings.Join(strings.Fields(text), " ")
-	
+
 	return strings.TrimSpace(text)
 }
