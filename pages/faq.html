@@ -1,0 +1,163 @@
+<!-- FAQ Page -->
+<div class="py-20" x-data="{
+    faqData: {
+        categories: [
+            {
+                id: 'general',
+                name: 'General',
+                questions: [
+                    {
+                        id: 'key-benefits',
+                        question: 'What are the key benefits of using Blue?',
+                        answer: 'Blue offers robust features to help teams organize work and collaborate effectively. Key benefits include customizable workflows, intelligent automation, real-time communication, and powerful analytics.'
+                    },
+                    {
+                        id: 'free-trial',
+                        question: 'How does the Blue free trial work?',
+                        answer: 'The free trial provides full access to all Blue features for 7 days. No credit card is required to start. If you wish to continue, you can upgrade to our paid plan at the end of the free trial and you will also have an option to extend your trial for another 7 days.\n\nYou can always email us at help@blue.cc if you need a longer trial or you want personalized onboarding.'
+                    },
+                    {
+                        id: 'languages',
+                        question: 'Is Blue available in another languages besides English?',
+                        answer: 'Yes, Blue is available in 24 languages.\n\nArabic (ar), Bengali (bn), Chinese (zh), Czech (cz), English (en), French (fr), Georgian (ka), German (de), Hindi (hi), Hungarian (hu), Indonesian (id), Italian (it), Japanese (ja), Khmer (km), Korean (ko), Latvian (lv), Marathi (mr), Portuguese (pt), Romanian (ro), Russian (ru), Spanish (es), Swedish (se), Thai (th), and Vietnamese (vi).'
+                    }
+                ]
+            },
+            {
+                id: 'pricing',
+                name: 'Pricing & Plans',
+                questions: [
+                    {
+                        id: 'cost',
+                        question: 'How much does Blue cost?',
+                        answer: 'Blue has one plan with all the features.\n\nMonthly plan: $7/month/user.\nYearly plan: $70/year/user (so you get two months free)\nThese users roles are paid:\n\n• Project Administrator\n• Team Member\n• Custom User Roles\n\nAnd these user roles are free:\n\n• Clients\n• Comment Only\n• View Only'
+                    }
+                ]
+            },
+            {
+                id: 'features',
+                name: 'Features & Functionality',
+                questions: [
+                    {
+                        id: 'integrations',
+                        question: 'What integrations does Blue support?',
+                        answer: 'Blue has 5,000+ integrations via Pabbly Connect and Zapier. You can find a list of our integrations here.\n\nWe also have a full API for custom integrations and granular Webhooks.'
+                    },
+                    {
+                        id: 'data-import',
+                        question: 'Can I import my existing data into Blue?',
+                        answer: 'Yes, Blue supports bulk data import from CSV files. This allows you to migrate up to 200,000 records simultaneously and is perfect for migration from manual Excel workflows or other work management systems. You can reach out to help@blue.cc if you have questions about importing your data or to enquire about paid support packages.'
+                    },
+                    {
+                        id: 'mobile-apps',
+                        question: 'Does Blue have Mobile Apps?',
+                        answer: 'Yes, native iOS and Android apps are available to access Blue on the go. Core functionality like tasks, comments, and calendars sync across devices.'
+                    },
+                    {
+                        id: 'permissions',
+                        question: 'How do permissions work in Blue?',
+                        answer: 'Permissions are set at the project level, so users can have different access levels across projects based on their roles. Blue has a powerful custom user roles system that allows you to define the precise access for each user group in each project.'
+                    },
+                    {
+                        id: 'customization',
+                        question: 'Can I customize the interface and workflows in Blue?',
+                        answer: 'Yes, you can completely customize fields, views, automation rules, forms, and more to match your work requirements. You can choose the colour of the interface and upload your company logo. We also allow you to have a custom domain.'
+                    },
+                    {
+                        id: 'analytics',
+                        question: 'What analytics does Blue provide?',
+                        answer: 'Blue offers real-time dashboards and cross-project reporting to analyze progress, productivity, and trends.'
+                    },
+                    {
+                        id: 'data-export',
+                        question: 'Can I export my data from Blue?',
+                        answer: 'Yes, you can export all your Blue data anytime via the API or bulk CSV Export. You own your data, and it is always accessible.'
+                    },
+                    {
+                        id: 'file-storage',
+                        question: 'What file storage limits exist in Blue?',
+                        answer: 'Blue offers unlimited storage for all your project files and documents. Fair use policies apply.'
+                    }
+                ]
+            },
+            {
+                id: 'support',
+                name: 'Support & Authentication',
+                questions: [
+                    {
+                        id: 'support-options',
+                        question: 'What supports options are you available?',
+                        answer: 'Email support: Simply email us at help@blue.cc\nAI chat: On the bottom right of the Blue website you can find an AI chat widget trained on this documentation.\nOnline Documentation: This is what you\'re reading right now!\nNeed more help?\n\nWe offer paid support packages for large-scale imports, full-team onboarding, and regular training. Email us at help@blue.cc to learn more.'
+                    },
+                    {
+                        id: 'sso',
+                        question: 'Does Blue integrate with my SSO provider?',
+                        answer: 'Not yet. Blue only support email login with magic links — we don\'t use any passwords for security reasons.'
+                    },
+                    {
+                        id: 'feature-requests',
+                        question: 'Where do I submit feature requests for Blue?',
+                        answer: 'We\'d love to hear your feature ideas! You can email us directly at help@blue.cc or join our community forums.'
+                    }
+                ]
+            }
+        ]
+    }
+}">
+    {{template "page-heading" 
+        dict 
+            "Title" "Frequently Asked Questions" 
+            "Subtitle" "We've answered the most common questions about Blue. If you have any other questions, email help@blue.cc" 
+            "MarginBottom" "mb-16"
+    }}
+    
+    <div class="space-y-8">
+        <template x-for="category in faqData.categories" :key="category.id">
+            <div class="bg-gray-50 rounded-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6" x-text="category.name"></h2>
+                <div class="space-y-4">
+                    <template x-for="question in category.questions" :key="question.id">
+                        <div x-data="{ open: false }" class="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                            <button 
+                                @click="open = !open" 
+                                class="w-full text-left p-6 focus:outline-none"
+                                :aria-expanded="open"
+                            >
+                                <div class="flex justify-between items-center">
+                                    <h3 class="text-lg font-medium text-gray-900 pr-4" x-text="question.question"></h3>
+                                    <div class="flex-shrink-0">
+                                        <svg 
+                                            class="w-5 h-5 text-gray-500 transform transition-transform duration-200" 
+                                            :class="{ 'rotate-180': open }"
+                                            fill="none" 
+                                            stroke="currentColor" 
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </button>
+                            <div 
+                                x-show="open" 
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform -translate-y-2"
+                                x-transition:enter-end="opacity-100 transform translate-y-0"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 transform translate-y-0"
+                                x-transition:leave-end="opacity-0 transform -translate-y-2"
+                                class="px-6 pb-6"
+                            >
+                                <div class="prose prose-gray max-w-none">
+                                    <template x-for="line in question.answer.split('\n')">
+                                        <p x-show="line.trim()" x-text="line" class="mb-2"></p>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</div>
