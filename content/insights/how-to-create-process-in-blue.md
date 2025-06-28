@@ -1,7 +1,7 @@
 --- 
 title: How to create processes in Blue
 slug: how-to-create-processes-inblue
-tags: ["insights", "project-management", "tips-&-tricks"]
+category: "Best Practices"
 description: In this guide, you will learn how to create repetable, scalable, and logical processes in Blue that you can leverage across your organization.
 image: /patterns/lines2.png
 ---
