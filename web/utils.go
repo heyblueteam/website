@@ -28,6 +28,11 @@ var ContentTypes = map[string]ContentType{
 		BaseDir:   "content/legal",
 		URLPrefix: "/legal",
 	},
+	"insights": {
+		Name:      "insights",
+		BaseDir:   "content/insights",
+		URLPrefix: "/insights",
+	},
 }
 
 // CleanTitle removes numeric prefixes and cleans up titles
@@ -129,6 +134,8 @@ func GetContentTypeFromPath(path string) (ContentType, bool) {
 		return ContentTypes["api"], true
 	case "legal":
 		return ContentTypes["legal"], true
+	case "insights":
+		return ContentTypes["insights"], true
 	default:
 		return ContentType{}, false
 	}

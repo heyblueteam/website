@@ -43,6 +43,12 @@ type Metadata struct {
 type Frontmatter struct {
 	Title       string `yaml:"title"`
 	Description string `yaml:"description"`
+	Slug        string `yaml:"slug"`
+	Category    string `yaml:"category"`
+	Tags        []string `yaml:"tags"`
+	Image       string `yaml:"image"`
+	Date        string `yaml:"date"`
+	ShowDate    bool   `yaml:"showdate"`
 }
 
 // RedirectRules represents redirect configuration rules

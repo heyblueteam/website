@@ -12,19 +12,21 @@ import (
 
 // HTMLService handles HTML page pre-rendering
 type HTMLService struct {
-	cache         *HTMLCache
-	pagesDir      string
-	layoutsDir    string
-	componentsDir string
+	cache           *HTMLCache
+	pagesDir        string
+	layoutsDir      string
+	componentsDir   string
+	markdownService *MarkdownService
 }
 
 // NewHTMLService creates a new HTML service
-func NewHTMLService(pagesDir, layoutsDir, componentsDir string) *HTMLService {
+func NewHTMLService(pagesDir, layoutsDir, componentsDir string, markdownService *MarkdownService) *HTMLService {
 	return &HTMLService{
-		cache:         NewHTMLCache(),
-		pagesDir:      pagesDir,
-		layoutsDir:    layoutsDir,
-		componentsDir: componentsDir,
+		cache:           NewHTMLCache(),
+		pagesDir:        pagesDir,
+		layoutsDir:      layoutsDir,
+		componentsDir:   componentsDir,
+		markdownService: markdownService,
 	}
 }
 
@@ -35,7 +37,8 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 
 	// List of pages to exclude from pre-rendering (dynamic content)
 	excludedPages := []string{
-		"/platform/status", // Dynamic status page
+		"/platform/status", // Dynamic status page (truly dynamic - status changes)
+		// Note: /insights is now pre-rendered with insights data baked in
 	}
 
 	// Walk through all HTML files in pages directory
@@ -230,6 +233,35 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		log.Printf("Not loading changelog: path=%s, service=%v", path, changelogService != nil)
 	}
 
+	// Prepare insights data - only include if on insights page
+	var insights []InsightData
+	if path == "/insights" && hs.markdownService != nil {
+		// Get all cached insights from MarkdownService
+		cachedInsights := hs.markdownService.GetAllCachedContent()
+		
+		for urlPath, content := range cachedInsights {
+			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
+				// Extract category from tags or category field
+				category := content.Frontmatter.Category
+				if category == "" && len(content.Frontmatter.Tags) > 0 {
+					// Fallback to first tag if category is not set
+					category = content.Frontmatter.Tags[0]
+				}
+				
+				insights = append(insights, InsightData{
+					Title:       content.Frontmatter.Title,
+					Description: content.Frontmatter.Description,
+					Category:    category,
+					Slug:        content.Frontmatter.Slug,
+					Image:       content.Frontmatter.Image,
+					Date:        content.Frontmatter.Date,
+					URL:         urlPath,
+				})
+			}
+		}
+		log.Printf("Pre-rendering insights for path=%s, found %d insights", path, len(insights))
+	}
+
 	// Extract table of contents
 	toc := make([]TOCEntry, 0)
 	tocExcludedPaths := []string{"/changelog", "/roadmap", "/platform/status"}
@@ -275,5 +307,6 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		Changelog:      changelog,
 		TOC:            toc,
 		CustomerNumber: 17000,
+		Insights:       insights,
 	}
 }

@@ -102,12 +102,23 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 
 		// Generate URL path for this file
 		urlPath := ms.generateURLPath(path)
+		
+		// Debug log for insights files
+		if strings.Contains(path, "insights") {
+			log.Printf("DEBUG: Processing insights file: %s → URL: %s", path, urlPath)
+		}
 
 		// Process the markdown file
 		html, frontmatter, err := ms.ProcessMarkdownFile(path, seoService)
 		if err != nil {
 			log.Printf("Warning: failed to process %s: %v", path, err)
 			return nil // Continue processing other files
+		}
+
+		// Debug log for insights frontmatter
+		if strings.Contains(path, "insights") && frontmatter != nil {
+			log.Printf("DEBUG: Insights frontmatter - Title: %s, Category: %s, Tags: %v", 
+				frontmatter.Title, frontmatter.Category, frontmatter.Tags)
 		}
 
 		// Cache the pre-rendered content

@@ -28,6 +28,17 @@ var templateFuncs = template.FuncMap{
 	},
 }
 
+// InsightData represents an insight for template rendering
+type InsightData struct {
+	Title       string `json:"title"`
+	Description string `json:"description"`
+	Category    string `json:"category"`
+	Slug        string `json:"slug"`
+	Image       string `json:"image"`
+	Date        string `json:"date"`
+	URL         string `json:"url"`
+}
+
 // PageData holds data for template rendering
 type PageData struct {
 	Title          string
@@ -42,6 +53,7 @@ type PageData struct {
 	Changelog      []ChangelogMonth
 	TOC            []TOCEntry
 	CustomerNumber int
+	Insights       []InsightData
 }
 
 // Router handles file-based routing for HTML pages
@@ -80,7 +92,7 @@ func NewRouter(pagesDir string) *Router {
 	markdownService := NewMarkdownService()
 	contentService := NewContentService("content")
 	navigationService := NewNavigationService(seoService)
-	htmlService := NewHTMLService(pagesDir, "layouts", "components")
+	htmlService := NewHTMLService(pagesDir, "layouts", "components", markdownService)
 
 	// Initialize changelog service
 	changelogService := NewChangelogService()
@@ -359,6 +371,35 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		log.Printf("Not loading changelog: path=%s, service=%v", path, r.changelogService != nil)
 	}
 
+	// Prepare insights data - only include if on insights page
+	var insights []InsightData
+	if path == "/insights" {
+		// Get all cached insights from MarkdownService
+		cachedInsights := r.markdownService.GetAllCachedContent()
+		
+		for urlPath, content := range cachedInsights {
+			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
+				// Extract category from tags or category field
+				category := content.Frontmatter.Category
+				if category == "" && len(content.Frontmatter.Tags) > 0 {
+					// Fallback to first tag if category is not set
+					category = content.Frontmatter.Tags[0]
+				}
+				
+				insights = append(insights, InsightData{
+					Title:       content.Frontmatter.Title,
+					Description: content.Frontmatter.Description,
+					Category:    category,
+					Slug:        content.Frontmatter.Slug,
+					Image:       content.Frontmatter.Image,
+					Date:        content.Frontmatter.Date,
+					URL:         urlPath,
+				})
+			}
+		}
+		log.Printf("Loading insights for path=%s, found %d insights", path, len(insights))
+	}
+
 	// Extract table of contents (skip if path is excluded)
 	toc := make([]TOCEntry, 0)
 	if !r.isTOCExcluded(path) && string(content) != "" {
@@ -394,6 +435,7 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		Changelog:      changelog,
 		TOC:            toc,
 		CustomerNumber: 17000,
+		Insights:       insights,
 	}
 }
 
