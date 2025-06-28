@@ -34,7 +34,7 @@ type InsightData struct {
 	Description string `json:"description"`
 	Category    string `json:"category"`
 	Slug        string `json:"slug"`
-	Image       string `json:"image"`
+	SVGData     string `json:"svg_data"`
 	Date        string `json:"date"`
 	URL         string `json:"url"`
 }
@@ -377,6 +377,9 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		// Get all cached insights from MarkdownService
 		cachedInsights := r.markdownService.GetAllCachedContent()
 		
+		// Initialize SVG generator
+		svgGen := NewSVGGenerator()
+		
 		for urlPath, content := range cachedInsights {
 			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
 				// Extract category from tags or category field
@@ -386,18 +389,21 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 					category = content.Frontmatter.Tags[0]
 				}
 				
+				// Generate unique SVG for this insight based on title
+				svgDataURL := svgGen.GenerateSVGDataURL(content.Frontmatter.Title)
+				
 				insights = append(insights, InsightData{
 					Title:       content.Frontmatter.Title,
 					Description: content.Frontmatter.Description,
 					Category:    category,
 					Slug:        content.Frontmatter.Slug,
-					Image:       content.Frontmatter.Image,
+					SVGData:     svgDataURL,
 					Date:        content.Frontmatter.Date,
 					URL:         urlPath,
 				})
 			}
 		}
-		log.Printf("Loading insights for path=%s, found %d insights", path, len(insights))
+		log.Printf("Loading insights for path=%s, found %d insights with generated SVGs", path, len(insights))
 	}
 
 	// Extract table of contents (skip if path is excluded)

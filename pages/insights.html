@@ -91,12 +91,10 @@
                 <div class="cursor-pointer group" @click="window.location.href = insight.url">
                     <!-- Insight Image -->
                     <div class="h-64 rounded-lg mb-6 overflow-hidden bg-gray-200">
-                        <img x-show="insight.image" 
-                             :src="insight.image" 
+                        <img :src="insight.svg_data" 
                              :alt="insight.title"
                              class="w-full h-full object-cover"
                              loading="lazy">
-                        <div x-show="!insight.image" class="w-full h-full bg-gray-200"></div>
                     </div>
                     
                     <!-- Insight Content -->

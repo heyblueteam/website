@@ -239,6 +239,9 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		// Get all cached insights from MarkdownService
 		cachedInsights := hs.markdownService.GetAllCachedContent()
 		
+		// Initialize SVG generator
+		svgGen := NewSVGGenerator()
+		
 		for urlPath, content := range cachedInsights {
 			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
 				// Extract category from tags or category field
@@ -248,18 +251,21 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 					category = content.Frontmatter.Tags[0]
 				}
 				
+				// Generate unique SVG for this insight based on title
+				svgDataURL := svgGen.GenerateSVGDataURL(content.Frontmatter.Title)
+				
 				insights = append(insights, InsightData{
 					Title:       content.Frontmatter.Title,
 					Description: content.Frontmatter.Description,
 					Category:    category,
 					Slug:        content.Frontmatter.Slug,
-					Image:       content.Frontmatter.Image,
+					SVGData:     svgDataURL,
 					Date:        content.Frontmatter.Date,
 					URL:         urlPath,
 				})
 			}
 		}
-		log.Printf("Pre-rendering insights for path=%s, found %d insights", path, len(insights))
+		log.Printf("Pre-rendering insights for path=%s, found %d insights with generated SVGs", path, len(insights))
 	}
 
 	// Extract table of contents
