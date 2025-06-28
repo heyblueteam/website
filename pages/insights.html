@@ -38,42 +38,42 @@
         <div class="mb-12">
             <nav class="flex flex-wrap gap-8 text-lg">
                 <button @click="activeCategory = 'all'" 
-                        :class="activeCategory === 'all' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'all' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     All
                 </button>
                 <button @click="activeCategory = 'product-updates'" 
-                        :class="activeCategory === 'product-updates' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'product-updates' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     Product Updates
                 </button>
                 <button @click="activeCategory = 'engineering'" 
-                        :class="activeCategory === 'engineering' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'engineering' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     Engineering
                 </button>
                 <button @click="activeCategory = 'ceo-blog'" 
-                        :class="activeCategory === 'ceo-blog' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'ceo-blog' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     CEO Blog
                 </button>
                 <button @click="activeCategory = 'best-practices'" 
-                        :class="activeCategory === 'best-practices' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'best-practices' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     Best Practices
                 </button>
                 <button @click="activeCategory = 'modern-work-practices'" 
-                        :class="activeCategory === 'modern-work-practices' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'modern-work-practices' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     Modern Work Practices
                 </button>
                 <button @click="activeCategory = 'news'" 
-                        :class="activeCategory === 'news' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'news' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     News
                 </button>
                 <button @click="activeCategory = 'faq'" 
-                        :class="activeCategory === 'faq' ? 'text-brand-blue font-medium border-b-2 border-gray-900' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        :class="activeCategory === 'faq' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-1 cursor-pointer">
                     FAQ
                 </button>
@@ -93,7 +93,7 @@
                     <div class="h-64 rounded-lg mb-6 overflow-hidden bg-gray-200">
                         <img :src="insight.svg_data" 
                              :alt="insight.title"
-                             class="w-full h-full object-cover"
+                             class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
                              loading="lazy">
                     </div>
                     
