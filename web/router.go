@@ -50,7 +50,6 @@ type PageData struct {
 	Keywords       []string
 	IsMarkdown     bool
 	Frontmatter    *Frontmatter
-	Changelog      []ChangelogMonth
 	TOC            []TOCEntry
 	CustomerNumber int
 	Insights       []InsightData
@@ -67,7 +66,6 @@ type Router struct {
 	markdownService   *MarkdownService
 	htmlService       *HTMLService
 	seoService        *SEOService
-	changelogService  *ChangelogService
 	tocExcludedPaths  []string
 }
 
@@ -94,11 +92,6 @@ func NewRouter(pagesDir string) *Router {
 	navigationService := NewNavigationService(seoService)
 	htmlService := NewHTMLService(pagesDir, "layouts", "components", markdownService)
 
-	// Initialize changelog service
-	changelogService := NewChangelogService()
-	if err := changelogService.LoadChangelog(); err != nil {
-		log.Printf("Error loading changelog data: %v", err)
-	}
 
 	router := &Router{
 		pagesDir:          pagesDir,
@@ -110,7 +103,6 @@ func NewRouter(pagesDir string) *Router {
 		navigationService: navigationService,
 		htmlService:       htmlService,
 		seoService:        seoService,
-		changelogService:  changelogService,
 		tocExcludedPaths: []string{ // These pages will not show toc
 			"/changelog",
 			"/roadmap",
@@ -128,7 +120,7 @@ func NewRouter(pagesDir string) *Router {
 
 	// Pre-render all HTML pages at startup
 	log.Printf("Pre-rendering HTML pages...")
-	if err := htmlService.PreRenderAllHTMLPages(navigationService, seoService, changelogService); err != nil {
+	if err := htmlService.PreRenderAllHTMLPages(navigationService, seoService); err != nil {
 		log.Printf("Warning: failed to pre-render HTML pages: %v", err)
 	} else {
 		log.Printf("HTML cache initialized with %d pages", htmlService.GetCacheSize())
@@ -362,14 +354,6 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := r.seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
 
-	// Prepare changelog data - only include if on changelog page
-	var changelog []ChangelogMonth
-	if path == "/changelog" && r.changelogService != nil {
-		changelog = r.changelogService.GetChangelog()
-		log.Printf("Loading changelog for path=%s, found %d entries", path, len(changelog))
-	} else {
-		log.Printf("Not loading changelog: path=%s, service=%v", path, r.changelogService != nil)
-	}
 
 	// Prepare insights data - only include if on insights page
 	var insights []InsightData
@@ -438,7 +422,6 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		Keywords:       keywords,
 		IsMarkdown:     isMarkdown,
 		Frontmatter:    frontmatter,
-		Changelog:      changelog,
 		TOC:            toc,
 		CustomerNumber: 17000,
 		Insights:       insights,

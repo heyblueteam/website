@@ -1,0 +1,24 @@
+{{define "changelog-month"}}
+<div class="mb-20">
+    <div class="flex flex-col md:flex-row md:gap-32">
+        <!-- Month/Year Label -->
+        <div class="md:w-48 md:flex-shrink-0 mb-8 md:mb-0">
+            <h2 class="text-2xl font-bold text-gray-900 tracking-tight">
+                {{.month}} {{.year}}
+            </h2>
+        </div>
+        
+        <!-- Changes List -->
+        <div class="flex-1 space-y-10">
+            {{range .changes}}
+            <div>
+                <h3 class="text-xl font-semibold mb-2 text-gray-900 leading-tight">
+                    {{.title}}
+                </h3>
+                <p class="text-gray-600 leading-relaxed">{{.description}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{end}}

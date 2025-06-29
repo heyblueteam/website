@@ -31,7 +31,7 @@ func NewHTMLService(pagesDir, layoutsDir, componentsDir string, markdownService 
 }
 
 // PreRenderAllHTMLPages pre-renders all HTML pages in the pages directory
-func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationService, seoService *SEOService, changelogService *ChangelogService) error {
+func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationService, seoService *SEOService) error {
 	startTime := time.Now()
 	count := 0
 
@@ -69,7 +69,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 		}
 
 		// Pre-render the HTML page
-		html, err := hs.renderHTMLPage(path, urlPath, navigationService, seoService, changelogService)
+		html, err := hs.renderHTMLPage(path, urlPath, navigationService, seoService)
 		if err != nil {
 			log.Printf("Warning: failed to pre-render %s: %v", path, err)
 			return nil // Continue processing other files
@@ -103,7 +103,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 }
 
 // renderHTMLPage renders a single HTML page with templates  
-func (hs *HTMLService) renderHTMLPage(filePath, urlPath string, navigationService *NavigationService, seoService *SEOService, changelogService *ChangelogService) (string, error) {
+func (hs *HTMLService) renderHTMLPage(filePath, urlPath string, navigationService *NavigationService, seoService *SEOService) (string, error) {
 	// Read the HTML file
 	contentBytes, err := os.ReadFile(filePath)
 	if err != nil {
@@ -111,7 +111,7 @@ func (hs *HTMLService) renderHTMLPage(filePath, urlPath string, navigationServic
 	}
 
 	// Prepare page data
-	pageData := hs.preparePageData(urlPath, "", false, nil, navigationService, seoService, changelogService)
+	pageData := hs.preparePageData(urlPath, "", false, nil, navigationService, seoService)
 
 	// Create template for page content
 	contentTmpl := template.New("page-content").Funcs(templateFuncs)
@@ -156,7 +156,7 @@ func (hs *HTMLService) renderHTMLPage(filePath, urlPath string, navigationServic
 	}
 
 	// Prepare final page data with rendered content
-	finalPageData := hs.preparePageData(urlPath, template.HTML(renderedContent.String()), false, nil, navigationService, seoService, changelogService)
+	finalPageData := hs.preparePageData(urlPath, template.HTML(renderedContent.String()), false, nil, navigationService, seoService)
 
 	// Execute main template
 	var finalHTML strings.Builder
@@ -220,18 +220,10 @@ func (hs *HTMLService) GetCacheSize() int {
 }
 
 // preparePageData creates PageData with metadata for the given path
-func (hs *HTMLService) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigationService *NavigationService, seoService *SEOService, changelogService *ChangelogService) PageData {
+func (hs *HTMLService) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigationService *NavigationService, seoService *SEOService) PageData {
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
 
-	// Prepare changelog data - only include if on changelog page
-	var changelog []ChangelogMonth
-	if path == "/changelog" && changelogService != nil {
-		changelog = changelogService.GetChangelog()
-		log.Printf("Loading changelog for path=%s, found %d entries", path, len(changelog))
-	} else {
-		log.Printf("Not loading changelog: path=%s, service=%v", path, changelogService != nil)
-	}
 
 	// Prepare insights data - only include if on insights page
 	var insights []InsightData
@@ -310,7 +302,6 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		Keywords:       keywords,
 		IsMarkdown:     isMarkdown,
 		Frontmatter:    frontmatter,
-		Changelog:      changelog,
 		TOC:            toc,
 		CustomerNumber: 17000,
 		Insights:       insights,
