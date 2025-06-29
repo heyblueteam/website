@@ -12,7 +12,6 @@
 
 
 - Prose styling
-- Replace font-awesome with svgs for arrows and light/dark mode?
 - dark mode implementation
 - Sales modal? ❌ (decided not to do it for now)
 - Pricing Page

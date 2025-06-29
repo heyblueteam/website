@@ -11,12 +11,32 @@
         activeCategory: 'all',
         insights: {{if .Insights}}{{.Insights | toJSON}}{{else}}[]{{end}},
         get filteredInsights() {
-            if (!this.insights || this.activeCategory === 'all') {
-                return this.insights || [];
+            let filtered = this.insights || [];
+            
+            // Filter by category
+            if (this.activeCategory !== 'all') {
+                filtered = filtered.filter(insight => {
+                    const category = insight.category.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    return category === this.activeCategory;
+                });
             }
-            return this.insights.filter(insight => {
-                const category = insight.category.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-                return category === this.activeCategory;
+            
+            // Sort by date (latest first, no date goes to bottom)
+            return filtered.sort((a, b) => {
+                const dateA = a.date;
+                const dateB = b.date;
+                
+                // If both have no date, maintain original order
+                if (!dateA && !dateB) return 0;
+                
+                // If only a has no date, put it after b
+                if (!dateA) return 1;
+                
+                // If only b has no date, put it after a
+                if (!dateB) return -1;
+                
+                // Both have dates, sort latest first
+                return new Date(dateB) - new Date(dateA);
             });
         },
         formatDate(dateStr) {
