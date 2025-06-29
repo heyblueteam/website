@@ -227,7 +227,8 @@
                 }
 
                 // Only proceed with other shortcuts if not interacting with a form element
-                if (!isFormElement) {
+                // and no modifier keys are pressed
+                if (!isFormElement && !event.metaKey && !event.ctrlKey && !event.altKey && !event.shiftKey) {
                     if (event.key.toLowerCase() === 'l') {
                         event.preventDefault();
                         openLogin();
