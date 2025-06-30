@@ -134,6 +134,11 @@ func NewRouter(pagesDir string) *Router {
 		log.Printf("✅ Search index ready")
 	}
 
+	// Run link checker
+	if err := RunLinkChecker(markdownService, htmlService, seoService); err != nil {
+		log.Printf("⚠️  Warning: link checker failed: %v", err)
+	}
+
 	return router
 }
 
