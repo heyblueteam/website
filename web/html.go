@@ -7,7 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
 )
 
 // HTMLService handles HTML page pre-rendering
@@ -32,7 +31,6 @@ func NewHTMLService(pagesDir, layoutsDir, componentsDir string, markdownService 
 
 // PreRenderAllHTMLPages pre-renders all HTML pages in the pages directory
 func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationService, seoService *SEOService) error {
-	startTime := time.Now()
 	count := 0
 
 	// List of pages to exclude from pre-rendering (dynamic content)
@@ -57,7 +55,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 
 		// Check if this page should be excluded
 		if hs.isExcluded(urlPath, excludedPages) {
-			log.Printf("Skipping pre-rendering for excluded page: %s", urlPath)
+			// Skipping excluded page
 			return nil
 		}
 
@@ -86,9 +84,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 		hs.cache.Set(urlPath, cachedContent)
 		count++
 
-		if count%5 == 0 {
-			log.Printf("Pre-rendered %d HTML pages...", count)
-		}
+		// Progress tracking removed for cleaner output
 
 		return nil
 	})
@@ -97,8 +93,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 		return fmt.Errorf("failed to walk pages directory: %w", err)
 	}
 
-	duration := time.Since(startTime)
-	log.Printf("Pre-rendered %d HTML pages in %v", count, duration)
+	// Pre-rendering complete
 	return nil
 }
 
@@ -257,7 +252,7 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 				})
 			}
 		}
-		log.Printf("Pre-rendering insights for path=%s, found %d insights with generated SVGs", path, len(insights))
+		// Insights loaded for page
 	}
 
 	// Extract table of contents
@@ -285,10 +280,10 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		if err != nil {
 			log.Printf("Error extracting TOC for path=%s: %v", path, err)
 		} else {
-			log.Printf("Extracted %d TOC entries for path=%s", len(toc), path)
+			// TOC extracted
 		}
 	} else if isExcluded {
-		log.Printf("TOC generation skipped for excluded path: %s", path)
+		// TOC generation skipped
 	}
 
 	// Return PageData with all components

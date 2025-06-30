@@ -6,7 +6,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
 
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
@@ -80,7 +79,6 @@ func (ms *MarkdownService) ProcessMarkdownFile(filePath string, seoService *SEOS
 
 // PreRenderAllMarkdown pre-renders all markdown files in the content directory
 func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, seoService *SEOService) error {
-	startTime := time.Now()
 	count := 0
 
 	// Walk through all markdown files in content directory
@@ -104,10 +102,7 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 		// Generate URL path for this file
 		urlPath := ms.generateURLPath(path)
 		
-		// Debug log for insights files
-		if strings.Contains(path, "insights") {
-			log.Printf("DEBUG: Processing insights file: %s → URL: %s", path, urlPath)
-		}
+		// Process insights files
 
 		// Process the markdown file
 		html, frontmatter, err := ms.ProcessMarkdownFile(path, seoService)
@@ -116,11 +111,7 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 			return nil // Continue processing other files
 		}
 
-		// Debug log for insights frontmatter
-		if strings.Contains(path, "insights") && frontmatter != nil {
-			log.Printf("DEBUG: Insights frontmatter - Title: %s, Category: %s, Tags: %v", 
-				frontmatter.Title, frontmatter.Category, frontmatter.Tags)
-		}
+		// Frontmatter processed
 
 		// Cache the pre-rendered content
 		cachedContent := &CachedContent{
@@ -133,9 +124,7 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 		ms.cache.Set(urlPath, cachedContent)
 		count++
 
-		if count%10 == 0 {
-			log.Printf("Pre-rendered %d markdown files...", count)
-		}
+		// Progress tracking removed for cleaner output
 
 		return nil
 	})
@@ -144,8 +133,7 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 		return fmt.Errorf("failed to walk content directory: %w", err)
 	}
 
-	duration := time.Since(startTime)
-	log.Printf("Pre-rendered %d markdown files in %v", count, duration)
+	// Pre-rendering complete
 	return nil
 }
 

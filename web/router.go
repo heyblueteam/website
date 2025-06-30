@@ -83,7 +83,7 @@ func NewRouter(pagesDir string) *Router {
 	// Initialize SEO service
 	seoService := NewSEOService()
 	if err := seoService.LoadData(); err != nil {
-		log.Printf("Error loading SEO data: %v", err)
+		log.Printf("⚠️  Error loading SEO data: %v", err)
 	}
 
 	// Initialize services
@@ -111,27 +111,27 @@ func NewRouter(pagesDir string) *Router {
 	}
 
 	// Pre-render all markdown content at startup
-	log.Printf("Pre-rendering markdown content...")
+	log.Printf("📝 Pre-rendering markdown content...")
 	if err := markdownService.PreRenderAllMarkdown(contentService, seoService); err != nil {
-		log.Printf("Warning: failed to pre-render markdown content: %v", err)
+		log.Printf("⚠️  Warning: failed to pre-render markdown content: %v", err)
 	} else {
-		log.Printf("Markdown cache initialized with %d files", markdownService.GetCacheSize())
+		log.Printf("✅ Markdown cache initialized (%d files)", markdownService.GetCacheSize())
 	}
 
 	// Pre-render all HTML pages at startup
-	log.Printf("Pre-rendering HTML pages...")
+	log.Printf("🌐 Pre-rendering HTML pages...")
 	if err := htmlService.PreRenderAllHTMLPages(navigationService, seoService); err != nil {
-		log.Printf("Warning: failed to pre-render HTML pages: %v", err)
+		log.Printf("⚠️  Warning: failed to pre-render HTML pages: %v", err)
 	} else {
-		log.Printf("HTML cache initialized with %d pages", htmlService.GetCacheSize())
+		log.Printf("✅ HTML cache initialized (%d pages)", htmlService.GetCacheSize())
 	}
 
 	// Generate search index with pre-rendered content
-	log.Printf("Generating search index with cached content...")
+	log.Printf("🔍 Building search index...")
 	if err := GenerateSearchIndexWithCaches(markdownService, htmlService); err != nil {
-		log.Printf("Warning: failed to generate search index: %v", err)
+		log.Printf("⚠️  Warning: failed to generate search index: %v", err)
 	} else {
-		log.Printf("Search index generated successfully")
+		log.Printf("✅ Search index ready")
 	}
 
 	return router
@@ -214,7 +214,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			contentBytes = []byte(cachedContent.HTML)
 			frontmatter = cachedContent.Frontmatter
 			isMarkdown = true
-			log.Printf("Served cached markdown for path: %s", path)
+			// Cached markdown served
 		} else {
 			// Not in cache, try to find and process markdown file (fallback)
 			markdownPath, mdErr := r.contentService.FindMarkdownFile(path)
@@ -234,7 +234,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			contentBytes = []byte(htmlContent)
 			frontmatter = fm
 			isMarkdown = true
-			log.Printf("Served on-demand markdown for path: %s", path)
+			// On-demand markdown served
 		}
 	} else {
 		// HTML page exists, try cached version first
@@ -242,7 +242,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			// Found in cache - use pre-rendered content
 			http.Header.Set(w.Header(), "Content-Type", "text/html")
 			w.Write([]byte(cachedContent.HTML))
-			log.Printf("Served cached HTML page for path: %s", path)
+			// Cached HTML served
 			return
 		}
 
@@ -297,7 +297,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		}
 
 		contentBytes = []byte(renderedContent.String())
-		log.Printf("Served on-demand HTML page for path: %s", path)
+		// On-demand HTML served
 	}
 
 	// Prepare template files - start with layout
@@ -387,7 +387,7 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 				})
 			}
 		}
-		log.Printf("Loading insights for path=%s, found %d insights with generated SVGs", path, len(insights))
+		// Insights loaded
 	}
 
 	// Extract table of contents (skip if path is excluded)
@@ -405,10 +405,10 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		if err != nil {
 			log.Printf("Error extracting TOC for path=%s: %v", path, err)
 		} else {
-			log.Printf("Extracted %d TOC entries for path=%s", len(toc), path)
+			// TOC extracted
 		}
 	} else if r.isTOCExcluded(path) {
-		log.Printf("TOC generation skipped for excluded path: %s", path)
+		// TOC generation skipped
 	}
 
 	// Return PageData with all components
