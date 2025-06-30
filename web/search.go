@@ -457,6 +457,15 @@ func indexCachedHTMLPages(items *[]SearchItem, htmlService *HTMLService, metadat
 		// Extract title from rendered HTML
 		title := extractPageTitle(content.HTML, urlPath, content.FilePath, metadata)
 
+		// Get description from metadata if available
+		description := ""
+		if metadata != nil {
+			pageKey := getPageKey(urlPath)
+			if pageMeta, exists := metadata.Pages[pageKey]; exists && pageMeta.Description != "" {
+				description = pageMeta.Description
+			}
+		}
+
 		// Extract clean text from pre-rendered HTML
 		textContent := extractTextFromHTML(content.HTML)
 
@@ -470,11 +479,12 @@ func indexCachedHTMLPages(items *[]SearchItem, htmlService *HTMLService, metadat
 		}
 
 		*items = append(*items, SearchItem{
-			Title:   title,
-			Content: textContent,
-			URL:     urlPath,
-			Type:    pageType,
-			Section: section,
+			Title:       title,
+			Description: description,
+			Content:     textContent,
+			URL:         urlPath,
+			Type:        pageType,
+			Section:     section,
 		})
 	}
 
