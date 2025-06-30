@@ -68,7 +68,7 @@
                      window.location.href = result.item.url;
                  },
                  getSnippet(result) {
-                     const content = result.item.content || result.item.description || '';
+                     const content = result.item.description || result.item.content || '';
                      const queryWords = this.query.toLowerCase().split(' ');
                      
                      // Find first occurrence of query words
