@@ -10,25 +10,26 @@
 
 ## Plan
 
-
+- Home page structure / Messaging
+- Design "All Features" page and then individual features page
+- Add all the documentation images
+- Make "Solutions" Pages
 - Prose styling
 - dark mode implementation
-- Sales modal? ❌ (decided not to do it for now)
-- Pricing Page
 - Review what components to "borrow" from other sites.
 - Align all elements in respective footers perfectly. 
-- Individual insight 
 - Brand page
-- Home page structure / Messaging
+- Add savings calculator to blue page (or not mentioned competitors at all?)
 - Make the website multi linguagal?  Really like that to be honest.
 - For api docs, put company or project id and all the mutations update in the examples. Like Stripe.
 - Find all "big" brand customers via AI and add them to logos on customers page.
 - Add SOP to website?
 - Add Git commit history to website?
+- Add ability to edit logo size in grid manually pass through to component
 - Fix white label add on button
-- Status page with backend
 - Customer stories (eventually)
 - Create a api endpoint on blue to count companies, and then use that to power website customer count.
+- dual button CTA has far too much padding, but there seems to be a bug with p-16 that makes it looks super squashed.
 - Status page improvement, show live operational status of services with last checked time.
 - handle /docs/automations/actions/send-email in left sidebr etc
 - handle case where users go direct to docs/automations for instance
@@ -39,16 +40,13 @@
 - Review buffer about page for inspiration
 - Highlighting text should be brand-blue 
 - system status does not show on search
-- insights on search I see code.
 - Confirm the paragraph text styles in the brand page.
-- cmd+C goes to contact page instead of copying.
 - Consider back to top button like old site, but may get too busy?
 - Align CTA in brand guidelines to backgroud color of FAQ backgrounds
 - Add FAQ dropdowns to Brand Guidelines
-- Figure out what I am doing with changelog router and if there is an easier way
 - Add videos to FAQ possibily? 
-- Mouse pointer when on FAQ question should be hand
 - animation for heading title
+- https://www.notion.com/explore (almost like a sitemap, very cool.)
 - subtle animation for right sidebar?
 - image zoom effect found on https://linear.app/changelog
 - switch page: https://linear.app/switch
@@ -57,9 +55,10 @@
 - Consider full width blue section that break out of the main content area, but when the sidebar goes over it, it turns white text instead of dark grey. Meh?
 - Make the video in markdown pages also have the same curved corners.
 - Make testimonial components from the testimonials parts in the brand page.
-- Reconsider the /platform dropdown and what to put on there, perhaps "how it works" and key features, not all features
 
+# Ideas
 
+- Sales modal
 
 
 ## Tech Stack
@@ -239,22 +238,4 @@ go test ./...
 - Check browser console for AlpineJS errors
 - Go template errors appear in terminal
 
-## Future Enhancements Needed
 
-### High Priority
-- [ ] Internationalization (i18n) system
-- [ ] API endpoint for live customer count
-- [ ] Backend for status page
-- [ ] Search improvements (fuzzy matching, filters)
-
-### Medium Priority
-- [ ] Dark mode implementation
-- [ ] Component library documentation
-- [ ] Performance optimization (caching, CDN)
-- [ ] Analytics integration
-
-### Nice to Have
-- [ ] Git commit history display
-- [ ] Multi-language support
-- [ ] Advanced search with Algolia/Meilisearch
-- [ ] A/B testing framework
