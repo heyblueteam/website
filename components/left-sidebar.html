@@ -7,6 +7,10 @@
          isActive(href) {
              return this.currentPath === href || this.currentPath === href + '/' || this.currentPath + '/' === href;
          },
+         updateCurrentPath(newPath) {
+             this.currentPath = newPath;
+             this.expandActiveParents();
+         },
          init() {
              this.expandActiveParents();
          },
