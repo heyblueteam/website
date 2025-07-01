@@ -1,0 +1,63 @@
+{{define "roadmap-board"}}
+<div class="kanban-board grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Ideas Column -->
+    <div class="kanban-column">
+        <h3 class="text-lg font-semibold mb-4 text-gray-700">Ideas</h3>
+        <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+            {{range .ideas}}
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-medium text-gray-900 dark:text-white">{{.title}}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{.description}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+
+    <!-- Planned Column -->
+    <div class="kanban-column">
+        <h3 class="text-lg font-semibold mb-4 text-gray-700">Planned</h3>
+        <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+            {{range .planned}}
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-medium text-gray-900 dark:text-white">{{.title}}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{.description}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+
+    <!-- In Progress Column -->
+    <div class="kanban-column">
+        <h3 class="text-lg font-semibold mb-4 text-gray-700">In Progress</h3>
+        <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+            {{range .inProgress}}
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-medium text-gray-900 dark:text-white">{{.title}}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{.description}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+
+    <!-- Testing Column -->
+    <div class="kanban-column">
+        <h3 class="text-lg font-semibold mb-4 text-gray-700">Testing</h3>
+        <div class="space-y-3 border border-gray-300 rounded-lg p-4 min-h-[400px]">
+            <!-- Changelog Link Card - Always visible -->
+            <a href="/platform/changelog" class="block">
+                <div class="bg-blue-50 dark:bg-blue-900 rounded-lg p-4 border-2 border-brand-blue dark:border-blue-400 cursor-pointer">
+                    <h3 class="font-medium text-gray-900 dark:text-white">Check out our changelog</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">See latest features and improvements.</p>
+                </div>
+            </a>
+            
+            {{range .testing}}
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
+                <h3 class="font-medium text-gray-900 dark:text-white">{{.title}}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">{{.description}}</p>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</div>
+{{end}}
