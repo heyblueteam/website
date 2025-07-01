@@ -60,6 +60,63 @@
                     document.head.appendChild(prefetchLink);
                 });
             });
+            
+            // Add copy buttons to code blocks
+            const codeBlocks = document.querySelectorAll('.prose pre');
+            codeBlocks.forEach(pre => {
+                // Create copy button
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'code-copy-btn';
+                copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                copyBtn.title = 'Copy code';
+                
+                // Add click handler
+                copyBtn.addEventListener('click', async () => {
+                    const code = pre.querySelector('code');
+                    const text = code ? code.textContent : pre.textContent;
+                    
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        
+                        // Show success state
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                        copyBtn.classList.add('copied');
+                        copyBtn.title = 'Copied!';
+                        
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                            copyBtn.classList.remove('copied');
+                            copyBtn.title = 'Copy code';
+                        }, 2000);
+                        
+                    } catch (err) {
+                        console.error('Failed to copy code:', err);
+                        
+                        // Fallback for older browsers
+                        const textArea = document.createElement('textarea');
+                        textArea.value = text;
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(textArea);
+                        
+                        // Show success state
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                        copyBtn.classList.add('copied');
+                        copyBtn.title = 'Copied!';
+                        
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                            copyBtn.classList.remove('copied');
+                            copyBtn.title = 'Copy code';
+                        }, 2000);
+                    }
+                });
+                
+                // Add button to code block
+                pre.appendChild(copyBtn);
+            });
         });
     </script>
 </body>
