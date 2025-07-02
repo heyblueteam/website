@@ -264,6 +264,75 @@
         </div>
     </section>
 
+    <!-- Features Grid Section -->
+    <section id="features-grid" class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Features Grid</h2>
+        
+        <div>
+            <hr class="border-gray-200 dark:border-gray-700 mb-8">
+            <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100 mb-4">Features Grid Component</h3>
+            <div class="mt-2 text-sm text-gray-500 mb-6">
+                <code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-xs">features-grid-simple component with optional URLs, Font Awesome icons, and responsive 3-column layout</code>
+            </div>
+            
+            {{$featuresData := parseJSON `{
+                "Title": "Platform capabilities showcase",
+                "Features": [
+                    {
+                        "Icon": "fas fa-shield-alt",
+                        "Title": "Security",
+                        "Description": "Enterprise-grade security with end-to-end encryption and compliance certifications.",
+                        "Url": "/platform/security"
+                    },
+                    {
+                        "Icon": "fas fa-bolt",
+                        "Title": "Performance",
+                        "Description": "Lightning-fast response times and 99.9% uptime guarantee for mission-critical work."
+                    },
+                    {
+                        "Icon": "fas fa-chart-bar",
+                        "Title": "Analytics",
+                        "Description": "Real-time insights and customizable dashboards to track what matters most.",
+                        "Url": "/platform/analytics"
+                    },
+                    {
+                        "Icon": "fas fa-plug",
+                        "Title": "Integration",
+                        "Description": "Connect with 1,000+ tools including Slack, Gmail, Zapier, and custom APIs."
+                    },
+                    {
+                        "Icon": "fas fa-magic",
+                        "Title": "Automation",
+                        "Description": "Streamline workflows with intelligent automation that learns from your processes.",
+                        "Url": "/platform/automation"
+                    },
+                    {
+                        "Icon": "fas fa-mobile-alt",
+                        "Title": "Mobile",
+                        "Description": "Full-featured mobile apps for iOS and Android with offline sync capabilities."
+                    },
+                    {
+                        "Icon": "fas fa-users",
+                        "Title": "Collaboration",
+                        "Description": "Real-time collaboration tools with comments, mentions, and team workspaces."
+                    },
+                    {
+                        "Icon": "fas fa-cogs",
+                        "Title": "Customization",
+                        "Description": "Fully customizable interface, fields, and workflows to match your business needs."
+                    },
+                    {
+                        "Icon": "fas fa-headset",
+                        "Title": "Support",
+                        "Description": "24/7 expert support with live chat, phone, and dedicated success managers."
+                    }
+                ]
+            }`}}
+            
+            {{template "features-grid-simple" $featuresData}}
+        </div>
+    </section>
+
     <!-- Card Components Section -->
     <section id="card-components" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Card Components</h2>
