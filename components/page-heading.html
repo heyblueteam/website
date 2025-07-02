@@ -1,6 +1,6 @@
 {{define "page-heading"}}
 <div class="{{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}" x-data="{ words: '{{.Title}}'.split(' '), animatedWords: [], showSubtitle: false }" x-init="words.forEach((word, i) => setTimeout(() => animatedWords.push(i), i * 80)); setTimeout(() => showSubtitle = true, 100)">
-    <h1 class="text-4xl md:text-6xl lg:text-6xl font-medium tracking-tight text-gray-900 mb-3">
+    <h1 class="text-4xl md:text-6xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-3">
         <template x-for="(word, index) in words" :key="index">
             <span 
                 :class="animatedWords.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'" 
@@ -12,7 +12,7 @@
     {{if .Subtitle}}
     <p 
         :class="showSubtitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'" 
-        class="text-xl text-gray-600 transition-all duration-800 ease-out">
+        class="text-xl text-gray-600 dark:text-gray-400 transition-all duration-800 ease-out">
         {{.Subtitle}}
     </p>
     {{end}}
