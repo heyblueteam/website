@@ -31,17 +31,18 @@
     
     {{template "logo-grid" $logoData}}
 
-    {{$testimonialData := parseJSON `{
-        "title": "Hear from our customers",
-        "testimonials": [
-            {
-                "quote": "We are saving each sales rep in our team 9 hours a week with Blue.",
-                "videoUrl": "https://media.blue.cc/dandeigan.mp4",
-                "posterUrl": "/public/testimonials/dandeigan.jpg"
-            }
-        ]
-    }`}}
-
-    {{template "testimonial-videos" $testimonialData}}
+    <!-- Customer Testimonial Section -->
+    <div class="py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Hear from our customers</h2>
+        
+        {{template "testimonial-single" 
+            dict 
+                "Quote" "We are saving each sales rep in our team 9 hours a week with Blue."
+                "VideoUrl" "https://media.blue.cc/dandeigan.mp4"
+                "PosterUrl" "/public/testimonials/dandeigan.jpg"
+                "Name" "Dan Deigan"
+                "Title" "Sales Director at Pinnacle Logistics"
+        }}
+    </div>
 
 </div>
