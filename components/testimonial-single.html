@@ -1,0 +1,29 @@
+{{define "testimonial-single"}}
+<!-- Single Testimonial Component with Image Left, Content Right -->
+<div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- Image Column -->
+        <div class="lg:col-span-4">
+            <img 
+                src="{{.ImageUrl}}" 
+                alt="{{.Name}}" 
+                class="w-full aspect-square object-cover rounded-2xl"
+            />
+        </div>
+        
+        <!-- Content Column -->
+        <div class="lg:col-span-8 space-y-6">
+            <!-- Quote -->
+            <p class="text-xl lg:text-2xl text-gray-900 dark:text-gray-100 font-medium leading-relaxed">
+                "{{.Quote}}"
+            </p>
+            
+            <!-- Author Info -->
+            <div>
+                <div class="font-semibold text-lg text-gray-900 dark:text-gray-100">{{.Name}}</div>
+                <div class="text-gray-600 dark:text-gray-400">{{.Title}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

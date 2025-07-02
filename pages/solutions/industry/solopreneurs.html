@@ -2,9 +2,33 @@
 <div class="py-20">
     {{template "page-heading" 
         dict 
-            "Title" "Solopreneur Solutions" 
-            "Subtitle" "Run your one-person business efficiently with automated workflows and client management tools." 
-            "MarginBottom" "mb-8"
+            "Title" "The best management software for Solopreneurs." 
+            "Subtitle" "Streamline your business with a single solution that meets all your needs, freeing up time for growth-focused activities and reducing operational complexity." 
+            "MarginBottom" "mb-16"
     }}
+
+    <!-- Eran Bucai Testimonial -->
+    <div class="mb-16">
+        {{$testimonialData := parseJSON `{
+            "ImageUrl": "/public/testimonials/eran-bucai.jpg",
+            "Quote": "Blue is my go-to project management tool to run my virtual assistant team, my video production workflow, and even act as my sales pipeline.",
+            "Name": "Eran Bucai",
+            "Title": "Founder of DotComTruths.com"
+        }`}}
+        
+        {{template "testimonial-single" $testimonialData}}
+    </div>
+
+    <!-- Reminders Feature -->
+    <div class="mb-16">
+        {{$remindersData := parseJSON `{
+            "Title": "Reminders help you remember what to do — and when to do it.",
+            "Description": "We get it, there's always too much to do. Blue helps you remember when you need to get things done.",
+            "VideoUrl": "/public/testvideo2.mp4",
+            "VideoPosition": "left"
+        }`}}
+        
+        {{template "feature-video" $remindersData}}
+    </div>
 
 </div>
