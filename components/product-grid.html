@@ -3,10 +3,10 @@
 <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
     {{range .Products}}
     <!-- Product Item -->
-    <div class="p-8 {{if .BorderBottom}}border-b border-gray-200{{end}} {{if .BorderRight}}md:border-r border-gray-200{{end}}">
-        <h4 class="text-lg font-bold text-gray-900 mb-2">{{.Title}}</h4>
-        <p class="text-sm text-gray-600 mb-6">{{.Description}}</p>
-        <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center">
+    <div class="p-8 {{if .BorderBottom}}border-b border-gray-200 dark:border-gray-700{{end}} {{if .BorderRight}}md:border-r border-gray-200 dark:border-gray-700{{end}}">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{{.Title}}</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">{{.Description}}</p>
+        <div class="h-48 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
             <img src="{{.ImageUrl}}" alt="{{.Title}}" class="w-full h-full object-cover rounded-lg">
         </div>
     </div>
