@@ -1,0 +1,27 @@
+{{define "news-bar"}}
+<!-- News Bar Component -->
+<div class="w-full">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-gray-100 dark:bg-gray-800 rounded-xl">
+            <div class="px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between py-3">
+                    <!-- Left side with text -->
+                    <div class="flex items-center flex-1 min-w-0">
+                        <!-- Main text -->
+                        <p class="text-base text-gray-600 dark:text-gray-300 truncate">
+                            {{.MainText}}
+                        </p>
+                    </div>
+                    
+                    <!-- Right side with button -->
+                    <div class="flex-shrink-0 ml-4">
+                        <a href="{{.ButtonUrl}}" class="inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-md text-gray-700 dark:text-white bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 border border-gray-200 dark:border-gray-600 transition-colors duration-150">
+                            {{.ButtonText}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

@@ -14,6 +14,16 @@
             "Id" "homepage"
     }}
     
+    <!-- News Bar -->
+    <div class="mt-8">
+        {{$newsBarData := parseJSON `{
+            "MainText": "You can now create your own branded version of Blue with the White Label module.",
+            "ButtonText": "Learn more",
+            "ButtonUrl": "/platform/white-label"
+        }`}}
+        {{template "news-bar" $newsBarData}}
+    </div>
+    
   
     {{$logoData := parseJSON `{
         "title": "Trusted by more than 17,000 teams",
