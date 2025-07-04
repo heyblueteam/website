@@ -87,7 +87,7 @@
             }
             
             function setupClientRouting() {
-                const navLinks = document.querySelectorAll('a[href^="/"]');
+                const navLinks = document.querySelectorAll('a[href^="/"]:not([data-spa-handled])');
                 navLinks.forEach(link => {
                     // Skip external links, special links, and pages with dynamic scripts
                     if (link.target === '_blank' || link.href.includes('#')) return;
@@ -96,6 +96,9 @@
                     const url = new URL(link.href);
                     const skipSPA = ['/platform/status'].includes(url.pathname);
                     if (skipSPA) return;
+                    
+                    // Mark as handled to prevent duplicate listeners
+                    link.setAttribute('data-spa-handled', 'true');
                     
                     // Prefetch on hover
                     link.addEventListener('mouseenter', () => {
@@ -147,6 +150,14 @@
                                     // Re-initialize content
                                     hljs.highlightAll();
                                     addCopyButtons();
+                                    setupClientRouting();
+                                    
+                                    // For pages with Alpine.js content (like insights), re-setup after Alpine renders
+                                    if (new URL(link.href).pathname === '/insights') {
+                                        setTimeout(() => {
+                                            setupClientRouting();
+                                        }, 100);
+                                    }
                                     
                                     // Scroll to top
                                     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -176,6 +187,11 @@
             // Initialize
             addCopyButtons();
             setupClientRouting();
+            
+            // Re-setup routing after Alpine.js renders (for dynamically shown/hidden content)
+            setTimeout(() => {
+                setupClientRouting();
+            }, 100);
         });
     </script>
 </body>
