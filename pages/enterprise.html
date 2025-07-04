@@ -6,35 +6,8 @@
             "Subtitle" "Blue is trusted by more than 17,000 teams, from ambitious startups to established enterprises."
             "MarginBottom" "mb-16"
     }}
-    {{$logoData := parseJSON `{
-        "logos": [
-            { "name": "CBRE", "src": "/public/customers/cbre.svg" },
-            { "name": "Cisco", "src": "/public/customers/cisco.svg" },
-            { "name": "Deloitte", "src": "/public/customers/deloitte.svg" },
-            { "name": "FedEx", "src": "/public/customers/fedex.svg" },
-            { "name": "Manulife", "src": "/public/customers/manulife.svg" },
-            { "name": "Red Hat", "src": "/public/customers/redhat.svg" },
-            { "name": "Heineken", "src": "/public/customers/heineken.svg" },
-            { "name": "Marriott", "src": "/public/customers/marriot.svg" },
-            { "name": "Decathlon", "src": "/public/customers/decathlon.svg" },
-            { "name": "TotalEnergies", "src": "/public/customers/totalenergies.svg" },
-            { "name": "Sheraton", "src": "/public/customers/sheraton.svg" },
-            { "name": "VMware", "src": "/public/customers/wmware.svg" },
-            { "name": "Columbia University", "src": "/public/customers/columbia-university.webp" },
-            { "name": "Save the Children", "src": "/public/customers/savethechildren.svg" },
-            { "name": "World Food Programme", "src": "/public/customers/wfp.svg" },
-            { "name": "UNDP", "src": "/public/customers/undp.svg" },
-            { "name": "ILO", "src": "/public/customers/ilo.webp" },
-            { "name": "ADB", "src": "/public/customers/adb.svg" }
-        ]
-    }`}}
-    
-    {{template "logo-grid" $logoData}}
-
     <!-- Customer Testimonial Section -->
-    <div class="py-16">
-        <h2 class="text-3xl font-bold text-center mb-12">Hear from our customers</h2>
-        
+    <div class="py-16">        
         {{template "testimonial-single" 
             dict 
                 "Quote" "We are saving each sales rep in our team 9 hours a week with Blue."
