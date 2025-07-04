@@ -121,28 +121,36 @@
                             const currentMain = document.querySelector('main');
                             
                             if (newMain && currentMain) {
-                                // Update content
-                                currentMain.innerHTML = newMain.innerHTML;
+                                // Fade out current content
+                                currentMain.style.opacity = '0';
+                                currentMain.style.transition = 'opacity 150ms ease-out';
                                 
-                                // Update title
-                                const newTitle = doc.querySelector('title');
-                                if (newTitle) document.title = newTitle.textContent;
-                                
-                                // Update URL
-                                window.history.pushState(null, '', link.href);
-                                
-                                // Update sidebar active state
-                                const sidebar = document.querySelector('nav[x-data*="currentPath"]');
-                                if (sidebar && sidebar._x_dataStack && sidebar._x_dataStack[0].updateCurrentPath) {
-                                    sidebar._x_dataStack[0].updateCurrentPath(new URL(link.href).pathname);
-                                }
-                                
-                                // Re-initialize content
-                                hljs.highlightAll();
-                                addCopyButtons();
-                                
-                                // Scroll to top
-                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                // Update content after fade out
+                                setTimeout(() => {
+                                    currentMain.innerHTML = newMain.innerHTML;
+                                    // Fade in new content
+                                    currentMain.style.opacity = '1';
+                                    
+                                    // Update title
+                                    const newTitle = doc.querySelector('title');
+                                    if (newTitle) document.title = newTitle.textContent;
+                                    
+                                    // Update URL
+                                    window.history.pushState(null, '', link.href);
+                                    
+                                    // Update sidebar active state
+                                    const sidebar = document.querySelector('nav[x-data*="currentPath"]');
+                                    if (sidebar && sidebar._x_dataStack && sidebar._x_dataStack[0].updateCurrentPath) {
+                                        sidebar._x_dataStack[0].updateCurrentPath(new URL(link.href).pathname);
+                                    }
+                                    
+                                    // Re-initialize content
+                                    hljs.highlightAll();
+                                    addCopyButtons();
+                                    
+                                    // Scroll to top
+                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                }, 150);
                                 
                             } else {
                                 window.location.href = link.href;
