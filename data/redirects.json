@@ -1,6 +1,6 @@
 {
   "redirects": {
-    "/docs": "/docs/welcome",
+    "/docs": "/docs/start-guide/welcome",
     "/api": "/api-docs/introduction",
     "/api-docs": "/api-docs/introduction",
     "/about": "/company/about",

@@ -571,7 +571,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://blue.cc/docs/start-guide/download-apps</loc>
+    <loc>https://blue.cc/docs/start-guide/welcome</loc>
+    <lastmod>2025-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blue.cc/docs/start-guide/concepts</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -583,7 +589,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://blue.cc/docs/start-guide/concepts</loc>
+    <loc>https://blue.cc/docs/start-guide/download-apps</loc>
     <lastmod>2025-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
