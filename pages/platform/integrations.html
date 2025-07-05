@@ -2,9 +2,47 @@
 <div class="py-20">
     {{template "page-heading" 
         dict 
-            "Title" "Integrations" 
+            "Title" "Connect with 5,000+ tools" 
             "Subtitle" "Blue integrates with your existing tools and workflows to help you get the most out of your business." 
             "MarginBottom" "mb-8"
     }}
 
 </div>
+
+
+{{template "hero-video" 
+dict 
+    "VideoUrl" "/public/testvideo2.mp4"
+    "ShowUnmuteButton" true
+    "Id" "homepage"
+}}
+
+<!-- Likely have to edit this component to make it clickable links to open in the new tabs perhaps? Or use the 404 component instead-->
+
+{{$logoData := parseJSON `{
+    "title": "Blue has native integrations with all major platforms.",
+    "logos": [
+        { "name": "Make", "src": "/public/customers/cbre.svg" },
+        { "name": "Zapier", "src": "/public/customers/cisco.svg" },
+        { "name": "Pabbly Connect", "src": "/public/customers/deloitte.svg" },
+        { "name": "Albato", "src": "/public/customers/fedex.svg" },
+        { "name": "Boost.space", "src": "/public/customers/manulife.svg" }
+    ]
+}`}}
+
+{{template "logo-grid" $logoData}}
+
+<!-- TODO: I should hunt around for good examples of integration pages and do some scrolling logos of popular integrations, or do a search experience like the current site?-->
+
+
+  <!-- Customer Testimonial Section -->
+  <section class="mb-16">        
+    {{template "testimonial-single" 
+        dict 
+            "Quote" "I really really love Blue…It’s a very flexible sales CRM system."
+            "VideoUrl" "https://media.blue.cc/june.mp4"
+            "PosterUrl" "/public/testimonials/june.jpg"
+            "Name" "June"
+            "Title" "Legal Tech Sales"
+    }}
+</section>
