@@ -53,7 +53,7 @@
 
     {{$valuePropsData := parseJSON `{
         "Title": "Designed to turn everything<br> into a clear process.",
-        "Description": "Because great organizations run on clear, repeatable processes that everyone can see - not chaos and confusion.",
+        "Description": "Because great organizations thrive on clear, repeatable processes.",
         "ValueProps": [
             {
                 "Title": "Built for how you actually work",
@@ -118,13 +118,35 @@
 
 <!-- Features as Benefits Section -->
 <section class="max-w-7xl mx-auto">
-    <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Designed to deliver results.</h3>
+    <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Work — the way it should be.</h3>
     
-    <!-- Automate the Repetitive -->
+    <!-- One source of truth -->
     <div class="mb-20">
         {{$automateData := parseJSON `{
-            "Title": "Automate the Repetitive",
-            "Description": "Say goodbye to manual, repetitive tasks that drain your team's energy and time. Blue's powerful automation engine handles everything from status updates and notifications to complex multi-step workflows. Set up unlimited automations that trigger based on your custom conditions and watch your team focus on what truly matters.",
+            "Title": "One source of truth.",
+            "Description": "Create records for all your business data, so you finally have one place to keep everything.",
+            "VideoUrl": "/public/testvideo2.mp4",
+            "VideoPosition": "left"
+        }`}}
+        {{template "feature-video" $automateData}}
+    </div>
+
+     <!-- See Everything, Miss Nothing -->
+     <div class="mb-20">
+        {{$seeEverythingData := parseJSON `{
+            "Title": "Everything is a process.",
+            "Description": "Blue helps you create clear, repeatable processes for everything you do.",
+            "VideoUrl": "/public/testvideo2.mp4",
+            "VideoPosition": "right"
+        }`}}
+        {{template "feature-video" $seeEverythingData}}
+    </div>
+   
+    <!-- Create Clear Process -->
+    <div class="mb-20">
+        {{$automateData := parseJSON `{
+            "Title": "Automations help you scale.",
+            "Description": "Blue's powerful automation engine handles everything from status updates and notifications to complex multi-step workflows.",
             "VideoUrl": "/public/testvideo2.mp4",
             "VideoPosition": "left"
         }`}}
@@ -132,16 +154,7 @@
     </div>
 
 
-    <!-- See Everything, Miss Nothing -->
-    <div class="mb-20">
-        {{$seeEverythingData := parseJSON `{
-            "Title": "See Everything, Miss Nothing",
-            "Description": "Get a complete view of your entire operation from a single dashboard. No more switching between multiple tools or losing track of important tasks. Blue brings all your processes, projects, and team activities into one unified view so you can spot bottlenecks, track progress, and make informed decisions instantly.",
-            "VideoUrl": "/public/testvideo2.mp4",
-            "VideoPosition": "right"
-        }`}}
-        {{template "feature-video" $seeEverythingData}}
-    </div>
+   
 
     
 
@@ -167,6 +180,31 @@
                     
                     {{template "stats-section" $statsData}}
     </section>
+
+
+
+    <!-- Your Data, Your Way -->
+    <div class="mb-20">
+        {{$yourDataData := parseJSON `{
+            "Title": "Your Data, Your Way",
+            "Description": "Every business is unique, and your data structure should reflect that. Create custom fields, design your own record types, and build the perfect database that fits your exact workflow. Whether you're tracking sales leads, managing projects, or organizing inventory, Blue adapts to your business model instead of forcing you to adapt to rigid templates.",
+            "VideoUrl": "/public/testvideo2.mp4",
+            "VideoPosition": "right"
+        }`}}
+        {{template "feature-video" $yourDataData}}
+    </div>
+
+    <!-- Insights That Drive Action -->
+    <div class="mb-20">
+        {{$insightsData := parseJSON `{
+            "Title": "Insights That Drive Action",
+            "Description": "Transform your data into actionable insights with real-time analytics and customizable dashboards. Track key performance indicators, identify trends, and spot opportunities before your competitors do. Blue's intelligent reporting helps you understand what's working, what isn't, and exactly where to focus your efforts for maximum impact.",
+            "VideoUrl": "/public/testvideo2.mp4",
+            "VideoPosition": "left"
+        }`}}
+        {{template "feature-video" $insightsData}}
+    </div>
+</section>
 
     <!-- Features Grid Section -->
     {{$featuresData := parseJSON `{
@@ -227,28 +265,6 @@
        
 
 
-    <!-- Your Data, Your Way -->
-    <div class="mb-20">
-        {{$yourDataData := parseJSON `{
-            "Title": "Your Data, Your Way",
-            "Description": "Every business is unique, and your data structure should reflect that. Create custom fields, design your own record types, and build the perfect database that fits your exact workflow. Whether you're tracking sales leads, managing projects, or organizing inventory, Blue adapts to your business model instead of forcing you to adapt to rigid templates.",
-            "VideoUrl": "/public/testvideo2.mp4",
-            "VideoPosition": "right"
-        }`}}
-        {{template "feature-video" $yourDataData}}
-    </div>
-
-    <!-- Insights That Drive Action -->
-    <div class="mb-20">
-        {{$insightsData := parseJSON `{
-            "Title": "Insights That Drive Action",
-            "Description": "Transform your data into actionable insights with real-time analytics and customizable dashboards. Track key performance indicators, identify trends, and spot opportunities before your competitors do. Blue's intelligent reporting helps you understand what's working, what isn't, and exactly where to focus your efforts for maximum impact.",
-            "VideoUrl": "/public/testvideo2.mp4",
-            "VideoPosition": "left"
-        }`}}
-        {{template "feature-video" $insightsData}}
-    </div>
-</section>
 
 <!-- Call to Action -->
 {{$ctaData := parseJSON `{
