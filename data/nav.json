@@ -91,9 +91,10 @@
       "expanded": false,
       "children": [
         {"id": "about", "name": "About", "href": "/company/about"},
-        {"id": "charter", "name": "Charter", "href": "/company/charter"},
         {"id": "mission", "name": "Mission", "href": "/company/mission"},
-        {"id": "partner-program", "name": "Partner Program", "href": "/company/partners"},
+        {"id": "values", "name": "Values", "href": "/company/values"},
+        {"id": "partner-program", "name": "Partner with us", "href": "/company/partners"},
+        {"id": "careers", "name": "Careers", "href": "/company/careers"},
         {"id": "brand", "name": "Brand", "href": "/brand"},
         {
           "id": "sop",
