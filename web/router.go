@@ -35,14 +35,14 @@ var templateFuncs = template.FuncMap{
 		if dateStr == "" {
 			return ""
 		}
-		
+
 		// Parse ISO date format (YYYY-MM-DD)
 		parsedDate, err := time.Parse("2006-01-02", dateStr)
 		if err != nil {
 			// If parsing fails, return original string
 			return dateStr
 		}
-		
+
 		// Format as "Month Day, Year" (e.g., "July 12, 2024")
 		return parsedDate.Format("January 2, 2006")
 	},
@@ -113,7 +113,6 @@ func NewRouter(pagesDir string) *Router {
 	navigationService := NewNavigationService(seoService)
 	htmlService := NewHTMLService(pagesDir, "layouts", "components", markdownService)
 
-
 	router := &Router{
 		pagesDir:          pagesDir,
 		layoutsDir:        "layouts",
@@ -173,7 +172,7 @@ func (r *Router) serve404(w http.ResponseWriter, req *http.Request) {
 	if _, err := os.Stat(notFoundPath); err == nil {
 		// Custom 404 page exists, set 404 status and serve it
 		w.WriteHeader(http.StatusNotFound)
-		
+
 		// Read the 404 page content
 		contentBytes, err := os.ReadFile(notFoundPath)
 		if err != nil {
@@ -181,20 +180,20 @@ func (r *Router) serve404(w http.ResponseWriter, req *http.Request) {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Prepare page data for 404 page (before processing templates)
 		pageData := r.preparePageData("/404", "", false, nil, r.navigationService.GetNavigationForPath("/404"))
-		
+
 		// Create a template for the 404 page content
 		contentTmpl := template.New("404-content").Funcs(templateFuncs)
-		
+
 		// Auto-scan all component templates for 404 content parsing
 		componentFiles, err := r.loadComponentTemplates()
 		if err != nil {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Parse component files first
 		if len(componentFiles) > 0 {
 			contentTmpl, err = contentTmpl.ParseFiles(componentFiles...)
@@ -203,40 +202,40 @@ func (r *Router) serve404(w http.ResponseWriter, req *http.Request) {
 				return
 			}
 		}
-		
+
 		// Then parse the 404 page content
 		contentTmpl, err = contentTmpl.Parse(string(contentBytes))
 		if err != nil {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Execute the 404 content template with the page data
 		var renderedContent strings.Builder
 		if err = contentTmpl.Execute(&renderedContent, pageData); err != nil {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Now prepare template files for main layout
 		templateFiles := []string{
 			filepath.Join(r.layoutsDir, "main.html"),
 		}
 		templateFiles = append(templateFiles, componentFiles...)
-		
+
 		// Create template with custom functions for main layout
 		tmpl := template.New("main.html").Funcs(templateFuncs)
-		
+
 		// Parse all template files
 		tmpl, err = tmpl.ParseFiles(templateFiles...)
 		if err != nil {
 			http.NotFound(w, req)
 			return
 		}
-		
+
 		// Update page data with rendered content
 		pageData.Content = template.HTML(renderedContent.String())
-		
+
 		// Execute main layout template
 		if err := tmpl.ExecuteTemplate(w, "main.html", pageData); err != nil {
 			http.NotFound(w, req)
@@ -255,7 +254,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		HealthHandler(w, req)
 		return
 	}
-	
+
 	// Handle status API routes
 	if r.statusChecker != nil {
 		switch req.URL.Path {
@@ -267,7 +266,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 	}
-	
+
 	// Skip public file requests
 	if strings.HasPrefix(req.URL.Path, "/public/") {
 		return
@@ -355,6 +354,11 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 			// Not in cache, try to find and process markdown file (fallback)
 			markdownPath, mdErr := r.contentService.FindMarkdownFile(path)
 			if mdErr != nil {
+				// Before serving 404, check if this is a directory URL that should redirect
+				if firstItemURL := r.navigationService.GetFirstItemInDirectory(path); firstItemURL != "" {
+					http.Redirect(w, req, firstItemURL, http.StatusMovedPermanently)
+					return
+				}
 				r.serve404(w, req)
 				return
 			}
@@ -490,29 +494,27 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := r.seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
 
-
 	// Prepare insights data - only include if on insights page
 	var insights []InsightData
 	if path == "/insights" {
 		// Get all cached insights from MarkdownService
 		cachedInsights := r.markdownService.GetAllCachedContent()
-		
-		
+
 		// Initialize SVG generator
 		svgGen := NewSVGGenerator()
-		
+
 		for urlPath, content := range cachedInsights {
 			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
-					// Extract category from tags or category field
+				// Extract category from tags or category field
 				category := content.Frontmatter.Category
 				if category == "" && len(content.Frontmatter.Tags) > 0 {
 					// Fallback to first tag if category is not set
 					category = content.Frontmatter.Tags[0]
 				}
-				
+
 				// Generate unique SVG for this insight based on title
 				svgDataURL := svgGen.GenerateSVGDataURL(content.Frontmatter.Title)
-				
+
 				insights = append(insights, InsightData{
 					Title:       content.Frontmatter.Title,
 					Description: content.Frontmatter.Description,

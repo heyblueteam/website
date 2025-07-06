@@ -204,7 +204,7 @@ func (ns *NavigationService) processDirectory(dirPath, dirName, baseURL, rootCon
 
 			// Get content type from root directory
 			contentTypeName := strings.Split(rootContentDir, "/")[1] // e.g., "content/docs" -> "docs"
-			
+
 			// Remove the content type prefix
 			if strings.HasPrefix(relDir, contentTypeName+"/") {
 				relDir = strings.TrimPrefix(relDir, contentTypeName+"/")
@@ -301,4 +301,100 @@ func (ns *NavigationService) GetNavigationForPath(path string) *Navigation {
 	}
 
 	return nav
+}
+
+// GetFirstItemInDirectory finds the first item (by numeric prefix) in a directory
+// Returns the URL of the first item, or empty string if not found
+func (ns *NavigationService) GetFirstItemInDirectory(path string) string {
+	// Remove trailing slash and determine content type
+	cleanPath := strings.TrimSuffix(path, "/")
+	contentType, isContentPath := GetContentTypeFromPath(cleanPath)
+	if !isContentPath {
+		return ""
+	}
+
+	// Get the appropriate navigation based on content type
+	var navigation *Navigation
+	switch contentType.Name {
+	case "docs":
+		navigation = ns.docsNavigation
+	case "api":
+		navigation = ns.apiNavigation
+	case "legal":
+		navigation = ns.legalNavigation
+	default:
+		return ""
+	}
+
+	if navigation == nil {
+		return ""
+	}
+
+	// If it's a root content type path (e.g., /docs, /api, /legal)
+	if cleanPath == contentType.URLPrefix {
+		// Return the first section's first item
+		if len(navigation.Sections) > 0 {
+			firstSection := navigation.Sections[0]
+			if firstSection.Href != "" {
+				return firstSection.Href
+			}
+			// If section has children, return first child
+			if len(firstSection.Children) > 0 {
+				return firstSection.Children[0].Href
+			}
+		}
+		return ""
+	}
+
+	// For deeper paths, we need to navigate the tree
+	// Remove the content type prefix to get the relative path
+	relativePath := strings.TrimPrefix(cleanPath, contentType.URLPrefix)
+	relativePath = strings.TrimPrefix(relativePath, "/")
+
+	// Find the matching directory in the navigation tree
+	return ns.findFirstItemInPath(navigation.Sections, relativePath, contentType.URLPrefix)
+}
+
+// findFirstItemInPath recursively searches the navigation tree for a matching path
+func (ns *NavigationService) findFirstItemInPath(sections []NavItem, targetPath string, baseURL string) string {
+	if targetPath == "" {
+		// We're at the target directory, return first item
+		if len(sections) > 0 {
+			firstItem := sections[0]
+			if firstItem.Href != "" {
+				return firstItem.Href
+			}
+			// If first item has children, return first child
+			if len(firstItem.Children) > 0 {
+				return firstItem.Children[0].Href
+			}
+		}
+		return ""
+	}
+
+	// Split the path to get the first segment
+	pathParts := strings.Split(targetPath, "/")
+	if len(pathParts) == 0 {
+		return ""
+	}
+
+	firstSegment := pathParts[0]
+	remainingPath := strings.Join(pathParts[1:], "/")
+
+	// Find the matching section
+	for _, section := range sections {
+		if section.ID == firstSegment {
+			if remainingPath == "" {
+				// We've found the target directory
+				if len(section.Children) > 0 {
+					return section.Children[0].Href
+				}
+				return ""
+			}
+			// Continue searching in children
+			return ns.findFirstItemInPath(section.Children, remainingPath, baseURL)
+		}
+	}
+
+	return ""
 }
