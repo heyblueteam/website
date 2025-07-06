@@ -6,7 +6,9 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
+	"time"
 )
 
 // HTMLService handles HTML page pre-rendering
@@ -97,7 +99,7 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 	return nil
 }
 
-// renderHTMLPage renders a single HTML page with templates  
+// renderHTMLPage renders a single HTML page with templates
 func (hs *HTMLService) renderHTMLPage(filePath, urlPath string, navigationService *NavigationService, seoService *SEOService) (string, error) {
 	// Read the HTML file
 	contentBytes, err := os.ReadFile(filePath)
@@ -219,16 +221,15 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
 
-
 	// Prepare insights data - only include if on insights page
 	var insights []InsightData
 	if path == "/insights" && hs.markdownService != nil {
 		// Get all cached insights from MarkdownService
 		cachedInsights := hs.markdownService.GetAllCachedContent()
-		
+
 		// Initialize SVG generator
 		svgGen := NewSVGGenerator()
-		
+
 		for urlPath, content := range cachedInsights {
 			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
 				// Extract category from tags or category field
@@ -237,10 +238,10 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 					// Fallback to first tag if category is not set
 					category = content.Frontmatter.Tags[0]
 				}
-				
+
 				// Generate unique SVG for this insight based on title
 				svgDataURL := svgGen.GenerateSVGDataURL(content.Frontmatter.Title)
-				
+
 				insights = append(insights, InsightData{
 					Title:       content.Frontmatter.Title,
 					Description: content.Frontmatter.Description,
@@ -252,13 +253,37 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 				})
 			}
 		}
+
+		// Sort insights by date in reverse chronological order (newest first)
+		sort.Slice(insights, func(i, j int) bool {
+			// Parse dates, handle missing/invalid dates
+			dateI, errI := time.Parse("2006-01-02", insights[i].Date)
+			dateJ, errJ := time.Parse("2006-01-02", insights[j].Date)
+
+			// If both dates are invalid, maintain original order
+			if errI != nil && errJ != nil {
+				return false
+			}
+
+			// If one date is invalid, put it at the end
+			if errI != nil {
+				return false
+			}
+			if errJ != nil {
+				return true
+			}
+
+			// Both dates are valid, sort newest first
+			return dateI.After(dateJ)
+		})
+
 		// Insights loaded for page
 	}
 
 	// Extract table of contents
 	toc := make([]TOCEntry, 0)
 	tocExcludedPaths := []string{"/changelog", "/roadmap", "/platform/status"}
-	
+
 	isExcluded := false
 	for _, excludedPath := range tocExcludedPaths {
 		if path == excludedPath {
@@ -266,7 +291,7 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 			break
 		}
 	}
-	
+
 	if !isExcluded && string(content) != "" {
 		var err error
 		if isMarkdown {
