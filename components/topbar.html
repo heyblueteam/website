@@ -284,7 +284,14 @@
                         openLogin();
                     } else if (event.key.toLowerCase() === 'c') {
                         event.preventDefault();
-                        window.location.href = '/contact';
+                        // Find and click the contact link to use SPA routing
+                        const contactLink = document.querySelector('a[href="/contact"]');
+                        if (contactLink) {
+                            contactLink.click();
+                        } else {
+                            // Fallback to direct navigation if link not found
+                            window.location.href = '/contact';
+                        }
                     } else if (event.key === 'Enter') {
                         event.preventDefault();
                         openSignUp();
