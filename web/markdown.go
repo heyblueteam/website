@@ -26,6 +26,7 @@ func NewMarkdownService() *MarkdownService {
 		goldmark.WithExtensions(
 			extension.GFM,
 			NewYouTubeExtension(),
+			NewCalloutExtension(),
 		),
 		goldmark.WithParserOptions(
 			parser.WithAutoHeadingID(),
