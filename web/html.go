@@ -325,5 +325,6 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		TOC:            toc,
 		CustomerNumber: 17000,
 		Insights:       insights,
+		Path:           path,
 	}
 }

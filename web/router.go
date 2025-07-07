@@ -73,6 +73,7 @@ type PageData struct {
 	TOC            []TOCEntry
 	CustomerNumber int
 	Insights       []InsightData
+	Path           string
 }
 
 // Router handles file-based routing for HTML pages
@@ -563,6 +564,7 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		TOC:            toc,
 		CustomerNumber: 17000,
 		Insights:       insights,
+		Path:           path,
 	}
 }
 
