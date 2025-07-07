@@ -362,7 +362,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/start-guide/authentication</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -410,7 +410,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/projects/index</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -428,19 +428,19 @@
   </url>
   <url>
     <loc>https://blue.cc/api/projects/delete-project</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/projects/archive-project</loc>
-    <lastmod>2025-07-06</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/projects/project-activity</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -506,7 +506,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/records/copy-record</loc>
-    <lastmod>2025-07-06</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -602,7 +602,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/start-guide/download-apps</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -614,19 +614,19 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/billing</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/security</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/index</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -638,7 +638,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/templates</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -662,7 +662,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/file-management</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -674,7 +674,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/wiki</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -686,25 +686,25 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/chat</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/forms</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/copying-projects</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/records/introduction</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -740,13 +740,13 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/records/lists</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/records/tags</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -782,19 +782,19 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/records/repeat</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/views/kanban-board</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/views/calendar</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -806,7 +806,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/views/database</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -830,19 +830,19 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/introduction</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/single-select</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/multiple-select</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -854,7 +854,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/phone-number</loc>
-    <lastmod>2025-07-04</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -890,7 +890,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/unique-id</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -902,7 +902,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/reference</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -944,7 +944,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/currency</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -956,7 +956,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/date</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -968,25 +968,25 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/file</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/automations/introduction</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/automations/triggers</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/automations/actions/email-automations</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1016,13 +1016,13 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/user-management/mentions</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/user-management/organisation-administrator</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1064,7 +1064,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/dashboards/introduction</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1076,7 +1076,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/dashboards/pie-charts</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1088,19 +1088,19 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/api</loc>
-    <lastmod>2025-07-06</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/webhooks</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/pabbly-connect</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1112,25 +1112,25 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/make</loc>
-    <lastmod>2025-07-06</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/csv-import</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/csv-export</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/docs/integrations/calendar-sync</loc>
-    <lastmod>2025-07-02</lastmod>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
