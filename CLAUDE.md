@@ -163,7 +163,7 @@
 
 ```
 .
-├── components/                 # Reusable HTML components (25 components)
+├── components/                 # Reusable HTML Golang components
 │   ├── head.html              # HTML head with meta tags and assets
 │   ├── left-sidebar.html      # Documentation navigation
 │   ├── right-sidebar.html     # Table of contents
