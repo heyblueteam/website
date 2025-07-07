@@ -236,9 +236,11 @@ func (r *Router) serve404(w http.ResponseWriter, req *http.Request) {
 		// Update page data with rendered content
 		pageData.Content = template.HTML(renderedContent.String())
 
-		// Execute main layout template
+		// Set 404 status and execute main layout template
+		w.WriteHeader(http.StatusNotFound)
 		if err := tmpl.ExecuteTemplate(w, "main.html", pageData); err != nil {
-			http.NotFound(w, req)
+			// Headers already written, just log the error
+			log.Printf("Error executing 404 template: %v", err)
 			return
 		}
 	} else {
