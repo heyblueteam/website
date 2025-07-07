@@ -177,11 +177,11 @@ func (r *CalloutRenderer) renderCallout(w util.BufWriter, source []byte, node as
 		// Clickable callout container with hover effects  
 		w.WriteString(fmt.Sprintf(`<a href="%s"%s class="block no-underline group">`, callout.To, target))
 		w.WriteString(`<div class="callout border border-gray-200 rounded-lg p-4 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 my-4 hover:border-brand-blue hover:bg-blue-50 dark:hover:border-blue-400 dark:hover:bg-blue-900/20 transition-all duration-200">`)
-		w.WriteString(`<div class="flex items-start gap-3">`)
+		w.WriteString(`<div class="flex items-center gap-3">`)
 		
 		// Icon container
 		w.WriteString(`<div class="w-10 h-10 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">`)
-		w.WriteString(fmt.Sprintf(`<svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor">
+		w.WriteString(fmt.Sprintf(`<svg class="w-5 h-5 text-brand-blue dark:text-brand-blue" fill="currentColor">
 			<use href="/public/icons/sprite.svg#%s"></use>
 		</svg>`, iconName))
 		w.WriteString(`</div>`)
@@ -196,11 +196,11 @@ func (r *CalloutRenderer) renderCallout(w util.BufWriter, source []byte, node as
 	} else {
 		// Non-clickable callout container
 		w.WriteString(`<div class="callout border border-gray-200 rounded-lg p-4 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 my-4">`)
-		w.WriteString(`<div class="flex items-start gap-3">`)
+		w.WriteString(`<div class="flex items-center gap-3">`)
 		
 		// Icon container
 		w.WriteString(`<div class="w-10 h-10 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">`)
-		w.WriteString(fmt.Sprintf(`<svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor">
+		w.WriteString(fmt.Sprintf(`<svg class="w-5 h-5 text-brand-blue dark:text-brand-blue" fill="currentColor">
 			<use href="/public/icons/sprite.svg#%s"></use>
 		</svg>`, iconName))
 		w.WriteString(`</div>`)
