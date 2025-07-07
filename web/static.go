@@ -9,6 +9,17 @@ import (
 	"time"
 )
 
+// noDirListing wraps a file server to prevent directory listing
+func noDirListing(h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if strings.HasSuffix(r.URL.Path, "/") || r.URL.Path == "" {
+			http.NotFound(w, r)
+			return
+		}
+		h.ServeHTTP(w, r)
+	})
+}
+
 // CachePolicy defines caching behavior for different file types
 type CachePolicy struct {
 	MaxAge    int  // Cache duration in seconds
@@ -63,7 +74,7 @@ func NewCacheFileServer(root string) *CacheFileServer {
 	}
 
 	return &CacheFileServer{
-		handler:  http.FileServer(http.Dir(root)),
+		handler:  noDirListing(http.FileServer(http.Dir(root))),
 		policies: policies,
 	}
 }
