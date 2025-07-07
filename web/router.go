@@ -171,8 +171,7 @@ func (r *Router) serve404(w http.ResponseWriter, req *http.Request) {
 	// Try to serve custom 404.html page
 	notFoundPath := filepath.Join(r.pagesDir, "404.html")
 	if _, err := os.Stat(notFoundPath); err == nil {
-		// Custom 404 page exists, set 404 status and serve it
-		w.WriteHeader(http.StatusNotFound)
+		// Custom 404 page exists, we'll set status when we write the response
 
 		// Read the 404 page content
 		contentBytes, err := os.ReadFile(notFoundPath)
