@@ -138,6 +138,19 @@
                                     const newTitle = doc.querySelector('title');
                                     if (newTitle) document.title = newTitle.textContent;
                                     
+                                    // Update meta tags for SEO
+                                    ['description', 'og:title', 'og:description', 'og:url', 'twitter:title', 'twitter:description'].forEach(name => {
+                                        const oldMeta = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+                                        const newMeta = doc.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
+                                        if (oldMeta && newMeta) {
+                                            if (oldMeta.hasAttribute('content')) {
+                                                oldMeta.content = newMeta.content;
+                                            } else if (oldMeta.hasAttribute('property')) {
+                                                oldMeta.setAttribute('content', newMeta.content);
+                                            }
+                                        }
+                                    });
+                                    
                                     // Update URL
                                     window.history.pushState(null, '', link.href);
                                     
