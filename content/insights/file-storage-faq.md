@@ -127,7 +127,7 @@ And this is why we are considering moving across in the future, because that wou
 
 ## Intelligent Tiering
 
-One of the key strategies that allows us to offer unlimited storage while keeping costs manageable is our use of intelligent tiering. This approach takes advantage of how files are typically used in [project management](/solutions/project-management) scenarios, allowing us to optimize storage costs without sacrificing performance or accessibility.
+One of the key strategies that allows us to offer unlimited storage while keeping costs manageable is our use of intelligent tiering. This approach takes advantage of how files are typically used in [project management](/solutions/use-case/project-management) scenarios, allowing us to optimize storage costs without sacrificing performance or accessibility.
 
 Intelligent tiering is an automated storage management system that moves data between different storage classes based on access patterns. Here's how it works:
 

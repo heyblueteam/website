@@ -73,7 +73,7 @@ Kanban boards are also incredibly effective at managing workflows. By breaking d
 
 ### Kanban Boards Benefit 3: Enhanced Collaboration
 
-Collaboration is the cornerstone of successful [project management](/solutions/project-management) and [great teamwork](/resources/great-teamwork), and Kanban boards facilitate this by providing *the* space to collaborate.
+Collaboration is the cornerstone of successful [project management](/solutions/use-case/project-management) and [great teamwork](/resources/great-teamwork), and Kanban boards facilitate this by providing *the* space to collaborate.
 
 Sure, there will still be team chat, some 1-2-1s, sticky notes on people's desk. But, the kanban board is where the *meaningful* updates go, and where you can expect to find shared information. 
 

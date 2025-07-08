@@ -204,7 +204,7 @@ However, Trello does have some tricks up its sleeve that Blue does not yet have:
 - **Conditional Automations:** Trello's Butler automation engine supports creating rules that perform actions based on specific conditions. For example, you can set up a rule that triggers only if a card has a certain label, is in a particular list, or meets other criteria you define. These conditional automations allow for more customized and targeted workflows within Trello.
 - **Automations with Third Party Apps:** Trello allows integrations with various third-party apps through its Butler automation engine. This means you can automate actions not just within Trello but also across other tools and services that your team might be using, enhancing the overall workflow and connectivity of your project management system. Blue only supports this via [Webhooks](https://documentation.blue.cc/integrations/webhooks) and third-party integrators such as [Pabbly](https://documentation.blue.cc/integrations/pabbly-connect) and [Zapier](https://documentation.blue.cc/integrations/zapier). 
 
-Blue does has the [powerful email automation feature](/resources/email-automations) which is not available in Trello, which allows you to send custom email notifications to any email address, leveraging the data in your [custom fields](https://www.blue.cc/platform/custom-fields) using dynamic tags. This is great for workflows such as [managing service tickets](/solutions/service-tickets). 
+Blue does has the [powerful email automation feature](/resources/email-automations) which is not available in Trello, which allows you to send custom email notifications to any email address, leveraging the data in your [custom fields](https://www.blue.cc/platform/custom-fields) using dynamic tags. This is great for workflows such as [managing service tickets](/solutions/use-case/service-tickets). 
 
 ![](/public/resources/email-automations-image.webp)
 
@@ -384,7 +384,7 @@ This is an *unsolicited* quote from an [AppSumo](https://appsumo.com) customer, 
 
 ## Corporate Structure Differences
 
-When you're picking a [project management tool](/solutions/project-management), it’s important to think beyond just the features. You should also consider the companies behind the products. This broader view can give you great insights into their priorities, focus, and where they’re headed in the future.
+When you're picking a [project management tool](/solutions/use-case/project-management), it’s important to think beyond just the features. You should also consider the companies behind the products. This broader view can give you great insights into their priorities, focus, and where they’re headed in the future.
 
 After being acquired by Atlassian for $425 million in 2017, Trello became part of a major publicly traded company. This backing provides Trello with access to the resources of a well-established brand known for reliability, especially with tools like Jira and Confluence that integrate smoothly with it.
 

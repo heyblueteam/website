@@ -16,7 +16,7 @@ In helping thousands of customers to get setup in Blue over the years, we’ve n
 
 The key parts are thinking of the step-by-step workflow for each of your business processes that you want to track, and also the specifics of the data that you want to capture, and how this translates to the custom fields that you setup. 
 
-Today, we are going to walk you through creating [an easy to use, yet powerful sales CRM system](/solutions/sales-crm) with a customer database that is linked to a pipeline of opportunities. All this data will flow into a dashboard where you can see realtime data on your total sales, forecasted sales, and more. 
+Today, we are going to walk you through creating [an easy to use, yet powerful sales CRM system](/solutions/use-case/sales-crm) with a customer database that is linked to a pipeline of opportunities. All this data will flow into a dashboard where you can see realtime data on your total sales, forecasted sales, and more. 
 
 ## Customer Database
 

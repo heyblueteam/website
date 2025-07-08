@@ -160,6 +160,6 @@ This project exemplifies Blue's approach to engineering: *we're not afraid to st
 
 By reimagining our CSV import and export process, we've not only solved a pressing need for one enterprise client but improved the experience for all our users dealing with large datasets.
 
-As we continue to push the boundaries of what's possible in [project management software](/solutions/project-management), we're excited to tackle more challenges like this. 
+As we continue to push the boundaries of what's possible in [project management software](/solutions/use-case/project-management), we're excited to tackle more challenges like this. 
 
 Stay tuned for more [deep dives into the engineering that powers Blue!](/resources/engineering-blog)

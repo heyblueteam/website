@@ -32,7 +32,7 @@ I’ll share some of the ideas and processes I use to ensure I make the right de
 
 Perfection, after all, is not required to be successful!
 
-If you’re a [solopreneur](/solutions/solopreneurs) starting out, the advice here will save you significant headaches. It will also lead you to create a successful business with *sustainable* growth.
+If you’re a [solopreneur](/solutions/industry/solopreneurs) starting out, the advice here will save you significant headaches. It will also lead you to create a successful business with *sustainable* growth.
 
 By *sustainable* growth, I mean building a firm that:
 

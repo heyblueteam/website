@@ -8,7 +8,7 @@ date: 2024-01-08
 showdate: false
 ---
 
-At Blue, we're one of the few [project management platforms](/solutions/project-management) that does not bill separately for AI usage. This is in line with our mission:
+At Blue, we're one of the few [project management platforms](/solutions/use-case/project-management) that does not bill separately for AI usage. This is in line with our mission:
 
 > To organize the world's work by building the best project management platform on the planet—simple, powerful, flexible, and affordable for all.
 

@@ -177,7 +177,7 @@ In today's complex project environments, effective collaboration is not just ben
 
 *"When we implemented our automated project management system, it was like turning on a light in a dark room,"* shares a project director at a multinational corporation. *"Suddenly, everyone could see the full picture of our projects, and the time spent searching for information dropped dramatically."* 
 
-This centralization is particularly crucial as it directly impacts the scalability of communication. With multiple communication channels, the potential for miscommunication and lost information grows exponentially with team size. [A unified platform](/solutions/project-management) keeps everyone on the same page, literally and figuratively.
+This centralization is particularly crucial as it directly impacts the scalability of communication. With multiple communication channels, the potential for miscommunication and lost information grows exponentially with team size. [A unified platform](/solutions/use-case/project-management) keeps everyone on the same page, literally and figuratively.
 
 [Automated project management systems](/platform/project-management-automation) excel at providing real-time updates, which ties back to our first benefit of time savings. Team members no longer need to wait for scheduled update meetings to get critical information. This immediacy can significantly speed up decision-making processes and reduce project delays. 
 

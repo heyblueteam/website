@@ -258,13 +258,13 @@ While the core principles remained the same, Software Kanban had to be adapted t
 ## Kanban in Project Management
 
 
-A significant milestone in the spread of Kanban in software development and beyond was the launch of [Trello](/insights/trello) in 2011. Trello, a [web-based project management platform](/solutions/project-management), popularized the concept of [digital Kanban boards](/platform/kanban-boards) for a wide audience.
+A significant milestone in the spread of Kanban in software development and beyond was the launch of [Trello](/insights/trello) in 2011. Trello, a [web-based project management platform](/solutions/use-case/project-management), popularized the concept of [digital Kanban boards](/platform/kanban-boards) for a wide audience.
 
 Trello's simple interface made Kanban accessible to non-technical users. It allowed anyone to create boards with columns representing workflow stages, and cards representing tasks that could be moved between these columns. This intuitive representation of Kanban principles helped spread the methodology beyond software development into general project management, marketing, education, and personal productivity.
 
 ![](/public/resources/trello-card.png)
 
-The success of Trello sparked a wave of similar tools, such as [Blue](/),  and soon, Kanban board features became a standard offering in many [project management software solutions](/solutions/project-management):
+The success of Trello sparked a wave of similar tools, such as [Blue](/),  and soon, Kanban board features became a standard offering in many [project management software solutions](/solutions/use-case/project-management):
 
 ![](/public/resources/blue-card.png)
 
@@ -280,7 +280,7 @@ While in this article we have mostly focussed on the history of Kanban boards, i
 
 In essence, asking *"what's next"*, especially at the intersection of project management and Kanban boards. 
 
-At [Blue](/), we're actively building the future of Kanban boards, and this is why it's so important to understand their history. As we go to work on fulfilling out mission to build the [world's best project management software.](/solutions/project-management), we see a few trends coming in the future:
+At [Blue](/), we're actively building the future of Kanban boards, and this is why it's so important to understand their history. As we go to work on fulfilling out mission to build the [world's best project management software.](/solutions/use-case/project-management), we see a few trends coming in the future:
 
 ### AI Integration
 AI promises to revolutionize the way we interact with and manage Kanban boards. Here are some of the ways we envision AI enhancing Kanban boards at Blue:

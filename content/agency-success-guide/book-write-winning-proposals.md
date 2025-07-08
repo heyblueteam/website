@@ -32,7 +32,7 @@ This means that you need to be razor-sharp in your thinking. You need to clearly
 It is best to start collaborating with the client right away, even before the project has started and you are in the proposal phase. Work in a collaborative manner with the client to narrow down the precise scope of work of the project, providing advice along the way. This gives them a taste of what it is like working with you (and vice versa).
 This is important because if you see that they are already challenging to work with at this stage, you know what to expect during the project. You can then use this information to price your proposal more accurately, or even decide not to take the project at all.
 
-And...you need an [easy-to-use and performance CRM(/solutions/sales-crm) (Customer Relationship Management) tool to keep track of all the proposals that you are working on! 
+And...you need an [easy-to-use and performance CRM](/solutions/use-case/sales-crm) (Customer Relationship Management) tool to keep track of all the proposals that you are working on! 
 
 Once you’ve agreed on their needs, you can move on to the next step. This is where you add pricing to your document and formalize the proposal with all the terms and details. Some clients will often want to skip this process and jump right to the proposal. Refuse to do this; the win rate for this type of work is low — it’s not worth your time.
 

@@ -347,7 +347,7 @@ Before going public, Asana raised $453M across 5 investment rounds.
 
 Since its listing in the New York Stock Exchange, Asana has lost 89.29% of its value since November 2021 to the present day. It was trading at $142.68 and nowdays trades for around $15.
 
-The main reason for Asana's significant stock price decline since its all-time high is the [intense competition in the project management software market](/solutions/project-management) which offer similar or potentially better value propositions.
+The main reason for Asana's significant stock price decline since its all-time high is the [intense competition in the project management software market](/solutions/use-case/project-management) which offer similar or potentially better value propositions.
 
 And the losses have added up! The total losses from 2020 to 2024 amount to $443.3 million. ​​
 
@@ -423,7 +423,7 @@ Blue has one of the most comprehensive custom field offerings on the market, all
 
 Finally, Blue is a software company, Asana is a marketing company *disguised* as a software company. 
 
-In the end, for teams that want a flexible, feature-rich, and cost-effective solution without sacrificing ease of use, [Blue is an excellent project management alternative to Asana](/solutions/project-management). 
+In the end, for teams that want a flexible, feature-rich, and cost-effective solution without sacrificing ease of use, [Blue is an excellent project management alternative to Asana](/solutions/use-case/project-management). 
 
 Blue combines the power that made Asana popular with the simplicity and adaptability needed for [today’s varied work environments](/resources/great-teamwork).
 

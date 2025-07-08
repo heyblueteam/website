@@ -32,7 +32,7 @@ As more teams discover Kanban's power, the demand for [digital kanban boards](/p
 
 The key is understanding the core components. Whether you're selecting new software or maximizing your current tool, knowing these essentials is crucial.
 
-In this guide, we'll break down the core elements you need to consider while looking for [kanban project management software](/solutions/project-management):
+In this guide, we'll break down the core elements you need to consider while looking for [kanban project management software](/solutions/use-case/project-management):
 
 1. Boards
 2. Columns/Lanes
@@ -69,7 +69,7 @@ With these tools, you can cut through the noise and zero in on your priorities, 
 
 ### Advanced Kanban Board Capabilities
 
-For teams ready to take their kanban game to the next level, many platforms offer advanced features that can significantly enhance productivity and [project management](/solutions/project-management).
+For teams ready to take their kanban game to the next level, many platforms offer advanced features that can significantly enhance productivity and [project management](/solutions/use-case/project-management).
 
 Board templates streamline the setup process for standard workflows. 
 

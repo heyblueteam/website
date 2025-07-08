@@ -50,7 +50,7 @@ We can break down independence into its fundamental components:
 
 ## Being Already Busy with Work
 
-You likely won’t have financial pressure to find new clients if you are already busy. Ensure that you and your team are at capacity for the next thirty to sixty days. Doing so gives you plenty of time to review new potential clients and decide who you want to work with. You should be tracking this in your [Sales CRM](/solutions/sales-crm).
+You likely won’t have financial pressure to find new clients if you are already busy. Ensure that you and your team are at capacity for the next thirty to sixty days. Doing so gives you plenty of time to review new potential clients and decide who you want to work with. You should be tracking this in your [Sales CRM](/solutions/use-case/sales-crm).
 
 Ensuring you are always busy is a great way to ensure a steady income — these are two sides of the same coin.
 

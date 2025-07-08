@@ -63,7 +63,7 @@ The project management process typically follows these five phases:
 
 So that’s it, in a nutshell: [Project management](/resources/project-management-basics-guide) is a structured approach to ensuring that projects are successful! 
 
-When it’s put this way, it seems deceptively simple, but in practice it can be quite difficult without the [right project management tools.](/solutions/project-management)
+When it’s put this way, it seems deceptively simple, but in practice it can be quite difficult without the [right project management tools.](/solutions/use-case/project-management)
 
 Let’s move onto our third and final word, automation!
 
@@ -121,7 +121,7 @@ This would of course be the next natural question. Everyone wants to “improve 
 6. Risk Management: Identify potential risks through automated analysis and trigger alerts for preventive actions.
 7.  Categorization of Tasks: [Automated categorization of tasks](/resources/ai-auto-categorization) can assist in categorizing tasks based on their nature, priority, and other relevant factors. This can help in better organizing and prioritizing tasks, enabling project managers to focus on the most critical tasks and allocate resources efficiently.
 
-A popular type of automation that many [project management systems](/solutions/project-management) have is that of [if-this-then-that automations](/platform/project-management-automation) (IFTTT) where end users can decide on triggers that will automatically excute actions based on pre-determined states. 
+A popular type of automation that many [project management systems](/solutions/use-case/project-management) have is that of [if-this-then-that automations](/platform/project-management-automation) (IFTTT) where end users can decide on triggers that will automatically excute actions based on pre-determined states. 
 
 ### Urgent Task Notifications
 

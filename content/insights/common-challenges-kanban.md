@@ -8,7 +8,7 @@ date: 2024-08-10
 showdate: true
 ---
 
-At Blue, it's no secret that we love [Kanban boards for project management.](/solutions/project-management). 
+At Blue, it's no secret that we love [Kanban boards for project management.](/solutions/use-case/project-management). 
 
 We think that [Kanban boards](/platform/kanban-boards) are a fantastic way to manage the workflow of any project, and they help keep project managers and team members alike sane! 
 

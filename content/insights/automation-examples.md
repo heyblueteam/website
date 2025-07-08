@@ -11,7 +11,7 @@ CtaHeader: Automate Everything
 CtaText: Join thousands of professionals who use Blue to put project management on autopilot.
 CtaButton: Get Started Now
 ---
-In today's fast-paced business environment, [project management](/solutions/project-management) has become increasingly complex. As teams juggle multiple projects, deadlines, and stakeholders, the need for efficient management tools has never been greater. This is where [project management automation](/platform/project-management-automation) comes into play, offering a powerful solution to streamline workflows and boost productivity.
+In today's fast-paced business environment, [project management](/solutions/use-case/project-management) has become increasingly complex. As teams juggle multiple projects, deadlines, and stakeholders, the need for efficient management tools has never been greater. This is where [project management automation](/platform/project-management-automation) comes into play, offering a powerful solution to streamline workflows and boost productivity.
 
 Automation in project management isn't just a luxury—it's becoming a necessity. By automating repetitive tasks, project managers can save valuable time, reduce human error, and allow their teams to focus on high-value work that truly moves the needle. From automatic task assignments to triggered notifications, automation tools are transforming how projects are managed and executed.
 
@@ -106,7 +106,7 @@ In the grand scheme of project management, status update automation is about mor
 
 ## 3. Client Communication Automation
 
-In the world of project management, clear and consistent client communication is key to success. However, keeping clients updated can be time-consuming, especially when managing multiple projects or [service tickets](/solutions/service-tickets). This is where client communication automation becomes invaluable.
+In the world of project management, clear and consistent client communication is key to success. However, keeping clients updated can be time-consuming, especially when managing multiple projects or [service tickets](/solutions/use-case/service-tickets). This is where client communication automation becomes invaluable.
 
 ### How It Works
 

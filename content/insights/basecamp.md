@@ -276,7 +276,7 @@ Basecamp has been around for a while and is well-known in the project management
 
 That said, Basecamp still has its loyal users, especially those who value its simplicity and are comfortable with its unique workflow. Its long-standing presence and the insights from its founders through books and blogs add an extra layer of credibility.
 
-In the end, for teams that want a flexible, feature-rich, and cost-effective solution without sacrificing ease of use, [Blue is an excellent project management alternative to Basecamp](/solutions/project-management). 
+In the end, for teams that want a flexible, feature-rich, and cost-effective solution without sacrificing ease of use, [Blue is an excellent project management alternative to Basecamp](/solutions/use-case/project-management). 
 
 Blue combines the simplicity that made Basecamp popular with the power and adaptability needed for [today’s varied work environments](/resources/great-teamwork).
 
