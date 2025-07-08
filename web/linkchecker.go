@@ -110,7 +110,7 @@ func (lc *LinkChecker) scanPublicFiles() {
 	if err != nil {
 		// Fallback to common files if scanning fails
 		lc.publicFiles["/favicon.ico"] = true
-		lc.publicFiles["/public/style.css"] = true
+		lc.publicFiles["/public/css/style.css"] = true
 	}
 }
 
