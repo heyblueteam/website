@@ -94,7 +94,7 @@
                     
                     // Skip SPA routing for pages that need full page loads
                     const url = new URL(link.href);
-                    const skipSPA = ['/platform/status'].includes(url.pathname);
+                    const skipSPA = [].includes(url.pathname); // No pages skip SPA
                     if (skipSPA) return;
                     
                     // Mark as handled to prevent duplicate listeners
@@ -167,7 +167,7 @@
                                     
                                     // For pages with Alpine.js content, re-setup after Alpine renders
                                     const pathname = new URL(link.href).pathname;
-                                    if (pathname === '/insights' || pathname === '/platform/integrations') {
+                                    if (pathname === '/insights' || pathname === '/platform/integrations' || pathname === '/platform/api' || pathname === '/platform/status') {
                                         setTimeout(() => {
                                             setupClientRouting();
                                         }, 100);
@@ -208,6 +208,7 @@
             }, 100);
         });
     </script>
+    <script src="/public/js/status.js"></script>
 </body>
 </html>
 {{end}}

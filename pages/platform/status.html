@@ -53,7 +53,7 @@
                 </div>
             </div>
             
-            <div class="space-y-6" x-data="statusPageData()" x-init="loadData()">
+            <div class="space-y-6" x-data="StatusUtils.createStatusPageData()" x-init="loadData()">
                 <template x-for="service in services" :key="service.name">
                     <div>
                         <div class="flex justify-between items-center mb-2">
@@ -107,107 +107,3 @@
             </div>
         </div>
 </div>
-
-<script>
-    function statusPageData() {
-        return {
-            services: [],
-            loading: true,
-            error: null,
-            
-            async loadData() {
-                try {
-                    this.loading = true;
-                    this.error = null;
-                    
-                    // Fetch both historical data and current status
-                    const [historyResponse, currentResponse] = await Promise.all([
-                        fetch('/api/status/history'),
-                        fetch('/api/status/current')
-                    ]);
-                    
-                    if (!historyResponse.ok) {
-                        throw new Error(`HTTP ${historyResponse.status}: ${historyResponse.statusText}`);
-                    }
-                    
-                    const historyData = await historyResponse.json();
-                    const currentData = currentResponse.ok ? await currentResponse.json() : { services: [] };
-                    
-                    // Merge current status with historical data
-                    this.services = (historyData.services || []).map(service => {
-                        const currentService = currentData.services.find(c => c.name === service.name);
-                        return {
-                            ...service,
-                            currentStatus: currentService ? currentService.status : 'unknown'
-                        };
-                    });
-                    
-                } catch (err) {
-                    this.error = err.message;
-                    console.error('Failed to load status data:', err);
-                } finally {
-                    this.loading = false;
-                }
-            },
-            
-            formatTooltip(day) {
-                const date = new Date(day.date);
-                const options = { 
-                    weekday: 'short', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                };
-                const formattedDate = date.toLocaleDateString('en-US', options);
-                
-                let statusText = 'Operational';
-                if (day.status === 'degraded') {
-                    statusText = 'Degraded Performance';
-                } else if (day.status === 'outage') {
-                    statusText = 'Major Outage';
-                }
-                
-                return `${formattedDate}<br>${statusText} (${day.uptime.toFixed(1)}%)`;
-            },
-            
-            getStatusColor(status) {
-                switch (status) {
-                    case 'operational':
-                        return 'bg-green-500';
-                    case 'degraded':
-                        return 'bg-yellow-500';
-                    case 'outage':
-                        return 'bg-red-500';
-                    default:
-                        return 'bg-gray-300';
-                }
-            },
-            
-            getStatusDotColor(status) {
-                switch (status) {
-                    case 'up':
-                    case 'operational':
-                        return 'bg-green-500';
-                    case 'down':
-                        return 'bg-red-500';
-                    case 'unknown':
-                    default:
-                        return 'bg-gray-400';
-                }
-            },
-            
-            getPulseColor(status) {
-                switch (status) {
-                    case 'up':
-                    case 'operational':
-                        return 'bg-green-500';
-                    case 'down':
-                        return 'bg-red-500';
-                    case 'unknown':
-                    default:
-                        return 'bg-gray-400';
-                }
-            }
-        }
-    }
-</script>

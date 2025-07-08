@@ -4,7 +4,12 @@
 {{if .Position}}{{$position = .Position}}{{end}}
 <section class="max-w-7xl mx-auto py-20">
     {{if .Title}}
-    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 text-center mb-16">{{.Title}}</h2>
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-6">{{.Title}}</h2>
+    {{end}}
+    {{if .Description}}
+    <p class="text-gray-600 dark:text-gray-400 text-lg mb-16">{{.Description}}</p>
+    {{else if .Title}}
+    <div class="mb-16"></div>
     {{end}}
     
     <div 
@@ -123,7 +128,7 @@
         </div>
         
         <!-- Feature Preview Below -->
-        <div class="relative h-[400px] flex items-center justify-center overflow-hidden">
+        <div class="relative min-h-[400px] flex items-center justify-center">
             {{range .Features}}
             <div 
                 x-show="selectedFeature === '{{.Id}}'"
