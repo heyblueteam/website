@@ -156,14 +156,22 @@ window.SPAUtils = {
      * Re-initialize content after navigation
      */
     reinitializeContent() {
-        // Re-initialize syntax highlighting
-        if (typeof hljs !== 'undefined') {
-            hljs.highlightAll();
+        // Re-initialize syntax highlighting with retry logic
+        function initializeHighlightJS() {
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            } else {
+                // Retry if hljs is still loading
+                setTimeout(initializeHighlightJS, 100);
+            }
         }
+        initializeHighlightJS();
         
-        // Re-initialize copy buttons
+        // Re-initialize copy buttons with error handling
         if (typeof CopyCodeUtils !== 'undefined') {
             CopyCodeUtils.init();
+        } else {
+            console.warn('CopyCodeUtils not available during navigation - copy buttons may not work');
         }
         
         // Re-setup client routing
