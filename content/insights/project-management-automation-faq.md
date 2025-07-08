@@ -8,7 +8,7 @@ date: 2024-06-30
 showdate: false
 ---
 
-Welcome to this comprehensive FAQ (Frequently Asked Questions) on [Project Management Automation.](/platform/project-management-automation) In this FAQ, our aim is to bring a spotlight on the most frequently asked questions, clarify common misconceptions, and generally be as helpful as possible! At Blue, we [released out first Project Management Automation feature](/insights/project-management-automation) years ago, and so we have been thinking about this topic for a very long time. This is your chance to absorb a condensed version of this knowledge in just a few minutes! 
+Welcome to this comprehensive FAQ (Frequently Asked Questions) on [Project Management Automation.](/platform/features/automations) In this FAQ, our aim is to bring a spotlight on the most frequently asked questions, clarify common misconceptions, and generally be as helpful as possible! At Blue, we [released out first Project Management Automation feature](/insights/project-management-automation) years ago, and so we have been thinking about this topic for a very long time. This is your chance to absorb a condensed version of this knowledge in just a few minutes! 
 
 This FAQ assumes zero prior knowledge, making it accessible to everyone! And if you are just getting started in the world of project management, we recommend also reading [The Non-Project Manager's Guide to Project Management](/insights/project-management-basics-guide)
 
@@ -121,7 +121,7 @@ This would of course be the next natural question. Everyone wants to “improve 
 6. Risk Management: Identify potential risks through automated analysis and trigger alerts for preventive actions.
 7.  Categorization of Tasks: [Automated categorization of tasks](/insights/ai-auto-categorization) can assist in categorizing tasks based on their nature, priority, and other relevant factors. This can help in better organizing and prioritizing tasks, enabling project managers to focus on the most critical tasks and allocate resources efficiently.
 
-A popular type of automation that many [project management systems](/solutions/use-case/project-management) have is that of [if-this-then-that automations](/platform/project-management-automation) (IFTTT) where end users can decide on triggers that will automatically excute actions based on pre-determined states. 
+A popular type of automation that many [project management systems](/solutions/use-case/project-management) have is that of [if-this-then-that automations](/platform/features/automations) (IFTTT) where end users can decide on triggers that will automatically excute actions based on pre-determined states. 
 
 ### Urgent Task Notifications
 

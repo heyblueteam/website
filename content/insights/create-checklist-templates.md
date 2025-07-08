@@ -10,7 +10,7 @@ showdate: true
 
 In many projects and processes, you may need to use the same checklist across multiple records or tasks. 
 
-However, it is not very efficient to manually retype the checklist each time you want to add it to a record. This is where you can leverage [powerful project management automations](/platform/project-management-automation) to automatically do this for you! 
+However, it is not very efficient to manually retype the checklist each time you want to add it to a record. This is where you can leverage [powerful project management automations](/platform/features/automations) to automatically do this for you! 
 
 As a reminder, automations in Blue require to key things:
 

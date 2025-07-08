@@ -94,6 +94,7 @@ func (lc *LinkChecker) buildValidRoutes() {
 	lc.validRoutes["/health"] = true
 	lc.validRoutes["/api/status/current"] = true
 	lc.validRoutes["/api/status/history"] = true
+	lc.validRoutes["/platform/status"] = true
 
 	// Scan public directory for static files
 	lc.scanPublicFiles()

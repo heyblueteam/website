@@ -122,7 +122,7 @@ The great thing about custom fields is that they integrate well into [Custom Per
 
 ### Automations 
 
-[Sales CRM Automations](/platform/project-management-automation) are a powerful feature in Blue that can streamline your sales process, ensure consistency, and save time on repetitive tasks. By setting up intelligent automations, you can enhance your sales CRM's effectiveness and allow your team to focus on what matters most - closing deals. Here are some key automations to consider for your sales CRM:
+[Sales CRM Automations](/platform/features/automations) are a powerful feature in Blue that can streamline your sales process, ensure consistency, and save time on repetitive tasks. By setting up intelligent automations, you can enhance your sales CRM's effectiveness and allow your team to focus on what matters most - closing deals. Here are some key automations to consider for your sales CRM:
 
 - **New Lead Assignment**: Automatically assign new leads to sales representatives based on predefined criteria such as location, deal size, or industry. This ensures quick follow-up and balanced workload distribution.
 - **Follow-up Reminders**: Set up automated reminders for sales reps to follow up with prospects after a certain period of inactivity. This helps prevent leads from falling through the cracks.

@@ -10,7 +10,7 @@ showdate: true
 
 At Blue, we're always looking to find ways to make life easier for our customers. We have [in-depth documentation of every feature](https://documentation.blue.cc), [YouTube Videos](https://www.youtube.com/@HeyBlueTeam), [Tips & Tricks](/insights/tips-tricks), and [various support channels](/support). 
 
-We've been keeping a close eye on the development of AI (Artificial Intelligence) as we are very much into [project management automations](/platform/project-management-automation). We also released features such as [AI Auto Categorization](/insights/ai-auto-categorization) and [AI Summaries](/insights/ai-content-summarization) to make work easier for our thousands of customers. 
+We've been keeping a close eye on the development of AI (Artificial Intelligence) as we are very much into [project management automations](/platform/features/automations). We also released features such as [AI Auto Categorization](/insights/ai-auto-categorization) and [AI Summaries](/insights/ai-content-summarization) to make work easier for our thousands of customers. 
 
 One thing that is clear is that AI is here to stay, and it is going to have an incredible effect across most industries, and project management is no exception. So we asked ourselves how we could further leverage AI to help the full lifecycle of a customer, from discovery, pre-sales, onboarding, and also with ongoing questions.
 

@@ -64,7 +64,7 @@ This scalable background service architecture has benefitted Blue not only for C
 - **[Dashboard/Charts](/platform/features/dashboard)**: Processes large datasets in the background to generate up-to-date visualizations without slowing down the user interface.
 - **[Search Index](https://documentation.blue.cc/projects/search)**: Continuously updates the search index in the background, ensuring fast and accurate search results without impacting system performance.
 - **[Copying Projects](https://documentation.blue.cc/projects/copying-projects)**: Handles the replication of large, complex projects in the background, allowing users to continue working while the copy is being created.
-- **[Project Management Automations](/platform/project-management-automation)**: Executes user-defined automated workflows in the background, ensuring timely actions without blocking other operations.
+- **[Project Management Automations](/platform/features/automations)**: Executes user-defined automated workflows in the background, ensuring timely actions without blocking other operations.
 - **[Repeating Records](https://documentation.blue.cc/records/repeat)**: Generates recurring tasks or events in the background, maintaining schedule accuracy without burdening the main application.
 - **[Time Duration Custom Fields](https://documentation.blue.cc/custom-fields/duration)**: Continuously calculates and updates the time difference between two events in Blue, providing real-time duration data without impacting system responsiveness.
 

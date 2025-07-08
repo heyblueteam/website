@@ -7,7 +7,7 @@ image: /insights/japan-kanban-boards.jpg
 date: 2024-07-23
 showdate: true
 ---
-At Blue, we love [Kanban boards](/platform/kanban-boards). 
+At Blue, we love [Kanban boards](/platform/features/views/board). 
 
 They are our primary way of managing our work, whether that's building our platform, managing our marketing strategy, and even our hiring pipeline! We believe that almost any process can be turned into an easy-to-use Kanban board that provides a clear visualization of the current state of work.
 
@@ -258,7 +258,7 @@ While the core principles remained the same, Software Kanban had to be adapted t
 ## Kanban in Project Management
 
 
-A significant milestone in the spread of Kanban in software development and beyond was the launch of [Trello](/insights/trello) in 2011. Trello, a [web-based project management platform](/solutions/use-case/project-management), popularized the concept of [digital Kanban boards](/platform/kanban-boards) for a wide audience.
+A significant milestone in the spread of Kanban in software development and beyond was the launch of [Trello](/insights/trello) in 2011. Trello, a [web-based project management platform](/solutions/use-case/project-management), popularized the concept of [digital Kanban boards](/platform/features/views/board) for a wide audience.
 
 Trello's simple interface made Kanban accessible to non-technical users. It allowed anyone to create boards with columns representing workflow stages, and cards representing tasks that could be moved between these columns. This intuitive representation of Kanban principles helped spread the methodology beyond software development into general project management, marketing, education, and personal productivity.
 

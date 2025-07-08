@@ -6,7 +6,7 @@ description: Custom email notifications are an incredibly powerful feature in Bl
 image: /insights/email-background.png
 ---
 
-Email automations in Blue are a [powerful project management automation](/platform/project-management-automation) for streamlining communication, ensuring [great teamwork](/insights/great-teamwork) and keeping projects moving forward. By leveraging data stored within your records, you can automatically send personalized emails when certain triggers occur, such as a new record being created or a task becoming overdue. 
+Email automations in Blue are a [powerful project management automation](/platform/features/automations) for streamlining communication, ensuring [great teamwork](/insights/great-teamwork) and keeping projects moving forward. By leveraging data stored within your records, you can automatically send personalized emails when certain triggers occur, such as a new record being created or a task becoming overdue. 
 
 In this article, we’ll explore how to set up and use email automations in Blue.
 

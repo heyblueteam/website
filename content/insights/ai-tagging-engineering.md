@@ -27,7 +27,7 @@ But we saw beyond just solving the immediate pain point of manual tagging.
 
 We envisioned a future where AI-powered tagging could become the foundation for more intelligent, automated workflows. 
 
-The real power of this feature, we realized, lay in its potential integration with our [project management automation system](/platform/project-management-automation). Imagine a project management tool that not only categorizes information intelligently but also uses those categories to route tasks, trigger actions, and adapt workflows in real-time. 
+The real power of this feature, we realized, lay in its potential integration with our [project management automation system](/platform/features/automations). Imagine a project management tool that not only categorizes information intelligently but also uses those categories to route tasks, trigger actions, and adapt workflows in real-time. 
 
 This vision aligned perfectly with our goal of keeping Blue simple yet powerful.
 
@@ -230,7 +230,7 @@ The first is adding tag description. This would allow end users to not only give
 
 While additional context could be valuable, we're mindful of the potential complexity it might introduce. There's a delicate balance to strike between providing useful information and overwhelming users with too much detail. As we develop this feature, we'll be focusing on finding that sweet spot where added context enhances rather than complicates the user experience.
 
-Perhaps the most exciting enhancement on our horizon is the integration of AI auto-tagging with our [project management automation system](/platform/project-management-automation). 
+Perhaps the most exciting enhancement on our horizon is the integration of AI auto-tagging with our [project management automation system](/platform/features/automations). 
 
 This means that the AI tagging feature could either be a trigger, or an action from an automation. This could be huge as it could turn this rather simple AI categorization feature into an AI-based routing system for work.
 
@@ -238,7 +238,7 @@ Imagine an automation that states:
 
 When AI tags a record as "Critical" -> Assigned to "Manager" and Send a Custom Email
 
-This means that when you AI-tag a record, if the AI decides it is a critical issue, then it can automatically assign the project manager and send them a custom email. This extends the [benefits of our project management automation system](/platform/project-management-automation) from purely a rule-based system into a true flexible AI system. 
+This means that when you AI-tag a record, if the AI decides it is a critical issue, then it can automatically assign the project manager and send them a custom email. This extends the [benefits of our project management automation system](/platform/features/automations) from purely a rule-based system into a true flexible AI system. 
 
 By continuously exploring the frontiers of AI in project management, we aim to provide our users with tools that not only meet their current needs but anticipate and shape the future of work. As always, we'll be developing these features in close collaboration with our user community, ensuring that every enhancement adds real, practical value to the project management process.
 

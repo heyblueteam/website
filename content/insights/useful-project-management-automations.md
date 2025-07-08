@@ -12,7 +12,7 @@ These days, having a powerful project management platform is essential. There’
 
 That said, implementing a powerful project management platform is only half the battle. The other half is *actually* making use of it effectively. This is where creativity and strategic thinking comes into play, enabling your team to become significantly more product and effective. 
 
-One of the most transformative features of Blue [is its robust automation capabilities.](/platform/project-management-automation) 
+One of the most transformative features of Blue [is its robust automation capabilities.](/platform/features/automations) 
 
 Automations are incredibly powerful because they streamline repetitive tasks, save valuable time, and ensure consistency in your workflow. 
 
@@ -127,7 +127,7 @@ We hope that this article has been useful in giving you ideas for specific autom
 
 To further your understanding and make the most out of project management automations in Blue, we encourage you to explore the following resources:
 
-- [Feature overview of project management automations in Blue](/platform/project-management-automation)
+- [Feature overview of project management automations in Blue](/platform/features/automations)
 - [Official Blue Documentation on project management automation](https://documentation.blue.cc/automations/introduction)
 - [Frequently Asked Questions on project management automations](/insights/project-management-automation-faq)
 - [Project management automation to send custom emails to stakeholders](/insights/project-management-automations-checkbox-email)

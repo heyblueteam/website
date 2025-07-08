@@ -28,7 +28,7 @@ Curious about its journey?
 
 So why has this 70-year-old concept stood the test of time?
 
-As more teams discover Kanban's power, the demand for [digital kanban boards](/platform/kanban-boards) has skyrocketed. But with countless options available, how do you choose the right one?
+As more teams discover Kanban's power, the demand for [digital kanban boards](/platform/features/views/board) has skyrocketed. But with countless options available, how do you choose the right one?
 
 The key is understanding the core components. Whether you're selecting new software or maximizing your current tool, knowing these essentials is crucial.
 
@@ -85,7 +85,7 @@ The ability to link related boards is crucial for managing complex projects.
 
 This feature allows you to create connections between different workflows, providing a holistic view of interconnected processes. It's particularly powerful when combined with automation capabilities, enabling you to move cards between projects automatically and create interlocking yet separate workflows.
 
-Perhaps the [most powerful advanced feature is workflow automation](/platform/project-management-automation). 
+Perhaps the [most powerful advanced feature is workflow automation](/platform/features/automations). 
 
 Imagine setting up rules that automatically move cards, create checklists, change card colors, send emails, or update assignments and due dates. With an "IF THIS THEN THAT" format, you can create sophisticated workflows that save time and reduce manual errors. This automation can extend across linked boards, allowing for seamless transitions between different stages of your project or between different teams' workflows.
 
@@ -94,7 +94,7 @@ By leveraging these advanced features, you can transform your kanban board from 
 
 ### Best practices in setting up a kanban board
 
-Setting up an [effective kanban board](/platform/kanban-boards) is both an art and a science. Here are some key best practices to keep in mind:
+Setting up an [effective kanban board](/platform/features/views/board) is both an art and a science. Here are some key best practices to keep in mind:
 
 When you're just starting out with kanban, resist the temptation to create a complex board right away. Begin with a simple setup that reflects your basic workflow - perhaps just "To Do," "In Progress," and "Done" columns. 
 
@@ -120,7 +120,7 @@ In fact, trying to turn every aspect of your process into a column can lead to a
 
 Instead, consider whether certain stages or categories might be better represented as tags, labels, or custom fields. 
 
-In some [advanced Kanban software platform](/platform/kanban-boards), you can even use AI to auto-tag your cards!
+In some [advanced Kanban software platform](/platform/features/views/board), you can even use AI to auto-tag your cards!
 
 <video autoplay loop muted playsinline>
   <source src="/public/videos/ai-tagging.mp4" type="video/mp4">

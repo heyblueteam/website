@@ -9,7 +9,7 @@ showdate: true
 ---
 
 
-We are excited to announce a significant enhancement to Blue's capabilities with the launch of our [robust Automations feature](/platform/project-management-automation). Designed to streamline your project workflows and boost efficiency, this new functionality positions Blue as a leader in project management automation.
+We are excited to announce a significant enhancement to Blue's capabilities with the launch of our [robust Automations feature](/platform/features/automations). Designed to streamline your project workflows and boost efficiency, this new functionality positions Blue as a leader in project management automation.
 
 ## Key Features of Project Management Automation in Blue
 

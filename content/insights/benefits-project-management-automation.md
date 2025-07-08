@@ -35,7 +35,7 @@ The easiest way to explain metawork is to consider a related term, metadata. Thi
 
 Similarly, metawork represents the tasks we perform to manage our actual work. It's the time spent updating task statuses, creating progress reports, and managing project documentation rather than driving the project forward. This inefficiency is a significant drain on productivity and team morale.
 
-Project management automation offers a solution to these challenges. While the term might sound daunting, its implementation can be straightforward and highly effective, especially when leveraging tools like the [Blue project management automation system](/platform/project-management-automation). 
+Project management automation offers a solution to these challenges. While the term might sound daunting, its implementation can be straightforward and highly effective, especially when leveraging tools like the [Blue project management automation system](/platform/features/automations). 
 
 At its core, automation in project management involves identifying repetitive, low-value tasks and creating systems to perform them automatically — that's it! 
 
@@ -179,7 +179,7 @@ In today's complex project environments, effective collaboration is not just ben
 
 This centralization is particularly crucial as it directly impacts the scalability of communication. With multiple communication channels, the potential for miscommunication and lost information grows exponentially with team size. [A unified platform](/solutions/use-case/project-management) keeps everyone on the same page, literally and figuratively.
 
-[Automated project management systems](/platform/project-management-automation) excel at providing real-time updates, which ties back to our first benefit of time savings. Team members no longer need to wait for scheduled update meetings to get critical information. This immediacy can significantly speed up decision-making processes and reduce project delays. 
+[Automated project management systems](/platform/features/automations) excel at providing real-time updates, which ties back to our first benefit of time savings. Team members no longer need to wait for scheduled update meetings to get critical information. This immediacy can significantly speed up decision-making processes and reduce project delays. 
 
 However, it's important to strike a balance.
 

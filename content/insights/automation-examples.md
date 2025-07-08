@@ -11,7 +11,7 @@ CtaHeader: Automate Everything
 CtaText: Join thousands of professionals who use Blue to put project management on autopilot.
 CtaButton: Get Started Now
 ---
-In today's fast-paced business environment, [project management](/solutions/use-case/project-management) has become increasingly complex. As teams juggle multiple projects, deadlines, and stakeholders, the need for efficient management tools has never been greater. This is where [project management automation](/platform/project-management-automation) comes into play, offering a powerful solution to streamline workflows and boost productivity.
+In today's fast-paced business environment, [project management](/solutions/use-case/project-management) has become increasingly complex. As teams juggle multiple projects, deadlines, and stakeholders, the need for efficient management tools has never been greater. This is where [project management automation](/platform/features/automations) comes into play, offering a powerful solution to streamline workflows and boost productivity.
 
 Automation in project management isn't just a luxury—it's becoming a necessity. By automating repetitive tasks, project managers can save valuable time, reduce human error, and allow their teams to focus on high-value work that truly moves the needle. From automatic task assignments to triggered notifications, automation tools are transforming how projects are managed and executed.
 
@@ -102,7 +102,7 @@ Status update automation can be tailored to fit your specific workflow:
 
 ### The Bigger Picture
 
-In the grand scheme of project management, status update automation is about more than just [moving cards on a board](/platform/kanban-boards). It's about creating a system where information flows freely, where team members can focus on their core work, and where project managers have their finger on the pulse of progress at all times.
+In the grand scheme of project management, status update automation is about more than just [moving cards on a board](/platform/features/views/board). It's about creating a system where information flows freely, where team members can focus on their core work, and where project managers have their finger on the pulse of progress at all times.
 
 ## 3. Client Communication Automation
 
@@ -559,7 +559,7 @@ Key Takeaways
 - **Better Resource Management**: Automation helps you allocate resources more effectively by ensuring tasks are assigned and completed promptly, optimizing your team's skills.
 - **Increased Accountability**: Automated reminders and status updates encourage team members to take responsibility for their tasks, promoting timely completion and proactive problem-solving.
 
-If you're thinking about [incorporating automation into your project management](/platform/project-management-automation), start by pinpointing the areas where your team struggles the most or spends too much time on repetitive tasks and [sell your team on the benefits of project management automations.](/insights/benefits-project-management-automation)
+If you're thinking about [incorporating automation into your project management](/platform/features/automations), start by pinpointing the areas where your team struggles the most or spends too much time on repetitive tasks and [sell your team on the benefits of project management automations.](/insights/benefits-project-management-automation)
 
 Focus on automations that tackle these issues first, and as your team gets more comfortable with the technology, you can gradually explore more options.
 
