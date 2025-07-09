@@ -281,26 +281,10 @@ body {
   
   /* Override Tailwind Typography to allow Highlight.js colors */
   .prose pre code.hljs {
-    color: #c9d1d9 !important; /* Default text color from tomorrow-night theme */
+    color: #c9d1d9 !important; /* Default text color from GitHub Dark theme */
   }
   
-  /* Force Highlight.js syntax colors to work */
-  .prose .hljs-keyword { color: #ff7b72 !important; }
-  .prose .hljs-string { color: #a5d6ff !important; }
-  .prose .hljs-number { color: #79c0ff !important; }
-  .prose .hljs-comment { color: #8b949e !important; }
-  .prose .hljs-function { color: #d2a8ff !important; }
-  .prose .hljs-variable { color: #ffa657 !important; }
-  .prose .hljs-built_in { color: #ffa657 !important; }
-  .prose .hljs-title { color: #79c0ff !important; }
-  .prose .hljs-attr { color: #79c0ff !important; }
-  .prose .hljs-property { color: #79c0ff !important; }
-  .prose .hljs-literal { color: #79c0ff !important; }
-  .prose .hljs-meta { color: #8b949e !important; }
-  .prose .hljs-tag { color: #7ee787 !important; }
-  .prose .hljs-name { color: #7ee787 !important; }
-  .prose .hljs-selector-class { color: #79c0ff !important; }
-  .prose .hljs-selector-id { color: #79c0ff !important; }
+  /* Allow Highlight.js theme to handle colors - remove overrides */
   
   /* Inline code styling */
   .prose code:not(pre code) {
