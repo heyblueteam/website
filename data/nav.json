@@ -95,22 +95,7 @@
         {"id": "charter", "name": "Charter", "href": "/company/charter"},
         {"id": "values", "name": "Values", "href": "/company/values"},
         {"id": "partner-program", "name": "Partner with us", "href": "/company/partners"},
-        {"id": "careers", "name": "Careers", "href": "/company/careers"},
-        {"id": "brand", "name": "Brand", "href": "/brand"},
-        {
-          "id": "sop",
-          "name": "SOP",
-          "expanded": false,
-          "children": [
-            {"id": "employee-onboarding", "name": "Employee Onboarding", "href": "/company/sop/employee-onboarding"},
-            {"id": "project-workflow", "name": "Project Workflow", "href": "/company/sop/project-workflow"},
-            {"id": "client-communication", "name": "Client Communication", "href": "/company/sop/client-communication"},
-            {"id": "quality-assurance", "name": "Quality Assurance", "href": "/company/sop/quality-assurance"},
-            {"id": "data-management", "name": "Data Management", "href": "/company/sop/data-management"},
-            {"id": "security-procedures", "name": "Security Procedures", "href": "/company/sop/security-procedures"},
-            {"id": "incident-response", "name": "Incident Response", "href": "/company/sop/incident-response"}
-          ]
-        }
+        {"id": "brand", "name": "Brand", "href": "/brand"}
       ]
     }
   ]
