@@ -389,7 +389,16 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		if cachedContent, found := r.htmlService.GetCachedContent(path); found {
 			// Found in cache - use pre-rendered content
 			w.Header().Set("Content-Type", "text/html")
-			w.Write([]byte(cachedContent.HTML))
+			_, err := w.Write([]byte(cachedContent.HTML))
+			if err != nil {
+				// Check if the error is due to client disconnect
+				if strings.Contains(err.Error(), "broken pipe") || strings.Contains(err.Error(), "connection reset by peer") {
+					// Client disconnected, silently return
+					return
+				}
+				// Log other write errors
+				log.Printf("Error writing cached content: %v", err)
+			}
 			// Cached HTML served
 			return
 		}
@@ -481,6 +490,12 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	// Set content type and execute main layout
 	w.Header().Set("Content-Type", "text/html")
 	if err := tmpl.ExecuteTemplate(w, "main.html", pageData); err != nil {
+		// Check if the error is due to client disconnect (broken pipe)
+		if strings.Contains(err.Error(), "broken pipe") || strings.Contains(err.Error(), "connection reset by peer") {
+			// Client disconnected, this is expected during rapid navigation
+			// Silently return without logging
+			return
+		}
 		http.Error(w, "Error rendering page", http.StatusInternalServerError)
 		log.Printf("Template execution error: %v", err)
 		return
