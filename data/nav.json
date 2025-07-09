@@ -47,7 +47,7 @@
             {"id": "sales-crm", "name": "Sales CRM", "href": "/solutions/use-case/sales-crm"},
             {"id": "service-tickets", "name": "Service Tickets", "href": "/solutions/use-case/service-tickets"},
             {"id": "it", "name": "IT", "href": "/solutions/use-case/it"},
-            {"id": "customer-portal", "name": "Customer Portal", "href": "/solutions/use-case/customer-portal"},
+            {"id": "client-portal", "name": "Client Portal", "href": "/solutions/use-case/client-portal"},
             {"id": "asset-management", "name": "Asset Management", "href": "/solutions/use-case/asset-management"}
           ]
         }
