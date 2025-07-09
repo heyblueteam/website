@@ -7,24 +7,9 @@
             "MarginBottom" "mb-16"
     }}
 
-    <!-- Customer Logos Section -->
-    <div class="mb-20">
-        {{$educationLogos := parseJSON `{
-            "title": "Trusted by educational institutions worldwide",
-            "logos": [
-                { "name": "Columbia University", "src": "/customers/columbia-university.webp" },
-                { "name": "Stanford University", "src": "/customers/stanford-university.svg" },
-                { "name": "Harvard School", "src": "/customers/harvard-school.svg" },
-                { "name": "MIT Education", "src": "/customers/mit-education.svg" },
-                { "name": "Oxford College", "src": "/customers/oxford-college.svg" }
-            ]
-        }`}}
-        {{template "logo-grid" $educationLogos}}
-    </div>
-
     <!-- Educational Institutions List -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-12 text-center">Educational institutions using Blue</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-12">Trusted by educational institutions worldwide.</h2>
         {{$educationCustomers := parseJSON `{
             "customers": [
                 {"name": "Harvard University", "url": "https://college.harvard.edu"},
