@@ -32,11 +32,21 @@ window.ImageZoomUtils = {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Dispatch custom event with image details
+                // Get the image's current position and size
+                const rect = img.getBoundingClientRect();
+                
+                // Dispatch custom event with image details and position data
                 window.dispatchEvent(new CustomEvent('image-zoom', {
                     detail: {
                         src: img.src,
-                        alt: img.alt || ''
+                        alt: img.alt || '',
+                        rect: {
+                            top: rect.top,
+                            left: rect.left,
+                            width: rect.width,
+                            height: rect.height
+                        },
+                        element: img
                     }
                 }));
             });

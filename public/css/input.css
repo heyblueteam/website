@@ -360,3 +360,9 @@ body {
     cursor: zoom-in;
   }
 }
+
+/* Ensure smooth image zoom animation */
+.image-lightbox img {
+  will-change: transform;
+  transform-origin: top left;
+}
