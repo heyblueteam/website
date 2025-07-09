@@ -22,6 +22,29 @@
         {{template "logo-grid" $educationLogos}}
     </div>
 
+    <!-- Problem Agitation Section -->
+    <div class="mb-20">
+        {{$educationProblems := parseJSON `{
+            "Title": "Stop struggling with outdated<br>education administration.",
+            "Description": "Educational institutions waste countless hours on manual processes that modern tools can handle automatically.",
+            "ValueProps": [
+                {
+                    "Title": "Information scattered across multiple systems",
+                    "Description": "Student data trapped in spreadsheets, emails, and separate databases makes it impossible to get a complete picture or respond quickly to requests."
+                },
+                {
+                    "Title": "Compliance deadlines that keep you up at night",
+                    "Description": "Scrambling to gather required documentation for state reports and accreditation because information isn't organized or easily accessible."
+                },
+                {
+                    "Title": "Manual processes eating your time",
+                    "Description": "Hours spent on tasks like enrollment tracking, schedule coordination, and report generation that should take minutes with the right system."
+                }
+            ]
+        }`}}
+        {{template "value-propositions" $educationProblems}}
+    </div>
+
     <!-- Key Reasons Section -->
     <div class="mb-20">
         {{$educationFeatures := parseJSON `{
@@ -45,6 +68,11 @@
             ]
         }`}}
         {{template "features-grid-simple" $educationFeatures}}
+    </div>
+
+    <!-- Education Use Cases Section Header -->
+    <div class="mb-20">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Education use cases</h2>
     </div>
 
     <!-- Student Records Management Feature -->
@@ -140,16 +168,101 @@
         {{template "testimonial-single" 
             dict 
                 "ImageUrl" "/testimonials/education-administrator.png"
-                "Quote" "Blue has revolutionized our student records management and faculty coordination. What used to take hours of manual work now happens automatically, and our compliance reporting is effortless."
+                "Quote" "Blue eliminated our enrollment bottlenecks and cut compliance reporting time by 80%. Our registrar staff can now focus on students instead of spreadsheets."
                 "Name" "Dr. Jennifer Wilson"
                 "Title" "Registrar, Metro Community College"
         }}
     </div>
 
+    <!-- Education Stats Section -->
+    <div class="mb-20">
+        {{$educationStatsData := parseJSON `{
+            "Title": "Trusted by educational institutions nationwide",
+            "Stats": [
+                {
+                    "Number": "2.5M+",
+                    "Description": "student records managed"
+                },
+                {
+                    "Number": "15000+",
+                    "Description": "hours saved monthly"
+                },
+                {
+                    "Number": "99%",
+                    "Description": "compliance deadlines met"
+                }
+            ]
+        }`}}
+        {{template "stats-section" $educationStatsData}}
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="mb-20">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Education FAQ</h2>
+        
+        {{$educationFaqData := parseJSON `{
+            "categories": [
+                {
+                    "name": "Student Data & Privacy",
+                    "questions": [
+                        {
+                            "question": "How does Blue protect student data and ensure FERPA compliance?",
+                            "answer": "Blue provides enterprise-grade security with role-based access controls, audit trails, and data encryption. Our platform helps institutions maintain FERPA compliance by controlling exactly who can access student information and tracking all data interactions."
+                        },
+                        {
+                            "question": "Can we control access to sensitive student information?",
+                            "answer": "Yes, Blue's granular permission system allows you to control access at the record level. You can ensure that only authorized staff can view sensitive student data, and external users like parents or part-time faculty only see what they need."
+                        },
+                        {
+                            "question": "How are student record changes tracked for compliance?",
+                            "answer": "Blue maintains comprehensive audit trails showing who accessed or modified student records, when changes occurred, and what was changed. This detailed logging helps with compliance audits and ensures accountability."
+                        }
+                    ]
+                },
+                {
+                    "name": "Implementation & Training",
+                    "questions": [
+                        {
+                            "question": "How quickly can we implement Blue for our institution?",
+                            "answer": "Most educational institutions are up and running within 2-4 weeks. Our implementation team helps with data migration, workflow setup, and staff training to ensure a smooth transition from your current systems."
+                        },
+                        {
+                            "question": "What training is required for faculty and staff?",
+                            "answer": "Blue is designed for ease of use. Most staff need just 1-2 hours of training to become proficient. We provide comprehensive training materials, video tutorials, and ongoing support to ensure successful adoption."
+                        },
+                        {
+                            "question": "Can Blue integrate with our existing student information system?",
+                            "answer": "Yes, Blue offers API integration capabilities and works with common SIS platforms. We can help establish data synchronization to ensure Blue complements your existing educational technology stack."
+                        }
+                    ]
+                },
+                {
+                    "name": "Academic Operations",
+                    "questions": [
+                        {
+                            "question": "Can Blue handle academic calendars and course scheduling?",
+                            "answer": "Absolutely. Blue's calendar and timeline views are perfect for academic scheduling. You can manage course schedules, track academic deadlines, coordinate faculty assignments, and visualize the entire academic calendar."
+                        },
+                        {
+                            "question": "How does Blue manage enrollment periods and registration?",
+                            "answer": "Blue streamlines enrollment with automated workflows that move students through registration stages, check prerequisites, manage waitlists, and send notifications. Custom fields track enrollment status and requirements."
+                        },
+                        {
+                            "question": "Can we track graduation requirements and academic progress?",
+                            "answer": "Yes, custom fields and automation rules can track credit accumulation, GPA calculations, and graduation requirements. Blue can automatically flag students who are off-track and generate progress reports for advisors."
+                        }
+                    ]
+                }
+            ]
+        }`}}
+        
+        {{template "faq-sections" $educationFaqData}}
+    </div>
+
     <!-- Final CTA -->
     <div class="px-6 lg:px-8">
         {{$ctaData := parseJSON `{
-            "Title": "Ready to streamline your educational administration?",
+            "Title": "Cut adminstration by 50%",
             "SecondaryText": "Schedule a Demo",
             "SecondaryUrl": "/contact",
             "PrimaryText": "Start Free Trial",
