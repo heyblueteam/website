@@ -3,7 +3,6 @@ package web
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -383,7 +382,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		// HTML page exists, try cached version first
 		if cachedContent, found := r.htmlService.GetCachedContent(path); found {
 			// Found in cache - use pre-rendered content
-			http.Header.Set(w.Header(), "Content-Type", "text/html")
+			w.Header().Set("Content-Type", "text/html")
 			w.Write([]byte(cachedContent.HTML))
 			// Cached HTML served
 			return

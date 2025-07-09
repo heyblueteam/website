@@ -6,7 +6,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
 	"sync"
 	"time"
 
@@ -15,16 +14,6 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// responseWriter wraps http.ResponseWriter to capture status code
-type responseWriter struct {
-	http.ResponseWriter
-	statusCode int
-}
-
-func (rw *responseWriter) WriteHeader(code int) {
-	rw.statusCode = code
-	rw.ResponseWriter.WriteHeader(code)
-}
 
 func main() {
 	startTime := time.Now()
@@ -166,40 +155,21 @@ func main() {
 		log.Println("⚠️  Status monitoring disabled (missing environment variables)")
 	}
 
-	// Create a handler that checks router first (for HTML pages), then falls back to static files
+	// Create a handler that serves static files first, then falls back to router
 	cacheFS := web.NewCacheFileServer("public/")
 	mainHandler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		path := r.URL.Path
 		
-		// For static asset paths, serve directly
-		if strings.HasPrefix(path, "/css/") || strings.HasPrefix(path, "/js/") || 
-		   strings.HasPrefix(path, "/font/") || strings.HasPrefix(path, "/images/") ||
-		   strings.HasSuffix(path, ".css") || strings.HasSuffix(path, ".js") ||
-		   strings.HasSuffix(path, ".png") || strings.HasSuffix(path, ".jpg") ||
-		   strings.HasSuffix(path, ".svg") || strings.HasSuffix(path, ".ico") ||
-		   strings.HasSuffix(path, ".woff") || strings.HasSuffix(path, ".woff2") ||
-		   strings.HasSuffix(path, ".ttf") || strings.HasSuffix(path, ".webp") {
+		// Check if static file exists first (excluding directories)
+		fullPath := filepath.Join("public", path)
+		if info, err := os.Stat(fullPath); err == nil && !info.IsDir() {
+			// It's a file, serve it
 			cacheFS.ServeHTTP(w, r)
 			return
 		}
 		
-		// For everything else, try router first (handles HTML pages and content)
-		// The router will return quickly if it finds a cached page
-		routerWriter := &responseWriter{ResponseWriter: w, statusCode: 200}
-		router.ServeHTTP(routerWriter, r)
-		
-		// If router returned 404, try static files as fallback
-		if routerWriter.statusCode == 404 {
-			// Reset the response
-			w.Header().Del("Content-Type")
-			
-			// Check if static file exists
-			fullPath := filepath.Join("public", path)
-			if info, err := os.Stat(fullPath); err == nil && !info.IsDir() {
-				// It's a file, serve it
-				cacheFS.ServeHTTP(w, r)
-			}
-		}
+		// Not a static file, pass to router
+		router.ServeHTTP(w, r)
 	})
 
 	http.Handle("/", mainHandler)
