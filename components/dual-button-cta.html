@@ -1,16 +1,16 @@
 {{define "dual-button-cta"}}
 <!-- Dual Button CTA Component -->
 <section class="bg-blue-50 dark:bg-blue-950/30 rounded-3xl p-6 md:p-12 lg:p-32">
-    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
         <!-- Title -->
-        <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-100">{{.Title}}</h3>
+        <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-100 flex-1">{{.Title}}</h3>
         
         <!-- Buttons -->
-        <div class="flex flex-col md:flex-row items-center gap-4">
+        <div class="flex flex-col sm:flex-row items-center gap-4 flex-shrink-0">
             <!-- Secondary Button (Contact style) -->
             {{if .SecondaryText}}
             <a href="{{.SecondaryUrl}}" 
-               class="px-6 py-3 text-sm font-semibold rounded-md border-2 border-brand-blue bg-blue-50 dark:bg-blue-950/30 text-gray-900 dark:text-gray-100 hover:bg-blue-100 dark:hover:bg-blue-900/40 focus:outline-none transition duration-150 ease-in-out">
+               class="px-6 py-3 text-sm font-semibold rounded-md border-2 border-brand-blue bg-blue-50 dark:bg-blue-950/30 text-gray-900 dark:text-gray-100 hover:bg-blue-100 dark:hover:bg-blue-900/40 focus:outline-none transition duration-150 ease-in-out whitespace-nowrap">
                 {{.SecondaryText}}
             </a>
             {{end}}
@@ -18,7 +18,7 @@
             <!-- Primary Button -->
             {{if .PrimaryText}}
             <a href="{{.PrimaryUrl}}" 
-               class="px-6 py-3 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out flex items-center">
+               class="px-6 py-3 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out flex items-center whitespace-nowrap">
                 {{.PrimaryText}}
                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
