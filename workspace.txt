@@ -1,0 +1,102 @@
+WORKSPACES FEATURE PAGE CONTENT
+
+================================================================================
+PAGE HEADING
+================================================================================
+Title: Build secure workspaces for every process
+Subtitle: Create private, customizable containers for your teams, departments, or clients. Each workspace is a completely isolated environment tailored to your specific workflow.
+
+================================================================================
+FEATURE SECTION 1: DATA ISOLATION
+================================================================================
+Title: Your data, completely isolated
+Description: Each workspace is a private universe with its own data, users, and permissions. Run multiple departments, manage different clients, or separate business units—all within one Blue account. Complete data segregation ensures information never leaks between workspaces.
+Button: Learn about security (links to /security)
+
+Benefits:
+- Private by design: Data stays within workspace boundaries
+- User control: Invite only who needs access
+- Compliance ready: Meet data residency requirements
+
+================================================================================
+FEATURE SECTION 2: FLEXIBILITY
+================================================================================
+Title: One platform, infinite possibilities
+Description: Transform each workspace into exactly what you need. Build a CRM for sales, an inventory system for operations, a project tracker for delivery teams, or a client portal for external collaboration. The same powerful platform adapts to every use case.
+
+Benefits:
+- Any process: From HR to logistics to finance
+- Industry agnostic: Works for any business type
+- Scalable structure: Grow without limits or complexity
+
+See also:
+- Sales CRM
+- Client portals
+- Asset management
+
+================================================================================
+FEATURE SECTION 3: FEATURE TOGGLING
+================================================================================
+Title: Toggle features to match your workflow
+Description: Every workspace is different. Enable records for database functionality, forms for data collection, chat for team communication, or docs for documentation. Turn features on or off instantly to create the perfect environment for each process.
+
+Benefits:
+- No bloat: Only see features you actually use
+- Clean interface: Reduce complexity for users
+- Instant changes: Adapt as needs evolve
+
+================================================================================
+FEATURE SECTION 4: UNLIMITED SCALE
+================================================================================
+Title: Create unlimited workspaces
+Description: No artificial limits on growth. Create workspaces for every department, client, project, or process. Whether you need 10 or 10,000 workspaces, Blue scales effortlessly with your organization. Each workspace maintains peak performance regardless of system size.
+
+Benefits:
+- No workspace limits: Create as many as you need
+- Consistent performance: Speed doesn't degrade with scale
+- Enterprise ready: Built for the largest organizations
+
+================================================================================
+FAQ SECTION
+================================================================================
+
+GETTING STARTED
+---------------
+Q: What exactly is a workspace?
+A: A workspace is a private container within Blue that houses all data, users, and processes for a specific purpose. Think of it as your own secure environment where you can build and manage any business process—from a sales CRM to an inventory system to a client portal.
+
+Q: How many workspaces can I create?
+A: There's no limit to the number of workspaces you can create. Whether you need separate workspaces for different departments, clients, projects, or business units, you can create as many as your organization requires.
+
+Q: Can I customize what features are available in each workspace?
+A: Yes! Each workspace can have different features enabled. You can toggle on/off records, forms, chat, docs, wiki, files, and other features to match the specific needs of each workspace. This keeps the interface clean and focused on what matters for each process.
+
+DATA & SECURITY
+---------------
+Q: Is data truly isolated between workspaces?
+A: Yes, workspaces provide complete data isolation. Information, files, and conversations in one workspace are never accessible from another workspace, even within the same Blue account. This ensures data privacy and security between different departments or clients.
+
+Q: Can users access multiple workspaces?
+A: Yes, users can be invited to multiple workspaces and switch between them easily. However, they only see data from the workspace they're currently in. Their permissions can be different in each workspace based on their role and responsibilities.
+
+Q: How do permissions work within workspaces?
+A: Each workspace has its own permission system. You can set granular permissions for what users can see and do within that specific workspace. Learn more about our comprehensive permission system on our user permissions page.
+
+USE CASES
+---------
+Q: What are common use cases for multiple workspaces?
+A: Organizations typically create workspaces for: different departments (Sales, HR, Operations), client projects (one workspace per client), business units or locations, different processes (recruiting, inventory, support tickets), or external collaboration with partners and vendors.
+
+Q: Can I use workspaces for client portals?
+A: Absolutely! Many customers create dedicated workspaces for each client, providing a branded portal where clients can access their projects, documents, and communications. This keeps client data completely separate while providing transparency.
+
+Q: Should I use one large workspace or multiple smaller ones?
+A: It depends on your needs. Use separate workspaces when you need data isolation (different clients or departments), different feature sets, or distinct user groups. Use a single workspace when teams need to collaborate closely and share information frequently.
+
+================================================================================
+CALL TO ACTION
+================================================================================
+Title: Ready to organize your processes?
+Subtitle: Create unlimited workspaces and build exactly what your teams need.
+Primary Button: Start free trial
+Secondary Button: Book a demo
