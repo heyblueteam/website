@@ -518,24 +518,30 @@
   </url>
   <url>
     <loc>https://blue.cc/api/projects/index</loc>
-    <lastmod>2025-07-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://blue.cc/api/projects/list-projects</loc>
     <lastmod>2025-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/projects/templates</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blue.cc/api/projects/create-project</loc>
+    <lastmod>2025-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/projects/delete-project</loc>
+    <lastmod>2025-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://blue.cc/api/projects/list-projects</loc>
     <lastmod>2025-07-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
