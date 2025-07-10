@@ -141,30 +141,58 @@
         </div>
         
         <!-- FAQ Section -->
-        {{$faqData := parseJSON `{
-            "sections": [
-                {
-                    "question": "What are your support hours?",
-                    "answer": "Our support team is available Monday through Friday, 9am-6pm EST. We respond to all inquiries within one business day. For critical issues affecting your business operations, please mark your email as urgent."
-                },
-                {
-                    "question": "Do you offer phone support?",
-                    "answer": "Phone support is available for Enterprise customers. All other plans include email support and access to our community forum. We find that email support allows us to provide more thorough, documented responses."
-                },
-                {
-                    "question": "How quickly will I get a response?",
-                    "answer": "We aim to respond to all support inquiries within 24 hours during business days. Priority support customers typically receive responses within 4 hours. Critical issues are escalated immediately."
-                },
-                {
-                    "question": "Can I request a feature?",
-                    "answer": "Absolutely! We love hearing from our users. Please send feature requests to support@blue.cc with 'Feature Request' in the subject line. You can also vote on features in our community forum."
-                },
-                {
-                    "question": "What if I need help outside business hours?",
-                    "answer": "Our documentation is available 24/7, and our community forum is active with helpful users around the globe. For urgent issues, Enterprise customers have access to emergency support."
-                }
-            ]
-        }`}}
-        {{template "faq-sections" $faqData}}
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-semibold text-center mb-12">Frequently asked questions</h2>
+            
+            {{$faqData := parseJSON `{
+                "categories": [
+                    {
+                        "questions": [
+                            {
+                                "question": "What are your support hours?",
+                                "answer": "Our support team is available Monday through Friday, 9am-6pm EST. We respond to all inquiries within one business day. For critical issues affecting your business operations, please mark your email as urgent."
+                            },
+                            {
+                                "question": "Do you offer phone support?",
+                                "answer": "Phone support is available for Enterprise customers. All other plans include email support and access to our community forum. We find that email support allows us to provide more thorough, documented responses."
+                            },
+                            {
+                                "question": "How quickly will I get a response?",
+                                "answer": "We aim to respond to all support inquiries within 24 hours during business days. Priority support customers typically receive responses within 4 hours. Critical issues are escalated immediately."
+                            },
+                            {
+                                "question": "Can I request a feature?",
+                                "answer": "Absolutely! We love hearing from our users. Please send feature requests to support@blue.cc with 'Feature Request' in the subject line. You can also vote on features in our community forum."
+                            },
+                            {
+                                "question": "What if I need help outside business hours?",
+                                "answer": "Our documentation is available 24/7, and our community forum is active with helpful users around the globe. For urgent issues, Enterprise customers have access to emergency support."
+                            },
+                            {
+                                "question": "How do I report a bug?",
+                                "answer": "To report a bug, please email support@blue.cc with 'Bug Report' in the subject line. Include detailed steps to reproduce the issue, expected vs actual behavior, screenshots if applicable, and your browser/OS information. This helps us diagnose and fix issues quickly."
+                            },
+                            {
+                                "question": "Do you offer training or onboarding?",
+                                "answer": "Yes! All new customers receive a complimentary onboarding session. We also offer regular webinars, video tutorials, and comprehensive documentation. Enterprise customers can request custom training sessions for their teams."
+                            },
+                            {
+                                "question": "Can I export my data?",
+                                "answer": "Absolutely. You own your data and can export it at any time. Use our API or the built-in export features to download your projects, tasks, and other data in standard formats like CSV, JSON, or Excel."
+                            },
+                            {
+                                "question": "What payment methods do you accept?",
+                                "answer": "We accept all major credit cards (Visa, MasterCard, American Express), ACH bank transfers for annual plans, and can arrange invoicing for Enterprise customers. All payments are processed securely through Stripe."
+                            },
+                            {
+                                "question": "How do I upgrade or downgrade my plan?",
+                                "answer": "You can change your plan anytime from your account settings. Upgrades take effect immediately with prorated billing. Downgrades take effect at the end of your current billing cycle. Contact support if you need assistance with plan changes."
+                            }
+                        ]
+                    }
+                ]
+            }`}}
+            {{template "faq-sections" $faqData}}
+        </div>
     </div>
 </div>
