@@ -126,8 +126,15 @@ func (ns *NavigationService) GenerateContentNavigation(contentDir, baseURL strin
 
 			href := baseURL + "/" + CleanID(fileName)
 
+			// Extract content type for unique ID
+			pathParts := strings.Split(contentDir, "/")
+			contentType := ""
+			if len(pathParts) >= 2 {
+				contentType = pathParts[1]
+			}
+
 			sections = append(sections, NavItem{
-				ID:         CleanID(fileName),
+				ID:         contentType + "-" + CleanID(fileName),
 				Name:       fileTitle,
 				Href:       href,
 				OriginalID: fileName,
@@ -153,11 +160,22 @@ func (ns *NavigationService) processDirectory(dirPath, dirName, baseURL, rootCon
 		}
 	}
 
-	// Create nav item
+	// Create nav item with path-based ID for uniqueness
+	// Extract content type from path (e.g., "docs", "api")
+	pathParts := strings.Split(rootContentDir, "/")
+	contentType := ""
+	if len(pathParts) >= 2 {
+		contentType = pathParts[1]
+	}
+	
+	// Create unique ID by prefixing with content type
+	uniqueID := contentType + "-" + CleanID(dirName)
+	
 	navItem := &NavItem{
-		ID:         CleanID(dirName),
+		ID:         uniqueID,
 		Name:       title,
 		Expanded:   false,
+		Children:   []NavItem{}, // Always initialize to prevent undefined errors
 		OriginalID: dirName,
 	}
 
@@ -219,8 +237,11 @@ func (ns *NavigationService) processDirectory(dirPath, dirName, baseURL, rootCon
 
 			href := baseURL + "/" + relDir + "/" + CleanID(fileName)
 
+			// Create unique ID using parent directory context
+			fileID := uniqueID + "-" + CleanID(fileName)
+
 			children = append(children, NavItem{
-				ID:         CleanID(fileName),
+				ID:         fileID,
 				Name:       fileTitle,
 				Href:       href,
 				OriginalID: fileName,
