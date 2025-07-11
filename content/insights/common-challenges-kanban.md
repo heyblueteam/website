@@ -2,7 +2,6 @@
 title: Overcoming Common Challenges in Implementing Kanban
 category: "Best Practices"
 description: Discover common challenges in implementing Kanban boards and learn effective strategies to overcome them.
-image: /insights/kanban-background.png
 date: 2024-08-10
 ---
 
