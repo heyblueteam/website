@@ -2,7 +2,6 @@
 title: The Benefits of Project Management Automations
 category: "Best Practices"
 description: Discover Blue's new automation features designed to streamline project management workflows, enhance efficiency, and improve productivity for all.
-image: /insights/automation-background.png
 date: 2024-07-09
 ---
 
