@@ -1,11 +1,9 @@
 ---
 title:  Scaling CSV Imports & Export to 250,000+ Records
-slug: scaling-csv-import-export
 category: "Engineering"
 description: Discover how Blue scaled CSV imports and exports 10x using Rust and scalable architecture and strategic tech choices in B2B SaaS.
 image: /insights/import-export-background.png
 date: 2024-07-18
-showdate: true
 ---
 At Blue, we're [constantly pushing the boundaries](/platform/roadmap) of what's possible in project management software. Over the years, we've [released hundreds of features](/platform/changelog)
 

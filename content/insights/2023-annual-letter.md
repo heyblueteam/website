@@ -1,11 +1,8 @@
 ---
 title: 2023 Annual Letter
-slug: 2023-annual-letter
 category: "CEO Blog"
 description: We look back on 2023 and set out our plans for 2024, reflecting on our progress, highlighting milestones, and our strategic goals for the upcoming year. 
-image: /patterns/letter.png
 date: 2023-12-31
-showdate: true
 ---
 
 Hey there,

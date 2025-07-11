@@ -1,11 +1,8 @@
 ---
 title: Bloo rebrands to Blue
-slug: rebranding
 category: "News"
 description: Learn about the rebranding of Bloo to Blue and discover how the values and mission that we strive to uphold hasn't changed since the day we started.
-image: /patterns/blue.png
 date: 2023-12-01
-showdate: true
 ---
 
 At Blue, we're always striving to improve and evolve our platform to better serve our users. Today, we want to take a moment to reflect on our journey and share the story behind our rebranding efforts. From our humble beginnings as Bloo in 2018 to our current identity as Blue, we've undergone significant changes to create a brand that truly represents our values and mission:

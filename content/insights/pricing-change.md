@@ -1,11 +1,9 @@
 ---
 title: Behind the scenes on changing price
-slug: pricing-change
 category: "News"
 description: This is our thinking behind changing the price from per-company to per-user — it aligns our business model and our customer's growth in the same direction.
 image: /patterns/dollar.png
 date: 2024-04-01
-showdate: true
 ---
 
 In Q1 2024, Blue changed its pricing from a flat-fee ($50 and $200/month) per company for unlimited users to $7/user/month. 

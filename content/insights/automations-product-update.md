@@ -1,11 +1,9 @@
 ---
 title: Advanced Project Management Automation
-slug: project-management-automation
 category: "Product Updates"
 description: Discover Blue's new automation features designed to streamline project management workflows, enhance efficiency, and improve productivity.
 image: /insights/automation-background.png
 date: 2022-08-07
-showdate: true
 ---
 
 

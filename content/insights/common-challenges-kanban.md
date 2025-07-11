@@ -1,11 +1,9 @@
 ---
 title: Overcoming Common Challenges in Implementing Kanban
-slug: kanban-boards-common-challenges
 category: "Best Practices"
 description: Discover common challenges in implementing Kanban boards and learn effective strategies to overcome them.
 image: /insights/kanban-background.png
 date: 2024-08-10
-showdate: true
 ---
 
 At Blue, it's no secret that we love [Kanban boards for project management.](/solutions/use-case/project-management). 

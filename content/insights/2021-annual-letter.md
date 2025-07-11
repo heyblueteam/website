@@ -1,11 +1,8 @@
 ---
 title: 2021 Annual Letter
-slug: 2021-annual-letter
 category: "CEO Blog"
 description: We look back on 2021 and set out our plans for 2022, reflecting on our progress, highlighting milestones, and our strategic goals for the upcoming year. 
-image: /patterns/letter.png
 date: 2021-12-31
-showdate: true
 ---
 
 Hey everyone,

@@ -1,11 +1,9 @@
 ---
 title: Top 10 Practical Automation Examples
-slug: top-10-automation-examples
 category: "Best Practices"
 description: Discover the top 10 practical project management automation examples that you can use to make your projects more effective.
 image: /insights/wrench-background.png
 date: 2024-07-19
-showdate: true
 # CTA Fields
 CtaHeader: Automate Everything
 CtaText: Join thousands of professionals who use Blue to put project management on autopilot.

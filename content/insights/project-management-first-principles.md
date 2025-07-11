@@ -1,11 +1,9 @@
 ---
 title: Project Management First Principles.
-slug: project-management-first-principles
 category: "Best Practices"
 description: Starting with first principles, we provide a comprehensive understanding of what is a project, and how to effectively manage projects. 
 image: /insights/project-management-first-principles.jpeg
 date: 2024-07-07
-showdate: true
 ---
 
 At Blue, we spend a lot of time thinking about project management. It’s critical to what we do and the success of what we deliver to our clients. Without a solid understanding of project management, how can we possibly build [project management software?](/)

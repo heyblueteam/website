@@ -1,9 +1,7 @@
 --- 
 title: How to create processes in Blue
-slug: how-to-create-processes-inblue
 category: "Best Practices"
 description: In this guide, you will learn how to create repetable, scalable, and logical processes in Blue that you can leverage across your organization.
-image: /patterns/lines2.png
 ---
 
 Processes are ongoing activities that provide a structured approach to various business operations, ensuring consistency, efficiency, and continuous improvement. Unlike projects, which have a defined objective and end date, processes are repetitive and perpetual, such as recruitment, social media posting, and IT ticketing. Well-defined processes help teams maintain high standards of performance, minimize errors, and streamline workflows. This structured approach not only enhances productivity but also ensures that critical tasks are performed reliably and consistently, making processes essential for effective process management.

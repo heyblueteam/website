@@ -1,11 +1,9 @@
 ---
 title: Applying Critical Thinking to Process Design.
-slug: applying-critical-thinking-to-process-design
 category: "Modern Work Practices"
 description: A business is the sum of multiple processes happening simultaneously, non-stop in order to achieve the business objectives. 
 image: /insights/critical-thinking-whiteboard-flowchart.jpeg
 date: 2024-07-06
-showdate: true
 ---
 
 When coming across roadblocks in business operations and growth, intelligent organizations start their search for the root cause by conducting **business process analyses (BPA)**.

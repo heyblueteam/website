@@ -1,11 +1,8 @@
 ---
 title: The Most Useful Project Management Automations
-slug: most-useful-project--management-automations
 category: "Best Practices"
 description: Discover the most useful project management automations based on our analysis of hundreds of thousands of project across Blue.
-image: /patterns/circles4.png
 date: 2024-07-09
-showdate: false
 ---
 
 These days, having a powerful project management platform is essential. There’s too many multiple things happening to rely on  excel sheets, sticky notes, and email threads.

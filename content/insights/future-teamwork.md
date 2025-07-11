@@ -1,6 +1,5 @@
 --- 
 title: The Future of Teamwork
-slug: future-teamwork
 category: "Modern Work Practices"
 description: Our mission is to create the future of teamwork, today. We're doing this step by step with a multi-decade vision in mind.
 image: /patterns/squaressquares2.png

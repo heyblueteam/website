@@ -1,11 +1,9 @@
 --- 
 title: Project management automation — emails to stakeholders.
-slug: project-management-automations-checkbox-email
 category: "Product Updates"
 description: Often, you want to be in control of your project management automations 
 image: /insights/email-background.png
 date: 2024-07-08
-showdate: true
 ---
 
 We’ve covered how to [create email automations before.](/insights/email-automations)

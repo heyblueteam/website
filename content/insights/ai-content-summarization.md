@@ -1,11 +1,9 @@
 ---
 title: AI Content Summarization
-slug: ai-content-summarization
 category: "Product Updates"
 description: Blue now uses AI to create useful and actionable summaries from comments. This  helps you understand key points from long conversations and what to do next. 
 image: /insights/bolt-background.png
 date: 2024-04-15
-showdate: true
 ---
 
 The future of work just got smarter with Blue's latest AI-powered capability - Content Summaries! 

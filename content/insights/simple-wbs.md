@@ -1,11 +1,8 @@
 ---
 title: "The Simple Guide to WBS: Work Breakdown Structures Made Easy"
-slug: simple-work-breakdown-structure
 category: "Best Practices"
 description: Simplify project management with a Work Breakdown Structure (WBS). Discover key steps, common mistakes, and practical examples for better clarity and efficiency.
-image: /insights/pm-background.png
 date: 2024-08-10
-showdate: true
 ---
 
 Work Breakdown Structures (WBS) are an underutilized tool in project management, often overlooked due to their perceived complexity. At its core, a WBS is a detailed list of tasks, deadlines, and responsible parties—essentially the first principles of project management.

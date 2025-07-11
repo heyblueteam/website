@@ -1,11 +1,8 @@
 ---
 title: Right Click on Records
-slug: right-click-records
 category: "Product Updates"
 description: Now you can right click on records to easily edit them at the speed of thought.
-image: /insights/square-stack-background.png
 date: 2022-04-15
-showdate: true
 ---
 
 Today's release brings a small but thoughtful improvement to our [project management platform](/). 

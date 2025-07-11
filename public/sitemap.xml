@@ -512,7 +512,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/start-guide/introduction</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -698,25 +698,25 @@
   </url>
   <url>
     <loc>https://blue.cc/api/user-management/index</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/user-management/list-users</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/user-management/remove-user</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://blue.cc/api/user-management/retrieve-custom-role</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1310,385 +1310,385 @@
   </url>
   <url>
     <loc>https://blue.cc/insights/2021-annual-letter</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/2022-annual-letter</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/2023-annual-letter</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/ai-auto-categorization</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/ai-content-summarization</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/ai-faq</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/ai-tagging-engineering</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/asana</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/automation-examples</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/automations-product-update</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/basecamp</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/benefits-project-management-automation</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/beta-engineering</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/blue-basics</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/blue-to-build-blue</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/blue-value-props</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/brand-pyramid</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/bulk-adding</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/checkbox-send-email</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/clickup</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/common-challenges-kanban</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/create-checklist-templates</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/critical-thinking-business-process</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/custom-domains</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/custom-permissions-engineering</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/deep-work</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/documentation-chatbot</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/email-automations</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/eran-interview</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/file-storage-faq</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/future-teamwork</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/great-teamwork</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/group-mentions</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/history-kanban</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/how-to-create-process-in-blue</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/how-to-crm</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/kanban-core-components</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/kanban-project-management</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/large-project-import-export-engineering</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/lorenzo-interview</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/loudegg1</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/loudegg2</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/new-search</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/pricing-change</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/prioritization-for-leaders</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/problem-overworking</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/project-management-automation-faq</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/project-management-basics</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/project-management-first-principles</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/projects-processes</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/push-pull-workflows</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/rebranding</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/reference-lookups</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/right-click-records</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/roi-good-processes</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/security-faq</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/simple-wbs</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/standup-meetings</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/trello</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/understanding-value-propositions</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/useful-project-management-automations</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/webhook-product</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/why-i-started-blue</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://blue.cc/insights/write-an-rfp</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

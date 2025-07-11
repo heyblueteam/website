@@ -1,11 +1,8 @@
 ---
 title: How does Blue offer unlimited AI Access?
-slug: unlimited-ai-faq
 category: "FAQ"
 description: How does Blue offer unlimited file storage for project management? 
-image: /patterns/waves1.png
 date: 2024-01-08
-showdate: false
 ---
 
 At Blue, we're one of the few [project management platforms](/solutions/use-case/project-management) that does not bill separately for AI usage. This is in line with our mission:

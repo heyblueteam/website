@@ -1,11 +1,9 @@
 ---
 title: Prioritization for Leaders
-slug: prioritization-for-leaders
 category: "Best Practices"
 description: Explore essential prioritization strategies for leaders. There's always too much to do — so having a framework to decide what to priotitize is crucial for success.
 image: /insights/prioritization-for-leaders.jpeg
 date: 2024-07-07
-showdate: true
 ---
 
 The key issue is that many leaders confuse business with busyness. Being busy does not *automatically* mean that you are being effective, and often it can actually mean quite the opposite.

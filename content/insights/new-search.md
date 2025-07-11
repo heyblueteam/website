@@ -1,11 +1,9 @@
 ---
 title: Real-time search
-slug: new-search
 category: "Product Updates"
 description: Blue unveils a new blazing-fast search engine that returns results across all your projects in milliseconds, empowering you to switch context in a blink of an eye. 
 image: /insights/search-background.png
 date: 2024-03-01
-showdate: true
 ---
 
 We are thrilled to announce the launch of our new search engine, designed to revolutionize how you find information within Blue. Efficient search functionality is crucial for seamless project management, and our latest update ensures that you can access your data faster than ever.

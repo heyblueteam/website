@@ -1,11 +1,8 @@
 ---
 title: The ROI of Good Business Processes.
-slug: the-roi-of-good-business-processes
 category: "Modern Work Practices"
 description: Better business processes lead to a better return on investment (ROI). Learn how to create improved business processes that drive profitability.
-image: /insights/roi-business-process.jpeg
 date: 2024-07-06
-showdate: true
 ---
 
 We’ve previously discussed how organizations can improve business processes by regularly running business process analyses (BPA), and also the importance of applying critical thinking in designing (and re-designing) efficient processes.

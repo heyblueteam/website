@@ -1,11 +1,9 @@
 ---
 title:  Blue as a ClickUp Alternative
-slug: clickup-alternative
 category: "Alternatives"
 description: Why smart companies are saving thousands a year by switching to Blue, a better ClickUp alternative. 
 image: /insights/ai-tag-background.png
 date: 2024-07-12
-showdate: true
 #Logo Fields
 rightLogoSrc: "/insights/clickup-icon.svg"
 rightLogoAlt: "Clickup Icon"

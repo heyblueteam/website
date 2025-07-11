@@ -1,11 +1,9 @@
 ---
 title: The Value Proposition of Blue
-slug: value-proposition-blue
 category: "CEO Blog"
 description: Discover why Blue's self-funded, customer-focused approach delivers unmatched simplicity, affordability, and flexibility in project management.
 image: /insights/pm-background.png
 date: 2024-07-24
-showdate: true
 ---
 
 At Blue, we know that customers have options when it comes to project and process management software. 

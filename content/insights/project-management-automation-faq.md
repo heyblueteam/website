@@ -1,11 +1,9 @@
 ---
 title: FAQ on Project Management Automation
-slug: project-management-automation-faq
 category: "FAQ"
 description: This is a list of the most frequently asked questions on project management automation.
 image: /insights/real-estate-software-background.png
 date: 2024-06-30
-showdate: false
 ---
 
 Welcome to this comprehensive FAQ (Frequently Asked Questions) on [Project Management Automation.](/platform/features/automations) In this FAQ, our aim is to bring a spotlight on the most frequently asked questions, clarify common misconceptions, and generally be as helpful as possible! At Blue, we [released out first Project Management Automation feature](/insights/project-management-automation) years ago, and so we have been thinking about this topic for a very long time. This is your chance to absorb a condensed version of this knowledge in just a few minutes! 

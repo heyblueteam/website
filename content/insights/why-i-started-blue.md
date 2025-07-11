@@ -1,11 +1,8 @@
 ---
 title: Why I started Blue
-slug: why-i-started-blue
 category: "CEO Blog"
 description: The CEO of Blue provides an in-depth first-hand account of why he started the company, the core principles of simplicity, affordability and flexibility, and his vision for the future of Blue
-image: /patterns/bluewhitecircle.png
 date: 2018-04-01
-showdate: false
 ---
 
 **Editor's Note:** The following is a first-hand account from Emanuele Faja, CEO of Blue, on the origins and mission behind Blue, the modern project management platform.

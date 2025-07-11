@@ -1,11 +1,9 @@
 ---
 title: The Brand Pyramid
-slug: brand-pyramid
 category: "CEO Blog"
 description: Discover why its important for brands to build their brands in a structured manner.
 image: /insights/brand-pyramids.jpeg
 date: 2024-08-01
-showdate: false
 ---
 
 This article comes from our previous experience in running a successful design agency. 

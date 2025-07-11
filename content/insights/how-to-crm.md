@@ -1,11 +1,8 @@
 ---
 title: How to setup Blue as a CRM
-slug: how-to-sales-crm
 category: "Best Practices"
 description: Learn how to setup Blue to track your customers and deals in an easy way. 
-image: /patterns/circles4.png
 date: 2024-08-11
-showdate: false
 ---
 
 ## Introduction

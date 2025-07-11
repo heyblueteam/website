@@ -1,11 +1,9 @@
 ---
 title:  Creating Blue's Custom Permissions Engine
-slug: engineering-custom-permissions-project-management
 category: "Engineering"
 description: Go behind the scenes with the Blue engineering team as they explain how to built an AI-powered auto-categorization and tagging feature.
 image: /insights/custom-permissons-background.png
 date: 2024-07-25
-showdate: true
 ---
 
 Effective project and process management is crucial for organizations of all sizes. 

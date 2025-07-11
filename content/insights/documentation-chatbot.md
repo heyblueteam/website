@@ -1,11 +1,9 @@
 ---
 title: Why We Built Our Own AI Documentation Chatbot
-slug: documentation-chatbot
 category: "Product Updates"
 description: We built our own documentation AI Chatbot that is trained on the Blue platform documentation.
 image: /insights/chat-background.png
 date: 2024-07-09
-showdate: true
 ---
 
 At Blue, we're always looking to find ways to make life easier for our customers. We have [in-depth documentation of every feature](https://documentation.blue.cc), [YouTube Videos](https://www.youtube.com/@HeyBlueTeam), [Tips & Tricks](/insights/tips-tricks), and [various support channels](/support). 

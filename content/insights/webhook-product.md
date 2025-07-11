@@ -1,11 +1,9 @@
 ---
 title: Webhooks
-slug: webhooks-intro
 category: "Product Updates"
 description: Blue introduces granular webhooks to allow customers to send data to systems in milliseconds.
 image: /insights/cloudup-background.png
 date: 2023-06-01
-showdate: true
 ---
 
 

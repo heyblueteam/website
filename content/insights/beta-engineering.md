@@ -1,11 +1,9 @@
 ---
 title:  Why Blue has an Open Beta
-slug: open-beta
 category: "Engineering"
 description: Learn why our project management system has an ongoing open beta. 
 image: /insights/code-background.png
 date: 2024-08-03
-showdate: true
 ---
 
 Many B2B SaaS startups launch in Beta, and for good reasons. It’s part of the traditional Silicon Valley motto of *“move fast and break things”*.

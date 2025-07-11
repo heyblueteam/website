@@ -1,11 +1,9 @@
 ---
 title:  Blue as a Trello Alternative
-slug: trello-alternative
 category: "Alternatives"
 description: Learn why thousands of users are using Blue as a Trello alternative for larger file storage, no limits, and a more scalable solution.
 image: /insights/ai-tag-background.png
 date: 2024-07-12
-showdate: true
 #Logo Fields
 rightLogoSrc: "/insights/trello-icon.svg"
 rightLogoAlt: "Trello Icon"

@@ -1,11 +1,8 @@
 ---
 title: Custom domains
-slug: custom-domains
 category: "Product Updates"
 description: Blue now has the ability for all customers to run Blue on their own domain. This is now generally available and free for all customers.
-image: /patterns/bluerectangle.png
 date: 2024-03-15
-showdate: true
 ---
 
 Blue just got even more flexible and customizable for teams looking to create a seamless, on-brand experience for their users and clients. We're excited to announce that all Blue customers can now set up a custom domain name for their workspace absolutely free!

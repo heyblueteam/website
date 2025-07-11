@@ -1,11 +1,9 @@
 ---
 title: AI Auto Categorization
-slug: ai-auto-categorization
 category: "Product Updates"
 description: Blue now uses AI to auto categorize your records, individually or in bulk. This can save you dozens of hours while improving accuracy.
 image: /insights/bolt-background.png
 date: 2024-06-04
-showdate: true
 ---
 
 We are thrilled to unveil our second AI-powered feature: AI Auto Categorization. This groundbreaking tool harnesses cutting-edge AI models to automatically tag records, dramatically reducing the time and effort needed to organize large datasets. The bulk tagging capability is particularly beneficial, as it allows users to efficiently tag thousands of records at once, transforming a potentially tedious task into a swift and effortless process. This not only improves data sorting but also prepares the groundwork for future automation enhancements.

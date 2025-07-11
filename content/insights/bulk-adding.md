@@ -1,9 +1,7 @@
 ---
 title: Bulk adding with copy and paste
-slug: bulk-adding
 category: "Product Updates"
 description: Easily create lists, records, checklist, and checklist items simply by copying and pasting from various sources including bullet point lists and Excel.
-image: /patterns/lines2.png
 date: 2024-01-01
 ---
 

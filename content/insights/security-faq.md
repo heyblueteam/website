@@ -1,11 +1,8 @@
 ---
 title: FAQ on Blue Security
-slug: faq-security
 category: "FAQ"
 description: This is a list of the most frequently asked questions on the security protocols and practices at Blue. 
-image: /insights/security-background.png
 date: 2024-07-19
-showdate: false
 ---
 
 Our mission is to organize the world's work by building the best project management platform on the planet.

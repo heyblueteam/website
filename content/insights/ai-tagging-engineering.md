@@ -1,11 +1,9 @@
 ---
 title:  AI Auto Categorization (Engineering Deep Dive)
-slug: ai-auto-categorization-engineering
 category: "Engineering"
 description: Go behind the scenes with the Blue engineering team as they explain how to built an AI-powered auto-categorization and tagging feature.
 image: /insights/ai-tag-background.png
 date: 2024-12-07
-showdate: true
 ---
 
 We recently released [AI Auto Categorization](/insights/ai-auto-categorization) to all Blue users. This is an AI feature that is bundled in to the core subscription of Blue, without additional costs. In this post, we dig into the engineering behind making this feature happen.
