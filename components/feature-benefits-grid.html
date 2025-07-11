@@ -37,7 +37,7 @@ DATA STRUCTURE:
             "Url": "/optional-link"        // Optional link URL
         }
     ],
-    "MarginBottom": "mb-20"             // Custom margin class (optional, default: "mb-20")
+    "MarginBottom": "mb-16"             // Custom margin class (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -71,7 +71,7 @@ USE CASES:
 */ -}}
 {{define "feature-benefits-grid"}}
 <!-- Feature Benefits Grid Component -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-20{{end}}">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{range .Benefits}}
     {{if .Url}}
     <a href="{{.Url}}" class="block bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-6 hover:border-brand-blue transition-colors cursor-pointer">

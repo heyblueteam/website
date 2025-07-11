@@ -48,7 +48,8 @@ DATA STRUCTURE:
             "VideoUrl": "/video.mp4",     // Video path (optional)
             "ImageUrl": "/image.png"      // Image path (optional)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"               // Bottom margin (optional, default: "mb-16")
 }
 
 LAYOUT OPTIONS:
@@ -75,7 +76,7 @@ ANIMATIONS:
 
 LAYOUT DETAILS:
 - Container: max-width 7xl (80rem)
-- Section padding: 20 units (5rem) vertical
+- Bottom margin: Customizable (default: 16 units / 4rem)
 - Title margin: 6 units (1.5rem) bottom
 - Description margin: 16 units (4rem) bottom
 - Grid gap: 8 units (2rem)
@@ -105,7 +106,7 @@ USE CASES:
 <!-- Interactive Feature Showcase Component -->
 {{$position := "left"}}
 {{if .Position}}{{$position = .Position}}{{end}}
-<section class="max-w-7xl mx-auto py-20">
+<section class="max-w-7xl mx-auto {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{if .Title}}
     <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-6">{{.Title}}</h2>
     {{end}}

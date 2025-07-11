@@ -25,7 +25,8 @@ EXAMPLE IMPLEMENTATIONS:
 DATA STRUCTURE:
 {
     "VideoUrl": "/path/to/video.mp4",     // Video file path (required)
-    "ShowUnmuteButton": true              // Show custom mute button (optional)
+    "ShowUnmuteButton": true,             // Show custom mute button (optional)
+    "MarginBottom": "mb-20"               // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -39,7 +40,7 @@ FEATURES:
 
 LAYOUT:
 - Width: Full container width
-- Bottom margin: 16 units (4rem)
+- Bottom margin: Customizable (default: 16 units / 4rem)
 - Border radius: 2xl (1rem)
 - Border: Gray-200
 
@@ -66,7 +67,7 @@ USE CASES:
 */ -}}
 {{define "hero-video"}}
 <!-- Hero Video Component -->
-<section class="w-full mb-16 relative" 
+<section class="w-full {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}} relative" 
          {{if .ShowUnmuteButton}}
          x-data="{ 
              isMuted: true,

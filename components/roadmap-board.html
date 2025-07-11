@@ -36,7 +36,8 @@ EXAMPLE IMPLEMENTATION:
             "title": "Two-Factor Authentication",
             "description": "Enhanced security with TOTP-based 2FA support"
         }
-    ]
+    ],
+    "MarginBottom": "mb-24"
 }`}}
 {{template "roadmap-board" $roadmapData}}
 
@@ -51,7 +52,8 @@ DATA STRUCTURE:
     ],
     "planned": [...],                    // Features planned for development
     "inProgress": [...],                 // Features currently in development
-    "testing": [...]                     // Features in testing phase
+    "testing": [...],                    // Features in testing phase
+    "MarginBottom": "mb-16"              // Bottom margin (optional, default: mb-16)
 }
 
 FEATURES:
@@ -94,7 +96,7 @@ USE CASES:
 - Project status boards
 */ -}}
 {{define "roadmap-board"}}
-<div class="kanban-board grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="kanban-board grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <!-- Ideas Column -->
     <div class="kanban-column">
         <h3 class="text-lg font-semibold mb-4 text-gray-700">Ideas</h3>

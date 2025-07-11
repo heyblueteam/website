@@ -39,7 +39,8 @@ DATA STRUCTURE:
             "Title": "Value prop title",          // Proposition headline (required)
             "Description": "Description text"     // Proposition description (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"                     // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -59,7 +60,7 @@ ANIMATED DOTS:
 
 LAYOUT:
 - Container: max-width 7xl (80rem)
-- Section padding: 20 units (5rem) vertical
+- Bottom margin: Customizable (default: 16 units / 4rem)
 - Grid: 2 equal columns (stacks on mobile)
 - Left column: Title, description, optional dots
 - Right column: Value propositions list
@@ -96,7 +97,7 @@ USE CASES:
 */ -}}
 {{define "value-propositions"}}
 <!-- Value Propositions Component -->
-<section class="max-w-7xl mx-auto py-20">
+<section class="max-w-7xl mx-auto {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
         <!-- Left Side: Title and Description -->
         <div class="space-y-6 p-8 md:pr-12 md:border-r border-gray-200 dark:border-gray-700">

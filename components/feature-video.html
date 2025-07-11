@@ -60,7 +60,8 @@ DATA STRUCTURE:
                 "Description": "Optional description"
             }
         ]
-    }
+    },
+    "MarginBottom": "mb-20"                // Bottom margin class (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -100,7 +101,7 @@ USE CASES:
 */ -}}
 {{define "feature-video"}}
 <!-- Feature Video Component -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}"
      x-data="{ 
          loaded: false
      }"

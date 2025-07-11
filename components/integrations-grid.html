@@ -34,7 +34,8 @@ EXAMPLE IMPLEMENTATION:
             "name": "HubSpot",
             "src": "/integrations/hubspot.svg"
         }
-    ]
+    ],
+    "MarginBottom": "mb-24"
 }`}}
 {{template "integrations-grid" $integrationData}}
 
@@ -45,7 +46,8 @@ DATA STRUCTURE:
             "name": "Integration Name",   // Display name and search term (required)
             "src": "/path/to/logo.svg"    // Logo image path (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"              // Optional bottom margin (default: mb-16)
 }
 
 FEATURES:
@@ -103,7 +105,7 @@ USE CASES:
         }
         return name.toLowerCase().includes(this.searchTerm.toLowerCase());
     }
-}" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+}" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <!-- Search Bar -->
     <div class="mb-12">
         <div class="relative max-w-md mx-auto">

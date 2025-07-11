@@ -51,7 +51,8 @@ DATA STRUCTURE:
                 }
             ]
         }
-    ]
+    ],
+    "MarginBottom": "mb-20"                // Bottom margin class (optional, default: "mb-16")
 }
 
 
@@ -93,7 +94,7 @@ USE CASES:
 - Onboarding guides
 */ -}}
 {{define "faq-sections"}}
-<div class="space-y-8">
+<div class="space-y-8 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{range .categories}}
     <section id="{{.id}}" class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">{{.name}}</h2>

@@ -24,7 +24,8 @@ DATA STRUCTURE:
     "PrimaryText": "Primary action",       // Primary button text (optional)
     "PrimaryUrl": "/primary-link",         // Primary button URL (required if PrimaryText)
     "SecondaryText": "Secondary action",   // Secondary button text (optional)
-    "SecondaryUrl": "/secondary-link"      // Secondary button URL (required if SecondaryText)
+    "SecondaryUrl": "/secondary-link",      // Secondary button URL (required if SecondaryText)
+    "MarginBottom": "mb-20"                // Bottom margin class (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -56,7 +57,7 @@ USE CASES:
 */ -}}
 {{define "dual-button-cta"}}
 <!-- Dual Button CTA Component -->
-<section class="bg-blue-50 dark:bg-blue-950/30 rounded-3xl p-6 md:p-12 lg:p-32">
+<section class="bg-blue-50 dark:bg-blue-950/30 rounded-3xl p-6 md:p-12 lg:p-32 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
         <!-- Title -->
         <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-100 flex-1">{{.Title}}</h3>

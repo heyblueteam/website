@@ -45,7 +45,8 @@ EXAMPLE IMPLEMENTATION:
                 }
             ]
         }
-    ]
+    ],
+    "MarginBottom": "mb-24"
 }`}}
 {{template "features-grid" $featuresData}}
 
@@ -65,7 +66,8 @@ DATA STRUCTURE:
                 }
             ]
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"              // Optional bottom margin (default: mb-16)
 }
 
 FEATURES:
@@ -100,7 +102,7 @@ USE CASES:
 - Sitemap-style navigation
 */ -}}
 {{define "features-grid"}}
-<div class="max-w-7xl mx-auto">
+<div class="max-w-7xl mx-auto {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{range .sections}}
     <div class="border-t border-gray-200 dark:border-gray-700 pt-6 mb-12">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">

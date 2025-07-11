@@ -11,7 +11,8 @@ EXAMPLE IMPLEMENTATION:
 {{$newsBarData := parseJSON `{
     "MainText": "Blue becomes AppSumo's fastest product to reach $1M in sales!",
     "ButtonText": "Read more",
-    "ButtonUrl": "/insights/appsumo-fastest-one-million"
+    "ButtonUrl": "/insights/appsumo-fastest-one-million",
+    "MarginBottom": "mb-24"
 }`}}
 {{template "news-bar" $newsBarData}}
 
@@ -19,7 +20,8 @@ DATA STRUCTURE:
 {
     "MainText": "Announcement text",      // Main announcement message (required)
     "ButtonText": "CTA text",            // Button label (required)
-    "ButtonUrl": "/button-link"          // Button destination URL (required)
+    "ButtonUrl": "/button-link",         // Button destination URL (required)
+    "MarginBottom": "mb-16"              // Optional bottom margin (default: mb-16)
 }
 
 FEATURES:
@@ -60,7 +62,7 @@ USE CASES:
 */ -}}
 {{define "news-bar"}}
 <!-- News Bar Component -->
-<div class="w-full">
+<div class="w-full {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="max-w-7xl mx-auto">
         <div class="bg-gray-100 dark:bg-gray-800 rounded-xl">
             <div class="px-4 sm:px-6 lg:px-8">

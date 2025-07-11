@@ -27,7 +27,8 @@ EXAMPLE DATA STRUCTURE:
             "title": "Improved: Dashboard Performance",
             "description": "Dashboard loading times reduced by 50% through optimized data queries and caching."
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"            // Bottom margin (optional, default: "mb-20")
 }
 
 FEATURES:
@@ -41,7 +42,7 @@ LAYOUT:
 - Mobile: Month/year stacked above changes
 - Desktop: Month/year in left column (fixed width), changes in right column
 - Gap between columns: 32 units (8rem)
-- Bottom margin: 20 units (5rem) between months
+- Bottom margin: Customizable (default: 20 units / 5rem)
 
 STYLING:
 - Month/Year: 2xl font size, bold, tight tracking
@@ -56,7 +57,7 @@ USE CASES:
 - Update announcements
 */ -}}
 {{define "changelog-month"}}
-<div class="mb-20">
+<div class="{{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="flex flex-col md:flex-row md:gap-32">
         <!-- Month/Year Label -->
         <div class="md:w-48 md:flex-shrink-0 mb-8 md:mb-0">

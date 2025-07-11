@@ -27,7 +27,8 @@ DATA STRUCTURE:
             "name": "Customer Name",    // Display name of customer (required)
             "url": "https://example.com" // Link to customer website (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-20"              // Bottom margin class (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -57,7 +58,7 @@ USE CASES:
 - Reference pages
 */ -}}
 {{define "customer-list"}}
-<div class="max-w-7xl mx-auto px-6 lg:px-8">
+<div class="max-w-7xl mx-auto px-6 lg:px-8 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div x-data="{ 
         showAll: false,
         visibleCount: 20

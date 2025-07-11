@@ -16,6 +16,7 @@ EXAMPLE IMPLEMENTATIONS:
         "Name" "Sarah Chen" 
         "Title" "VP of Operations, Fortune 500 Tech Company" 
         "ImageUrl" "/testimonials/sarah-chen.jpg"
+        "MarginBottom" "mb-24"
 }}
 
 2. With video:
@@ -26,6 +27,7 @@ EXAMPLE IMPLEMENTATIONS:
         "Title" "Director of Engineering, Startup" 
         "VideoUrl" "/testimonials/michael-video.mp4"
         "PosterUrl" "/testimonials/michael-poster.jpg"
+        "MarginBottom" "mb-24"
 }}
 
 Note: Common usage includes LogoSrc parameter but component doesn't use it.
@@ -38,7 +40,8 @@ DATA STRUCTURE:
     "Title": "Job title, Company",      // Customer title/company (required)
     "ImageUrl": "/path/to/image.jpg",   // Customer photo (required if no video)
     "VideoUrl": "/path/to/video.mp4",   // Testimonial video (optional)
-    "PosterUrl": "/path/to/poster.jpg"  // Video poster frame (optional)
+    "PosterUrl": "/path/to/poster.jpg", // Video poster frame (optional)
+    "MarginBottom": "mb-16"              // Bottom margin (optional, default: mb-16)
 }
 
 FEATURES:
@@ -91,7 +94,7 @@ USE CASES:
 */ -}}
 {{define "testimonial-single"}}
 <!-- Single Testimonial Component with Image/Video Left, Content Right -->
-<div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12">
+<div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 lg:p-12 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         <!-- Media Column -->
         <div class="lg:col-span-4">

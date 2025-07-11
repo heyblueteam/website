@@ -29,7 +29,8 @@ DATA STRUCTURE:
             "name": "Company Name",        // Alt text for logo (required)
             "src": "/path/to/logo.svg"     // Logo image path (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"               // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -70,7 +71,7 @@ USE CASES:
 - Industry presence displays
 */ -}}
 {{define "logo-grid"}}
-<div class="w-full py-8">
+<div class="w-full {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="max-w-7xl mx-auto px-4">
         {{if .title}}
         <h2 class="text-center text-2xl font-semibold mb-8 text-gray-900 dark:text-white">{{.title}}</h2>

@@ -21,7 +21,8 @@ EXAMPLE IMPLEMENTATION:
             "posterUrl": "/testimonials/customer2-poster.jpg",
             "quote": "The best investment we've made in our business. Blue streamlines everything from task management to reporting."
         }
-    ]
+    ],
+    "MarginBottom": "mb-24"
 }`}}
 {{template "testimonial-videos" $testimonialData}}
 
@@ -37,7 +38,8 @@ DATA STRUCTURE:
             "posterUrl": "/poster.jpg",    // Video poster image (required)
             "quote": "Customer quote"      // Testimonial text (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"                // Bottom margin (optional, default: mb-16)
 }
 
 FEATURES:
@@ -87,7 +89,7 @@ NOTE: Uses inline styles instead of Tailwind
 for maximum compatibility and isolation.
 */ -}}
 {{define "testimonial-videos"}}
-<div style="width: 100%; padding: 2rem 0;">
+<div style="width: 100%; padding: 2rem 0;" class="{{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
         {{if .title}}
         <h2 style="text-align: center; font-size: 2rem; font-weight: 500; margin-bottom: 3rem; color: #111827;">{{.title}}</h2>

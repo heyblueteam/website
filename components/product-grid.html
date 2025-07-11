@@ -38,7 +38,8 @@ EXAMPLE IMPLEMENTATION:
             "BorderRight": false,
             "BorderBottom": false
         }
-    ]
+    ],
+    "MarginBottom": "mb-24"
 }`}}
 {{template "product-grid" $productGridData}}
 
@@ -54,7 +55,8 @@ DATA STRUCTURE:
             "BorderBottom": true,          // Show bottom border (required)
             "BorderRight": true            // Show right border on desktop (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"                // Bottom margin (optional, default: mb-16)
 }
 
 FEATURES:
@@ -94,7 +96,7 @@ USE CASES:
 */ -}}
 {{define "product-grid"}}
 <!-- Product Grid Component -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-0 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{range .Products}}
     <!-- Product Item -->
     <div class="p-8 {{if .BorderBottom}}border-b border-gray-200 dark:border-gray-700{{end}} {{if .BorderRight}}md:border-r border-gray-200 dark:border-gray-700{{end}}">

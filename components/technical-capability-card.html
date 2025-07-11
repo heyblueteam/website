@@ -28,7 +28,8 @@ EXAMPLE IMPLEMENTATION:
     "Link": {
         "Text": "View API Docs",
         "Url": "/api"
-    }
+    },
+    "MarginBottom": "mb-24"
 }`}}
 {{template "technical-capability-card" $codeExamplesData}}
 
@@ -50,7 +51,8 @@ DATA STRUCTURE:
     "Link": {                            // Action button (optional)
         "Text": "Button text",
         "Url": "/button-link"
-    }
+    },
+    "MarginBottom": "mb-16"              // Bottom margin (optional, default: mb-16)
 }
 
 FEATURES:
@@ -99,7 +101,7 @@ USE CASES:
 - Developer resources
 */ -}}
 {{define "technical-capability-card"}}
-<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6">
+<div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6 {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <!-- Header -->
     <div class="space-y-3">
         <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{.Title}}</h3>

@@ -41,7 +41,8 @@ DATA STRUCTURE:
             "Icon": "icon-name",          // Optional sprite icon reference
             "Url": "/optional-link"       // Optional link URL for title
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"               // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -56,7 +57,7 @@ LAYOUT:
 - Container: max-width 7xl (80rem)
 - Grid: 1 column mobile, 2 columns tablet, 3 columns desktop
 - Gap: 8 units (2rem) between items
-- Section padding: 20 units (5rem) vertical
+- Bottom margin: Customizable (default: 16 units / 4rem)
 - Title margin: 16 units (4rem) bottom
 
 STYLING:
@@ -81,7 +82,7 @@ USE CASES:
 */ -}}
 {{define "features-grid-simple"}}
 <!-- Features Grid Component -->
-<section class="max-w-7xl mx-auto py-20">
+<section class="max-w-7xl mx-auto {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     {{if .Title}}
     <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{.Title}}</h2>
     {{end}}

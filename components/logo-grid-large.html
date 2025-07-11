@@ -39,7 +39,8 @@ DATA STRUCTURE:
             "name": "Organization Name",   // Alt text for logo (required)
             "src": "/path/to/logo.png"     // Logo image path (required)
         }
-    ]
+    ],
+    "MarginBottom": "mb-16"               // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
@@ -80,7 +81,7 @@ USE CASES:
 - Testimonial sections
 */ -}}
 {{define "logo-grid-large"}}
-<div class="w-full py-8">
+<div class="w-full {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}">
     <div class="max-w-7xl mx-auto px-4">
         {{if .title}}
         <h2 class="text-center text-2xl font-semibold mb-8">{{.title}}</h2>
