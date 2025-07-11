@@ -100,7 +100,6 @@
     "/platform/records": "/platform/features/records",
     "/platform/timeline-gantt-charts": "/platform/features/timeline-gantt-charts",
     "/platform/user-permissions": "/platform/features/user-permissions",
-    "/platform/white-label": "/platform/white-label",
     "/platform/wiki-docs": "/docs/views/wiki",
     "/project-management-dictionary/bottleneck": "/insights",
     "/project-management-dictionary/business-case": "/insights",
