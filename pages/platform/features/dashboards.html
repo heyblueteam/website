@@ -1,7 +1,7 @@
     {{template "page-heading" 
         dict 
             "Title" "Get realtime dashboards for all your metrics" 
-            "Subtitle" "Collaborate effortlessly, edit records instantly, and manage millions of rows with our intuitive spreadsheet-style interface." 
+            "Subtitle" "Transform your data into actionable insights with powerful charts, real-time updates, and customizable dashboards that help you make better decisions." 
             "MarginBottom" "mb-16"
     }}
 
@@ -133,57 +133,59 @@
     <!-- CTA Section -->
     {{$ctaData := parseJSON `{
         "Title": "Have clear insights with your data",
-        "Description": "Centralize your data for accurate, up-to-date information and streamlined workflows.",
-        "PrimaryButtonText": "Try it Free",
-        "PrimaryButtonUrl": "/signup",
-        "SecondaryButtonText": "Book a Demo",
-        "SecondaryButtonUrl": "/demo"
+        "PrimaryText": "Try it Free",
+        "PrimaryUrl": "/signup",
+        "SecondaryText": "Book a Demo",
+        "SecondaryUrl": "/demo"
     }`}}
     {{template "dual-button-cta" $ctaData}}
 
     <!-- FAQ Section -->
     {{$faqData := parseJSON `{
-        "Categories": [
+        "categories": [
             {
-                "Title": "Dashboard Features",
-                "Questions": [
+                "id": "dashboard-features",
+                "name": "Dashboard Features",
+                "questions": [
                     {
-                        "Question": "What types of charts are available in Blue's dashboards?",
-                        "Answer": "Blue offers a comprehensive suite of visualization options including stat cards, pie charts, bar charts, line graphs, area charts, scatter plots, and more. Each chart type is designed to present your data in the most meaningful way possible."
+                        "question": "What types of charts are available in Blue's dashboards?",
+                        "answer": "Blue offers a comprehensive suite of visualization options including stat cards, pie charts, bar charts, line graphs, area charts, scatter plots, and more. Each chart type is designed to present your data in the most meaningful way possible."
                     },
                     {
-                        "Question": "Can I combine data from multiple projects in a single dashboard?",
-                        "Answer": "Yes! Blue allows you to create cross-project dashboards that aggregate data from multiple sources. This gives you a complete view of your organization's performance in one centralized location."
+                        "question": "Can I combine data from multiple projects in a single dashboard?",
+                        "answer": "Yes! Blue allows you to create cross-project dashboards that aggregate data from multiple sources. This gives you a complete view of your organization's performance in one centralized location."
                     },
                     {
-                        "Question": "How can I share dashboards with my team members?",
-                        "Answer": "Dashboards can be shared with specific team members or groups through Blue's permission system. You can control who can view, edit, or manage each dashboard, ensuring the right people have access to the right information."
+                        "question": "How can I share dashboards with my team members?",
+                        "answer": "Dashboards can be shared with specific team members or groups through Blue's permission system. You can control who can view, edit, or manage each dashboard, ensuring the right people have access to the right information."
                     }
                 ]
             },
             {
-                "Title": "Sharing & Customization",
-                "Questions": [
+                "id": "sharing-customization",
+                "name": "Sharing & Customization",
+                "questions": [
                     {
-                        "Question": "Can I share dashboards with people outside my organization?",
-                        "Answer": "Yes, Blue allows you to create public dashboard links that can be shared with external stakeholders, clients, or partners. You can control which data is visible and set expiration dates for added security."
+                        "question": "Can I share dashboards with people outside my organization?",
+                        "answer": "Yes, Blue allows you to create public dashboard links that can be shared with external stakeholders, clients, or partners. You can control which data is visible and set expiration dates for added security."
                     },
                     {
-                        "Question": "What filtering options are available for dashboards?",
-                        "Answer": "Blue provides powerful filtering capabilities including date ranges, custom fields, tags, status, assignees, and more. You can save filter presets and apply them across multiple charts for consistent data views."
+                        "question": "What filtering options are available for dashboards?",
+                        "answer": "Blue provides powerful filtering capabilities including date ranges, custom fields, tags, status, assignees, and more. You can save filter presets and apply them across multiple charts for consistent data views."
                     },
                     {
-                        "Question": "Can I customize the layout of my dashboard?",
-                        "Answer": "Absolutely! Blue's dashboards feature a drag-and-drop interface that lets you arrange charts, resize widgets, and create the perfect layout for your needs. You can also save multiple layout configurations."
+                        "question": "Can I customize the layout of my dashboard?",
+                        "answer": "Absolutely! Blue's dashboards feature a drag-and-drop interface that lets you arrange charts, resize widgets, and create the perfect layout for your needs. You can also save multiple layout configurations."
                     }
                 ]
             },
             {
-                "Title": "Support",
-                "Questions": [
+                "id": "support",
+                "name": "Support",
+                "questions": [
                     {
-                        "Question": "How can I provide feedback or suggestions for the dashboard feature?",
-                        "Answer": "We love hearing from our users! You can submit feedback through the in-app feedback button, join our community forum, or reach out to our support team directly. Your input helps us continuously improve Blue's dashboard capabilities."
+                        "question": "How can I provide feedback or suggestions for the dashboard feature?",
+                        "answer": "We love hearing from our users! You can submit feedback through the in-app feedback button, join our community forum, or reach out to our support team directly. Your input helps us continuously improve Blue's dashboard capabilities."
                     }
                 ]
             }
