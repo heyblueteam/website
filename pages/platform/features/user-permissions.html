@@ -66,7 +66,7 @@
     {{$customRolesData := parseJSON `{
       "Title": "Custom Role Management",
       "Description": "Define precise access levels and permissions for your team members. Create roles that align perfectly with your organizational structure and security requirements.",
-      "VideoUrl": "/product/features/user-permissions/custom-roles.mp4",
+      "VideoUrl": "https://media.blue.cc/user-permissions-create-role.mp4",
       "VideoPosition": "right"
     }`}}
     {{template "feature-video" $customRolesData}}
@@ -74,7 +74,7 @@
     {{$listPermissionsData := parseJSON `{
       "Title": "List-Level Permissions",
       "Description": "Assign permissions to view, edit, or delete specific lists within projects. This level of detail allows roles to be precisely managed according to the unique needs of each project phase.",
-      "VideoUrl": "/product/features/user-permissions/list-permissions.mp4",
+      "VideoUrl": "https://media.blue.cc/user-permissions-list.mp4",
       "VideoPosition": "left"
     }`}}
     {{template "feature-video" $listPermissionsData}}
@@ -82,7 +82,7 @@
     {{$fieldPermissionsData := parseJSON `{
       "Title": "Custom Field Permissions",
       "Description": "Control access to sensitive data by managing view and edit permissions for each custom field. Perfect for protecting confidential information like financial data or personal details.",
-      "VideoUrl": "/product/features/user-permissions/field-permissions.mp4",
+      "VideoUrl": "https://media.blue.cc/user-permissions-custom-fields.mp4",
       "VideoPosition": "right"
     }`}}
     {{template "feature-video" $fieldPermissionsData}}
@@ -90,7 +90,7 @@
     {{$recordVisibilityData := parseJSON `{
       "Title": "Record-Level Visibility",
       "Description": "Enhance focus and productivity by limiting users to only see records assigned to them. Perfect for sales teams managing their own leads or support staff handling their specific cases.",
-      "VideoUrl": "/user-permissions.mp4",
+      "VideoUrl": "https://media.blue.cc/user-permissions-records.mp4",
       "VideoPosition": "left"
     }`}}
     {{template "feature-video" $recordVisibilityData}}
@@ -98,36 +98,7 @@
 
 
 
-  <!-- Resources Section -->
-  <section class="mb-20 bg-gray-50 rounded-2xl p-12">
-    <h2 class="text-3xl font-semibold text-gray-900 text-center mb-8">Learn More About Permissions</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-      <a href="/docs/user-management/permissions" class="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-        <svg class="w-8 h-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-        </svg>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Permission Guide</h3>
-        <p class="text-gray-600 text-sm">Complete guide to understanding and implementing Blue's permission system.</p>
-      </a>
 
-      <a href="/docs/api/permissions" class="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-        <svg class="w-8 h-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-        </svg>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">API Documentation</h3>
-        <p class="text-gray-600 text-sm">Learn how to manage permissions programmatically through our API.</p>
-      </a>
-
-      <a href="/insights/best-practices/permission-strategy" class="bg-white rounded-lg p-6 hover:shadow-lg transition-shadow">
-        <svg class="w-8 h-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-        </svg>
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Best Practices</h3>
-        <p class="text-gray-600 text-sm">Tips for designing an effective permission strategy for your organization.</p>
-      </a>
-    </div>
-  </section>
 
   {{$ctaData := parseJSON `{
     "Title": "Boost your productivity. ",
