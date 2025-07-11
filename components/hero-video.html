@@ -3,60 +3,77 @@
 HERO VIDEO COMPONENT
 ================================================================================
 Displays a full-width hero video with controls and optional mute/unmute button.
+Supports both local video files and YouTube videos.
 
 USAGE:
 {{template "hero-video" dict "VideoUrl" "/path/to/video.mp4" "ShowUnmuteButton" true}}
 
 EXAMPLE IMPLEMENTATIONS:
 
-1. Basic video (no custom mute button):
+1. Basic local video (no custom mute button):
 {{template "hero-video" 
     dict 
         "VideoUrl" "/product/hero/blue-hero-video-fast.mp4"
 }}
 
-2. With custom mute/unmute button:
+2. Local video with custom mute/unmute button:
 {{template "hero-video" 
     dict 
         "VideoUrl" "/product/demo-video.mp4" 
         "ShowUnmuteButton" true
 }}
 
+3. YouTube video:
+{{template "hero-video" 
+    dict 
+        "Youtube": "https://www.youtube.com/watch?v=lbFvQ-0ENTY"
+}}
+
 DATA STRUCTURE:
 {
-    "VideoUrl": "/path/to/video.mp4",     // Video file path (required)
-    "ShowUnmuteButton": true,             // Show custom mute button (optional)
+    "VideoUrl": "/path/to/video.mp4",     // Local video file path (required if no YouTube)
+    "Youtube": "https://youtube.com/...", // YouTube URL (required if no VideoUrl)
+    "ShowUnmuteButton": true,             // Show custom mute button (optional, local videos only)
     "MarginBottom": "mb-20"               // Bottom margin (optional, default: "mb-16")
 }
 
 FEATURES:
 - Full-width responsive video player
-- Autoplay with muted audio by default
-- Continuous loop playback
+- Supports both local video files and YouTube videos
+- Autoplay with muted audio by default (local videos)
+- Continuous loop playback (local videos)
 - Browser native controls always visible
-- Optional custom mute/unmute button overlay
+- Optional custom mute/unmute button overlay (local videos only)
 - AlpineJS-powered mute toggle
 - Rounded corners with border
+- YouTube embed with responsive design
 
 LAYOUT:
 - Width: Full container width
 - Bottom margin: Customizable (default: 16 units / 4rem)
 - Border radius: 2xl (1rem)
 - Border: Gray-200
+- YouTube: 16:9 aspect ratio maintained
 
-CUSTOM MUTE BUTTON:
+CUSTOM MUTE BUTTON (Local videos only):
 - Position: Top-right corner (4 units from edges)
 - Background: Green when muted, black when unmuted
 - Icons: Speaker with X (muted), speaker with waves (unmuted)
 - Text label changes: "Unmute" / "Mute"
 - Smooth transitions and hover effects
 
-VIDEO ATTRIBUTES:
+LOCAL VIDEO ATTRIBUTES:
 - autoplay: Starts playing immediately
 - muted: Required for autoplay to work
 - loop: Continuous playback
 - playsinline: Prevents fullscreen on mobile
 - controls: Shows browser playback controls
+
+YOUTUBE EMBED:
+- Responsive iframe with 16:9 aspect ratio
+- YouTube player controls enabled
+- No autoplay (YouTube policy)
+- Maintains responsive design
 
 USE CASES:
 - Homepage hero sections
@@ -68,7 +85,7 @@ USE CASES:
 {{define "hero-video"}}
 <!-- Hero Video Component -->
 <section class="w-full {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}} relative" 
-         {{if .ShowUnmuteButton}}
+         {{if and .ShowUnmuteButton .VideoUrl}}
          x-data="{ 
              isMuted: true,
              toggleMute() {
@@ -78,6 +95,21 @@ USE CASES:
              }
          }"
          {{end}}>
+    
+    {{if .Youtube}}
+    <!-- YouTube Video -->
+    <div class="relative w-full rounded-2xl border border-gray-200 overflow-hidden" style="padding-bottom: 56.25%;">
+        <iframe 
+            class="absolute top-0 left-0 w-full h-full"
+            src="{{.Youtube}}" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    {{else}}
+    <!-- Local Video -->
     <video 
         {{if .ShowUnmuteButton}}x-ref="video"{{end}}
         class="w-full h-auto object-cover rounded-2xl border border-gray-200" 
@@ -106,6 +138,7 @@ USE CASES:
         </svg>
         <span x-text="isMuted ? 'Unmute' : 'Mute'"></span>
     </button>
+    {{end}}
     {{end}}
 </section>
 
