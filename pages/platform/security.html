@@ -1,47 +1,309 @@
 <!-- Main content -->
-    {{template "page-heading" 
-        dict 
-            "Title" "Security" 
-            "Subtitle" "Blue is designed from the ground up for security and scale." 
-            "MarginBottom" "mb-16"
-    }}
+    <!-- Custom Security Heading with Airport Flip Effect -->
+    <div class="mb-16" 
+         x-data="{ 
+             title: 'Security',
+             subtitle: 'Blue is designed from the ground up for security and scale.',
+             words: [],
+             animatedWords: [], 
+             showSubtitle: false,
+             flipChar(event) {
+                 const span = event.target;
+                 if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                 
+                 span.dataset.flipping = 'true';
+                 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                 const original = span.textContent;
+                 let iterations = 0;
+                 
+                 // Add glitch effect class
+                 span.classList.add('glitching');
+                 
+                 const interval = setInterval(() => {
+                     span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                     
+                     if (iterations > 10) {
+                         span.textContent = original;
+                         span.dataset.flipping = 'false';
+                         span.classList.remove('glitching');
+                         clearInterval(interval);
+                     }
+                     iterations++;
+                 }, 40);
+             }
+         }" 
+         x-init="
+             words = title.split(' ');
+             words.forEach((word, i) => setTimeout(() => animatedWords.push(i), i * 80)); 
+             setTimeout(() => showSubtitle = true, 100);
+         ">
+        
+        <style>
+            .flip-char {
+                display: inline-block;
+                transition: all 0.2s ease;
+                cursor: default;
+            }
+            .flip-char:hover {
+                transform: scale(1.05);
+            }
+            .flip-char.glitching {
+                animation: glitch 0.1s infinite;
+            }
+            @keyframes glitch {
+                0% { transform: translateX(0); }
+                25% { transform: translateX(-1px); }
+                50% { transform: translateX(1px); }
+                75% { transform: translateX(-0.5px); }
+                100% { transform: translateX(0); }
+            }
+        </style>
+        
+        <h1 class="text-4xl md:text-6xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-3">
+            <template x-for="(word, index) in words" :key="index">
+                <span 
+                    :class="animatedWords.includes(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'" 
+                    class="inline-block mr-2 transition-all duration-300 ease-out">
+                    <template x-for="(char, charIndex) in word.split('')" :key="charIndex">
+                        <span 
+                            @mouseenter="flipChar($event)"
+                            class="flip-char"
+                            x-text="char">
+                        </span>
+                    </template>
+                </span>
+            </template>
+        </h1>
+        
+        <p 
+            :class="showSubtitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'" 
+            class="text-xl text-gray-600 dark:text-gray-400 transition-all duration-800 ease-out"
+            x-text="subtitle">
+        </p>
+    </div>
 
 
     <!-- Security Features Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-5xl mx-auto mb-20">
         <!-- Enterprise-Level Encryption -->
         <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700 md:border-r md:dark:border-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Enterprise-Level Encryption</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'Enterprise-Level Encryption'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">Blue utilizes AWS enterprise-level encryption to protect your sensitive data both at rest and in transit.</p>
         </div>
         
         <!-- Advanced Monitoring -->
         <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Advanced Monitoring and Redundancy</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'Monitoring and Redundancy'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">Our advanced monitoring and alert systems, combined with multiple redundant systems, ensure high availability and minimize downtime.</p>
         </div>
         
         <!-- Secure Backend -->
         <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700 md:border-r md:dark:border-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Secure Backend Systems</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'Secure Backend Systems'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">All backend systems are secured by multi-factor authentication (MFA) to prevent unauthorized access to customer data.</p>
         </div>
         
         <!-- Security Audits -->
         <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Regular Security Audits</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'Regular Security Audits'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">Blue undergoes regular security audits by third parties to identify and address any potential vulnerabilities.</p>
         </div>
         
         <!-- Daily Data Backups -->
         <div class="p-8 space-y-4 md:border-r border-gray-200 dark:border-gray-700 md:dark:border-gray-700">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Daily Data Backups</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'Daily Data Backups'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">Your data is backed up daily to ensure data integrity and enable quick disaster recovery if needed.</p>
         </div>
         
         <!-- External Security Researchers -->
         <div class="p-8 space-y-4">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">External Security Researchers</h3>
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100"
+                x-data="{
+                    flipChar(event) {
+                        const span = event.target;
+                        if (span.dataset.flipping === 'true' || !span.classList.contains('flip-char')) return;
+                        
+                        span.dataset.flipping = 'true';
+                        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+                        const original = span.textContent;
+                        let iterations = 0;
+                        
+                        span.classList.add('glitching');
+                        
+                        const interval = setInterval(() => {
+                            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+                            
+                            if (iterations > 10) {
+                                span.textContent = original;
+                                span.dataset.flipping = 'false';
+                                span.classList.remove('glitching');
+                                clearInterval(interval);
+                            }
+                            iterations++;
+                        }, 40);
+                    }
+                }">
+                <template x-for="(char, index) in 'External Security Researchers'.split('')" :key="index">
+                    <span @mouseenter="flipChar($event)" 
+                          :class="char === ' ' ? '' : 'flip-char'" 
+                          x-text="char"></span>
+                </template>
+            </h3>
             <p class="text-gray-600 dark:text-gray-400">Blue works with external security researchers to identify and resolve any vulnerabilities proactively.</p>
         </div>
     </div>
