@@ -89,14 +89,14 @@ window.SPAUtils = {
      * @param {Document} doc - Parsed document from response
      */
     async updatePageContent(newMain, currentMain, link, doc) {
-        // Fade out current content
+        // Much faster transition - 50ms total
         currentMain.style.opacity = '0';
-        currentMain.style.transition = 'opacity 150ms ease-out';
+        currentMain.style.transition = 'opacity 50ms ease-out';
         
-        // Update content after fade out
+        // Update content after very brief fade
         setTimeout(() => {
             currentMain.innerHTML = newMain.innerHTML;
-            // Fade in new content
+            // Instant fade in
             currentMain.style.opacity = '1';
             
             // Update title
@@ -130,7 +130,7 @@ window.SPAUtils = {
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 150);
+        }, 50);
     },
 
     /**
