@@ -118,7 +118,7 @@
         </div>
         
         <!-- Center Search Bar - Absolutely positioned for true centering -->
-        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-full max-w-md px-8"
+        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2"
              x-data="{
                  query: '',
                  results: [],
@@ -126,6 +126,7 @@
                  showResults: false,
                  selectedIndex: -1,
                  loading: false,
+                 searchFocused: false,
                  async init() {
                      try {
                          const response = await fetch('/searchIndex.json');
@@ -216,8 +217,9 @@
                      }
                  }
              }"
-             @click.away="showResults = false">
-            <div class="relative">
+             @click.away="showResults = false; searchFocused = false">
+            <div class="relative transition-all duration-300 ease-out"
+                 :class="searchFocused ? 'w-[28rem]' : 'w-72'">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg class="w-4 h-4 text-gray-400" fill="currentColor">
                         <use href="/icons/sprite.svg#search"></use>
@@ -228,9 +230,10 @@
                     x-model="query"
                     @input.debounce.50ms="search()"
                     @keydown="handleKeydown($event)"
-                    @focus="query && search()"
-                    class="block w-full pl-10 pr-16 py-2 border border-transparent bg-gray-100 dark:bg-gray-800 rounded-lg text-sm placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 focus:outline-none focus:bg-white dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition-all duration-200"
-                    placeholder="Search anything..."
+                    @focus="searchFocused = true; query && search()"
+                    @blur="setTimeout(() => { if (!showResults) searchFocused = false }, 200)"
+                    class="block w-full pl-10 pr-16 py-2 border border-transparent bg-gray-100 dark:bg-gray-800 rounded-lg text-sm placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 focus:outline-none focus:bg-white dark:focus:bg-gray-700 focus:border-gray-300 dark:focus:border-gray-600 transition-all duration-300"
+                    :placeholder="searchFocused ? 'Search docs, features, API, insights...' : 'Search...'"
                     autocomplete="off"
                     id="searchInput"
                 >
