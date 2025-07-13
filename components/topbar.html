@@ -176,24 +176,30 @@
                      this.loading = false;
                  },
                  selectResult(result) {
-                     // Animate search bar back to initial state
-                     this.searchFocused = false;
+                     // First hide the dropdown
                      this.showResults = false;
-                     this.query = '';
-                     // Small delay to allow animation before navigation
+                     // Then animate search bar back after dropdown fade completes
+                     setTimeout(() => {
+                         this.searchFocused = false;
+                         this.query = '';
+                     }, 150);
+                     // Navigate after all animations complete
                      setTimeout(() => {
                          window.location.href = result.item.url;
-                     }, 150);
+                     }, 300);
                  },
                  selectSuggestion(suggestion) {
-                     // Animate search bar back to initial state
-                     this.searchFocused = false;
+                     // First hide the dropdown
                      this.showResults = false;
-                     this.query = '';
-                     // Small delay to allow animation before navigation
+                     // Then animate search bar back after dropdown fade completes
+                     setTimeout(() => {
+                         this.searchFocused = false;
+                         this.query = '';
+                     }, 150);
+                     // Navigate after all animations complete
                      setTimeout(() => {
                          window.location.href = suggestion.url;
-                     }, 150);
+                     }, 300);
                  },
                  getCategoryClass(category) {
                      // Use brand colors from brand.html
