@@ -1,175 +1,219 @@
 <!-- Main content -->
-    {{template "page-heading" 
-        dict 
-            "Title" "Feature Index" 
-            "Subtitle" "Discover all the modules and features in Blue." 
-            "MarginBottom" "mb-16"
-    }}
+{{template "page-heading" 
+    dict 
+        "Title" "Unlock new perspectives with map view" 
+        "Subtitle" "Visualize your data on a world map. Track customers, delivery addresses, and other real-world items with ease." 
+        "MarginBottom" "mb-16"
+}}
 
-    {{$featuresData := parseJSON `{
-        "sections": [
-            {
-                "title": "Product",
-                "columns": [
-                    {
-                        "items": [
-                            { "label": "Workspaces", "link": "/platform/features/workspaces" },
-                            { "label": "Records", "link": "/platform/features/records" },
-                            { "label": "User Permissions", "link": "/platform/features/user-permissions" },
-                            { "label": "File Management", "link": "/platform/features/file-management" },
-                            { "label": "Automations", "link": "/platform/features/automations" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Dashboards", "link": "/platform/features/dashboards" },
-                            { "label": "Templates", "link": "/platform/features/templates" },
-                            { "label": "Search", "link": "/platform/features/search" },
-                            { "label": "Artificial Intelligence", "link": "/platform/features/ai" },
-                            { "label": "Forms", "link": "/platform/features/forms" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Chat", "link": "/platform/features/chat" },
-                            { "label": "Wiki", "link": "/platform/features/wiki" },
-                            { "label": "Docs", "link": "/platform/features/docs" },
-                            { "label": "PDF Generation", "link": "/platform/features/pdf-generation" },
-                            { "label": "Repeating Records", "link": "/docs/records/repeat" }
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Views",
-                "columns": [
-                    {
-                        "items": [
-                            { "label": "Kanban Board", "link": "/platform/features/kanban-board" },
-                            { "label": "Calendar", "link": "/platform/features/views/calendar" },
-                            { "label": "Timeline & Gantt Charts", "link": "/platform/features/views/timeline" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Database", "link": "/platform/features/database" },
-                            { "label": "Map", "link": "/platform/features/map" },
-                            { "label": "List", "link": "/platform/features/list" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Filters", "link": "/platform/features/views/filters" },
-                            { "label": "Audit Trails", "link": "/platform/features/views/audit-trails" },
-                            { "label": "Activity", "link": "/platform/features/views/activity" }
+{{template "hero-video" 
+    dict 
+        "VideoUrl" "/testvideo2.mp4"
+        "ShowUnmuteButton" true
+        "MarginBottom" "mb-16"
+}}
 
-                        ]
-                    }
-                ]
+{{template "call-out-text" 
+    dict 
+        "Text" "Location data reveals patterns you can't see in spreadsheets. Map view transforms coordinates into actionable insights." 
+        "MarginBottom" "mb-16"
+}}
+
+<!-- Real-Time Location Tracking Feature -->
+{{$trackingFeature := parseJSON `{
+    "Title": "Track everything in real time.",
+    "Description": "Always know where your assets, shipments, or team members are. Map view updates automatically as location data changes, giving you instant visibility across your operations.",
+    "VideoUrl": "/testvideo2.mp4",
+    "VideoPosition": "right"
+}`}}
+{{template "feature-video" $trackingFeature}}
+
+<!-- Real-Time Location Tracking Benefits Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{$trackingBenefits := parseJSON `{
+        "Benefits": [
+            {
+                "Title": "Live updates",
+                "Description": "See location changes as they happen with automatic map updates."
             },
             {
-                "title": "Custom Fields",
-                "columns": [
-                    {
-                        "items": [
-                            { "label": "Introduction", "link": "/docs/custom-fields/introduction" },
-                            { "label": "Single Line Text", "link": "/docs/custom-fields/single-line-text" },
-                            { "label": "Multiple Line Text", "link": "/docs/custom-fields/multiple-line-text" },
-                            { "label": "URL / Link", "link": "/docs/custom-fields/url-link" },
-                            { "label": "Currency", "link": "/docs/custom-fields/currency" },
-                            { "label": "Country", "link": "/docs/custom-fields/country" },
-                            { "label": "Date", "link": "/docs/custom-fields/date" },
-                            { "label": "Formula", "link": "/docs/custom-fields/formula" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "File", "link": "/docs/custom-fields/file" },
-                            { "label": "Single Select", "link": "/docs/custom-fields/single-select" },
-                            { "label": "Multiple Select", "link": "/docs/custom-fields/multiple-select" },
-                            { "label": "Location / Map", "link": "/docs/custom-fields/location-map" },
-                            { "label": "Phone Number", "link": "/docs/custom-fields/phone-number" },
-                            { "label": "Email", "link": "/docs/custom-fields/email" },
-                            { "label": "Star Rating", "link": "/docs/custom-fields/star-rating" },
-                            { "label": "Checkbox", "link": "/docs/custom-fields/checkbox" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Number", "link": "/docs/custom-fields/number" },
-                            { "label": "Percent", "link": "/docs/custom-fields/percent" },
-                            { "label": "Unique ID", "link": "/docs/custom-fields/unique-id" },
-                            { "label": "Reference", "link": "/docs/custom-fields/reference" },
-                            { "label": "Lookup", "link": "/docs/custom-fields/lookup" },
-                            { "label": "Duration", "link": "/docs/custom-fields/duration" },
-                            { "label": "Button", "link": "/docs/custom-fields/button" },
-                            { "label": "Time In List", "link": "/docs/custom-fields/time-in-list" }
-                        ]
-                    }
-                ]
+                "Title": "Asset visibility",
+                "Description": "Track vehicles, equipment, and inventory across your entire operation."
             },
             {
-                "title": "Integrations",
-                "columns": [
-                    {
-                        "items": [
-                            { "label": "API", "link": "/docs/integrations/api" },
-                            { "label": "Webhooks", "link": "/docs/integrations/webhooks" },
-                            { "label": "CSV Import", "link": "/docs/integrations/csv-import" },
-                            { "label": "CSV Export", "link": "/docs/integrations/csv-export" },
-                            { "label": "Calendar Sync", "link": "/docs/integrations/calendar-sync" }
-                            
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "Zapier", "link": "/docs/integrations/zapier" },
-                            { "label": "Make.com", "link": "/docs/integrations/make" },
-                            { "label": "Pabbly Connect", "link": "/docs/integrations/pabbly-connect" },
-                            { "label": "Albato", "link": "/platform/integrations/albato" },
-                            { "label": "Boost.space", "link": "/platform/integrations/boost-space" }
-                            
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "HTTP Request Automations", "link": "/docs/integrations/http-request-automations" },
-                            { "label": "Python SDK", "link": "/api/libraries/python" },
-                            { "label": "GraphQL Playground", "link": "/api/start-guide/graphql-playground" },
-                            { "label": "Google Maps", "link": "/docs/integrations/googlemaps" },
-                            { "label": "Github", "link": "/platform/integrations/github" }
-                            
-                          
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Download",
-                "columns": [
-                    {
-                        "items": [
-                            { "label": "iOS (iPhone) ", "link": "/platform/download" },
-                             { "label": "Android", "link": "/platform/download" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            { "label": "iOS (iPad)", "link": "/platform/download" },
-                            { "label": "Chrome Extension (Unofficial)", "link": "/platform/download" }
-                        ]
-                    },
-                    {
-                        "items": [
-                            {"label": "Mac", "link": "/platform/download" },
-                            { "label": "Windows", "link": "/platform/download" }
-                            
-                        ]
-                    }
-                ]
+                "Title": "Team coordination",
+                "Description": "Know where your team members are and optimize their routes."
             }
-        ]
+        ],
+        "MarginBottom": "mb-20"
     }`}}
-    
-    {{template "features-grid" $featuresData}}
+    {{template "feature-benefits-grid" $trackingBenefits}}
+</div>
 
+<!-- Geographical Insights Feature -->
+{{$insightsFeature := parseJSON `{
+    "Title": "Discover hidden patterns in your data.",
+    "Description": "Uncover trends and relationships that are invisible in traditional views. Map view reveals geographical patterns that help you make better decisions and identify new opportunities.",
+    "VideoUrl": "/testvideo2.mp4",
+    "VideoPosition": "left"
+}`}}
+{{template "feature-video" $insightsFeature}}
+
+<!-- Geographical Insights Benefits Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{$insightsBenefits := parseJSON `{
+        "Benefits": [
+            {
+                "Title": "Pattern recognition",
+                "Description": "Identify clusters, gaps, and trends in your geographical data."
+            },
+            {
+                "Title": "Market analysis",
+                "Description": "Visualize customer distribution and market penetration across regions."
+            },
+            {
+                "Title": "Strategic planning",
+                "Description": "Make data-driven decisions about expansion and resource allocation."
+            }
+        ],
+        "MarginBottom": "mb-20"
+    }`}}
+    {{template "feature-benefits-grid" $insightsBenefits}}
+</div>
+
+<!-- Location Custom Fields Feature -->
+{{$locationFieldsFeature := parseJSON `{
+    "Title": "Structure location data perfectly.",
+    "Description": "Our dedicated location custom field captures coordinates, Google Maps links, and even lets you search for locations. Every location change is logged for complete auditability.",
+    "VideoUrl": "/testvideo2.mp4",
+    "VideoPosition": "right"
+}`}}
+{{template "feature-video" $locationFieldsFeature}}
+
+<!-- Location Custom Fields Benefits Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{$locationFieldsBenefits := parseJSON `{
+        "Benefits": [
+            {
+                "Title": "Clear references",
+                "Description": "Give each record a precise location with coordinates or addresses."
+            },
+            {
+                "Title": "Complete audit trail",
+                "Description": "Track every location change with timestamps and user information."
+            },
+            {
+                "Title": "Easy to use",
+                "Description": "Search for locations or paste Google Maps links - no technical expertise required."
+            }
+        ],
+        "MarginBottom": "mb-20"
+    }`}}
+    {{template "feature-benefits-grid" $locationFieldsBenefits}}
+</div>
+
+<!-- Cross-Project Visualization Feature -->
+{{$crossProjectFeature := parseJSON `{
+    "Title": "Visualize data across all projects.",
+    "Description": "Your location data shouldn't be confined to a single project. Map view works across projects, so you can easily visualize and analyze data in one place, unlocking new insights and opportunities.",
+    "VideoUrl": "/testvideo2.mp4",
+    "VideoPosition": "left"
+}`}}
+{{template "feature-video" $crossProjectFeature}}
+
+<!-- Cross-Project Visualization Benefits Grid -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {{$crossProjectBenefits := parseJSON `{
+        "Benefits": [
+            {
+                "Title": "Unified perspective",
+                "Description": "Bring together location data from different teams and departments."
+            },
+            {
+                "Title": "Discover connections",
+                "Description": "Identify patterns across projects that might otherwise go unnoticed."
+            },
+            {
+                "Title": "Break down silos",
+                "Description": "Provide shared visual context for teams across your organization."
+            }
+        ],
+        "MarginBottom": "mb-20"
+    }`}}
+    {{template "feature-benefits-grid" $crossProjectBenefits}}
+</div>
+
+<!-- CTA Section -->
+{{$ctaData := parseJSON `{
+    "Title": "Ready to see your data on a map?",
+    "ButtonText": "Start mapping",
+    "ButtonUrl": "https://app.blue.cc",
+    "MarginBottom": "mb-16"
+}`}}
+{{template "cta-single-button" $ctaData}}
+
+<!-- FAQ Section -->
+{{$faqData := parseJSON `{
+    "categories": [
+        {
+            "name": "Map Features",
+            "questions": [
+                {
+                    "question": "What is the Map View?",
+                    "answer": "Map View visually plots records containing location data onto an interactive world map. This geographic perspective delivers unique insights and analysis opportunities that aren't visible in traditional list or table views."
+                },
+                {
+                    "question": "What features are available on the map?",
+                    "answer": "Map View includes zoom controls, filtering capabilities, instant search for records, and real-time updates. You can click on any point to view record details, use filters to show specific data sets, and search for records across the globe."
+                },
+                {
+                    "question": "Does the Map work in Dark Mode?",
+                    "answer": "Yes, Map View fully supports dark mode. The map tiles, interface elements, and all visual components automatically adapt to your theme preference, providing a consistent experience across all viewing modes."
+                },
+                {
+                    "question": "How do I add location data to my records?",
+                    "answer": "Use the Location custom field type in your record structure. You can enter coordinates manually, paste Google Maps links, or search for locations by name. The field automatically captures and validates location data for map display."
+                }
+            ]
+        },
+        {
+            "name": "Use Cases & Applications",
+            "questions": [
+                {
+                    "question": "What are some use cases for the Map View?",
+                    "answer": "Common use cases include asset tracking (vehicles, equipment), logistics optimization (delivery routes, supply chains), territory management (sales regions, service areas), and market analysis (customer distribution, market penetration)."
+                },
+                {
+                    "question": "Can I track moving assets in real-time?",
+                    "answer": "Yes, Map View updates automatically as location data changes. When you update coordinates in your records, the map reflects those changes immediately, allowing you to track moving assets, shipments, or team members in real-time."
+                },
+                {
+                    "question": "How does cross-project visualization work?",
+                    "answer": "Map View can display location data from multiple projects simultaneously. This allows you to see connections and patterns across different teams, departments, and initiatives that might not be visible when viewing projects in isolation."
+                },
+                {
+                    "question": "Can I export map data for external analysis?",
+                    "answer": "Yes, Blue provides a powerful API that allows you to read location data, update locations, and stream real-time updates to external applications for further analysis, visualization, or integration with geospatial tools."
+                }
+            ]
+        },
+        {
+            "name": "Technical Details",
+            "questions": [
+                {
+                    "question": "What location formats does Blue support?",
+                    "answer": "Blue supports latitude/longitude coordinates, Google Maps links, and location search by name. The Location custom field automatically validates and standardizes location data for consistent map display."
+                },
+                {
+                    "question": "How accurate is the location tracking?",
+                    "answer": "Location accuracy depends on the data source. GPS coordinates provide the highest accuracy, while location search results use standard mapping service accuracy. All location changes are logged with timestamps for audit purposes."
+                },
+                {
+                    "question": "Can I build custom geospatial applications with Blue?",
+                    "answer": "Yes, Blue's API provides full access to location data. You can retrieve location data, update locations, and receive real-time updates to build custom geospatial applications, dashboards, or integrate with external mapping tools."
+                }
+            ]
+        }
+    ]
+}`}}
+{{template "faq-sections" $faqData}}
