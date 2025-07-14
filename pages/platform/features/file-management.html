@@ -84,3 +84,67 @@
     }
 }`}}
 {{template "feature-image" $fileSearchData}}
+
+<!-- File Integration Feature -->
+{{$fileIntegrationData := parseJSON `{
+    "Title": "Files that work everywhere in Blue",
+    "Description": "Attach files directly to comments and records using File custom fields. Keep all related documents exactly where you need them in your workflow.",
+    "VideoUrl": "/testvideo2.mp4",
+    "VideoPosition": "right"
+}`}}
+{{template "feature-video" $fileIntegrationData}}
+
+<!-- FAQ Section -->
+<section class="mb-20">
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+    
+    {{$faqData := parseJSON `{
+        "categories": [
+            {
+                "name": "File Management",
+                "questions": [
+                    {
+                        "question": "What file types can I upload to Blue?",
+                        "answer": "Blue supports all file types with no restrictions. You can upload documents, images, videos, audio files, archives, and any other file format you need for your projects."
+                    },
+                    {
+                        "question": "Is there a limit to file sizes I can upload?",
+                        "answer": "Individual files can be up to 5GB in size. This accommodates most business files including large videos, design files, and data exports."
+                    },
+                    {
+                        "question": "How do I organize files in Blue?",
+                        "answer": "You can create nested folder structures with unlimited depth to organize your files exactly how you need them. Create folders and subfolders, and use color-coding to visually categorize different types of content."
+                    },
+                    {
+                        "question": "Can I share files with people outside my organization?",
+                        "answer": "Yes, you can generate secure public links for individual files to share with external collaborators, clients, or stakeholders. These links allow access without requiring a Blue account."
+                    },
+                    {
+                        "question": "How do files integrate with other Blue features?",
+                        "answer": "Files can be attached to comments for contextual discussions and added to records using File custom fields. This keeps all related documents directly connected to your workflows and projects."
+                    },
+                    {
+                        "question": "Can I access my files when I'm offline?",
+                        "answer": "Files require an internet connection to access as they are stored securely in the cloud. However, once downloaded, you can work with files offline and re-upload them when you're back online."
+                    },
+                    {
+                        "question": "Does Blue keep versions of my files?",
+                        "answer": "Blue stores the current version of your files. If you need to maintain multiple versions, you can upload them as separate files or use descriptive naming conventions to track different iterations."
+                    }
+                ]
+            }
+        ]
+    }`}}
+    
+    {{template "faq-sections" $faqData}}
+</section>
+
+<!-- Call to Action -->
+{{$ctaData := parseJSON `{
+    "Title": "Organize your files the smart way.",
+    "PrimaryText": "Get Started Free",
+    "PrimaryUrl": "https://app.blue.cc",
+    "SecondaryText": "View documentation",
+    "SecondaryUrl": "/docs/projects/file-management"
+}`}}
+{{template "dual-button-cta" $ctaData}}

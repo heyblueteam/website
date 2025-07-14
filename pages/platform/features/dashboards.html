@@ -113,16 +113,16 @@
         {{$barChartsBenefits := parseJSON `{
             "Benefits": [
                 {
-                    "Title": "Visual Breakdown",
-                    "Description": "View percentages and amounts together. Each slice shows size and value."
+                    "Title": "Trend Analysis",
+                    "Description": "Track changes over time with clear visual progression. Spot patterns and trends instantly."
                 },
                 {
-                    "Title": "Flexible Totals",
-                    "Description": "Customize how you total—average, count, max, min, or sum."
+                    "Title": "Easy Comparison",
+                    "Description": "Compare multiple data sets side by side. Different time periods, teams, or categories at a glance."
                 },
                 {
-                    "Title": "Color Insights",
-                    "Description": "Color segments for quick trend spotting. Clear, distinct, informative."
+                    "Title": "Automatic Updates",
+                    "Description": "Charts refresh with real-time data. Always see the most current trends and metrics."
                 }
             ],
             "MarginBottom": "mb-20"
@@ -132,11 +132,11 @@
 
     <!-- CTA Section -->
     {{$ctaData := parseJSON `{
-        "Title": "Have clear insights with your data",
-        "PrimaryText": "Try it Free",
-        "PrimaryUrl": "/signup",
-        "SecondaryText": "Book a Demo",
-        "SecondaryUrl": "/demo"
+        "Title": "Turn your data into actionable insights.",
+        "PrimaryText": "Get Started Free",
+        "PrimaryUrl": "https://app.blue.cc",
+        "SecondaryText": "View documentation",
+        "SecondaryUrl": "/docs/dashboards"
     }`}}
     {{template "dual-button-cta" $ctaData}}
 
