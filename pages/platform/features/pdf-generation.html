@@ -1,0 +1,241 @@
+{{template "page-heading" 
+    dict 
+        "Title" "Generate Professional PDFs from Your Records" 
+        "Subtitle" "Transform your records into polished documents. Create invoices, work orders, reports, and more with customizable PDF templates." 
+        "MarginBottom" "mb-16"
+}}
+
+<!-- Hero Video -->
+{{template "hero-video" 
+    dict 
+        "Youtube" "https://www.youtube.com/embed/SnpKwaOFLgQ"
+        "ShowUnmuteButton" true
+        "MarginBottom" "mb-20"
+}}
+
+<!-- Template Setup Feature -->
+{{$templateSetupFeature := parseJSON `{
+    "Title": "Design custom templates with drag-and-drop simplicity.",
+    "Description": "Upload your PDF template and drag record fields directly onto the document. Position data exactly where you need it for professional, branded output every time.",
+    "VideoUrl": "/product/pdf-template-setup.mp4",
+    "VideoPosition": "right"
+}`}}
+{{template "feature-video" $templateSetupFeature}}
+
+<!-- Use Cases Grid -->
+{{$useCasesData := parseJSON `{
+    "Title": "Perfect for every document workflow",
+    "Description": "From customer-facing documents to internal reports, PDF generation streamlines your documentation process.",
+    "Features": [
+        {
+            "Title": "Invoices & Billing",
+            "Description": "Generate professional invoices directly from sales records with accurate, up-to-date customer and transaction data."
+        },
+        {
+            "Title": "Work Orders & Service Reports", 
+            "Description": "Create detailed work orders and service documentation for clients and internal teams with consistent formatting."
+        },
+        {
+            "Title": "Receipts & Confirmations",
+            "Description": "Provide customers with well-formatted receipts and confirmation documents for transactions and bookings."
+        },
+        {
+            "Title": "Compliance & Record-keeping",
+            "Description": "Maintain comprehensive documentation for audit trails, compliance requirements, and official record archiving."
+        },
+        {
+            "Title": "Purchase Orders",
+            "Description": "Streamline procurement with automatically generated purchase orders that pull vendor and item details from your records."
+        },
+        {
+            "Title": "Performance Reports",
+            "Description": "Transform project data into professional reports for stakeholders, complete with metrics and progress summaries."
+        }
+    ],
+    "MarginBottom": "mb-20"
+}`}}
+{{template "features-grid-simple" $useCasesData}}
+
+<!-- Field Support Feature -->
+{{$fieldSupportFeature := parseJSON `{
+    "Title": "Support for all your important data.",
+    "Description": "PDF generation works with every field type in Blue. From basic text and dates to complex formulas and references - your templates capture the complete picture with precise positioning.",
+    "VideoUrl": "/product/pdf-field-mapping.mp4",
+    "VideoPosition": "left"
+}`}}
+{{template "feature-video" $fieldSupportFeature}}
+
+<!-- Field Support Benefits -->
+{{$fieldSupportBenefits := parseJSON `{
+    "Benefits": [
+        {
+            "Title": "Complete Data Coverage",
+            "Description": "Support for all 23+ field types including text, dates, currency, formulas, references, and selections."
+        },
+        {
+            "Title": "Smart Formatting",
+            "Description": "Automatic formatting for currencies, dates, percentages, and multi-line text with proper wrapping."
+        },
+        {
+            "Title": "Image Integration",
+            "Description": "File fields display embedded images directly in PDFs with automatic scaling and positioning."
+        }
+    ],
+    "MarginBottom": "mb-20"
+}`}}
+{{template "feature-benefits-grid" $fieldSupportBenefits}}
+
+<!-- Generation Process Feature -->
+{{$generationFeature := parseJSON `{
+    "Title": "One-click document generation.",
+    "Description": "Generate PDFs instantly from any record. Preview before output, then download or print directly - no manual data entry or formatting required.",
+    "VideoUrl": "/product/pdf-generation-process.mp4",
+    "VideoPosition": "right"
+}`}}
+{{template "feature-video" $generationFeature}}
+
+<!-- Key Benefits Section -->
+<section class="mb-20">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4 text-center">Eliminate manual document creation forever.</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center">Save hours of work while reducing errors and ensuring consistency across all your documents.</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Save Time</h3>
+                <p class="text-gray-600 dark:text-gray-400">Eliminate manual data entry and formatting. Generate documents in seconds, not hours.</p>
+            </div>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Reduce Errors</h3>
+                <p class="text-gray-600 dark:text-gray-400">Pull data directly from records to eliminate transcription mistakes and inconsistencies.</p>
+            </div>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Professional Output</h3>
+                <p class="text-gray-600 dark:text-gray-400">Maintain consistent branding and formatting across all your generated documents.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="mb-20">
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+    
+    {{$faqData := parseJSON `{
+        "categories": [
+            {
+                "name": "Getting Started",
+                "questions": [
+                    {
+                        "question": "How do I set up PDF templates?",
+                        "answer": "Project administrators can upload PDF templates in project settings. Navigate to your project settings, find the 'PDF Templates' section, and upload your template. Then drag and drop fields from your project onto the template to map your data."
+                    },
+                    {
+                        "question": "What file formats can I use for templates?",
+                        "answer": "You can upload standard PDF files as templates, with a maximum of 10 pages per template. The system converts your PDF to images and overlays record data while preserving your original formatting, logos, and design elements."
+                    },
+                    {
+                        "question": "Who can create and manage PDF templates?",
+                        "answer": "Only Project Administrators can upload and configure PDF templates. However, once templates are set up, any team member with appropriate permissions can generate PDFs from records."
+                    },
+                    {
+                        "question": "Can I use multiple templates in one project?",
+                        "answer": "Yes! You can create multiple PDF templates for different document types within the same project. For example, have separate templates for invoices, work orders, and reports."
+                    }
+                ]
+            },
+            {
+                "name": "Field Support & Data",
+                "questions": [
+                    {
+                        "question": "Which field types are supported?",
+                        "answer": "PDF generation supports all field types in Blue including text, dates, currency, percentages, formulas, selections, lookups, references, buttons, star ratings, and more. Every custom field type can be mapped to your PDF templates."
+                    },
+                    {
+                        "question": "How are formulas and calculated fields handled?",
+                        "answer": "Formula fields populate with their calculated values at the time of PDF generation. This ensures your documents always reflect the most current calculations and data relationships."
+                    },
+                    {
+                        "question": "Can I include images and files in PDFs?",
+                        "answer": "Yes, file fields are supported for images. Images attached to records are embedded directly into your generated PDFs with automatic scaling. Note that only image files (JPG, PNG, GIF, etc.) are displayed in PDFs - document files are not rendered."
+                    },
+                    {
+                        "question": "What happens with empty or null fields?",
+                        "answer": "Empty fields will appear blank in the generated PDF. You can design your templates to handle this gracefully with appropriate spacing and layout considerations."
+                    }
+                ]
+            },
+            {
+                "name": "Generation & Output",
+                "questions": [
+                    {
+                        "question": "How do I generate a PDF from a record?",
+                        "answer": "Open any record and select 'Print' from the record menu. Choose your desired template, preview the output, and then either download the PDF file or send it directly to a printer."
+                    },
+                    {
+                        "question": "Can I preview PDFs before generating them?",
+                        "answer": "Yes! The system provides a preview of your PDF before generation, allowing you to verify that all data is correctly positioned and formatted according to your template."
+                    },
+                    {
+                        "question": "What output options are available?",
+                        "answer": "You can either download the PDF file to save locally or send the document directly to a connected printer. This flexibility supports both digital workflows and physical documentation needs."
+                    },
+                    {
+                        "question": "Can I generate PDFs in bulk?",
+                        "answer": "Currently, PDF generation works on individual records. For bulk document generation needs, consider using our API or automations to streamline the process across multiple records."
+                    }
+                ]
+            },
+            {
+                "name": "Use Cases & Best Practices",
+                "questions": [
+                    {
+                        "question": "What are common use cases for PDF generation?",
+                        "answer": "Popular use cases include invoicing and billing, work orders and service reports, receipts and confirmations, compliance documentation, purchase orders, and performance reports. Any scenario requiring professional document output benefits from this feature."
+                    },
+                    {
+                        "question": "How do I ensure consistent branding?",
+                        "answer": "Design your PDF templates with your brand elements (logos, colors, fonts) already in place. The system preserves your template design while populating data fields, ensuring every generated document maintains your professional brand appearance."
+                    },
+                    {
+                        "question": "Can external clients receive these PDFs?",
+                        "answer": "Absolutely! Generated PDFs are standard files that can be emailed, shared, or printed for clients, vendors, and stakeholders. They contain no Blue-specific formatting and appear as professional business documents."
+                    },
+                    {
+                        "question": "How does this help with compliance and auditing?",
+                        "answer": "PDF generation creates standardized documentation directly from your data, providing consistent formatting and eliminating manual errors. This supports audit trails and compliance requirements by ensuring accurate, timestamped documentation."
+                    }
+                ]
+            }
+        ]
+    }`}}
+    
+    {{template "faq-sections" $faqData}}
+</section>
+
+<!-- Call to Action -->
+{{$ctaData := parseJSON `{
+    "Title": "Start generating professional PDFs today.",
+    "PrimaryText": "Get Started Free",
+    "PrimaryUrl": "https://app.blue.cc",
+    "SecondaryText": "View documentation",
+    "SecondaryUrl": "/docs/records/printing-records"
+}`}}
+{{template "dual-button-cta" $ctaData}}
