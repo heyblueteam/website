@@ -132,9 +132,9 @@
 
   <!-- FAQ Section -->
   {{$faqData := parseJSON `{
-    "sections": [
+    "categories": [
       {
-        "category": "General",
+        "name": "General",
         "questions": [
           {
             "question": "What are forms in Blue?",
@@ -151,7 +151,7 @@
         ]
       },
       {
-        "category": "Sharing & Access",
+        "name": "Sharing & Access",
         "questions": [
           {
             "question": "Can forms be shared with external users?",
@@ -172,7 +172,7 @@
         ]
       },
       {
-        "category": "Building Forms",
+        "name": "Building Forms",
         "questions": [
           {
             "question": "How do you build forms in Blue?",
@@ -193,7 +193,7 @@
         ]
       },
       {
-        "category": "Management & Automation",
+        "name": "Management & Automation",
         "questions": [
           {
             "question": "How are submitted forms managed?",
@@ -219,10 +219,10 @@
 
   <!-- Call to Action -->
   {{$ctaData := parseJSON `{
-    "Title": "Start using Blue today.",
-    "SecondaryText": "Request a demo",
-    "SecondaryUrl": "/contact",
-    "PrimaryText": "Get started",
+    "Title": "Start collecting data with forms today.",
+    "SecondaryText": "View documentation",
+    "SecondaryUrl": "/docs/forms",
+    "PrimaryText": "Get Started Free",
     "PrimaryUrl": "https://app.blue.cc"
   }`}}
   {{template "dual-button-cta" $ctaData}}

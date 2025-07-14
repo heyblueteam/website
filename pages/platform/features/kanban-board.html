@@ -117,8 +117,8 @@
                     "answer": "A Kanban board is a visual project management tool that helps teams visualize work, limit work-in-progress, and maximize efficiency. It uses cards and columns to represent tasks and their stages in a workflow, allowing teams to see the status of work at a glance."
                 },
                 {
-                    "question": "Process Management",
-                    "answer": "Kanban boards improve project management by providing visual clarity of work status, reducing bottlenecks through WIP limits, enabling easy prioritization, facilitating team collaboration, and highlighting process inefficiencies. This visual approach helps teams deliver work more predictably and efficiently."
+                    "question": "How do Kanban boards improve process management?",
+                    "answer": "Kanban boards improve process management by providing visual clarity of work status, reducing bottlenecks through WIP limits, enabling easy prioritization, facilitating team collaboration, and highlighting process inefficiencies. This visual approach helps teams deliver work more predictably and efficiently."
                 },
                 {
                     "question": "Can I customize the columns on a Kanban board?",
@@ -189,3 +189,13 @@
     ]
 }`}}
 {{template "faq-sections" $faqData}}
+
+<!-- Call to Action -->
+{{$ctaData := parseJSON `{
+    "Title": "Start visualizing your workflow today.",
+    "PrimaryText": "Get Started Free",
+    "PrimaryUrl": "https://app.blue.cc",
+    "SecondaryText": "View documentation",
+    "SecondaryUrl": "/docs/kanban-board"
+}`}}
+{{template "dual-button-cta" $ctaData}}
