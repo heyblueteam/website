@@ -1,0 +1,138 @@
+<!-- Main content -->
+    {{template "page-heading" 
+        dict 
+            "Title" "Effortlessly manage your cross-project calendar." 
+            "Subtitle" "Visualize tasks and events across multiple projects, seamlessly synced with your favorite work calendar — Outlook, Google Calendar, or iCal." 
+            "MarginBottom" "mb-16"
+    }}
+
+    <!-- Hero Video -->
+    {{template "hero-video" 
+        dict 
+            "VideoUrl" "/testvideo2.mp4"
+            "ShowUnmuteButton" true
+            "Id" "calendar-hero"
+    }}
+
+    <!-- Calendar Integration Logos -->
+    <section class="mb-20">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">
+                See your project deadlines directly in your favorite work calendar app.
+            </p>
+            <!-- Custom Calendar Provider Logos -->
+            <div class="flex justify-center items-center gap-12 flex-wrap">
+                <img src="/integrations/outlook.svg" alt="Outlook" class="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                <img src="/integrations/googlecalendar.svg" alt="Google Calendar" class="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+                <img src="/integrations/ical.svg" alt="iCal" class="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity">
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar View Features Section -->
+    <section class="mb-20">
+        {{$calendarFeaturesData := parseJSON `{
+            "Title": "Be the know-it-all with calendar view.",
+            "Description": "Blue's intuitive calendar view makes it simple to manage your project timelines visually. Drag and drop records to rearrange due dates, assign tasks, and optimize your schedule.",
+            "Features": [
+                {
+                    "Title": "Arrange.",
+                    "Description": "Update your project as you see fit in a visual manner."
+                },
+                {
+                    "Title": "Visualize.",
+                    "Description": "Identify bottlenecks and optimizations at a glance."
+                },
+                {
+                    "Title": "Filter.",
+                    "Description": "Filter by anything and focus on what's important."
+                }
+            ]
+        }`}}
+        {{template "features-grid-simple" $calendarFeaturesData}}
+    </section>
+
+    <!-- Calendar Management Features -->
+    {{$calendarManagementFeature := parseJSON `{
+        "Title": "Visual scheduling that keeps everyone in sync.",
+        "Description": "Manage deadlines, events, and milestones across all your projects in one unified calendar view. Drag and drop to reschedule, click to edit details, and see everything at a glance.",
+        "VideoUrl": "/testvideo2.mp4",
+        "VideoPosition": "right"
+    }`}}
+    {{template "feature-video" $calendarManagementFeature}}
+
+    <!-- Calendar Sync Feature -->
+    {{$calendarSyncFeature := parseJSON `{
+        "Title": "Sync your Blue deadlines to your favorite calendar.",
+        "Description": "Connect Blue with Outlook, Google Calendar, or iCal to see all your project deadlines alongside your other commitments. Any changes to due dates in Blue automatically update in your external calendar.",
+        "VideoUrl": "/testvideo2.mp4",
+        "VideoPosition": "left"
+    }`}}
+    {{template "feature-video" $calendarSyncFeature}}
+
+
+
+    <!-- FAQ Section -->
+    <section class="mb-20">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+        
+        {{$faqData := parseJSON `{
+            "categories": [
+                {
+                    "name": "Calendar Basics",
+                    "questions": [
+                        {
+                            "question": "What is the Calendar view and how can it help me?",
+                            "answer": "The Calendar view provides a visual way to manage tasks, deadlines, and events across all your projects. It helps you see your workload, identify scheduling conflicts, and plan resources effectively. You can drag and drop to reschedule items and sync with external calendars."
+                        },
+                        {
+                            "question": "What features are available in the Calendar view?",
+                            "answer": "Blue's Calendar view includes month/week/day/agenda views, drag-and-drop rescheduling, color coding by project or priority, recurring events, multi-project visibility, team availability tracking, and sync with external calendars like Outlook and Google Calendar."
+                        },
+                        {
+                            "question": "How do I sync my Blue calendar with external calendars?",
+                            "answer": "You can sync Blue with Outlook, Google Calendar, or any iCal-compatible app. Go to your account settings, select 'Calendar Sync', and follow the setup wizard. This creates a one-way sync where your Blue deadlines and events appear in your external calendar. Any changes made in Blue will automatically update in your synced calendar."
+                        }
+                    ]
+                },
+                {
+                    "name": "Using the Calendar",
+                    "questions": [
+                        {
+                            "question": "How do I add new dated records to the Calendar?",
+                            "answer": "Click on any date in the calendar to create a new record with that due date. You can also create records in other views and add due dates - they'll automatically appear in the calendar. For recurring events, use the recurrence options when creating the record."
+                        },
+                        {
+                            "question": "Can I reschedule records in the Calendar view?",
+                            "answer": "Yes! Simply drag and drop any record to a new date to reschedule it. You can also drag the edges of multi-day events to extend or shorten their duration. All changes are instantly saved and synced with your team."
+                        },
+                        {
+                            "question": "How do I navigate to the current date in the Calendar view?",
+                            "answer": "Click the 'Today' button in the calendar toolbar to jump to the current date. The current date is also highlighted with a special border to make it easy to spot."
+                        },
+                        {
+                            "question": "How do I navigate through months and years in the Calendar view?",
+                            "answer": "Use the arrow buttons in the calendar header to move between months. Click on the month/year display to open a date picker for quickly jumping to any specific month or year. You can also use keyboard shortcuts: arrow keys to navigate dates."
+                        },
+                        {
+                            "question": "How do I open and edit records in the Calendar view?",
+                            "answer": "Click on any record in the calendar to open its details panel. From there you can edit all fields, add comments, attach files, or update the due date. Double-click to open the record in full-screen mode for more detailed editing."
+                        }
+                    ]
+                }
+            ]
+        }`}}
+        
+        {{template "faq-sections" $faqData}}
+    </section>
+
+    <!-- Call to Action -->
+    {{$ctaData := parseJSON `{
+        "Title": "Boost your productivity. Start using Blue today.",
+        "Description": "Blue organizes work, ensuring teams know what to do, how to do it — and why it matters.",
+        "SecondaryText": "View documentation",
+        "SecondaryUrl": "/docs/calendar-view",
+        "PrimaryText": "Get Started Free",
+        "PrimaryUrl": "https://app.blue.cc"
+    }`}}
+    {{template "dual-button-cta" $ctaData}}

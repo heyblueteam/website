@@ -1,0 +1,182 @@
+<!-- Main content -->
+    {{template "page-heading" 
+        dict 
+            "Title" "Process Management Artificial Intelligence." 
+            "Subtitle" "Leverage Artificial Intelligence to streamline process management and improve efficiency. Automatically categorize your work items and summarize discussions into action points." 
+            "MarginBottom" "mb-16"
+    }}
+
+    <!-- Hero Video -->
+    {{template "hero-video" 
+        dict 
+            "VideoUrl" "/testvideo2.mp4"
+            "ShowUnmuteButton" true
+            "Id" "ai-hero"
+    }}
+
+    <!-- Customer Logos Section -->
+    <section class="mb-20">
+        <h2 class="text-center text-2xl font-semibold mb-8 text-gray-900 dark:text-white">Powering the world's best process managers.</h2>
+        
+        {{$logoData := parseJSON `{
+            "logos": [
+                { "name": "Heineken", "src": "/customers/heineken.svg" },
+                { "name": "Deloitte", "src": "/customers/deloitte.svg" },
+                { "name": "Save The Children", "src": "/customers/savethechildren.svg" },
+                { "name": "Fedex", "src": "/customers/fedex.svg" },
+                { "name": "International Labour Organization", "src": "/customers/ilo.webp" }
+            ]
+        }`}}
+        {{template "logo-grid" $logoData}}
+    </section>
+
+    <!-- AI Included Section -->
+    <section class="mb-20">
+        {{$aiIncludedData := parseJSON `{
+            "Title": "AI is included out of the box.",
+            "Description": "Blue comes with AI built-in no extra charges.",
+            "Features": [
+                {
+                    "Title": "Summarize Conversations",
+                    "Description": "Instant Summarization of long conversations with clear action points."
+                },
+                {
+                    "Title": "Categorizations and Tagging",
+                    "Description": "Automatic categorization of records and tasks based on logical tags"
+                },
+                {
+                    "Title": "Semantic Search",
+                    "Description": "Advanced search that understands meaning and context, not just for keywords."
+                }
+            ]
+        }`}}
+        {{template "features-grid-simple" $aiIncludedData}}
+    </section>
+
+    <!-- AI Summaries Feature -->
+    {{$aiSummariesFeature := parseJSON `{
+        "Title": "Always know the next key actions with AI-powered conversation summaries.",
+        "Description": "Our AI can summarize conversations and provide actionable insights, saving you valuable reading time.",
+        "VideoUrl": "/testvideo2.mp4",
+        "VideoPosition": "right"
+    }`}}
+    {{template "feature-video" $aiSummariesFeature}}
+
+    <!-- Auto Categorization Feature -->
+    {{$autoCategorizeFeature := parseJSON `{
+        "Title": "Keep work organized with automatic categorization of work items",
+        "Description": "Blue can automatically choose which tags to apply to records based on the context.",
+        "VideoUrl": "/testvideo2.mp4",
+        "VideoPosition": "left"
+    }`}}
+    {{template "feature-video" $autoCategorizeFeature}}
+
+    <!-- Secure AI Integration Section -->
+        
+        {{$securityFeaturesData := parseJSON `{
+            "Title": "Secure AI Integration",
+            "Features": [
+                {
+                    "Title": "Secure Data Processing",
+                    "Description": "Agreements with AI providers ensure your data is not retained or used for model training."
+                },
+                {
+                    "Title": "On-Premise Search Indexing",
+                    "Description": "Search AI indexing is performed on our own cloud servers using open-source models."
+                },
+                {
+                    "Title": "Anonymized Processing",
+                    "Description": "Sensitive information like assignee names is never sent to AI providers."
+                },
+                {
+                    "Title": "Data Residency Compliance",
+                    "Description": "Our AI processing adheres to data residency requirements for international clients."
+                },
+                {
+                    "Title": "User Control",
+                    "Description": "Users can delete AI-generated summaries if needed."
+                },
+                {
+                    "Title": "Organization Control",
+                    "Description": "Organization-wide settings allow you to toggle AI features on or off based on your preferences."
+                },
+                {
+                    "Title": "Secure Cloud Processing",
+                    "Description": "All AI processing is done in secure cloud environments."
+                },
+                {
+                    "Title": "Continuous Improvement",
+                    "Description": "We are always working to enhance our AI privacy features based on your feedback."
+                },
+                {
+                    "Title": "No Third-Party Training",
+                    "Description": "Your data is never used to train third-party AI models, ensuring complete confidentiality."
+                }
+            ]
+        }`}}
+        {{template "features-grid-simple" $securityFeaturesData}}
+
+    <!-- FAQ Section -->
+    <section class="mb-20">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+        
+        {{$faqData := parseJSON `{
+            "categories": [
+                {
+                    "name": "AI Features",
+                    "questions": [
+                        {
+                            "question": "What AI features does Blue offer for process management?",
+                            "answer": "Blue offers three main AI features: conversation summarization for extracting action points from long discussions, automatic categorization and tagging of work items, and semantic search that understands context and meaning."
+                        },
+                        {
+                            "question": "How does Blue's AI summarize conversations?",
+                            "answer": "Blue's AI analyzes chat conversations and discussions to extract key points, decisions, and action items. It provides a concise summary that helps team members quickly understand what was discussed and what needs to be done."
+                        },
+                        {
+                            "question": "Can you explain how Blue's AI performs automatic categorization and tagging?",
+                            "answer": "Blue's AI analyzes the content and context of records, tasks, and projects to automatically apply relevant tags. It understands the nature of the work and categorizes items based on patterns it recognizes, helping keep your workspace organized without manual effort."
+                        },
+                        {
+                            "question": "What is semantic search in Blue, and how does it differ from regular search?",
+                            "answer": "Semantic search understands the meaning and context of your query, not just matching keywords. For example, searching for 'budget issues' might also find records about 'financial constraints' or 'cost overruns' because the AI understands these concepts are related."
+                        }
+                    ]
+                },
+                {
+                    "name": "Privacy & Cost",
+                    "questions": [
+                        {
+                            "question": "Are there any limitations to Blue's AI capabilities?",
+                            "answer": "Blue's AI is designed for process management contexts and works best with business-related content. It may have limitations with highly technical or specialized domain-specific content. The AI features are also dependent on having sufficient context to provide accurate results."
+                        },
+                        {
+                            "question": "How does Blue ensure the privacy and security of data processed by its AI?",
+                            "answer": "Blue prioritizes data privacy through secure processing agreements with AI providers, on-premise search indexing, anonymized data processing, and compliance with data residency requirements. Your data is never used for model training."
+                        },
+                        {
+                            "question": "Can users customize or train the AI to better suit their specific needs?",
+                            "answer": "Currently, Blue's AI uses pre-trained models optimized for process management. While you cannot directly train the AI, it learns from usage patterns to improve categorization and search relevance over time."
+                        },
+                        {
+                            "question": "Is there an additional cost for using AI features in Blue?",
+                            "answer": "No, AI features are included in all Blue plans at no extra cost. We believe AI should be accessible to all teams to improve productivity."
+                        }
+                    ]
+                }
+            ]
+        }`}}
+        
+        {{template "faq-sections" $faqData}}
+    </section>
+
+    <!-- Call to Action -->
+    {{$ctaData := parseJSON `{
+        "Title": "Discover AI powered process management.",
+        "Description": "Try Blue to automate process management and improve efficiency. Automatically categorize your work items and summarize discussions into action points.",
+        "SecondaryText": "Sign Up FREE",
+        "SecondaryUrl": "https://app.blue.cc",
+        "PrimaryText": "Sign Up FREE",
+        "PrimaryUrl": "https://app.blue.cc"
+    }`}}
+    {{template "dual-button-cta" $ctaData}}

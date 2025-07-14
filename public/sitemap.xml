@@ -97,12 +97,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blue.cc/platform/features/activity</loc>
-    <lastmod>2025-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://blue.cc/platform/features/ai</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -121,7 +115,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://blue.cc/platform/features/caledar</loc>
+    <loc>https://blue.cc/platform/features/calendar</loc>
     <lastmod>2025-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
