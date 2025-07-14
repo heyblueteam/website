@@ -98,7 +98,7 @@
     "/platform/records": "/platform/features/records",
     "/platform/timeline-gantt-charts": "/platform/features/timeline-gantt-charts",
     "/platform/user-permissions": "/platform/features/user-permissions",
-    "/platform/wiki-docs": "/docs/views/wiki",
+    "/platform/wiki-docs": "/docs/features/wiki-docs",
     "/project-management-dictionary/bottleneck": "/insights",
     "/project-management-dictionary/business-case": "/insights",
     "/project-management-dictionary/change-request": "/insights",
