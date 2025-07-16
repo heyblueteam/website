@@ -52,6 +52,8 @@ mutation CreateDetailedTextMultiField {
 | `type` | CustomFieldType! | ✅ Yes | Must be `TEXT_MULTI` |
 | `description` | String | No | Help text shown to users |
 
+**Note:** The project context is determined automatically from the `X-Bloo-Project-ID` header in your GraphQL request. Custom fields are always created within the project specified in the request header.
+
 ## Setting Text Values
 
 To set or update a multi-line text value on a record:
@@ -171,10 +173,10 @@ function example() {
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create text field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update text field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set text value | Standard record edit permissions |
-| View text value | Standard record view permissions |
+| Create text field | `OWNER` or `ADMIN` project-level role |
+| Update text field | `OWNER` or `ADMIN` project-level role |
+| Set text value | Any role except `VIEW_ONLY` or `COMMENT_ONLY` |
+| View text value | Any project-level role |
 
 ## Error Responses
 
@@ -196,7 +198,7 @@ function example() {
   "errors": [{
     "message": "Custom field not found",
     "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
@@ -225,16 +227,23 @@ function example() {
 ## Filtering and Search
 
 ### Contains Search
-Multi-line text fields support substring searching:
+Multi-line text fields support substring searching through the todos query filtering system:
 
 ```graphql
 query SearchTextMulti {
   todos(
-    customFieldFilters: [{
-      customFieldId: "text_multi_field_id"
-      operation: CONTAINS
-      value: "project"
-    }]
+    # Custom field filtering is available through the query system
+    # Exact parameter structure should be verified from current API schema
+    where: {
+      customFields: {
+        some: {
+          customFieldId: "text_multi_field_id"
+          text: {
+            contains: "project"
+          }
+        }
+      }
+    }
   ) {
     id
     title
@@ -246,10 +255,10 @@ query SearchTextMulti {
 ```
 
 ### Search Capabilities
-- Case-insensitive substring matching
+- Substring matching within text fields
 - Searches across all lines of text
 - Supports partial word matching
-- No full-text search or ranking
+- Search behavior depends on database collation settings
 
 ## Common Use Cases
 

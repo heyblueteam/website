@@ -15,7 +15,6 @@ mutation CreateEmailField {
   createCustomField(input: {
     name: "Contact Email"
     type: EMAIL
-    projectId: "proj_123"
   }) {
     id
     name
@@ -33,7 +32,6 @@ mutation CreateDetailedEmailField {
   createCustomField(input: {
     name: "Client Email"
     type: EMAIL
-    projectId: "proj_123"
     description: "Primary email address for client communications"
   }) {
     id
@@ -74,7 +72,7 @@ mutation SetEmailValue {
 |-----------|------|----------|-------------|
 | `todoId` | String! | ✅ Yes | ID of the record to update |
 | `customFieldId` | String! | ✅ Yes | ID of the email custom field |
-| `text` | String! | ✅ Yes | Email address to store |
+| `text` | String | No | Email address to store |
 
 ## Creating Records with Email Values
 
@@ -94,10 +92,8 @@ mutation CreateRecordWithEmail {
     title
     customFields {
       id
-      customField {
-        name
-        type
-      }
+      name
+      type
       text
     }
   }
@@ -106,16 +102,17 @@ mutation CreateRecordWithEmail {
 
 ## Response Fields
 
-### TodoCustomField Response
+### CustomField Response
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String! | Unique identifier for the field value |
-| `customField` | CustomField! | The custom field definition |
-| `text` | String | The stored email address |
-| `todo` | Todo! | The record this value belongs to |
-| `createdAt` | DateTime! | When the value was created |
-| `updatedAt` | DateTime! | When the value was last modified |
+| `id` | String! | Unique identifier for the custom field |
+| `name` | String! | Display name of the email field |
+| `type` | CustomFieldType! | The field type (EMAIL) |
+| `description` | String | Help text for the field |
+| `text` | String | The stored email address value |
+| `createdAt` | DateTime! | When the field was created |
+| `updatedAt` | DateTime! | When the field was last modified |
 
 ## Email Validation
 
@@ -158,16 +155,18 @@ user name@domain.com # Spaces not allowed
 ### Storage Format
 - Email addresses are stored as plain text
 - No special formatting or parsing
-- Case sensitivity depends on email server (typically case-insensitive)
+- Case sensitivity: EMAIL custom fields are stored case-sensitively (unlike user authentication emails which are normalized to lowercase)
+- No maximum length limitations beyond database constraints (16MB limit)
 
 ## Required Permissions
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create email field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update email field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set email value | Standard record edit permissions |
-| View email value | Standard record view permissions |
+| Create email field | `OWNER` or `ADMIN` project-level role |
+| Update email field | `OWNER` or `ADMIN` project-level role |
+| Delete email field | `OWNER` or `ADMIN` project-level role |
+| Set email value | Any role except `VIEW_ONLY` and `COMMENT_ONLY` |
+| View email value | Any project role with field access |
 
 ## Error Responses
 
@@ -175,9 +174,15 @@ user name@domain.com # Spaces not allowed
 ```json
 {
   "errors": [{
-    "message": "Invalid email format",
+    "message": "ValidationError",
     "extensions": {
-      "code": "VALIDATION_ERROR"
+      "code": "BAD_USER_INPUT",
+      "data": {
+        "errors": [{
+          "field": "email",
+          "message": "Email format is invalid"
+        }]
+      }
     }
   }]
 }
@@ -189,7 +194,7 @@ user name@domain.com # Spaces not allowed
   "errors": [{
     "message": "Custom field not found",
     "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
