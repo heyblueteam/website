@@ -105,6 +105,7 @@
             newsBarDismissed ? 'top-0 md:top-0' : 'top-0 md:top-10',
             scrolled ? 'xl:top-4 xl:w-[85%] 2xl:w-[80%] xl:rounded-2xl xl:shadow-lg' : 'xl:w-full'
         ]"
+        :style="scrolled ? 'box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);' : ''"
         @keydown.escape="mobileMenuOpen = false">
     <div class="relative flex items-center justify-between px-4 h-full">
         <!-- Logo and Toggle -->
