@@ -180,7 +180,6 @@ mutation CreateRecordWithNumber {
 | `id` | String! | Unique identifier for the field value |
 | `customField` | CustomField! | The custom field definition |
 | `number` | Float | The numeric value |
-| `value` | Object | Combined value object (see below) |
 | `todo` | Todo! | The record this value belongs to |
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last modified |
@@ -197,17 +196,7 @@ mutation CreateRecordWithNumber {
 | `prefix` | String | Display prefix |
 | `description` | String | Help text |
 
-### Value Object Structure
-
-```json
-{
-  "value": {
-    "number": 42.5
-  }
-}
-```
-
-**Note**: If the number value is not set, the value will be `null`.
+**Note**: If the number value is not set, the `number` field will be `null`.
 
 ## Filtering and Querying
 
@@ -218,11 +207,8 @@ query FilterByNumberRange {
   todos(filter: {
     customFields: [{
       customFieldId: "score_field_id"
-      numberRange: {
-        min: 80
-        max: 100
-      }
-      operator: BETWEEN
+      operator: GTE
+      number: 80
     }]
   }) {
     id
@@ -244,9 +230,9 @@ query FilterByNumberRange {
 | `GTE` | Greater than or equal | `number ≥ 42` |
 | `LT` | Less than | `number < 42` |
 | `LTE` | Less than or equal | `number ≤ 42` |
-| `BETWEEN` | Within range | `42 ≤ number ≤ 100` |
-| `NULL` | No value set | `number is null` |
-| `NOT_NULL` | Has any value | `number is not null` |
+| `IN` | In array | `number in [1, 2, 3]` |
+| `NIN` | Not in array | `number not in [1, 2, 3]` |
+| `IS` | Is null/not null | `number is null` |
 
 ### Range Filtering
 
@@ -271,18 +257,24 @@ Number fields support aggregation functions:
 
 ```graphql
 query AggregateNumbers {
-  todos(filter: {
-    customFields: [{
-      customFieldId: "score_field_id"
-      operator: NOT_NULL
-    }]
+  todoCustomFields(where: {
+    customFieldId: { equals: "score_field_id" }
+    number: { not: null }
   }) {
-    aggregates {
-      sum
-      average
-      min
-      max
-      count
+    _sum {
+      number
+    }
+    _avg {
+      number
+    }
+    _min {
+      number
+    }
+    _max {
+      number
+    }
+    _count {
+      number
     }
   }
 }
@@ -292,11 +284,11 @@ query AggregateNumbers {
 
 | Function | Description |
 |----------|-------------|
-| `SUM` | Total of all values |
-| `AVERAGE` | Mean of all values |
-| `MIN` | Smallest value |
-| `MAX` | Largest value |
-| `COUNT` | Number of records with values |
+| `_sum` | Total of all values |
+| `_avg` | Mean of all values |
+| `_min` | Smallest value |
+| `_max` | Largest value |
+| `_count` | Number of records with values |
 
 ## Display Formatting
 
@@ -322,13 +314,13 @@ Numbers maintain their decimal precision:
 
 ## Required Permissions
 
-| Action | Required Permission |
-|--------|-------------------|
-| Create number field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update number field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set number value | Standard record edit permissions |
-| View number value | Standard record view permissions |
-| Use aggregation functions | Standard record query permissions |
+| Action | Required Role |
+|--------|---------------|
+| Create number field | Project `OWNER` or `ADMIN` |
+| Update number field | Project `OWNER` or `ADMIN` |
+| Set number value | Any role except `VIEW_ONLY` or `COMMENT_ONLY` |
+| View number value | Any project role |
+| Use aggregation functions | Any project role |
 
 ## Error Responses
 

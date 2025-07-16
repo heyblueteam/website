@@ -158,7 +158,7 @@ This allows you to create automations that respond to checkbox state changes, su
 ### Importing Checkbox Values
 
 When importing data via CSV or other formats:
-- `"true"`, `"yes"`, `"1"` → Checked
+- `"true"`, `"yes"` → Checked (case-insensitive)
 - `"false"`, `"no"`, `"0"`, empty → Unchecked
 
 ### Exporting Checkbox Values
@@ -171,10 +171,10 @@ When exporting data:
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create checkbox field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update checkbox field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set checkbox value | Standard task edit permissions |
-| View checkbox value | Standard task view permissions |
+| Create checkbox field | `OWNER` or `ADMIN` role at project level |
+| Update checkbox field | `OWNER` or `ADMIN` role at project level |
+| Set checkbox value | Standard task edit permissions (excluding VIEW_ONLY and COMMENT_ONLY roles) |
+| View checkbox value | Standard task view permissions (authenticated users in company/project) |
 
 ## Error Responses
 
@@ -184,7 +184,7 @@ When exporting data:
   "errors": [{
     "message": "Invalid value type for checkbox field",
     "extensions": {
-      "code": "INVALID_FIELD_VALUE"
+      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
     }
   }]
 }
@@ -196,7 +196,7 @@ When exporting data:
   "errors": [{
     "message": "Custom field not found",
     "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }

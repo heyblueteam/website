@@ -15,7 +15,6 @@ mutation CreateDateField {
   createCustomField(input: {
     name: "Deadline"
     type: DATE
-    projectId: "proj_123"
   }) {
     id
     name
@@ -33,7 +32,6 @@ mutation CreateDueDateField {
   createCustomField(input: {
     name: "Contract Expiration"
     type: DATE
-    projectId: "proj_123"
     isDueDate: true
     description: "When the contract expires and needs renewal"
   }) {
@@ -56,6 +54,8 @@ mutation CreateDueDateField {
 | `type` | CustomFieldType! | ✅ Yes | Must be `DATE` |
 | `isDueDate` | Boolean | No | Whether this field represents a due date |
 | `description` | String | No | Help text shown to users |
+
+**Note**: Custom fields are automatically associated with the project based on the user's current project context. No `projectId` parameter is required.
 
 ## Setting Date Values
 
@@ -284,19 +284,19 @@ query FilterByDateRange {
   "errors": [{
     "message": "Invalid date format. Use ISO 8601 format",
     "extensions": {
-      "code": "INVALID_DATE_FORMAT"
+      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
     }
   }]
 }
 ```
 
-### Invalid Timezone
+### Field Not Found
 ```json
 {
   "errors": [{
-    "message": "Invalid timezone identifier",
+    "message": "Custom field not found",
     "extensions": {
-      "code": "INVALID_TIMEZONE"
+      "code": "NOT_FOUND"
     }
   }]
 }
