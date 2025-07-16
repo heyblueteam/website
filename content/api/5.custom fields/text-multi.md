@@ -15,7 +15,6 @@ mutation CreateTextMultiField {
   createCustomField(input: {
     name: "Description"
     type: TEXT_MULTI
-    projectId: "proj_123"
   }) {
     id
     name
@@ -33,7 +32,6 @@ mutation CreateDetailedTextMultiField {
   createCustomField(input: {
     name: "Project Notes"
     type: TEXT_MULTI
-    projectId: "proj_123"
     description: "Detailed notes and observations about the project"
   }) {
     id
@@ -74,7 +72,7 @@ mutation SetTextMultiValue {
 |-----------|------|----------|-------------|
 | `todoId` | String! | ✅ Yes | ID of the record to update |
 | `customFieldId` | String! | ✅ Yes | ID of the text custom field |
-| `text` | String! | ✅ Yes | Multi-line text content to store |
+| `text` | String | No | Multi-line text content to store |
 
 ## Creating Records with Text Values
 
