@@ -100,14 +100,171 @@
         
         <!-- Custom Development -->
         <div class="mb-16">
-            {{$customDevData := parseJSON `{
-                "Title": "Custom features built specifically for you.",
-                "Description": "Do you see Blue as 90% perfect, but need a specific feature for your organization that would be a game changer? We estimate development costs and assign dedicated engineers to build exactly what you need. No upfront costs—everything is included in your monthly payments.",
-                "VideoUrl": "/testvideo2.mp4",
-                "VideoPosition": "left"
-            }`}}
-            
-            {{template "feature-video" $customDevData}}
+            <!-- Custom Feature with Grid Animation -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
+                <!-- Grid of Squares -->
+                <div class="order-1 lg:order-1 flex items-center justify-center">
+                    <div class="grid grid-cols-10 gap-2 p-4 w-max"
+                         x-data="{
+                             intersecting: false,
+                             progress: 0,
+                             squares: Array(60).fill(null).map((_, i) => ({
+                                 index: i,
+                                 threshold: Math.random() * 0.7, // Random threshold between 0-0.7
+                                 visible: false
+                             })),
+                             updateProgress() {
+                                 // Calculate progress from 0 to 1 based on scroll position
+                                 const rect = $el.getBoundingClientRect();
+                                 const viewportHeight = window.innerHeight;
+                                 // Progress starts when element enters viewport and completes when it reaches center
+                                 this.progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight * 0.9)));
+                                 
+                                 // Update square visibility based on progress
+                                 this.squares.forEach(square => {
+                                     square.visible = this.progress > square.threshold;
+                                 });
+                             }
+                         }"
+                         x-init="updateProgress()"
+                         x-intersect="intersecting = true"
+                         x-intersect:leave="intersecting = false"
+                         x-on:scroll.window="if (intersecting) { updateProgress() }">
+                        <!-- Row 1 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[0].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[1].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[2].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[3].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[4].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[5].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[6].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[7].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[8].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[9].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <!-- Row 2 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[10].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[11].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[12].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[13].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[14].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[15].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[16].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[17].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[18].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[19].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <!-- Row 3 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[20].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[21].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[22].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[23].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[24].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[25].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[26].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[27].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[28].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[29].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <!-- Row 4 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[30].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[31].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[32].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[33].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[34].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[35].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[36].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[37].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[38].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[39].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <!-- Row 5 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[40].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[41].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[42].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[43].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[44].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[45].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[46].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[47].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[48].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[49].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <!-- Row 6 -->
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[50].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[51].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[52].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[53].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[54].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[55].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[56].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[57].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[58].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                        <div class="w-8 h-8 bg-brand-blue rounded transition-all duration-500 ease-out"
+                             :class="squares[59].visible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'"></div>
+                    </div>
+                </div>
+                
+                <!-- Text Content -->
+                <div class="space-y-4 order-2 lg:order-2">
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">Custom features built specifically for you.</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Do you see Blue as 90% perfect, but need a specific feature for your organization that would be a game changer? We estimate development costs and assign dedicated engineers to build exactly what you need. No upfront costs—everything is included in your monthly payments.</p>
+                </div>
+            </div>
         </div>
         
         <!-- Enterprise Support -->
@@ -126,7 +283,7 @@
         <div>
             {{$whitelabelData := parseJSON `{
                 "Title": "Battle-tested platform, your brand.",
-                "Description": "Complete white-label solution included with enterprise plans. Our API handles over 1 billion calls annually, and every feature is used by thousands of companies. You get enterprise reliability with startup agility.",
+                "Description": "Complete white-label solution included with enterprise plans. Our infrastructure handles billions of API calls annually, and every feature is used by thousands of companies. You get enterprise reliability with startup agility.",
                 "VideoUrl": "/testvideo2.mp4",
                 "VideoPosition": "left",
                 "Button": {
