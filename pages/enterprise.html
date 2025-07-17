@@ -577,71 +577,101 @@
         
         <!-- White Label & Battle-Tested -->
         <div>
-            <!-- Custom Feature with Accelerometer Animation -->
+            <!-- Custom Feature with Vertical Bars Animation -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
-                <!-- Accelerometer Animation -->
+                <!-- Vertical Bars Animation -->
                 <div class="order-1 lg:order-1 flex items-center justify-center">
-                    <div class="relative w-48 h-48"
+                    <div class="relative flex items-center justify-center"
                          x-data="{
                              intersecting: false,
                              progress: 0,
-                             rotation: 0,
-                             animationFrame: null,
-                             lastTime: 0,
+                             mouseX: 0,
+                             mouseY: 0,
+                             isHovering: false,
+                             bars: [
+                                 { index: 0, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.2 },
+                                 { index: 1, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.3 },
+                                 { index: 2, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.4 },
+                                 { index: 3, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.5 },
+                                 { index: 4, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.6 },
+                                 { index: 5, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.7 },
+                                 { index: 6, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 0.85 },
+                                 { index: 7, visible: false, magnetX: 0, magnetY: 0, scale: 1, opacity: 1.0 }
+                             ],
                              updateProgress() {
                                  const rect = $el.getBoundingClientRect();
                                  const viewportHeight = window.innerHeight;
-                                 this.progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight * 0.7)));
+                                 const centerY = rect.top + rect.height / 2;
+                                 // Progress from 0 to 1 as element moves from bottom to 40% up the viewport (60% from top)
+                                 this.progress = Math.max(0, Math.min(1, (viewportHeight - centerY) / (viewportHeight * 0.4)));
+                                 
+                                 // Update bar visibility based on progress
+                                 this.bars.forEach((bar, index) => {
+                                     const threshold = index / this.bars.length;
+                                     bar.visible = this.progress > threshold;
+                                 });
                              },
-                             startAnimation() {
-                                 const animate = (currentTime) => {
-                                     if (!this.lastTime) this.lastTime = currentTime;
-                                     const deltaTime = currentTime - this.lastTime;
-                                     this.lastTime = currentTime;
+                             handleMouseMove(e) {
+                                 if (!this.isHovering) return;
+                                 
+                                 const rect = $el.getBoundingClientRect();
+                                 this.mouseX = e.clientX - rect.left;
+                                 this.mouseY = e.clientY - rect.top;
+                                 
+                                 // Update magnetic effect for each bar
+                                 this.bars.forEach((bar, index) => {
+                                     const barWidth = 16; // w-4
+                                     const barHeight = 64; // h-16
+                                     const gap = 12; // gap-3
                                      
-                                     // Speed based on progress: 0 = 5 deg/s, 1 = 1800 deg/s (5 rotations/second)
-                                     const speed = 5 + (this.progress * 1795);
-                                     this.rotation += (speed * deltaTime) / 1000;
+                                     // Calculate bar center position
+                                     const barCenterX = index * (barWidth + gap) + barWidth / 2;
+                                     const barCenterY = barHeight / 2;
                                      
-                                     if (this.rotation >= 360) this.rotation -= 360;
+                                     // Distance from mouse to bar center
+                                     const distX = this.mouseX - barCenterX;
+                                     const distY = this.mouseY - barCenterY;
+                                     const distance = Math.sqrt(distX * distX + distY * distY);
                                      
-                                     if (this.intersecting) {
-                                         this.animationFrame = requestAnimationFrame(animate);
+                                     // Magnetic effect radius
+                                     const magnetRadius = 60;
+                                     
+                                     if (distance < magnetRadius) {
+                                         const strength = 1 - (distance / magnetRadius);
+                                         const maxMove = 6;
+                                         
+                                         bar.magnetX = (distX / distance) * strength * maxMove;
+                                         bar.magnetY = (distY / distance) * strength * maxMove;
+                                         bar.scale = 1 + (strength * 0.1);
+                                     } else {
+                                         bar.magnetX = 0;
+                                         bar.magnetY = 0;
+                                         bar.scale = 1;
                                      }
-                                 };
-                                 this.animationFrame = requestAnimationFrame(animate);
+                                 });
                              },
-                             stopAnimation() {
-                                 if (this.animationFrame) {
-                                     cancelAnimationFrame(this.animationFrame);
-                                     this.animationFrame = null;
-                                     this.lastTime = 0;
-                                 }
+                             resetMagnetic() {
+                                 this.bars.forEach(bar => {
+                                     bar.magnetX = 0;
+                                     bar.magnetY = 0;
+                                     bar.scale = 1;
+                                 });
                              }
                          }"
                          x-init="updateProgress()"
-                         x-intersect="intersecting = true; startAnimation()"
-                         x-intersect:leave="intersecting = false; stopAnimation()"
-                         x-on:scroll.window="if (intersecting) { updateProgress() }">
+                         x-intersect="intersecting = true"
+                         x-intersect:leave="intersecting = false"
+                         x-on:scroll.window="if (intersecting) { updateProgress() }"
+                         @mouseenter="isHovering = true"
+                         @mouseleave="isHovering = false; resetMagnetic()"
+                         @mousemove.throttle.16ms="handleMouseMove($event)">
                         
-                        <!-- Outer circle -->
-                        <div class="absolute inset-0 rounded-full border-4 border-gray-200 dark:border-gray-700"></div>
-                        
-                        <!-- Tick marks -->
-                        <div class="absolute inset-0">
-                            <!-- Left tick (9 o'clock) -->
-                            <div class="absolute w-4 h-1 bg-gray-300 dark:bg-gray-600" style="left: -2px; top: 50%; transform: translateY(-50%);"></div>
-                            <!-- Right tick (3 o'clock) -->
-                            <div class="absolute w-4 h-1 bg-gray-300 dark:bg-gray-600" style="right: -2px; top: 50%; transform: translateY(-50%);"></div>
-                        </div>
-                        
-                        <!-- Center dot -->
-                        <div class="absolute w-4 h-4 bg-brand-blue rounded-full" style="left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
-                        
-                        <!-- Needle -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <div class="w-20 h-1 bg-brand-blue origin-right"
-                                 :style="`transform: rotate(${rotation}deg)`"></div>
+                        <div class="flex gap-3">
+                            <template x-for="bar in bars" :key="bar.index">
+                                <div class="w-4 h-16 bg-brand-blue rounded transition-all duration-500 ease-out"
+                                     :style="`opacity: ${bar.visible ? bar.opacity : 0}; transform: translate(${bar.magnetX}px, ${bar.magnetY}px) scale(${bar.visible ? bar.scale : 0.8}, ${bar.visible ? bar.scale : 0.8})`">
+                                </div>
+                            </template>
                         </div>
                     </div>
                 </div>
