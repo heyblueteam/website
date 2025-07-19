@@ -109,8 +109,17 @@ DEPENDENCIES:
              }
          },
          search() {
+             if (!this.query.trim()) {
+                 // If query is empty, show suggestions instead
+                 this.showingSuggestions = true;
+                 this.results = [];
+                 this.showResults = true;
+                 this.selectedIndex = -1;
+                 return;
+             }
+             
              this.showingSuggestions = false;
-             if (!this.query.trim() || !this.fuse) {
+             if (!this.fuse) {
                  this.results = [];
                  this.showResults = false;
                  return;
