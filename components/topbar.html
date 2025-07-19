@@ -256,6 +256,16 @@
                     }
                     return;
                 }
+                
+                // Handle "/" for search (only when not in a form element)
+                if (!isFormElement && event.key === '/') {
+                    event.preventDefault();
+                    const searchInput = document.getElementById('searchInput');
+                    if (searchInput) {
+                        searchInput.focus();
+                    }
+                    return;
+                }
 
                 // Only proceed with other shortcuts if not interacting with a form element
                 // and no modifier keys are pressed
