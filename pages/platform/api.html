@@ -140,30 +140,7 @@
     
     {{template "value-propositions" $valuePropsData}}
 
-    {{$showcaseData := parseJSON `{
-        "Title": "Comprehensive API capabilities",
-        "Description": "Access every feature of Blue through our comprehensive GraphQL API.",
-        "Position": "bottom",
-        "Features": [
-            {
-                "Id": "read-data",
-                "Title": "Read",
-                "VideoUrl": "/testvideo2.mp4"
-            },
-            {
-                "Id": "write-data", 
-                "Title": "Write",
-                "VideoUrl": "/testvideo2.mp4"
-            },
-            {
-                "Id": "subscribe-updates",
-                "Title": "Subscribe",
-                "VideoUrl": "/testvideo2.mp4"
-            }
-        ]
-    }`}}
-    
-    {{template "interactive-feature-showcase" $showcaseData}}
+   
 
     <!-- Code Examples Section -->
     <section class="max-w-4xl mx-auto mb-20">
