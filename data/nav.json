@@ -61,7 +61,6 @@
         {"id": "faq", "name": "FAQ", "href": "/resources/faq"},
         {"id": "how-to-videos", "name": "How-to Videos", "href": "https://www.youtube.com/@HeyBlueTeam/videos", "external": true},
         {"id": "hire-expert", "name": "Hire an Expert", "href": "/resources/experts"},
-        {"id": "compare-platforms", "name": "Compare Platforms", "href": "/resources/compare"},
         {"id": "support", "name": "Get Support", "href": "/contact/support"},
         {"id": "community-forums", "name": "Community Forums", "href": "https://ask.blue.cc", "external": true}
       ]
