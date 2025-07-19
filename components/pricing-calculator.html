@@ -52,7 +52,7 @@ No external data required - all data is embedded in the component
                     @mouseenter="tooltipVisible = competitor.id"
                     @mouseleave="tooltipVisible = null"
                     :class="[
-                      'w-16 h-16 rounded-xl shadow-md transition duration-300 ease-in-out flex items-center justify-center relative',
+                      'w-16 h-16 rounded-xl shadow-md transition duration-300 ease-in-out flex items-center justify-center relative cursor-pointer',
                       selectedApps.includes(competitor.id) 
                         ? 'ring-2 ring-brand-blue dark:ring-brand-lighter-blue' 
                         : 'ring-1 ring-gray-200 dark:ring-gray-600 hover:ring-gray-300 dark:hover:ring-gray-500'
