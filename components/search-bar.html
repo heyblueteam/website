@@ -238,6 +238,9 @@ DEPENDENCIES:
                  this.showResults = false;
                  this.showingSuggestions = false;
                  this.selectedIndex = -1;
+                 this.searchFocused = false;
+                 // Blur the input to remove focus
+                 event.target.blur();
              }
          },
          getCategoryCounts() {
