@@ -25,7 +25,7 @@ window.AuthCookie = {
                 typeof authState.isLoggedIn === 'boolean') {
                 return {
                     isLoggedIn: authState.isLoggedIn,
-                    firstName: authState.firstName || ''
+                    firstName: this.sanitizeFirstName(authState.firstName)
                 };
             }
             
@@ -34,6 +34,31 @@ window.AuthCookie = {
             console.warn('Failed to parse auth cookie:', error);
             return null;
         }
+    },
+
+    /**
+     * Sanitize and format firstName for display
+     * @param {string} firstName - Raw first name from cookie
+     * @returns {string} Sanitized first name or 'there' as fallback
+     */
+    sanitizeFirstName(firstName) {
+        // Handle empty, null, or whitespace-only names
+        if (!firstName || firstName.trim() === '') {
+            return 'there';
+        }
+        
+        // Remove any HTML tags to prevent XSS
+        let sanitized = firstName.replace(/<[^>]*>/g, '');
+        
+        // Trim whitespace
+        sanitized = sanitized.trim();
+        
+        // If name is too long (more than 20 chars), use "there" instead
+        if (sanitized.length > 20) {
+            return 'there';
+        }
+        
+        return sanitized;
     },
 
     /**
@@ -65,10 +90,10 @@ window.AuthCookie = {
 
     /**
      * Get user's first name
-     * @returns {string} User's first name or empty string
+     * @returns {string} User's first name or 'there' as fallback
      */
     getFirstName() {
         const authState = this.read();
-        return authState?.firstName || '';
+        return authState?.firstName || 'there';
     }
 };

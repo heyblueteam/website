@@ -12,8 +12,9 @@
         }
         
         // Set title based on auth state
-        const title = this.authState && this.authState.isLoggedIn && this.authState.firstName
-            ? `Welcome back, ${this.authState.firstName}. `
+        const firstName = (this.authState && this.authState.firstName) || 'there';
+        const title = this.authState && this.authState.isLoggedIn
+            ? `Welcome back, ${firstName}. `
             : 'Blue is a powerful platform to create, manage, and scale processes.';
             
         this.words = title.split(' ');
@@ -29,8 +30,9 @@
                 if (JSON.stringify(newAuthState) !== JSON.stringify(this.authState)) {
                     this.authState = newAuthState;
                     // Update title and re-animate
-                    const newTitle = this.authState && this.authState.isLoggedIn && this.authState.firstName
-                        ? `Welcome back, ${this.authState.firstName}. Blue is ready for you.`
+                    const newFirstName = (this.authState && this.authState.firstName) || 'there';
+                    const newTitle = this.authState && this.authState.isLoggedIn
+                        ? `Welcome back, ${newFirstName}. `
                         : 'Blue is a powerful platform to create, manage, and scale processes.';
                     this.words = newTitle.split(' ');
                     this.animatedWords = [];
