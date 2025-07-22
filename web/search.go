@@ -357,17 +357,29 @@ func indexMarkdownContent(items *[]SearchItem) error {
 		// Use frontmatter title or generate from filename
 		title := fm.Title
 		if title == "" {
-			// Clean filename: remove numbers and file extension
-			title = filepath.Base(path)
-			title = strings.TrimSuffix(title, ".md")
-			// Remove number prefixes like "1.", "4.", "11."
-			re := regexp.MustCompile(`^\d+\.?\s*`)
-			title = re.ReplaceAllString(title, "")
-			// Replace hyphens and underscores with spaces
-			title = strings.ReplaceAll(title, "-", " ")
-			title = strings.ReplaceAll(title, "_", " ")
-			// Clean up multiple spaces
-			title = strings.Join(strings.Fields(title), " ")
+			// Try to extract title from markdown H1
+			if strings.HasPrefix(strings.TrimSpace(markdownContent), "# ") {
+				lines := strings.Split(markdownContent, "\n")
+				if len(lines) > 0 && strings.HasPrefix(lines[0], "# ") {
+					title = strings.TrimPrefix(lines[0], "# ")
+					title = strings.TrimSpace(title)
+				}
+			}
+			
+			// If still no title, generate from filename
+			if title == "" {
+				// Clean filename: remove numbers and file extension
+				title = filepath.Base(path)
+				title = strings.TrimSuffix(title, ".md")
+				// Remove number prefixes like "1.", "4.", "11."
+				re := regexp.MustCompile(`^\d+\.?\s*`)
+				title = re.ReplaceAllString(title, "")
+				// Replace hyphens and underscores with spaces
+				title = strings.ReplaceAll(title, "-", " ")
+				title = strings.ReplaceAll(title, "_", " ")
+				// Clean up multiple spaces
+				title = strings.Join(strings.Fields(title), " ")
+			}
 		}
 
 		*items = append(*items, SearchItem{
@@ -494,11 +506,13 @@ func indexCachedMarkdownContent(items *[]SearchItem, markdownService *MarkdownSe
 func generateTitleFromURL(urlPath string) string {
 	// Remove leading slash and get last segment
 	cleanPath := strings.Trim(urlPath, "/")
-	parts := strings.Split(cleanPath, "/")
 	
-	if len(parts) == 0 {
+	// Handle root/empty URLs
+	if cleanPath == "" {
 		return "Home"
 	}
+	
+	parts := strings.Split(cleanPath, "/")
 
 	// Use last segment as title
 	lastSegment := parts[len(parts)-1]
