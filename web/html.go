@@ -6,9 +6,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
-	"time"
 )
 
 // HTMLService handles HTML page pre-rendering
@@ -224,126 +222,17 @@ func (hs *HTMLService) GetCacheSize() int {
 }
 
 // preparePageData creates PageData with metadata for the given path
+// This is a wrapper around the shared page data preparation logic
 func (hs *HTMLService) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigationService *NavigationService, seoService *SEOService) PageData {
-	// Get metadata from SEO service
-	title, description, keywords, pageMeta, siteMeta := seoService.PreparePageMetadata(path, isMarkdown, frontmatter)
-
-	// Prepare insights data - only include if on insights page
-	var insights []InsightData
-	if path == "/insights" && hs.markdownService != nil {
-		// Get all cached insights from MarkdownService
-		cachedInsights := hs.markdownService.GetAllCachedContent()
-
-		// Initialize PNG generator
-		pngGen := NewPNGGenerator()
-
-		for urlPath, content := range cachedInsights {
-			if strings.HasPrefix(urlPath, "/insights/") && content.Frontmatter != nil {
-				// Extract category from tags or category field
-				category := content.Frontmatter.Category
-				if category == "" && len(content.Frontmatter.Tags) > 0 {
-					// Fallback to first tag if category is not set
-					category = content.Frontmatter.Tags[0]
-				}
-
-				// Generate unique PNG for this insight based on title
-				pngPath, err := pngGen.GenerateOrGetPNG(content.Frontmatter.Title, content.Frontmatter.Slug)
-				if err != nil {
-					log.Printf("Error generating PNG for insight %s: %v", content.Frontmatter.Title, err)
-					continue
-				}
-
-				insights = append(insights, InsightData{
-					Title:       content.Frontmatter.Title,
-					Description: content.Frontmatter.Description,
-					Category:    category,
-					Slug:        content.Frontmatter.Slug,
-					PNGPath:     pngPath,
-					Date:        content.Frontmatter.Date,
-					URL:         urlPath,
-				})
-			}
-		}
-
-		// Sort insights by date in reverse chronological order (newest first)
-		sort.Slice(insights, func(i, j int) bool {
-			// Parse dates, handle missing/invalid dates
-			dateI, errI := time.Parse("2006-01-02", insights[i].Date)
-			dateJ, errJ := time.Parse("2006-01-02", insights[j].Date)
-
-			// If both dates are invalid, maintain original order
-			if errI != nil && errJ != nil {
-				return false
-			}
-
-			// If one date is invalid, put it at the end
-			if errI != nil {
-				return false
-			}
-			if errJ != nil {
-				return true
-			}
-
-			// Both dates are valid, sort newest first
-			return dateI.After(dateJ)
-		})
-
-		// Insights loaded for page
-	}
-
-	// Extract table of contents
-	toc := make([]TOCEntry, 0)
-	tocExcludedPaths := []string{"/changelog", "/roadmap", "/platform/status"}
-
-	isExcluded := false
-	for _, excludedPath := range tocExcludedPaths {
-		if path == excludedPath {
-			isExcluded = true
-			break
-		}
-	}
-
-	if !isExcluded && string(content) != "" {
-		var err error
-		if isMarkdown {
-			// For markdown content, extract H2 elements from converted HTML
-			toc, err = ExtractH2TOC(string(content))
-		} else {
-			// For HTML pages, extract from section elements
-			toc, err = ExtractHTMLTOC(string(content))
-		}
-
-		if err != nil {
-			log.Printf("Error extracting TOC for path=%s: %v", path, err)
-		} else {
-			// TOC extracted
-		}
-	} else if isExcluded {
-		// TOC generation skipped
-	}
-
-	// Generate schema data
-	schemaData := template.JS("[]")
-	if hs.schemaService != nil {
-		pageType := hs.schemaService.GetPageType(path)
-		schemaData = hs.schemaService.GenerateSchema(pageType, path, frontmatter)
+	// Create a temporary router instance to use its preparePageData method
+	// This avoids code duplication while maintaining the existing API
+	tempRouter := &Router{
+		markdownService:  hs.markdownService,
+		seoService:       seoService,
+		navigationService: navigationService,
+		schemaService:    hs.schemaService,
+		tocExcludedPaths: []string{"/changelog", "/roadmap", "/platform/status"},
 	}
 	
-	// Return PageData with all components
-	return PageData{
-		Title:          title,
-		Content:        content,
-		Navigation:     navigationService.GetNavigationForPath(path),
-		PageMeta:       pageMeta,
-		SiteMeta:       siteMeta,
-		Description:    description,
-		Keywords:       keywords,
-		IsMarkdown:     isMarkdown,
-		Frontmatter:    frontmatter,
-		TOC:            toc,
-		CustomerNumber: 17000,
-		Insights:       insights,
-		Path:           path,
-		SchemaData:     schemaData,
-	}
+	return tempRouter.preparePageData(path, content, isMarkdown, frontmatter, navigationService.GetNavigationForPath(path))
 }

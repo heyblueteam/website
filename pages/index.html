@@ -22,7 +22,10 @@
             setTimeout(() => this.showSubtitle = true, 100);
         };
         
-        // Subscribe to auth state changes
+        // Initial setup with null state
+        setupTitle(null);
+        
+        // Subscribe to auth state changes if available
         if (window.AuthStateManager) {
             this.unsubscribe = window.AuthStateManager.subscribe((authState) => {
                 // Only re-animate if state actually changed
@@ -32,8 +35,17 @@
                 }
             });
         } else {
-            // Fallback if auth manager not available
-            setupTitle(null);
+            // Try again after a short delay in case AuthStateManager loads later
+            setTimeout(() => {
+                if (window.AuthStateManager) {
+                    this.unsubscribe = window.AuthStateManager.subscribe((authState) => {
+                        if (JSON.stringify(authState) !== JSON.stringify(this.authState)) {
+                            this.authState = authState;
+                            setupTitle(authState);
+                        }
+                    });
+                }
+            }, 100);
         }
     },
     destroy() {
@@ -95,7 +107,7 @@
             </svg>
         </a>
         <a :href="authState && authState.isLoggedIn ? '/platform/changelog' : '/platform/features'" 
-           class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+           class="inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200">
             <span x-show="authState && authState.isLoggedIn">What's New</span>
             <span x-show="!authState || !authState.isLoggedIn">See How It Works</span>
         </a>
