@@ -300,41 +300,6 @@ body {
     background-color: #1f2937 !important;
     color: #e5e7eb !important;
   }
-  
-  /* Make tables in prose content scrollable when too wide */
-  .prose table {
-    display: block !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-  }
-  
-  /* Ensure table cells maintain minimum content width */
-  .prose td, .prose th {
-    min-width: min-content !important;
-  }
-  
-  /* Add subtle border to indicate scrollable area */
-  .prose table::-webkit-scrollbar {
-    height: 6px;
-  }
-  
-  .prose table::-webkit-scrollbar-track {
-    background: #f3f4f6;
-    border-radius: 3px;
-  }
-  
-  .dark .prose table::-webkit-scrollbar-track {
-    background: #374151;
-  }
-  
-  .prose table::-webkit-scrollbar-thumb {
-    background: #00a0d2;
-    border-radius: 3px;
-  }
-  
-  .prose table::-webkit-scrollbar-thumb:hover {
-    background: #0088b8;
-  }
 }
 
 /* Heading anchor links */
