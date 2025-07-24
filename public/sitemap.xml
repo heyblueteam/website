@@ -518,7 +518,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/start-guide/making-requests</loc>
-    <lastmod>2025-07-08</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -596,7 +596,7 @@
   </url>
   <url>
     <loc>https://blue.cc/api/projects/project-activity</loc>
-    <lastmod>2025-07-19</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -902,7 +902,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/start-guide/concepts</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -926,7 +926,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/index</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -992,7 +992,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/projects/forms</loc>
-    <lastmod>2025-07-09</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1004,7 +1004,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/records/introduction</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1088,7 +1088,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/records/repeat</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1136,7 +1136,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/custom-fields/introduction</loc>
-    <lastmod>2025-07-14</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1334,7 +1334,7 @@
   </url>
   <url>
     <loc>https://blue.cc/docs/user-management/organisation-administrator</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1496,7 +1496,7 @@
   </url>
   <url>
     <loc>https://blue.cc/insights/ai-tagging-engineering</loc>
-    <lastmod>2025-07-11</lastmod>
+    <lastmod>2025-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
