@@ -4,21 +4,6 @@
     "MarginBottom" "mb-16"
   }}
 
-  {{template "hero-video" dict 
-    "VideoUrl" "/product/features/user-permissions/hero.mp4" 
-    "ShowUnmuteButton" false 
-    "Id" "permissions-hero"
-  }}
-
-  {{$statsData := parseJSON `{
-    "Title": "",
-    "Stats": [
-      {"Number": "6", "Description": "Pre-defined roles"},
-      {"Number": "2", "Description": "Custom roles possible"},
-      {"Number": "100%", "Description": "Granular control"}
-    ]
-  }`}}
-  {{template "stats-section" $statsData}}
 
   <!-- User Roles Section -->
   <section class="mb-20">
@@ -35,16 +20,16 @@
             "Description": "Full system control including billing, user management, and all organizational settings."
           },
           {
-            "Title": "Project Admin",
-            "Description": "Manages all aspects of the project, including settings, permissions, and data oversight."
+            "Title": "Workspace Admin",
+            "Description": "Manages all aspects of the workspace, including settings, permissions, and data oversight."
           },
           {
             "Title": "Team Member",
-            "Description": "Can create, edit, and delete project content within assigned permissions to actively drive project progress."
+            "Description": "Can create, edit, and delete workspace content within assigned permissions to actively drive workspace progress."
           },
           {
             "Title": "Client",
-            "Description": "Can create new items and monitor project progress, can't delete or modify the project's structure."
+            "Description": "Can create new items and monitor workspace progress, can't delete or modify the workspace's structure."
           },
           {
             "Title": "Comment-Only",
@@ -52,7 +37,7 @@
           },
           {
             "Title": "View-Only",
-            "Description": "Provides access to observe project information and status updates without any editing privileges."
+            "Description": "Provides access to observe workspace information and status updates without any editing privileges."
           }
         ]
       }`}}
@@ -77,7 +62,7 @@
 
     {{$listPermissionsData := parseJSON `{
       "Title": "List-Level Permissions",
-      "Description": "Assign permissions to view, edit, or delete specific lists within projects. This level of detail allows roles to be precisely managed according to the unique needs of each project phase.",
+      "Description": "Assign permissions to view, edit, or delete specific lists within workspaces. This level of detail allows roles to be precisely managed according to the unique needs of each workspace phase.",
       "VideoUrl": "https://media.blue.cc/user-permissions-list.mp4",
       "VideoPosition": "left"
     }`}}
@@ -120,23 +105,23 @@
         "questions": [
           {
             "question": "What are the different user roles in Blue?",
-            "answer": "Blue offers six pre-defined roles: Organization Administrator (full system access), Project Administrator (manages projects), Team Member (creates and edits content), Client (monitors progress), Vendor (limited creation rights), Comment-Only (can only comment), and View-Only (read-only access). You can also create unlimited custom roles."
+            "answer": "Blue offers six pre-defined roles: Organization Administrator (full system access), Workspace Administrator (manages workspaces), Team Member (creates and edits content), Client (monitors progress), Vendor (limited creation rights), Comment-Only (can only comment), and View-Only (read-only access). You can also create unlimited custom roles."
           },
           {
             "question": "What permissions does an Organization Administrator have?",
-            "answer": "Organization Administrators have complete control over the Blue workspace. They can manage billing, create and delete projects, invite users, configure integrations, access all projects and data, and modify organization-wide settings. This is the highest level of access in Blue."
+            "answer": "Organization Administrators have complete control over the Blue workspace. They can manage billing, create and delete workspaces, invite users, configure integrations, access all workspaces and data, and modify organization-wide settings. This is the highest level of access in Blue."
           },
           {
-            "question": "What can a Project Administrator do?",
-            "answer": "Project Administrators have full control within their assigned projects. They can manage project settings, invite and remove team members, configure permissions, create and modify all content, set up automations, and access project analytics. They cannot access organization-level settings or billing."
+            "question": "What can a Workspace Administrator do?",
+            "answer": "Workspace Administrators have full control within their assigned workspaces. They can manage workspace settings, invite and remove team members, configure permissions, create and modify all content, set up automations, and access workspace analytics. They cannot access organization-level settings or billing."
           },
           {
             "question": "What are the capabilities and restrictions of a Team Member?",
-            "answer": "Team Members can create, edit, and delete records within their permission scope. They can collaborate on tasks, upload files, participate in discussions, and view project progress. They cannot modify project settings, manage other users, or access administrative features."
+            "answer": "Team Members can create, edit, and delete records within their permission scope. They can collaborate on tasks, upload files, participate in discussions, and view workspace progress. They cannot modify workspace settings, manage other users, or access administrative features."
           },
           {
             "question": "What can a Client User do in Blue?",
-            "answer": "Client Users have limited but important access. They can view project progress, create new items like tasks or requests, comment on existing items, and receive notifications. They cannot delete content, modify project structure, or access internal team discussions."
+            "answer": "Client Users have limited but important access. They can view workspace progress, create new items like tasks or requests, comment on existing items, and receive notifications. They cannot delete content, modify workspace structure, or access internal team discussions."
           },
           {
             "question": "What are the roles and limitations of a Comment-Only User?",
@@ -149,19 +134,19 @@
         "questions": [
           {
             "question": "How do I assign a user role in Blue?",
-            "answer": "To assign a role, go to the People tab in your project, click on a user's name, and select their role from the dropdown menu. Organization Administrators can assign any role, while Project Administrators can only assign roles within their projects. Changes take effect immediately."
+            "answer": "To assign a role, go to the People tab in your workspace, click on a user's name, and select their role from the dropdown menu. Organization Administrators can assign any role, while Workspace Administrators can only assign roles within their workspaces. Changes take effect immediately."
           },
           {
             "question": "Can user roles be changed after they are assigned?",
             "answer": "Yes, user roles can be changed at any time by administrators. Simply navigate to the user's profile in the People tab and select a new role. The user will immediately gain or lose permissions based on their new role assignment."
           },
           {
-            "question": "What happens when a user is removed from a project?",
-            "answer": "When removed from a project, users immediately lose access to all project data, including records, files, and discussions. Their historical contributions (comments, created records) remain but are attributed to their name. They can be re-added at any time with the same or different permissions."
+            "question": "What happens when a user is removed from a workspace?",
+            "answer": "When removed from a workspace, users immediately lose access to all workspace data, including records, files, and discussions. Their historical contributions (comments, created records) remain but are attributed to their name. They can be re-added at any time with the same or different permissions."
           },
           {
-            "question": "Can I have different roles in different projects?",
-            "answer": "Yes, Blue supports project-specific roles. You might be a Project Administrator in one project but a Team Member in another. This flexibility allows organizations to maintain proper access control across different teams and initiatives."
+            "question": "Can I have different roles in different workspaces?",
+            "answer": "Yes, Blue supports workspace-specific roles. You might be a Workspace Administrator in one workspace but a Team Member in another. This flexibility allows organizations to maintain proper access control across different teams and initiatives."
           }
         ]
       },
@@ -181,8 +166,8 @@
             "answer": "Custom roles provide precise access control, enhanced security for sensitive data, improved focus by showing only relevant information, compliance with data protection regulations, and the flexibility to match your exact organizational structure. They eliminate the compromise of using generic roles."
           },
           {
-            "question": "Can users be assigned multiple roles in the same project?",
-            "answer": "No, each user can only have one role per project in Blue. However, custom roles can combine permissions from multiple standard roles, giving you the flexibility to create hybrid roles that meet complex permission requirements."
+            "question": "Can users be assigned multiple roles in the same workspace?",
+            "answer": "No, each user can only have one role per workspace in Blue. However, custom roles can combine permissions from multiple standard roles, giving you the flexibility to create hybrid roles that meet complex permission requirements."
           }
         ]
       },
@@ -191,15 +176,15 @@
         "questions": [
           {
             "question": "What is the 'People' tab in Blue?",
-            "answer": "The People tab is your central hub for user management within a project. It displays all project members, their roles, last active status, and allows administrators to invite new users, modify permissions, or remove access. It's accessible from the project sidebar."
+            "answer": "The People tab is your central hub for user management within a workspace. It displays all workspace members, their roles, last active status, and allows administrators to invite new users, modify permissions, or remove access. It's accessible from the workspace sidebar."
           },
           {
-            "question": "Who can invite new users to a project?",
-            "answer": "Organization Administrators and Project Administrators can invite new users to projects. They can send invitations via email, set initial roles, and optionally include a welcome message. Team Members and other roles cannot invite new users."
+            "question": "Who can invite new users to a workspace?",
+            "answer": "Organization Administrators and Workspace Administrators can invite new users to workspaces. They can send invitations via email, set initial roles, and optionally include a welcome message. Team Members and other roles cannot invite new users."
           },
           {
-            "question": "Who can remove users from a project?",
-            "answer": "Only Organization Administrators and Project Administrators can remove users from projects. Organization Administrators can remove anyone, while Project Administrators can only remove users from projects they manage. Users cannot remove themselves from projects."
+            "question": "Who can remove users from a workspace?",
+            "answer": "Only Organization Administrators and Workspace Administrators can remove users from workspaces. Organization Administrators can remove anyone, while Workspace Administrators can only remove users from workspaces they manage. Users cannot remove themselves from workspaces."
           }
         ]
       }
