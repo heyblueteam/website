@@ -36,6 +36,16 @@ body {
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+/* Ensure flex containers don't break */
+.flex-1 {
+    min-width: 0; /* Prevent flex items from growing beyond their container */
+}
+
+/* Content area specific constraints */
+main > div > div {
+    overflow-x: hidden; /* Apply overflow only to content wrapper, not main */
+}
+
 /* Custom styles */
 :root {
     --gray-hover: rgba(0, 0, 0, 0.04);
@@ -173,6 +183,13 @@ body {
 
 /* Custom Prose Styling */
 @layer components {
+  /* Ensure prose content doesn't break layout */
+  .prose {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    overflow-x: hidden !important;
+  }
+  
   .prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
     color: var(--color-brand-blue) !important;
     text-decoration: none;
@@ -225,6 +242,15 @@ body {
     font-size: 0.875rem !important;
     line-height: 1.6 !important;
     position: relative !important; /* For positioning copy button */
+    max-width: 100% !important; /* Prevent expanding beyond container */
+    display: block !important;
+  }
+  
+  /* Ensure code blocks don't break layout */
+  .prose pre code {
+    white-space: pre !important; /* Keep formatting but allow scroll */
+    word-wrap: normal !important; /* Don't break words */
+    overflow-x: visible !important; /* Let parent handle overflow */
   }
   
   /* Copy button styling */
@@ -300,6 +326,7 @@ body {
     background-color: #1f2937 !important;
     color: #e5e7eb !important;
   }
+  
 }
 
 /* Heading anchor links */
