@@ -25,7 +25,10 @@
     "switch_to_light_mode": "Switch to light mode",
     "switch_to_dark_mode": "Switch to dark mode",
     "open_mobile_menu": "Open mobile menu",
-    "close_mobile_menu": "Close mobile menu"
+    "close_mobile_menu": "Close mobile menu",
+    "dismiss_announcement": "Dismiss announcement",
+    "news_message": "📚 New website and documentation! Everything you need to know about Blue in one place.",
+    "explore_link": "Explore docs"
   },
   "es": {
     "company_name": "Blue",
@@ -53,7 +56,10 @@
     "switch_to_light_mode": "Cambiar a modo claro",
     "switch_to_dark_mode": "Cambiar a modo oscuro",
     "open_mobile_menu": "Abrir menú móvil",
-    "close_mobile_menu": "Cerrar menú móvil"
+    "close_mobile_menu": "Cerrar menú móvil",
+    "dismiss_announcement": "Descartar anuncio",
+    "news_message": "📚 ¡Nuevo sitio web y documentación! Todo lo que necesitas saber sobre Blue en un solo lugar.",
+    "explore_link": "Explorar documentación"
   },
   "zh": {
     "company_name": "Blue",
@@ -81,7 +87,10 @@
     "switch_to_light_mode": "切换到浅色模式",
     "switch_to_dark_mode": "切换到深色模式",
     "open_mobile_menu": "打开手机菜单",
-    "close_mobile_menu": "关闭手机菜单"
+    "close_mobile_menu": "关闭手机菜单",
+    "dismiss_announcement": "关闭公告",
+    "news_message": "📚 全新网站和文档！在一个地方了解关于 Blue 的一切信息。",
+    "explore_link": "浏览文档"
   },
   "fr": {
     "company_name": "Blue",
@@ -109,7 +118,10 @@
     "switch_to_light_mode": "Passer en mode clair",
     "switch_to_dark_mode": "Passer en mode sombre",
     "open_mobile_menu": "Ouvrir le menu mobile",
-    "close_mobile_menu": "Fermer le menu mobile"
+    "close_mobile_menu": "Fermer le menu mobile",
+    "dismiss_announcement": "Ignorer l'annonce",
+    "news_message": "📚 Nouveau site web et documentation ! Tout ce que vous devez savoir sur Blue en un seul endroit.",
+    "explore_link": "Explorer la documentation"
   },
   "de": {
     "company_name": "Blue",
@@ -137,7 +149,10 @@
     "switch_to_light_mode": "Zu hellem Modus wechseln",
     "switch_to_dark_mode": "Zu dunklem Modus wechseln",
     "open_mobile_menu": "Mobile Menü öffnen",
-    "close_mobile_menu": "Mobile Menü schließen"
+    "close_mobile_menu": "Mobile Menü schließen",
+    "dismiss_announcement": "Ankündigung schließen",
+    "news_message": "📚 Neue Website und Dokumentation! Alles was Sie über Blue wissen müssen an einem Ort.",
+    "explore_link": "Dokumentation erkunden"
   },
   "ja": {
     "company_name": "Blue",
@@ -165,7 +180,10 @@
     "switch_to_light_mode": "ライトモードに切り替え",
     "switch_to_dark_mode": "ダークモードに切り替え",
     "open_mobile_menu": "モバイルメニューを開く",
-    "close_mobile_menu": "モバイルメニューを閉じる"
+    "close_mobile_menu": "モバイルメニューを閉じる",
+    "dismiss_announcement": "お知らせを閉じる",
+    "news_message": "📚 新しいウェブサイトとドキュメント！Blue について知る必要があることすべてが一箇所に。",
+    "explore_link": "ドキュメントを見る"
   },
   "pt": {
     "company_name": "Blue",
@@ -193,7 +211,10 @@
     "switch_to_light_mode": "Mudar para modo claro",
     "switch_to_dark_mode": "Mudar para modo escuro",
     "open_mobile_menu": "Abrir menu móvel",
-    "close_mobile_menu": "Fechar menu móvel"
+    "close_mobile_menu": "Fechar menu móvel",
+    "dismiss_announcement": "Dispensar anúncio",
+    "news_message": "📚 Novo site e documentação! Tudo o que você precisa saber sobre Blue em um só lugar.",
+    "explore_link": "Explorar documentação"
   },
   "ru": {
     "company_name": "Blue",
@@ -221,7 +242,10 @@
     "switch_to_light_mode": "Переключиться на светлый режим",
     "switch_to_dark_mode": "Переключиться на темный режим",
     "open_mobile_menu": "Открыть мобильное меню",
-    "close_mobile_menu": "Закрыть мобильное меню"
+    "close_mobile_menu": "Закрыть мобильное меню",
+    "dismiss_announcement": "Закрыть объявление",
+    "news_message": "📚 Новый сайт и документация! Всё что нужно знать о Blue в одном месте.",
+    "explore_link": "Изучить документацию"
   },
   "ko": {
     "company_name": "Blue",
@@ -249,7 +273,10 @@
     "switch_to_light_mode": "라이트 모드로 전환",
     "switch_to_dark_mode": "다크 모드로 전환",
     "open_mobile_menu": "모바일 메뉴 열기",
-    "close_mobile_menu": "모바일 메뉴 닫기"
+    "close_mobile_menu": "모바일 메뉴 닫기",
+    "dismiss_announcement": "공지사항 닫기",
+    "news_message": "📚 새로운 웹사이트와 문서! Blue에 대해 알아야 할 모든 것을 한 곳에서.",
+    "explore_link": "문서 탐색"
   },
   "it": {
     "company_name": "Blue",
@@ -277,7 +304,10 @@
     "switch_to_light_mode": "Passa alla modalità chiara",
     "switch_to_dark_mode": "Passa alla modalità scura",
     "open_mobile_menu": "Apri menu mobile",
-    "close_mobile_menu": "Chiudi menu mobile"
+    "close_mobile_menu": "Chiudi menu mobile",
+    "dismiss_announcement": "Chiudi annuncio",
+    "news_message": "📚 Nuovo sito web e documentazione! Tutto quello che devi sapere su Blue in un unico posto.",
+    "explore_link": "Esplora documentazione"
   },
   "id": {
     "company_name": "Blue",
@@ -305,7 +335,10 @@
     "switch_to_light_mode": "Beralih ke mode terang",
     "switch_to_dark_mode": "Beralih ke mode gelap",
     "open_mobile_menu": "Buka menu mobile",
-    "close_mobile_menu": "Tutup menu mobile"
+    "close_mobile_menu": "Tutup menu mobile",
+    "dismiss_announcement": "Tutup pengumuman",
+    "news_message": "📚 Website dan dokumentasi baru! Semua yang perlu Anda ketahui tentang Blue dalam satu tempat.",
+    "explore_link": "Jelajahi dokumentasi"
   },
   "nl": {
     "company_name": "Blue",
@@ -333,7 +366,10 @@
     "switch_to_light_mode": "Naar lichte modus",
     "switch_to_dark_mode": "Naar donkere modus",
     "open_mobile_menu": "Mobiel menu openen",
-    "close_mobile_menu": "Mobiel menu sluiten"
+    "close_mobile_menu": "Mobiel menu sluiten",
+    "dismiss_announcement": "Aankondiging sluiten",
+    "news_message": "📚 Nieuwe website en documentatie! Alles wat je moet weten over Blue op één plek.",
+    "explore_link": "Documentatie verkennen"
   },
   "pl": {
     "company_name": "Blue",
@@ -361,7 +397,10 @@
     "switch_to_light_mode": "Przełącz na tryb jasny",
     "switch_to_dark_mode": "Przełącz na tryb ciemny",
     "open_mobile_menu": "Otwórz menu mobilne",
-    "close_mobile_menu": "Zamknij menu mobilne"
+    "close_mobile_menu": "Zamknij menu mobilne",
+    "dismiss_announcement": "Zamknij ogłoszenie",
+    "news_message": "📚 Nowa strona internetowa i dokumentacja! Wszystko, co musisz wiedzieć o Blue w jednym miejscu.",
+    "explore_link": "Przeglądaj dokumentację"
   },
   "zh-TW": {
     "company_name": "Blue",
@@ -389,7 +428,10 @@
     "switch_to_light_mode": "切換到淺色模式",
     "switch_to_dark_mode": "切換到深色模式",
     "open_mobile_menu": "打開手機選單",
-    "close_mobile_menu": "關閉手機選單"
+    "close_mobile_menu": "關閉手機選單",
+    "dismiss_announcement": "關閉公告",
+    "news_message": "📚 全新網站和文件！在一個地方了解關於 Blue 的所有資訊。",
+    "explore_link": "瀏覽文件"
   },
   "sv": {
     "company_name": "Blue",
@@ -417,7 +459,10 @@
     "switch_to_light_mode": "Byt till ljust läge",
     "switch_to_dark_mode": "Byt till mörkt läge",
     "open_mobile_menu": "Öppna mobilmeny",
-    "close_mobile_menu": "Stäng mobilmeny"
+    "close_mobile_menu": "Stäng mobilmeny",
+    "dismiss_announcement": "Stäng meddelande",
+    "news_message": "📚 Ny webbplats och dokumentation! Allt du behöver veta om Blue på ett ställe.",
+    "explore_link": "Utforska dokumentation"
   },
   "km": {
     "company_name": "Blue",
@@ -445,6 +490,9 @@
     "switch_to_light_mode": "ប្តូរទៅរបៀបស្រាល",
     "switch_to_dark_mode": "ប្តូរទៅរបៀបងងឹត",
     "open_mobile_menu": "បើកម៉ឺនុយទូរសព្ទ",
-    "close_mobile_menu": "បិទម៉ឺនុយទូរសព្ទ"
+    "close_mobile_menu": "បិទម៉ឺនុយទូរសព្ទ",
+    "dismiss_announcement": "បិទការប្រកាស",
+    "news_message": "📚 គេហទំព័រ និងឯកសារថ្មី! អ្វីៗទាំងអស់ដែលអ្នកត្រូវដឹងអំពី Blue នៅកន្លែងតែមួយ។",
+    "explore_link": "មើលឯកសារ"
   }
 }

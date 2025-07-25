@@ -9,11 +9,11 @@
     @scroll.window="scrollProgress = Math.round((window.pageYOffset / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100)"
     class="bg-white dark:bg-gray-900 overflow-x-hidden transition-colors duration-300">
     
-    {{$topNewsData := parseJSON `{
-        "message": "📚 New website and documentation! Everything you need to know about Blue in one place.",
-        "linkText": "Explore docs",
+    {{$topNewsData := parseJSON (printf `{
+        "message": "%s",
+        "linkText": "%s",
         "linkUrl": "/docs"
-    }`}}
+    }` (t "common.news_message") (t "common.explore_link"))}}
     {{template "top-news-bar" $topNewsData}}
     
     {{template "topbar" .}}
