@@ -1,7 +1,7 @@
     {{template "page-heading" 
         dict 
-            "Title" "Our Values" 
-            "Subtitle" "The principles that guide every decision we make and every line of code we write." 
+            "Title" (t "values.page_title") 
+            "Subtitle" (t "values.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -10,49 +10,49 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <!-- Simplicity -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Simplicity</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.simplicity_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Anyone can make things complex. We strive to make things as simple as they should be, but no simpler.
+                    {{t "values.simplicity_description"}}
                 </p>
             </div>
 
             <!-- Long Term Thinking -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Long Term Thinking</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.long_term_thinking_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    We make decisions based on the long term — even if that means hard work or difficult choices.
+                    {{t "values.long_term_thinking_description"}}
                 </p>
             </div>
 
             <!-- Clarity -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Clarity</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.clarity_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    We prioritize ideas that are easy to understand and convey to anyone.
+                    {{t "values.clarity_description"}}
                 </p>
             </div>
 
             <!-- Attention to Detail -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Attention to Detail</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.attention_to_detail_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    The small things are the big things. We take pride in our attention to detail.
+                    {{t "values.attention_to_detail_description"}}
                 </p>
             </div>
 
             <!-- Customer Obsession -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Customer Obsession</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.customer_obsession_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    We don't have investors, so we must have an incredible focus on our customers.
+                    {{t "values.customer_obsession_description"}}
                 </p>
             </div>
 
             <!-- Deep Work -->
             <div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">Deep Work</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">{{t "values.deep_work_title"}}</h3>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                    We value collaboration, but we know that quality requires time working alone, deeply.
+                    {{t "values.deep_work_description"}}
                 </p>
             </div>
         </div>
