@@ -3,7 +3,6 @@
      x-data="{ 
         languageMenuOpen: false,
         currentLang: '{{.Language}}',
-        currentPath: '{{.Path}}',
         languages: [
             { code: 'en', flag: '🇺🇸', name: 'English' },
             { code: 'zh', flag: '🇨🇳', name: '简体中文' },
@@ -27,6 +26,14 @@
             // Set selected language based on current language
             this.selectedLanguage = this.languages.find(lang => lang.code === this.currentLang) || this.languages[0];
         },
+        getCurrentPath() {
+            // Get the current path from the browser's location
+            const path = window.location.pathname;
+            // Remove language prefix if present
+            const langPattern = /^\/([a-z]{2}|[a-z]{2}-[A-Z]{2})(\/|$)/;
+            const cleanPath = path.replace(langPattern, '/');
+            return cleanPath === '' ? '/' : cleanPath;
+        },
         switchLanguage(language) {
             if (language.code === this.currentLang) {
                 // Already on this language
@@ -34,15 +41,15 @@
                 return;
             }
             
-            // Build the new URL with the language prefix
-            // currentPath already has the language prefix stripped by the router
-            let newPath = this.currentPath;
+            // Get the current path dynamically
+            const currentPath = this.getCurrentPath();
             
-            // Add new language prefix
-            if (newPath === '/') {
+            // Build the new URL with the language prefix
+            let newPath;
+            if (currentPath === '/') {
                 newPath = '/' + language.code;
             } else {
-                newPath = '/' + language.code + newPath;
+                newPath = '/' + language.code + currentPath;
             }
             
             // Set cookie and navigate
