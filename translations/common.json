@@ -14,7 +14,18 @@
     "heart_emoji": "❤",
     "across_the": "across the",
     "system_status": "System Status",
-    "on_this_page": "On this page"
+    "on_this_page": "On this page",
+    "go_to_app": "Go to App",
+    "launch_app": "Launch App",
+    "contact": "Contact",
+    "launch": "Launch",
+    "connect": "Connect",
+    "try_blue": "Try Blue",
+    "toggle_sidebar": "Toggle sidebar",
+    "switch_to_light_mode": "Switch to light mode",
+    "switch_to_dark_mode": "Switch to dark mode",
+    "open_mobile_menu": "Open mobile menu",
+    "close_mobile_menu": "Close mobile menu"
   },
   "es": {
     "company_name": "Blue",
@@ -31,7 +42,18 @@
     "heart_emoji": "❤",
     "across_the": "a través del",
     "system_status": "Estado del Sistema",
-    "on_this_page": "En esta página"
+    "on_this_page": "En esta página",
+    "go_to_app": "Ir a la App",
+    "launch_app": "Abrir App",
+    "contact": "Contacto",
+    "launch": "Abrir",
+    "connect": "Conectar",
+    "try_blue": "Probar Blue",
+    "toggle_sidebar": "Alternar barra lateral",
+    "switch_to_light_mode": "Cambiar a modo claro",
+    "switch_to_dark_mode": "Cambiar a modo oscuro",
+    "open_mobile_menu": "Abrir menú móvil",
+    "close_mobile_menu": "Cerrar menú móvil"
   },
   "zh": {
     "company_name": "Blue",
@@ -48,7 +70,18 @@
     "heart_emoji": "❤",
     "across_the": "遍布",
     "system_status": "系统状态",
-    "on_this_page": "本页内容"
+    "on_this_page": "本页内容",
+    "go_to_app": "进入应用",
+    "launch_app": "启动应用",
+    "contact": "联系",
+    "launch": "启动",
+    "connect": "连接",
+    "try_blue": "体验 Blue",
+    "toggle_sidebar": "切换侧边栏",
+    "switch_to_light_mode": "切换到浅色模式",
+    "switch_to_dark_mode": "切换到深色模式",
+    "open_mobile_menu": "打开手机菜单",
+    "close_mobile_menu": "关闭手机菜单"
   },
   "fr": {
     "company_name": "Blue",
@@ -65,7 +98,18 @@
     "heart_emoji": "❤",
     "across_the": "à travers le",
     "system_status": "État du système",
-    "on_this_page": "Sur cette page"
+    "on_this_page": "Sur cette page",
+    "go_to_app": "Aller à l'app",
+    "launch_app": "Lancer l'app",
+    "contact": "Contact",
+    "launch": "Lancer",
+    "connect": "Connecter",
+    "try_blue": "Essayer Blue",
+    "toggle_sidebar": "Basculer la barre latérale",
+    "switch_to_light_mode": "Passer en mode clair",
+    "switch_to_dark_mode": "Passer en mode sombre",
+    "open_mobile_menu": "Ouvrir le menu mobile",
+    "close_mobile_menu": "Fermer le menu mobile"
   },
   "de": {
     "company_name": "Blue",
@@ -82,7 +126,18 @@
     "heart_emoji": "❤",
     "across_the": "über die",
     "system_status": "Systemstatus",
-    "on_this_page": "Auf dieser Seite"
+    "on_this_page": "Auf dieser Seite",
+    "go_to_app": "Zur App",
+    "launch_app": "App starten",
+    "contact": "Kontakt",
+    "launch": "Starten",
+    "connect": "Verbinden",
+    "try_blue": "Blue testen",
+    "toggle_sidebar": "Seitenleiste umschalten",
+    "switch_to_light_mode": "Zu hellem Modus wechseln",
+    "switch_to_dark_mode": "Zu dunklem Modus wechseln",
+    "open_mobile_menu": "Mobile Menü öffnen",
+    "close_mobile_menu": "Mobile Menü schließen"
   },
   "ja": {
     "company_name": "Blue",
@@ -99,7 +154,18 @@
     "heart_emoji": "❤",
     "across_the": "全体にわたって",
     "system_status": "システム状態",
-    "on_this_page": "このページの内容"
+    "on_this_page": "このページの内容",
+    "go_to_app": "アプリへ",
+    "launch_app": "アプリを起動",
+    "contact": "お問い合わせ",
+    "launch": "起動",
+    "connect": "接続",
+    "try_blue": "Blue を試す",
+    "toggle_sidebar": "サイドバーを切り替え",
+    "switch_to_light_mode": "ライトモードに切り替え",
+    "switch_to_dark_mode": "ダークモードに切り替え",
+    "open_mobile_menu": "モバイルメニューを開く",
+    "close_mobile_menu": "モバイルメニューを閉じる"
   },
   "pt": {
     "company_name": "Blue",
@@ -116,7 +182,18 @@
     "heart_emoji": "❤",
     "across_the": "através do",
     "system_status": "Status do Sistema",
-    "on_this_page": "Nesta página"
+    "on_this_page": "Nesta página",
+    "go_to_app": "Ir para o App",
+    "launch_app": "Abrir App",
+    "contact": "Contato",
+    "launch": "Abrir",
+    "connect": "Conectar",
+    "try_blue": "Experimentar Blue",
+    "toggle_sidebar": "Alternar barra lateral",
+    "switch_to_light_mode": "Mudar para modo claro",
+    "switch_to_dark_mode": "Mudar para modo escuro",
+    "open_mobile_menu": "Abrir menu móvel",
+    "close_mobile_menu": "Fechar menu móvel"
   },
   "ru": {
     "company_name": "Blue",
@@ -133,7 +210,18 @@
     "heart_emoji": "❤",
     "across_the": "по всему",
     "system_status": "Статус системы",
-    "on_this_page": "На этой странице"
+    "on_this_page": "На этой странице",
+    "go_to_app": "Перейти в приложение",
+    "launch_app": "Запустить приложение",
+    "contact": "Контакт",
+    "launch": "Запустить",
+    "connect": "Подключиться",
+    "try_blue": "Попробовать Blue",
+    "toggle_sidebar": "Переключить боковую панель",
+    "switch_to_light_mode": "Переключиться на светлый режим",
+    "switch_to_dark_mode": "Переключиться на темный режим",
+    "open_mobile_menu": "Открыть мобильное меню",
+    "close_mobile_menu": "Закрыть мобильное меню"
   },
   "ko": {
     "company_name": "Blue",
@@ -150,7 +238,18 @@
     "heart_emoji": "❤",
     "across_the": "전체에 걸쳐",
     "system_status": "시스템 상태",
-    "on_this_page": "이 페이지의 내용"
+    "on_this_page": "이 페이지의 내용",
+    "go_to_app": "앱으로 이동",
+    "launch_app": "앱 실행",
+    "contact": "문의",
+    "launch": "실행",
+    "connect": "연결",
+    "try_blue": "Blue 체험하기",
+    "toggle_sidebar": "사이드바 토글",
+    "switch_to_light_mode": "라이트 모드로 전환",
+    "switch_to_dark_mode": "다크 모드로 전환",
+    "open_mobile_menu": "모바일 메뉴 열기",
+    "close_mobile_menu": "모바일 메뉴 닫기"
   },
   "it": {
     "company_name": "Blue",
@@ -167,7 +266,18 @@
     "heart_emoji": "❤",
     "across_the": "attraverso il",
     "system_status": "Stato del sistema",
-    "on_this_page": "In questa pagina"
+    "on_this_page": "In questa pagina",
+    "go_to_app": "Vai all'app",
+    "launch_app": "Avvia app",
+    "contact": "Contatto",
+    "launch": "Avvia",
+    "connect": "Connetti",
+    "try_blue": "Prova Blue",
+    "toggle_sidebar": "Attiva/disattiva barra laterale",
+    "switch_to_light_mode": "Passa alla modalità chiara",
+    "switch_to_dark_mode": "Passa alla modalità scura",
+    "open_mobile_menu": "Apri menu mobile",
+    "close_mobile_menu": "Chiudi menu mobile"
   },
   "id": {
     "company_name": "Blue",
@@ -184,7 +294,18 @@
     "heart_emoji": "❤",
     "across_the": "di seluruh",
     "system_status": "Status Sistem",
-    "on_this_page": "Di halaman ini"
+    "on_this_page": "Di halaman ini",
+    "go_to_app": "Buka Aplikasi",
+    "launch_app": "Jalankan Aplikasi",
+    "contact": "Kontak",
+    "launch": "Jalankan",
+    "connect": "Hubungkan",
+    "try_blue": "Coba Blue",
+    "toggle_sidebar": "Alihkan sidebar",
+    "switch_to_light_mode": "Beralih ke mode terang",
+    "switch_to_dark_mode": "Beralih ke mode gelap",
+    "open_mobile_menu": "Buka menu mobile",
+    "close_mobile_menu": "Tutup menu mobile"
   },
   "nl": {
     "company_name": "Blue",
@@ -201,7 +322,18 @@
     "heart_emoji": "❤",
     "across_the": "over de",
     "system_status": "Systeemstatus",
-    "on_this_page": "Op deze pagina"
+    "on_this_page": "Op deze pagina",
+    "go_to_app": "Naar de app",
+    "launch_app": "App starten",
+    "contact": "Contact",
+    "launch": "Starten",
+    "connect": "Verbinden",
+    "try_blue": "Probeer Blue",
+    "toggle_sidebar": "Zijbalk wisselen",
+    "switch_to_light_mode": "Naar lichte modus",
+    "switch_to_dark_mode": "Naar donkere modus",
+    "open_mobile_menu": "Mobiel menu openen",
+    "close_mobile_menu": "Mobiel menu sluiten"
   },
   "pl": {
     "company_name": "Blue",
@@ -218,7 +350,18 @@
     "heart_emoji": "❤",
     "across_the": "w całym",
     "system_status": "Status systemu",
-    "on_this_page": "Na tej stronie"
+    "on_this_page": "Na tej stronie",
+    "go_to_app": "Przejdź do aplikacji",
+    "launch_app": "Uruchom aplikację",
+    "contact": "Kontakt",
+    "launch": "Uruchom",
+    "connect": "Połącz",
+    "try_blue": "Wypróbuj Blue",
+    "toggle_sidebar": "Przełącz pasek boczny",
+    "switch_to_light_mode": "Przełącz na tryb jasny",
+    "switch_to_dark_mode": "Przełącz na tryb ciemny",
+    "open_mobile_menu": "Otwórz menu mobilne",
+    "close_mobile_menu": "Zamknij menu mobilne"
   },
   "zh-TW": {
     "company_name": "Blue",
@@ -235,7 +378,18 @@
     "heart_emoji": "❤",
     "across_the": "遍布",
     "system_status": "系統狀態",
-    "on_this_page": "本頁內容"
+    "on_this_page": "本頁內容",
+    "go_to_app": "進入應用程式",
+    "launch_app": "啟動應用程式",
+    "contact": "聯絡",
+    "launch": "啟動",
+    "connect": "連接",
+    "try_blue": "體驗 Blue",
+    "toggle_sidebar": "切換側邊欄",
+    "switch_to_light_mode": "切換到淺色模式",
+    "switch_to_dark_mode": "切換到深色模式",
+    "open_mobile_menu": "打開手機選單",
+    "close_mobile_menu": "關閉手機選單"
   },
   "sv": {
     "company_name": "Blue",
@@ -252,7 +406,18 @@
     "heart_emoji": "❤",
     "across_the": "över",
     "system_status": "Systemstatus",
-    "on_this_page": "På denna sida"
+    "on_this_page": "På denna sida",
+    "go_to_app": "Gå till appen",
+    "launch_app": "Starta appen",
+    "contact": "Kontakt",
+    "launch": "Starta",
+    "connect": "Anslut",
+    "try_blue": "Prova Blue",
+    "toggle_sidebar": "Växla sidofält",
+    "switch_to_light_mode": "Byt till ljust läge",
+    "switch_to_dark_mode": "Byt till mörkt läge",
+    "open_mobile_menu": "Öppna mobilmeny",
+    "close_mobile_menu": "Stäng mobilmeny"
   },
   "km": {
     "company_name": "Blue",
@@ -269,6 +434,17 @@
     "heart_emoji": "❤",
     "across_the": "ទូទាំង",
     "system_status": "ស្ថានភាពប្រព័ន្ធ",
-    "on_this_page": "នៅលើទំព័រនេះ"
+    "on_this_page": "នៅលើទំព័រនេះ",
+    "go_to_app": "ទៅកាន់កម្មវិធី",
+    "launch_app": "បើកកម្មវិធី",
+    "contact": "ទាក់ទង",
+    "launch": "បើក",
+    "connect": "ភ្ជាប់",
+    "try_blue": "សាកល្បង Blue",
+    "toggle_sidebar": "បិទបើករបារចំហៀង",
+    "switch_to_light_mode": "ប្តូរទៅរបៀបស្រាល",
+    "switch_to_dark_mode": "ប្តូរទៅរបៀបងងឹត",
+    "open_mobile_menu": "បើកម៉ឺនុយទូរសព្ទ",
+    "close_mobile_menu": "បិទម៉ឺនុយទូរសព្ទ"
   }
 }

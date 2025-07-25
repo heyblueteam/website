@@ -120,7 +120,7 @@
             </a>
             <button @click="sidebarsOpen = !sidebarsOpen" 
                     class="hidden lg:block p-2 ml-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer focus:outline-none"
-                    aria-label="Toggle sidebar">
+                    aria-label="{{t "common.toggle_sidebar"}}">
                 <svg class="w-4 h-6" fill="none" stroke="currentColor" viewBox="0 0 16 24">
                     <rect x="1" y="4" width="14" height="16" stroke-width="1.5" rx="1"></rect>
                     <rect :class="sidebarsOpen ? 'fill-current' : 'fill-transparent'" 
@@ -141,7 +141,7 @@
             <!-- Light/Dark mode toggle -->
             <button @click="toggleDarkMode()" 
                     class="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none transition-colors duration-200 cursor-pointer"
-                    :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'">
+                    :aria-label="darkMode ? '{{t "common.switch_to_light_mode"}}' : '{{t "common.switch_to_dark_mode"}}'">
                 <svg x-show="darkMode" x-cloak class="w-5 h-5 transition-transform duration-200" fill="currentColor">
                     <use href="/icons/sprite.svg#sun"></use>
                 </svg>
@@ -162,9 +162,9 @@
                    @mouseenter="goToAppHovering = true">
                     <span class="relative h-5 overflow-hidden inline-block">
                         <span class="block transition-transform duration-300"
-                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">Go to App</span>
+                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.go_to_app"}}</span>
                         <span class="block transition-transform duration-300"
-                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">Launch App</span>
+                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.launch_app"}}</span>
                     </span>
                     <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-white rounded text-xs font-bold transition-transform duration-200 border" 
                           :style="`color: #00a0d2; border-color: #00a0d2; ${magneticButtons['goToApp'] ? 'transform: translateX(' + (magneticButtons['goToApp'].x * 0.5) + 'px)' : ''}`">↵</span>
@@ -185,9 +185,9 @@
                        @mouseenter="loginHovering = true">
                         <span class="relative h-5 overflow-hidden inline-block">
                             <span class="block transition-transform duration-300"
-                                  :class="loginHovering ? '-translate-y-5' : 'translate-y-0'">Log In</span>
+                                  :class="loginHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.log_in"}}</span>
                             <span class="block transition-transform duration-300"
-                                  :class="loginHovering ? '-translate-y-5' : 'translate-y-0'">Launch</span>
+                                  :class="loginHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.launch"}}</span>
                         </span>
                         <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-gray-200 rounded text-xs font-bold text-gray-700 border border-gray-300 transition-transform duration-200"
                               :style="magneticButtons['login'] ? `transform: translateX(${magneticButtons['login'].x * 0.5}px)` : ''">L</span>
@@ -203,9 +203,9 @@
                        @mouseenter="contactHovering = true">
                         <span class="relative h-5 overflow-hidden inline-block">
                             <span class="block transition-transform duration-300"
-                                  :class="contactHovering ? '-translate-y-5' : 'translate-y-0'">Contact</span>
+                                  :class="contactHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.contact"}}</span>
                             <span class="block transition-transform duration-300"
-                                  :class="contactHovering ? '-translate-y-5' : 'translate-y-0'">Connect</span>
+                                  :class="contactHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.connect"}}</span>
                         </span>
                         <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-gray-200 rounded text-xs font-bold text-gray-700 border border-gray-300 transition-transform duration-200"
                               :style="magneticButtons['contact'] ? `transform: translateX(${magneticButtons['contact'].x * 0.5}px)` : ''">C</span>
@@ -222,9 +222,9 @@
                        @mouseenter="hovering = true">
                         <span class="relative h-5 overflow-hidden inline-block">
                             <span class="block transition-transform duration-300"
-                                  :class="hovering ? '-translate-y-5' : 'translate-y-0'">Sign Up</span>
+                                  :class="hovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.sign_up"}}</span>
                             <span class="block transition-transform duration-300"
-                                  :class="hovering ? '-translate-y-5' : 'translate-y-0'">Try Blue</span>
+                                  :class="hovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.try_blue"}}</span>
                         </span>
                         <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-white rounded text-xs font-bold transition-transform duration-200 border" 
                               :style="`color: #00a0d2; border-color: #00a0d2; ${magneticButtons['signup'] ? 'transform: translateX(' + (magneticButtons['signup'].x * 0.5) + 'px)' : ''}`">↵</span>
@@ -236,7 +236,7 @@
         <!-- Mobile Menu Button -->
         <button @click="mobileMenuOpen = !mobileMenuOpen" 
                 class="lg:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer focus:outline-none"
-                :aria-label="mobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'">
+                :aria-label="mobileMenuOpen ? '{{t "common.close_mobile_menu"}}' : '{{t "common.open_mobile_menu"}}'">
             <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
@@ -443,17 +443,17 @@
                 <a :href="'/contact'" 
                    @click="mobileMenuOpen = false"
                    class="block w-full px-4 py-2 text-sm font-semibold text-center rounded-md border-2 border-brand-blue bg-blue-50 text-gray-900 hover:bg-blue-100 transition duration-150 ease-in-out">
-                    Contact
+                    {{t "common.contact"}}
                 </a>
                 <a href="https://app.blue.cc" 
                    target="_blank"
                    class="block w-full px-4 py-2 text-sm font-semibold text-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition duration-150 ease-in-out">
-                    Log In
+                    {{t "common.log_in"}}
                 </a>
                 <a href="https://app.blue.cc" 
                    target="_blank"
                    class="block w-full px-4 py-2 text-sm font-semibold text-center rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 transition duration-150 ease-in-out">
-                    Sign Up
+                    {{t "common.sign_up"}}
                 </a>
             </div>
         </div>
