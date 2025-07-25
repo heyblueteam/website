@@ -18,21 +18,21 @@ func TestNewD1Client(t *testing.T) {
 	origAccountID := os.Getenv("CLOUDFLARE_ACCOUNT_ID")
 	origDatabaseID := os.Getenv("CLOUDFLARE_DATABASE_ID")
 	origAPIKey := os.Getenv("CLOUDFLARE_API_KEY")
-	
+
 	// Set test values
 	os.Setenv("CLOUDFLARE_ACCOUNT_ID", "test-account-id")
 	os.Setenv("CLOUDFLARE_DATABASE_ID", "test-database-id")
 	os.Setenv("CLOUDFLARE_API_KEY", "test-api-key")
-	
+
 	// Restore original values after test
 	defer func() {
 		os.Setenv("CLOUDFLARE_ACCOUNT_ID", origAccountID)
 		os.Setenv("CLOUDFLARE_DATABASE_ID", origDatabaseID)
 		os.Setenv("CLOUDFLARE_API_KEY", origAPIKey)
 	}()
-	
+
 	client := NewD1Client()
-	
+
 	if client.AccountID != "test-account-id" {
 		t.Errorf("Expected AccountID %q, got %q", "test-account-id", client.AccountID)
 	}
@@ -117,7 +117,7 @@ func TestD1ClientQuery(t *testing.T) {
 			errorContains:  "D1 request failed",
 		},
 	}
-	
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			// Create test server
@@ -126,7 +126,7 @@ func TestD1ClientQuery(t *testing.T) {
 				if r.Method != "POST" {
 					t.Errorf("Expected POST method, got %s", r.Method)
 				}
-				
+
 				// Verify headers
 				if r.Header.Get("Content-Type") != "application/json" {
 					t.Errorf("Expected Content-Type application/json, got %s", r.Header.Get("Content-Type"))
@@ -134,23 +134,23 @@ func TestD1ClientQuery(t *testing.T) {
 				if r.Header.Get("Authorization") != "Bearer test-key" {
 					t.Errorf("Expected Authorization Bearer test-key, got %s", r.Header.Get("Authorization"))
 				}
-				
+
 				// Verify request body
 				var reqBody D1Request
 				if err := json.NewDecoder(r.Body).Decode(&reqBody); err != nil {
 					t.Fatalf("Failed to decode request body: %v", err)
 				}
-				
+
 				if reqBody.SQL != tt.sql {
 					t.Errorf("Expected SQL %q, got %q", tt.sql, reqBody.SQL)
 				}
-				
+
 				// Send response
 				w.WriteHeader(tt.mockStatusCode)
 				json.NewEncoder(w).Encode(tt.mockResponse)
 			}))
 			defer server.Close()
-			
+
 			// Create client with test server URL
 			client := &D1Client{
 				AccountID:  "test-account",
@@ -158,10 +158,10 @@ func TestD1ClientQuery(t *testing.T) {
 				APIKey:     "test-key",
 				BaseURL:    server.URL,
 			}
-			
+
 			// Execute query
 			resp, err := client.Query(tt.sql, tt.params...)
-			
+
 			// Check error
 			if tt.expectError {
 				if err == nil {
@@ -187,7 +187,7 @@ func TestD1ClientQuery(t *testing.T) {
 func TestNewHealthChecker(t *testing.T) {
 	d1Client := &D1Client{}
 	checker := NewHealthChecker(d1Client)
-	
+
 	if checker.d1Client != d1Client {
 		t.Errorf("Expected d1Client to be set")
 	}
@@ -206,10 +206,10 @@ func TestHealthCheckerInitialize(t *testing.T) {
 		// Parse request
 		var reqBody D1Request
 		json.NewDecoder(r.Body).Decode(&reqBody)
-		
+
 		// Mock different responses based on SQL
 		response := D1Response{Success: true}
-		
+
 		if contains(reqBody.SQL, "CREATE TABLE") || contains(reqBody.SQL, "CREATE INDEX") {
 			// Schema creation
 			response.Result = []struct {
@@ -290,33 +290,33 @@ func TestHealthCheckerInitialize(t *testing.T) {
 				},
 			}
 		}
-		
+
 		w.WriteHeader(http.StatusOK)
 		json.NewEncoder(w).Encode(response)
 	}))
 	defer mockServer.Close()
-	
+
 	d1Client := &D1Client{
 		BaseURL:    mockServer.URL,
 		AccountID:  "test",
 		DatabaseID: "test",
 		APIKey:     "test",
 	}
-	
+
 	checker := NewHealthChecker(d1Client)
 	err := checker.Initialize()
-	
+
 	if err != nil {
 		t.Errorf("Expected no error, got %v", err)
 	}
-	
+
 	// Verify cache was populated
 	cacheCount := 0
 	checker.cache.Range(func(key, value interface{}) bool {
 		cacheCount++
 		return true
 	})
-	
+
 	if cacheCount == 0 {
 		t.Errorf("Expected cache to be populated, but it's empty")
 	}
@@ -381,7 +381,7 @@ func TestCheckService(t *testing.T) {
 			expectStatus:   "down",
 		},
 	}
-	
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			// Create test server for the service
@@ -389,14 +389,14 @@ func TestCheckService(t *testing.T) {
 				w.WriteHeader(tt.serverResponse)
 			}))
 			defer serviceServer.Close()
-			
+
 			// Update service URLs to point to test server
 			testService := tt.service
 			testService.URL = serviceServer.URL
 			if testService.HealthEndpoint != "" {
 				testService.HealthEndpoint = serviceServer.URL + "/health"
 			}
-			
+
 			// Create mock D1 server
 			d1Server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 				response := D1Response{Success: true}
@@ -404,17 +404,17 @@ func TestCheckService(t *testing.T) {
 				json.NewEncoder(w).Encode(response)
 			}))
 			defer d1Server.Close()
-			
+
 			d1Client := &D1Client{
 				BaseURL:    d1Server.URL,
 				AccountID:  "test",
 				DatabaseID: "test",
 				APIKey:     "test",
 			}
-			
+
 			checker := NewHealthChecker(d1Client)
 			result := checker.CheckService(testService)
-			
+
 			if result.Status != tt.expectStatus {
 				t.Errorf("Expected status %q, got %q", tt.expectStatus, result.Status)
 			}
@@ -434,7 +434,7 @@ func TestAddToCache(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	// Add multiple check results
 	now := time.Now()
 	results := []CheckResult{
@@ -454,11 +454,11 @@ func TestAddToCache(t *testing.T) {
 			CheckedAt:   now,
 		},
 	}
-	
+
 	for _, result := range results {
 		checker.addToCache(result)
 	}
-	
+
 	// Verify cache contents
 	apiKey := fmt.Sprintf("API:%s", now.Format("2006-01-02"))
 	if cached, ok := checker.cache.Load(apiKey); ok {
@@ -469,7 +469,7 @@ func TestAddToCache(t *testing.T) {
 	} else {
 		t.Errorf("Expected API checks in cache")
 	}
-	
+
 	// Verify last check time
 	if lastCheck, ok := checker.lastCheckTime.Load("API"); ok {
 		checkTime := lastCheck.(time.Time)
@@ -488,7 +488,7 @@ func TestGetCurrentStatus(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	// Add test data
 	now := time.Now()
 	checker.addToCache(CheckResult{
@@ -501,25 +501,26 @@ func TestGetCurrentStatus(t *testing.T) {
 		Status:      "down",
 		CheckedAt:   now.Add(-30 * time.Minute),
 	})
-	
+
 	// Get current status
 	statuses := checker.GetCurrentStatus()
-	
+
 	// Verify we have status for all monitored services
 	if len(statuses) != len(monitoredServices) {
 		t.Errorf("Expected %d statuses, got %d", len(monitoredServices), len(statuses))
 	}
-	
+
 	// Check specific statuses
 	for _, status := range statuses {
-		if status.Name == "Website" {
+		switch status.Name {
+		case "Website":
 			if status.Status != "up" {
 				t.Errorf("Expected Website status 'up', got %q", status.Status)
 			}
 			if status.LastChecked == "Never" {
 				t.Errorf("Expected Website to have last check time")
 			}
-		} else if status.Name == "API" {
+		case "API":
 			if status.Status != "down" {
 				t.Errorf("Expected API status 'down', got %q", status.Status)
 			}
@@ -533,7 +534,7 @@ func TestGetHistoricalData(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	// Add test data for multiple days
 	now := time.Now()
 	for i := 0; i < 5; i++ {
@@ -551,14 +552,14 @@ func TestGetHistoricalData(t *testing.T) {
 			})
 		}
 	}
-	
+
 	histories := checker.GetHistoricalData()
-	
+
 	// Verify we have history for all services
 	if len(histories) != len(monitoredServices) {
 		t.Errorf("Expected %d histories, got %d", len(monitoredServices), len(histories))
 	}
-	
+
 	// Check API history
 	for _, history := range histories {
 		if history.Name == "API" {
@@ -566,7 +567,7 @@ func TestGetHistoricalData(t *testing.T) {
 			if len(history.Days) != 90 {
 				t.Errorf("Expected 90 days of data, got %d", len(history.Days))
 			}
-			
+
 			// Check recent days have correct uptime
 			for i := 0; i < 5; i++ {
 				day := history.Days[89-i]
@@ -608,7 +609,7 @@ func TestHasRecentCheck(t *testing.T) {
 			expectRecent: false,
 		},
 	}
-	
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -633,22 +634,22 @@ func TestHasRecentCheck(t *testing.T) {
 						},
 					},
 				}
-				
+
 				w.WriteHeader(http.StatusOK)
 				json.NewEncoder(w).Encode(response)
 			}))
 			defer mockServer.Close()
-			
+
 			d1Client := &D1Client{
 				BaseURL:    mockServer.URL,
 				AccountID:  "test",
 				DatabaseID: "test",
 				APIKey:     "test",
 			}
-			
+
 			checker := NewHealthChecker(d1Client)
 			result := checker.hasRecentCheck()
-			
+
 			if result != tt.expectRecent {
 				t.Errorf("Expected hasRecentCheck %v, got %v", tt.expectRecent, result)
 			}
@@ -662,7 +663,7 @@ func TestCurrentStatusAPIHandler(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	// Add test data
 	now := time.Now()
 	checker.addToCache(CheckResult{
@@ -670,28 +671,28 @@ func TestCurrentStatusAPIHandler(t *testing.T) {
 		Status:      "up",
 		CheckedAt:   now,
 	})
-	
+
 	handler := CurrentStatusAPIHandler(checker)
-	
+
 	req := httptest.NewRequest("GET", "/api/status/current", nil)
 	w := httptest.NewRecorder()
-	
+
 	handler(w, req)
-	
+
 	resp := w.Result()
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("Expected status 200, got %d", resp.StatusCode)
 	}
-	
+
 	if resp.Header.Get("Content-Type") != "application/json" {
 		t.Errorf("Expected Content-Type application/json, got %s", resp.Header.Get("Content-Type"))
 	}
-	
+
 	var response map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
 		t.Fatalf("Failed to decode response: %v", err)
 	}
-	
+
 	if services, ok := response["services"].([]interface{}); ok {
 		if len(services) != len(monitoredServices) {
 			t.Errorf("Expected %d services, got %d", len(monitoredServices), len(services))
@@ -706,28 +707,28 @@ func TestHistoricalDataAPIHandler(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	handler := HistoricalDataAPIHandler(checker)
-	
+
 	req := httptest.NewRequest("GET", "/api/status/history", nil)
 	w := httptest.NewRecorder()
-	
+
 	handler(w, req)
-	
+
 	resp := w.Result()
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("Expected status 200, got %d", resp.StatusCode)
 	}
-	
+
 	if resp.Header.Get("Content-Type") != "application/json" {
 		t.Errorf("Expected Content-Type application/json, got %s", resp.Header.Get("Content-Type"))
 	}
-	
+
 	var response map[string]interface{}
 	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
 		t.Fatalf("Failed to decode response: %v", err)
 	}
-	
+
 	if services, ok := response["services"].([]interface{}); ok {
 		if len(services) != len(monitoredServices) {
 			t.Errorf("Expected %d services, got %d", len(monitoredServices), len(services))
@@ -775,7 +776,7 @@ func TestFormatDuration(t *testing.T) {
 			expected: "More than a day ago",
 		},
 	}
-	
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result := formatDuration(tt.duration)
@@ -792,9 +793,9 @@ func TestGetDayDataForService(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	date := time.Now()
-	
+
 	// Test with no data - should assume operational
 	dayData := checker.getDayDataForService("API", date)
 	if dayData.Status != "operational" {
@@ -803,7 +804,7 @@ func TestGetDayDataForService(t *testing.T) {
 	if dayData.Uptime != 100.0 {
 		t.Errorf("Expected uptime 100%% for no data, got %.2f%%", dayData.Uptime)
 	}
-	
+
 	// Add some checks with mixed status
 	for i := 0; i < 100; i++ {
 		status := "up"
@@ -816,7 +817,7 @@ func TestGetDayDataForService(t *testing.T) {
 			CheckedAt:   date.Add(time.Duration(i) * time.Minute),
 		})
 	}
-	
+
 	// Test with degraded performance
 	dayData = checker.getDayDataForService("API", date)
 	if dayData.Status != "degraded" {
@@ -833,7 +834,7 @@ func TestConcurrentCacheOperations(t *testing.T) {
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
 	}
-	
+
 	// Perform concurrent writes
 	done := make(chan bool)
 	for i := 0; i < 10; i++ {
@@ -848,12 +849,12 @@ func TestConcurrentCacheOperations(t *testing.T) {
 			done <- true
 		}(i)
 	}
-	
+
 	// Wait for all goroutines
 	for i := 0; i < 10; i++ {
 		<-done
 	}
-	
+
 	// Verify data integrity
 	count := 0
 	checker.cache.Range(func(key, value interface{}) bool {
@@ -864,7 +865,7 @@ func TestConcurrentCacheOperations(t *testing.T) {
 		count++
 		return true
 	})
-	
+
 	if count != 10 {
 		t.Errorf("Expected 10 cache entries, got %d", count)
 	}
@@ -874,7 +875,7 @@ func TestConcurrentCacheOperations(t *testing.T) {
 func TestCheckAllServices(t *testing.T) {
 	// Create a counter for service calls
 	var callCount sync.Map
-	
+
 	// Create test server that counts calls
 	serviceServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Count calls per path
@@ -883,11 +884,11 @@ func TestCheckAllServices(t *testing.T) {
 			count = val.(int)
 		}
 		callCount.Store(r.URL.Path, count+1)
-		
+
 		w.WriteHeader(http.StatusOK)
 	}))
 	defer serviceServer.Close()
-	
+
 	// Mock D1 server
 	d1Server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		response := D1Response{Success: true}
@@ -895,7 +896,7 @@ func TestCheckAllServices(t *testing.T) {
 		json.NewEncoder(w).Encode(response)
 	}))
 	defer d1Server.Close()
-	
+
 	// Override monitoredServices temporarily
 	originalServices := monitoredServices
 	monitoredServices = []Service{
@@ -906,24 +907,24 @@ func TestCheckAllServices(t *testing.T) {
 	defer func() {
 		monitoredServices = originalServices
 	}()
-	
+
 	d1Client := &D1Client{
 		BaseURL:    d1Server.URL,
 		AccountID:  "test",
 		DatabaseID: "test",
 		APIKey:     "test",
 	}
-	
+
 	checker := NewHealthChecker(d1Client)
 	checker.CheckAllServices()
-	
+
 	// Verify all services were checked
 	totalCalls := 0
 	callCount.Range(func(key, value interface{}) bool {
 		totalCalls += value.(int)
 		return true
 	})
-	
+
 	if totalCalls != 3 {
 		t.Errorf("Expected 3 service calls, got %d", totalCalls)
 	}

@@ -20,8 +20,27 @@ func TestSearchItemStructure(t *testing.T) {
 		Category:    "Feature",
 	}
 
+	// Verify all fields are set correctly
 	if item.Title != "Test Page" {
 		t.Errorf("Expected title 'Test Page', got %q", item.Title)
+	}
+	if item.Description != "Test description" {
+		t.Errorf("Expected description 'Test description', got %q", item.Description)
+	}
+	if item.Content != "Test content" {
+		t.Errorf("Expected content 'Test content', got %q", item.Content)
+	}
+	if item.URL != "/test" {
+		t.Errorf("Expected URL '/test', got %q", item.URL)
+	}
+	if item.Type != "page" {
+		t.Errorf("Expected type 'page', got %q", item.Type)
+	}
+	if item.Section != "docs" {
+		t.Errorf("Expected section 'docs', got %q", item.Section)
+	}
+	if item.Category != "Feature" {
+		t.Errorf("Expected category 'Feature', got %q", item.Category)
 	}
 }
 
@@ -33,8 +52,15 @@ func TestSearchFrontmatterStructure(t *testing.T) {
 		Category:    "Test category",
 	}
 
+	// Verify all fields are set correctly
 	if fm.Title != "Test Title" {
 		t.Errorf("Expected title 'Test Title', got %q", fm.Title)
+	}
+	if fm.Description != "Test description" {
+		t.Errorf("Expected description 'Test description', got %q", fm.Description)
+	}
+	if fm.Category != "Test category" {
+		t.Errorf("Expected category 'Test category', got %q", fm.Category)
 	}
 }
 

@@ -216,22 +216,3 @@ func TestHTMLLoadComponentTemplates(t *testing.T) {
 		t.Errorf("Expected 2 component files, got %d", len(files))
 	}
 }
-
-// Helper function to create a test HTML service
-func createTestHTMLService(testDir string) *HTMLService {
-	pagesDir := filepath.Join(testDir, "pages")
-	layoutsDir := filepath.Join(testDir, "layouts")
-	componentsDir := filepath.Join(testDir, "components")
-
-	// Create directories
-	for _, dir := range []string{pagesDir, layoutsDir, componentsDir} {
-		os.MkdirAll(dir, 0755)
-	}
-
-	// Create basic layout
-	createTestFile(nil, filepath.Join(layoutsDir, "main.html"),
-		`{{define "main.html"}}<!DOCTYPE html><html><body>{{.Content}}</body></html>{{end}}`)
-
-	markdownService := NewMarkdownService()
-	return NewHTMLService(pagesDir, layoutsDir, componentsDir, markdownService)
-}
