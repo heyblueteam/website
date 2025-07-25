@@ -41,4 +41,4 @@ Disallow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://blue.cc/sitemap.xml 
+Sitemap: https://blue.cc/sitemap_index.xml 
