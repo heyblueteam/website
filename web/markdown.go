@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
@@ -78,10 +80,18 @@ func (ms *MarkdownService) ProcessMarkdownFile(filePath string, seoService *SEOS
 	return html, frontmatter, nil
 }
 
+// fileTask represents a file to be processed
+type fileTask struct {
+	path     string
+	lang     string
+	modTime  time.Time
+}
+
 // PreRenderAllMarkdown pre-renders all markdown files in the content directory
 func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, seoService *SEOService) error {
-	count := 0
-
+	// Collect all markdown files first
+	var fileTasks []fileTask
+	
 	// Walk through all markdown files in content directory for each language
 	for _, lang := range SupportedLanguages {
 		contentDir := filepath.Join("content", lang)
@@ -109,34 +119,11 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 				return nil // Continue processing other files
 			}
 
-			// Generate URL path for this file (removes language from path)
-			urlPath := ms.generateURLPath(path)
-
-			// Process insights files
-
-			// Process the markdown file
-			html, frontmatter, err := ms.ProcessMarkdownFile(path, seoService)
-			if err != nil {
-				log.Printf("Warning: failed to process %s: %v", path, err)
-				return nil // Continue processing other files
-			}
-
-			// Frontmatter processed
-
-			// Cache the pre-rendered content with language-specific key
-			cachedContent := &CachedContent{
-				HTML:        html,
-				Frontmatter: frontmatter,
-				ModTime:     info.ModTime(),
-				FilePath:    path,
-			}
-
-			// Use language-specific cache key
-			cacheKey := lang + ":" + urlPath
-			ms.cache.Set(cacheKey, cachedContent)
-			count++
-
-			// Progress tracking removed for cleaner output
+			fileTasks = append(fileTasks, fileTask{
+				path:    path,
+				lang:    lang,
+				modTime: info.ModTime(),
+			})
 
 			return nil
 		})
@@ -144,6 +131,73 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 		if err != nil {
 			return fmt.Errorf("failed to walk content directory for %s: %w", lang, err)
 		}
+	}
+
+	// Process files in parallel using worker pool
+	const numWorkers = 20
+	taskChan := make(chan fileTask, len(fileTasks))
+	resultChan := make(chan int, len(fileTasks))
+	errorChan := make(chan error, numWorkers)
+
+	// Start workers
+	var wg sync.WaitGroup
+	for i := 0; i < numWorkers; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for task := range taskChan {
+				// Generate URL path for this file (removes language from path)
+				urlPath := ms.generateURLPath(task.path)
+
+				// Process the markdown file
+				html, frontmatter, err := ms.ProcessMarkdownFile(task.path, seoService)
+				if err != nil {
+					log.Printf("Warning: failed to process %s: %v", task.path, err)
+					continue // Continue processing other files
+				}
+
+				// Cache the pre-rendered content with language-specific key
+				cachedContent := &CachedContent{
+					HTML:        html,
+					Frontmatter: frontmatter,
+					ModTime:     task.modTime,
+					FilePath:    task.path,
+				}
+
+				// Use language-specific cache key
+				cacheKey := task.lang + ":" + urlPath
+				ms.cache.Set(cacheKey, cachedContent)
+				resultChan <- 1
+			}
+		}()
+	}
+
+	// Send all tasks to workers
+	for _, task := range fileTasks {
+		taskChan <- task
+	}
+	close(taskChan)
+
+	// Wait for all workers to complete
+	go func() {
+		wg.Wait()
+		close(resultChan)
+		close(errorChan)
+	}()
+
+	// Count processed files
+	count := 0
+	for range resultChan {
+		count++
+	}
+
+	// Check for any errors
+	select {
+	case err := <-errorChan:
+		if err != nil {
+			return err
+		}
+	default:
 	}
 
 	// Pre-rendering complete
