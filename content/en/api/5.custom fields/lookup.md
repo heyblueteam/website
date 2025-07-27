@@ -1,14 +1,14 @@
 ---
 title: Lookup Custom Field
-description: Create lookup fields that automatically pull and aggregate data from referenced records
+description: Create lookup fields that automatically pull data from referenced records
 category: Custom Fields
 ---
 
-Lookup custom fields automatically pull data from records referenced by [Reference fields](/api/custom-fields/reference), enabling powerful data aggregation and computed values across projects. They update automatically when referenced data changes.
+Lookup custom fields automatically pull data from records referenced by [Reference fields](/api/custom-fields/reference), displaying information from linked records without manual copying. They update automatically when referenced data changes.
 
 ## Basic Example
 
-Create a simple lookup field:
+Create a lookup field to display tags from referenced records:
 
 ```graphql
 mutation CreateLookupField {
@@ -31,19 +31,19 @@ mutation CreateLookupField {
 
 ## Advanced Example
 
-Create a lookup field for custom field data:
+Create a lookup field to extract custom field values from referenced records:
 
 ```graphql
-mutation CreateAdvancedLookupField {
+mutation CreateCustomFieldLookup {
   createCustomField(input: {
-    name: "Referenced Budget Data"
+    name: "Referenced Budget Values"
     type: LOOKUP
     lookupOption: {
       referenceId: "project_reference_field_id"
       lookupId: "budget_custom_field_id"
       lookupType: TODO_CUSTOM_FIELD
     }
-    description: "Budget data from referenced project todos"
+    description: "Budget values from referenced todos"
   }) {
     id
     name
@@ -64,8 +64,6 @@ mutation CreateAdvancedLookupField {
 | `lookupOption` | CustomFieldLookupOptionInput! | ✅ Yes | Lookup configuration |
 | `description` | String | No | Help text shown to users |
 
-**Note**: Custom fields are automatically associated with the project based on the user's current project context.
-
 ## Lookup Configuration
 
 ### CustomFieldLookupOptionInput
@@ -73,107 +71,23 @@ mutation CreateAdvancedLookupField {
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `referenceId` | String! | ✅ Yes | ID of the reference field to pull data from |
-| `lookupId` | String | No | ID of the specific custom field to lookup (for TODO_CUSTOM_FIELD) |
+| `lookupId` | String | No | ID of the specific custom field to lookup (required for TODO_CUSTOM_FIELD type) |
 | `lookupType` | CustomFieldLookupType! | ✅ Yes | Type of data to extract from referenced records |
 
 ## Lookup Types
 
 ### CustomFieldLookupType Values
 
-| Type | Description | Returns | Use Cases |
-|------|-------------|---------|-----------|
-| `TODO_DUE_DATE` | Due dates from referenced todos | Date range | Project timelines, deadline tracking |
-| `TODO_CREATED_AT` | Creation dates from referenced todos | Date range | Creation time analysis |
-| `TODO_UPDATED_AT` | Last updated dates from referenced todos | Date range | Activity tracking |
-| `TODO_TAG` | Tags from referenced todos | Array of tags | Tag aggregation, categorization |
-| `TODO_ASSIGNEE` | Assignees from referenced todos | Array of users | Team member tracking |
-| `TODO_DESCRIPTION` | Descriptions from referenced todos | Array of text | Content aggregation |
-| `TODO_LIST` | Todo list names from referenced todos | Array of list names | List organization |
-| `TODO_CUSTOM_FIELD` | Custom field values from referenced todos | Varies by field type | Cross-project data aggregation |
-
-### Lookup Examples
-
-```graphql
-# Get tags from referenced todos
-{
-  lookupType: TODO_TAG
-  referenceId: "reference_field_id"
-}
-
-# Get assignees from referenced todos
-{
-  lookupType: TODO_ASSIGNEE
-  referenceId: "reference_field_id"
-}
-
-# Get due dates from referenced todos
-{
-  lookupType: TODO_DUE_DATE
-  referenceId: "reference_field_id"
-}
-
-# Get custom field data from referenced todos
-{
-  lookupType: TODO_CUSTOM_FIELD
-  referenceId: "reference_field_id"
-  lookupId: "budget_custom_field_id"
-}
-```
-
-## TODO_CUSTOM_FIELD Lookup
-
-When using `TODO_CUSTOM_FIELD` type, the lookup extracts data from a specific custom field in the referenced todos. The `lookupId` parameter specifies which custom field to look up.
-
-### Supported Custom Field Types
-
-| Field Type | Returns | Example |
-|------------|---------|---------|
-| `CURRENCY` | `{number, currency}` objects | Budget amounts with currency |
-| `NUMBER` | Numeric values | Scores, quantities |
-| `UNIQUE_ID` | Formatted ID strings | Ticket numbers |
-| `SELECT_SINGLE` | Option objects | Status values |
-| `SELECT_MULTI` | Arrays of option objects | Category selections |
-| `LOCATION` | Location data with grouped todos | Geographic data |
-| `LOOKUP` | Nested lookup results | Chained lookups |
-
-### Example Usage
-
-```graphql
-# Get budget amounts from referenced todos
-{
-  lookupType: TODO_CUSTOM_FIELD
-  referenceId: "project_reference_field"
-  lookupId: "budget_custom_field_id"
-}
-```
-
-## Lookup Results
-
-Lookup fields automatically calculate their values based on the referenced data. The results are accessible through the `CustomFieldLookupOption` type.
-
-## Lookup Field Values
-
-Lookup fields are read-only and automatically calculated. Values are accessed through the `CustomFieldLookupOption` type:
-
-```json
-{
-  "customFieldLookupOption": {
-    "lookupType": "TODO_TAG",
-    "lookupResult": [
-      {
-        "id": "tag_123",
-        "name": "urgent",
-        "color": "#ff0000"
-      },
-      {
-        "id": "tag_456", 
-        "name": "development",
-        "color": "#00ff00"
-      }
-    ]
-  }
-}
-```
+| Type | Description | Returns |
+|------|-------------|---------|
+| `TODO_DUE_DATE` | Due dates from referenced todos | Array of date objects with start/end dates and timezone |
+| `TODO_CREATED_AT` | Creation dates from referenced todos | Array of creation timestamps |
+| `TODO_UPDATED_AT` | Last updated dates from referenced todos | Array of update timestamps |
+| `TODO_TAG` | Tags from referenced todos | Array of tag objects with id, name, and color |
+| `TODO_ASSIGNEE` | Assignees from referenced todos | Array of user objects |
+| `TODO_DESCRIPTION` | Descriptions from referenced todos | Array of text descriptions (empty values filtered out) |
+| `TODO_LIST` | Todo list names from referenced todos | Array of list titles |
+| `TODO_CUSTOM_FIELD` | Custom field values from referenced todos | Array of values based on the field type |
 
 ## Response Fields
 
@@ -192,86 +106,120 @@ Lookup fields are read-only and automatically calculated. Values are accessed th
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `lookupType` | CustomFieldLookupType! | Type of lookup (TODO_TAG, TODO_ASSIGNEE, etc.) |
-| `lookupResult` | JSON | The calculated lookup results |
-| `reference` | CustomField | The reference field being looked up |
+| `lookupType` | CustomFieldLookupType! | Type of lookup being performed |
+| `lookupResult` | JSON | The extracted data from referenced records |
+| `reference` | CustomField | The reference field being used as source |
 | `lookup` | CustomField | The specific field being looked up (for TODO_CUSTOM_FIELD) |
 | `parentCustomField` | CustomField | The parent lookup field |
+| `parentLookup` | CustomField | Parent lookup in chain (for nested lookups) |
+
+## How Lookups Work
+
+1. **Data Extraction**: Lookups extract specific data from all records linked through a reference field
+2. **Automatic Updates**: When referenced records change, lookup values update automatically
+3. **Read-Only**: Lookup fields cannot be edited directly - they always reflect current referenced data
+4. **No Calculations**: Lookups extract and display data as-is without aggregations or calculations
+
+## TODO_CUSTOM_FIELD Lookups
+
+When using `TODO_CUSTOM_FIELD` type, you must specify which custom field to extract using the `lookupId` parameter:
+
+```graphql
+mutation CreateCustomFieldValueLookup {
+  createCustomField(input: {
+    name: "Project Status Values"
+    type: LOOKUP
+    lookupOption: {
+      referenceId: "linked_projects_reference_field"
+      lookupId: "status_custom_field_id"
+      lookupType: TODO_CUSTOM_FIELD
+    }
+  }) {
+    id
+  }
+}
+```
+
+This extracts the values of the specified custom field from all referenced records.
 
 ## Querying Lookup Data
 
-### Basic Query
-
 ```graphql
-query GetLookupFields {
-  customFields(projectId: "project_123") {
-    id
-    name
-    type
-    customFieldLookupOption {
-      lookupType
-      lookupResult
-      reference {
-        id
-        name
-      }
-      lookup {
-        id
-        name
-      }
-    }
-  }
-}
-```
-
-### Advanced Query with Results
-
-```graphql
-query GetDetailedLookups {
-  customFields(projectId: "project_123") {
-    id
-    name
-    type
-    customFieldLookupOption {
-      lookupType
-      lookupResult
-      reference {
-        id
-        name
-        referenceProjectId
-      }
-      lookup {
-        id
+query GetLookupValues {
+  todo(id: "todo_123") {
+    customFields {
+      id
+      customField {
         name
         type
-      }
-      parentCustomField {
-        id
-        name
+        customFieldLookupOption {
+          lookupType
+          lookupResult
+          reference {
+            id
+            name
+          }
+          lookup {
+            id
+            name
+            type
+          }
+        }
       }
     }
   }
 }
 ```
 
-## Automatic Updates
+## Example Lookup Results
 
-### Calculation Triggers
+### Tag Lookup Result
+```json
+{
+  "lookupResult": [
+    {
+      "id": "tag_123",
+      "title": "urgent",
+      "color": "#ff0000"
+    },
+    {
+      "id": "tag_456",
+      "title": "development",
+      "color": "#00ff00"
+    }
+  ]
+}
+```
 
-Lookup fields automatically recalculate when:
-- Referenced records are modified
-- Reference field values change
-- New records are added to referenced projects
-- Referenced records are deleted
-- Filters match different records
+### Assignee Lookup Result
+```json
+{
+  "lookupResult": [
+    {
+      "id": "user_123",
+      "name": "John Doe",
+      "email": "john@example.com"
+    }
+  ]
+}
+```
 
-### Update Process
-
-1. **Change Detection** - System monitors referenced data
-2. **Calculation Queue** - Updates are queued for processing
-3. **Batch Processing** - Multiple updates are batched for efficiency
-4. **Result Storage** - New values are stored and cached
-5. **Notification** - Subscriptions notify of changes
+### Custom Field Lookup Result
+Results vary based on the custom field type being looked up. For example, a currency field lookup might return:
+```json
+{
+  "lookupResult": [
+    {
+      "value": 1000,
+      "currency": "USD"
+    },
+    {
+      "value": 2500,
+      "currency": "EUR"
+    }
+  ]
+}
+```
 
 ## Required Permissions
 
@@ -280,18 +228,17 @@ Lookup fields automatically recalculate when:
 | Create lookup field | `OWNER` or `ADMIN` role at project level |
 | Update lookup field | `OWNER` or `ADMIN` role at project level |
 | View lookup results | Standard record view permissions |
-| Access source data | View permissions on referenced project |
+| Access source data | View permissions on referenced project required |
 
-**Important**: Users must have view permissions on the referenced project to see lookup results.
+**Important**: Users must have view permissions on both the current project and the referenced project to see lookup results.
 
 ## Error Responses
 
 ### Invalid Reference Field
-
 ```json
 {
   "errors": [{
-    "message": "Custom field not found",
+    "message": "Custom field was not found.",
     "extensions": {
       "code": "CUSTOM_FIELD_NOT_FOUND"
     }
@@ -299,27 +246,25 @@ Lookup fields automatically recalculate when:
 }
 ```
 
-### Invalid Lookup Configuration
-
+### Circular Lookup Detected
 ```json
 {
   "errors": [{
     "message": "Circular lookup detected",
     "extensions": {
-      "code": "VALIDATION_ERROR"
+      "code": "BAD_USER_INPUT"
     }
   }]
 }
 ```
 
-### Project Access Error
-
+### Missing Lookup ID for TODO_CUSTOM_FIELD
 ```json
 {
   "errors": [{
-    "message": "Project not found",
+    "message": "lookupId is required when lookupType is TODO_CUSTOM_FIELD",
     "extensions": {
-      "code": "PROJECT_NOT_FOUND"
+      "code": "BAD_USER_INPUT"
     }
   }]
 }
@@ -327,147 +272,35 @@ Lookup fields automatically recalculate when:
 
 ## Best Practices
 
-### Field Design
-
-1. **Clear naming** - Use descriptive names that indicate the calculation
-2. **Appropriate functions** - Choose functions that match your data type
-3. **Useful filters** - Apply filters to get meaningful results
-4. **Proper formatting** - Use display options for user-friendly output
-
-### Performance Optimization
-
-1. **Limit scope** - Use filters to reduce calculation complexity
-2. **Choose efficient functions** - COUNT is faster than SUM for large datasets
-3. **Monitor dependencies** - Avoid complex chains of lookups
-4. **Cache considerations** - Results are cached but recalculation takes time
-
-### Data Quality
-
-1. **Validate source data** - Ensure referenced fields contain expected data
-2. **Handle null values** - Functions handle nulls differently
-3. **Consider data types** - Match functions to appropriate data types
-4. **Test calculations** - Verify results with sample data
+1. **Clear Naming**: Use descriptive names that indicate what data is being looked up
+2. **Appropriate Types**: Choose the lookup type that matches your data needs
+3. **Performance**: Lookups process all referenced records, so be mindful of reference fields with many links
+4. **Permissions**: Ensure users have access to referenced projects for lookups to work
 
 ## Common Use Cases
 
-### Budget Tracking
+### Cross-Project Visibility
+Display tags, assignees, or statuses from related projects without manual synchronization.
 
-```graphql
-# Sum budget from all related project tasks
-{
-  name: "Total Project Budget"
-  type: LOOKUP
-  lookupOption: {
-    customFieldId: "related_tasks_field"
-    targetField: "customFields.budget"
-    function: SUM
-    display: {
-      type: CURRENCY
-      currency: { code: "USD" }
-    }
-  }
-}
-```
+### Dependency Tracking
+Show due dates or completion status of tasks that current work depends on.
 
-### Progress Monitoring
+### Resource Overview
+Display all team members assigned to referenced tasks for resource planning.
 
-```graphql
-# Count completed dependencies
-{
-  name: "Completed Dependencies"
-  type: LOOKUP
-  lookupOption: {
-    customFieldId: "dependencies_field"
-    targetField: "status"
-    function: COUNT
-    filter: { status: COMPLETED }
-  }
-}
-```
-
-### Quality Metrics
-
-```graphql
-# Average quality score from reviews
-{
-  name: "Average Quality Score"
-  type: LOOKUP
-  lookupOption: {
-    customFieldId: "reviews_field"
-    targetField: "customFields.quality_score"
-    function: AVERAGE
-    display: {
-      type: NUMBER
-      precision: 1
-    }
-  }
-}
-```
-
-### Resource Utilization
-
-```graphql
-# Sum allocated hours from team members
-{
-  name: "Total Allocated Hours"
-  type: LOOKUP
-  lookupOption: {
-    customFieldId: "team_members_field"
-    targetField: "customFields.allocated_hours"
-    function: SUM
-    filter: {
-      status: ACTIVE
-      assigneeIds: ["team_lead_id"]
-    }
-  }
-}
-```
-
-## Integration with References
-
-Lookup fields require [Reference fields](/api/custom-fields/reference) to work:
-
-```graphql
-# Step 1: Create reference field
-mutation CreateReference {
-  createCustomField(input: {
-    name: "Project Dependencies"
-    type: REFERENCE
-    referenceProjectId: "dependencies_project"
-    referenceMultiple: true
-  }) {
-    id
-  }
-}
-
-# Step 2: Create lookup field using the reference
-mutation CreateLookup {
-  createCustomField(input: {
-    name: "Dependencies Budget"
-    type: LOOKUP
-    lookupOption: {
-      customFieldId: "project_dependencies_field_id"
-      targetField: "customFields.budget"
-      function: SUM
-    }
-  }) {
-    id
-  }
-}
-```
+### Status Aggregation
+Collect all unique statuses from related tasks to see project health at a glance.
 
 ## Limitations
 
-- Lookup fields are read-only and cannot be directly edited
-- Maximum 1000 referenced records can be processed per lookup
-- Complex calculations may have performance impact
-- Circular lookup dependencies are not allowed
-- Results are cached and may not reflect real-time changes
-- Some functions (like CONCAT) have string length limits
+- Lookup fields are read-only and cannot be edited directly
+- No aggregation functions (SUM, COUNT, AVG) - lookups only extract data
+- No filtering options - all referenced records are included
+- Circular lookup chains are prevented to avoid infinite loops
+- Results reflect current data and update automatically
 
 ## Related Resources
 
-- [Reference Fields](/api/custom-fields/reference) - Link to records for lookup source
-- [Formula Fields](/api/custom-fields/formula) - Calculated fields within the same project
-- [Number Fields](/api/custom-fields/number) - For static numeric values
-- [Custom Fields Overview](/api/custom-fields) - General concepts
+- [Reference Fields](/api/custom-fields/reference) - Create links to records for lookup sources
+- [Custom Field Values](/api/custom-fields/custom-field-values) - Set values on editable custom fields
+- [List Custom Fields](/api/custom-fields/list-custom-fields) - Query all custom fields in a project
