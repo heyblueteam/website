@@ -37,16 +37,16 @@
 - [🔧] 5.move-record-list.md - Complete rewrite: From 20 lines to 170+ comprehensive documentation with all implementation details
 - [✅] 6.assignees.md - Verified: Complete rewrite from 20 lines to comprehensive API documentation with 3 operations, permissions, business logic - NO HALLUCINATIONS FOUND
 - [✅] 7.update-record.md - Verified comprehensive implementation with enhanced permissions and return value documentation
-- [🔄] 8.copy-record.md
-- [🔄] 9.add-comment.md
+- [🔧] 8.copy-record.md - Fixed: Corrected title field requirement, fixed response format, added missing COMMENTS option, updated error codes, enhanced permissions and cross-project documentation
+- [🔧] 9.add-comment.md - Fixed: Removed non-existent files field, corrected file processing description
 
 ### Custom Fields
-- [ ] 1.index.md
-- [ ] 2.list-custom-fields.md
-- [ ] 3.create-custom-fields.md
-- [ ] 4.custom-field-values.md
-- [ ] 5.delete-custom-field.md
-- [ ] button.md
+- [🔄] 1.index.md
+- [🔧] 2.list-custom-fields.md - Enhanced: Fixed cursor pagination claim, clarified multi-project limitation, noted endCursor deprecation
+- [🔧] 3.create-custom-fields.md - Fixed: Corrected TIME_DURATION enum values (TODO_CREATED_AT, TODO_MARKED_AS_COMPLETE), added missing currency conversion parameters
+- [🔄] 4.custom-field-values.md
+- [🔧] 5.delete-custom-field.md - Fixed: Removed non-existent PROJECT_NOT_ACTIVE error (98% accurate otherwise)
+- [🔄] button.md
 - [ ] checkbox.md
 - [ ] country.md
 - [ ] currency-conversion.md
@@ -91,7 +91,7 @@
 - [ ] 1.python.md
 
 ### Other
-- [ ] 12.error-codes.md
+- [🔧] 12.error-codes.md - Complete rewrite: From 57 lines to 262 lines documenting all 108 custom error codes organized by category with production safety info and best practices
 
 ## Summary
 - Total Files: 73
