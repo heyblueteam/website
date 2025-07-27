@@ -26,32 +26,36 @@ mutation CreateMultiSelectField {
 
 ## Advanced Example
 
-Create a multi-select field with predefined options:
+Create a multi-select field and then add options separately:
 
 ```graphql
-mutation CreateDetailedMultiSelectField {
+# Step 1: Create the multi-select field
+mutation CreateMultiSelectField {
   createCustomField(input: {
     name: "Required Skills"
     type: SELECT_MULTI
     projectId: "proj_123"
     description: "Select all skills required for this task"
-    customFieldOptions: [
-      { title: "JavaScript", color: "#f7df1e" }
-      { title: "React", color: "#61dafb" }
-      { title: "Node.js", color: "#339933" }
-      { title: "GraphQL", color: "#e10098" }
-    ]
   }) {
     id
     name
     type
     description
-    customFieldOptions {
-      id
-      title
-      color
-      position
-    }
+  }
+}
+
+# Step 2: Add options to the field
+mutation AddOptions {
+  createCustomFieldOptions(input: [
+    { customFieldId: "field_123", title: "JavaScript", color: "#f7df1e" }
+    { customFieldId: "field_123", title: "React", color: "#61dafb" }
+    { customFieldId: "field_123", title: "Node.js", color: "#339933" }
+    { customFieldId: "field_123", title: "GraphQL", color: "#e10098" }
+  ]) {
+    id
+    title
+    color
+    position
   }
 }
 ```
@@ -65,14 +69,16 @@ mutation CreateDetailedMultiSelectField {
 | `name` | String! | ✅ Yes | Display name of the multi-select field |
 | `type` | CustomFieldType! | ✅ Yes | Must be `SELECT_MULTI` |
 | `description` | String | No | Help text shown to users |
-| `customFieldOptions` | [CreateCustomFieldOptionInput!] | No | Initial options for the field |
+| `projectId` | String! | ✅ Yes | ID of the project for this field |
 
 ### CreateCustomFieldOptionInput
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
+| `customFieldId` | String! | ✅ Yes | ID of the custom field |
 | `title` | String! | ✅ Yes | Display text for the option |
-| `color` | String | No | Hex color code for the option |
+| `color` | String | No | Color for the option (any string) |
+| `position` | Float | No | Sort order for the option |
 
 ## Adding Options to Existing Fields
 
@@ -217,10 +223,11 @@ mutation DeleteOption {
 
 ### Reorder Options
 ```graphql
-mutation ReorderOptions {
-  reorderCustomFieldOptions(input: {
-    customFieldId: "field_123"
-    optionIds: ["option_1", "option_3", "option_2"]
+# Update position values to reorder options
+mutation UpdateOptionPosition {
+  editCustomFieldOption(input: {
+    id: "option_123"
+    position: 1.5  # Position between 1.0 and 2.0
   }) {
     id
     position
@@ -239,15 +246,15 @@ mutation ReorderOptions {
 ### Field Validation
 - Must have at least one option defined to be usable
 - Option titles must be unique within the field
-- Color codes must be valid hex format (if provided)
+- Color field accepts any string value (no hex validation)
 
 ## Required Permissions
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create multi-select field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update multi-select field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Add/edit options | `CUSTOM_FIELDS_UPDATE` at company or project level |
+| Create multi-select field | `OWNER` or `ADMIN` role at project level |
+| Update multi-select field | `OWNER` or `ADMIN` role at project level |
+| Add/edit options | `OWNER` or `ADMIN` role at project level |
 | Set selected values | Standard record edit permissions |
 | View selected values | Standard record view permissions |
 
@@ -259,7 +266,7 @@ mutation ReorderOptions {
   "errors": [{
     "message": "Custom field option not found",
     "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_OPTION_NOT_FOUND"
     }
   }]
 }
@@ -281,9 +288,9 @@ mutation ReorderOptions {
 ```json
 {
   "errors": [{
-    "message": "Custom field not found",
+    "message": "CustomField not found",
     "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
@@ -381,13 +388,14 @@ Multi-select field changes are automatically tracked:
 - No hierarchical or nested option structure
 - Options are shared across all records using the field
 - No built-in option analytics or usage tracking
-- Color codes are for display only, no functional impact
+- Color field accepts any string (no hex validation)
 - Cannot set different permissions per option
+- Options must be created separately, not inline with field creation
+- No dedicated reorder mutation (use editCustomFieldOption with position)
 
 ## Related Resources
 
 - [Single-Select Fields](/api/custom-fields/select-single) - For single-choice selections
 - [Checkbox Fields](/api/custom-fields/checkbox) - For simple boolean choices
 - [Text Fields](/api/custom-fields/text-single) - For free-form text input
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General concepts
-- [Custom Field Options](/api/custom-fields/options) - Managing field options
+- [Custom Fields Overview](/api/custom-fields/2.list-custom-fields) - General concepts

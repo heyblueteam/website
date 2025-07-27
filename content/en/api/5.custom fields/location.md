@@ -197,12 +197,12 @@ async function geocodeAddress(address) {
 
 ## Required Permissions
 
-| Action | Required Permission |
-|--------|-------------------|
-| Create location field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update location field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set location value | Standard record edit permissions |
-| View location value | Standard record view permissions |
+| Action | Required Role |
+|--------|---------------|
+| Create location field | `OWNER`, `ADMIN`, or `MEMBER` in the project |
+| Update location field | `OWNER`, `ADMIN`, or `MEMBER` in the project |
+| Set location value | `OWNER`, `ADMIN`, `MEMBER`, or `CLIENT` with edit permissions on the record |
+| View location value | Any project member with read access to the record |
 
 ## Error Responses
 
@@ -306,7 +306,7 @@ async function geocodeAddress(address) {
 
 ## Related Resources
 
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General concepts
+- [Custom Fields Overview](/api/custom-fields/list-custom-fields) - General concepts
 - [Google Maps API](https://developers.google.com/maps) - Geocoding services
 - [OpenStreetMap Nominatim](https://nominatim.org/) - Free geocoding
 - [MapBox API](https://docs.mapbox.com/) - Mapping and geocoding services

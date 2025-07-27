@@ -11,11 +11,14 @@ Multi-line text custom fields allow you to store longer text content with line b
 Create a simple multi-line text field:
 
 ```graphql
-mutation CreateTextMultiField {
-  createCustomField(input: {
-    name: "Description"
-    type: TEXT_MULTI
-  }) {
+mutation CreateTextMultiField($projectId: String!) {
+  createCustomField(
+    projectId: $projectId
+    input: {
+      name: "Description"
+      type: TEXT_MULTI
+    }
+  ) {
     id
     name
     type
@@ -28,12 +31,15 @@ mutation CreateTextMultiField {
 Create a multi-line text field with description:
 
 ```graphql
-mutation CreateDetailedTextMultiField {
-  createCustomField(input: {
-    name: "Project Notes"
-    type: TEXT_MULTI
-    description: "Detailed notes and observations about the project"
-  }) {
+mutation CreateDetailedTextMultiField($projectId: String!) {
+  createCustomField(
+    projectId: $projectId
+    input: {
+      name: "Project Notes"
+      type: TEXT_MULTI
+      description: "Detailed notes and observations about the project"
+    }
+  ) {
     id
     name
     type
@@ -52,7 +58,7 @@ mutation CreateDetailedTextMultiField {
 | `type` | CustomFieldType! | ✅ Yes | Must be `TEXT_MULTI` |
 | `description` | String | No | Help text shown to users |
 
-**Note:** The project context is determined automatically from the `X-Bloo-Project-ID` header in your GraphQL request. Custom fields are always created within the project specified in the request header.
+**Note:** The `projectId` is passed as a separate argument to the mutation, not as part of the input object. Alternatively, the project context can be determined from the `X-Bloo-Project-ID` header in your GraphQL request.
 
 ## Setting Text Values
 
@@ -166,8 +172,9 @@ function example() {
 ### TEXT_MULTI vs TEXT_SINGLE
 - **TEXT_MULTI**: Multi-line textarea input, ideal for longer content
 - **TEXT_SINGLE**: Single-line text input, ideal for short values
-- **Backend**: Both use identical storage and validation
-- **Frontend**: Different UI components for data entry
+- **Backend**: Both types are identical - same storage field, validation, and processing
+- **Frontend**: Different UI components for data entry (textarea vs input field)
+- **Important**: The distinction between TEXT_MULTI and TEXT_SINGLE exists purely for UI purposes
 
 ## Required Permissions
 
@@ -227,27 +234,24 @@ function example() {
 ## Filtering and Search
 
 ### Contains Search
-Multi-line text fields support substring searching through the todos query filtering system:
+Multi-line text fields support substring searching through custom field filters:
 
 ```graphql
 query SearchTextMulti {
   todos(
-    # Custom field filtering is available through the query system
-    # Exact parameter structure should be verified from current API schema
-    where: {
-      customFields: {
-        some: {
-          customFieldId: "text_multi_field_id"
-          text: {
-            contains: "project"
-          }
-        }
-      }
-    }
+    customFieldFilters: [{
+      customFieldId: "text_multi_field_id"
+      operation: CONTAINS
+      value: "project"
+    }]
   ) {
     id
     title
     customFields {
+      customField {
+        name
+        type
+      }
       text
     }
   }
@@ -255,10 +259,12 @@ query SearchTextMulti {
 ```
 
 ### Search Capabilities
-- Substring matching within text fields
+- Substring matching within text fields using `CONTAINS` operator
+- Case-insensitive search using `NCONTAINS` operator
+- Exact match using `IS` operator
+- Negative match using `NOT` operator
 - Searches across all lines of text
 - Supports partial word matching
-- Search behavior depends on database collation settings
 
 ## Common Use Cases
 
@@ -321,5 +327,4 @@ query SearchTextMulti {
 - [Single-Line Text Fields](/api/custom-fields/text-single) - For short text values
 - [Email Fields](/api/custom-fields/email) - For email addresses
 - [URL Fields](/api/custom-fields/url) - For website addresses
-- [Custom Fields Overview](/api/custom-fields/list-custom-fields) - General concepts
-- [Forms API](/api/forms) - For validated text input
+- [Custom Fields Overview](/api/custom-fields/2.list-custom-fields) - General concepts

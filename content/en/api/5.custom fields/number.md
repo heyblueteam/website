@@ -15,6 +15,7 @@ mutation CreateNumberField {
   createCustomField(input: {
     name: "Priority Score"
     type: NUMBER
+    projectId: "proj_123"
   }) {
     id
     name
@@ -32,6 +33,7 @@ mutation CreateConstrainedNumberField {
   createCustomField(input: {
     name: "Team Size"
     type: NUMBER
+    projectId: "proj_123"
     min: 1
     max: 100
     prefix: "#"
@@ -56,8 +58,9 @@ mutation CreateConstrainedNumberField {
 |-----------|------|----------|-------------|
 | `name` | String! | ✅ Yes | Display name of the number field |
 | `type` | CustomFieldType! | ✅ Yes | Must be `NUMBER` |
-| `min` | Float | No | Minimum allowed value |
-| `max` | Float | No | Maximum allowed value |
+| `projectId` | String! | ✅ Yes | ID of the project to create the field in |
+| `min` | Float | No | Minimum value constraint (UI guidance only) |
+| `max` | Float | No | Maximum value constraint (UI guidance only) |
 | `prefix` | String | No | Display prefix (e.g., "#", "~", "$") |
 | `description` | String | No | Help text shown to users |
 
@@ -97,17 +100,18 @@ mutation SetIntegerValue {
 | `customFieldId` | String! | ✅ Yes | ID of the number custom field |
 | `number` | Float | No | Numeric value to store |
 
-## Value Validation
+## Value Constraints
 
-### Min/Max Constraints
+### Min/Max Constraints (UI Guidance)
 
-When creating a field with constraints:
+**Important**: Min/max constraints are stored but NOT enforced server-side. They serve as UI guidance for frontend applications.
 
 ```graphql
-mutation CreateValidatedField {
+mutation CreateConstrainedField {
   createCustomField(input: {
     name: "Rating"
     type: NUMBER
+    projectId: "proj_123"
     min: 1
     max: 10
     description: "Rating from 1 to 10"
@@ -120,6 +124,8 @@ mutation CreateValidatedField {
 }
 ```
 
+**Client-Side Validation Required**: Frontend applications must implement validation logic to enforce min/max constraints.
+
 ### Supported Value Types
 
 | Type | Example | Description |
@@ -129,7 +135,7 @@ mutation CreateValidatedField {
 | Negative | `-10` | Negative values (if no min constraint) |
 | Zero | `0` | Zero value |
 
-**Note**: Values are validated against `min` and `max` constraints if they are set on the field.
+**Note**: Min/max constraints are NOT validated server-side. Values outside the specified range will be accepted and stored.
 
 ## Creating Records with Number Values
 
@@ -142,7 +148,7 @@ mutation CreateRecordWithNumber {
     todoListId: "list_123"
     customFields: [{
       customFieldId: "score_field_id"
-      value: "85.5"
+      number: 85.5
     }]
   }) {
     id
@@ -165,11 +171,14 @@ mutation CreateRecordWithNumber {
 
 ### Supported Input Formats
 
-| Format | Example | Result |
-|--------|---------|---------|
-| String number | `"42.5"` | Parsed to Float: 42.5 |
-| Integer string | `"100"` | Parsed to Float: 100.0 |
-| Decimal string | `"3.14159"` | Parsed to Float: 3.14159 |
+When creating records, use the `number` parameter (not `value`) in the custom fields array:
+
+```graphql
+customFields: [{
+  customFieldId: "field_id"
+  number: 42.5  # Use number parameter, not value
+}]
+```
 
 ## Response Fields
 
@@ -275,13 +284,13 @@ Numbers maintain their decimal precision:
 
 ## Required Permissions
 
-| Action | Required Role |
-|--------|---------------|
-| Create number field | Project `OWNER` or `ADMIN` |
-| Update number field | Project `OWNER` or `ADMIN` |
-| Set number value | Any role except `VIEW_ONLY` or `COMMENT_ONLY` |
-| View number value | Any project role |
-| Use aggregation functions | Any project role |
+| Action | Required Permission |
+|--------|--------------------|
+| Create number field | Company role: `OWNER` or `ADMIN` |
+| Update number field | Company role: `OWNER` or `ADMIN` |
+| Set number value | Any company role (`OWNER`, `ADMIN`, `MEMBER`, `CLIENT`) or custom project role with edit permission |
+| View number value | Standard record view permissions |
+| Use in filtering | Standard record view permissions |
 
 ## Error Responses
 
@@ -297,29 +306,19 @@ Numbers maintain their decimal precision:
 }
 ```
 
-### Value Below Minimum
+### Field Not Found
 ```json
 {
   "errors": [{
-    "message": "Number must be greater than or equal to 1",
+    "message": "Custom field was not found.",
     "extensions": {
-      "code": "VALIDATION_ERROR"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
 ```
 
-### Value Above Maximum
-```json
-{
-  "errors": [{
-    "message": "Number must be less than or equal to 100",
-    "extensions": {
-      "code": "VALIDATION_ERROR"
-    }
-  }]
-}
-```
+**Note**: Min/max validation errors do NOT occur server-side. Constraint validation must be implemented in your frontend application.
 
 ### Not a Number
 ```json
@@ -336,9 +335,10 @@ Numbers maintain their decimal precision:
 ## Best Practices
 
 ### Constraint Design
-- Set realistic min/max values based on your use case
-- Use constraints to prevent data entry errors
-- Consider if negative values are valid
+- Set realistic min/max values for UI guidance
+- Implement client-side validation to enforce constraints
+- Use constraints to provide user feedback in forms
+- Consider if negative values are valid for your use case
 
 ### Value Precision
 - Use appropriate decimal precision for your needs
@@ -378,10 +378,10 @@ Numbers maintain their decimal precision:
 
 ## Integration Features
 
-### With Formulas
-- Reference NUMBER fields in calculations
-- Perform mathematical operations
-- Create derived metrics
+### With Charts and Dashboards
+- Use NUMBER fields in chart calculations
+- Create numerical visualizations
+- Track trends over time
 
 ### With Automations
 - Trigger actions based on number thresholds
@@ -400,17 +400,17 @@ Numbers maintain their decimal precision:
 
 ## Limitations
 
+- **No server-side validation** of min/max constraints
+- **Client-side validation required** for constraint enforcement
 - No built-in currency formatting (use CURRENCY type instead)
 - No automatic percentage symbol (use PERCENT type instead)
 - No unit conversion capabilities
-- Decimal precision limited by Float type
+- Decimal precision limited by database Decimal type
 - No mathematical formula evaluation in the field itself
 
 ## Related Resources
 
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General custom field concepts
-- [Currency Custom Field](/custom-fields/currency) - For monetary values
-- [Percent Custom Field](/custom-fields/percent) - For percentage values
-- [Formula Custom Field](/custom-fields/formula) - For calculated values
-- [Automations API](/api/automations/index) - Create number-based automations
-- [Filtering API](/api/filtering) - Advanced numeric filtering techniques
+- [Custom Fields Overview](/api/custom-fields/1.index) - General custom field concepts
+- [Currency Custom Field](/api/custom-fields/currency) - For monetary values
+- [Percent Custom Field](/api/custom-fields/percent) - For percentage values
+- [Automations API](/api/automations/1.index) - Create number-based automations

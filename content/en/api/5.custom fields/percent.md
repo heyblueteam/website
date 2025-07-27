@@ -15,7 +15,6 @@ mutation CreatePercentField {
   createCustomField(input: {
     name: "Completion Rate"
     type: PERCENT
-    projectId: "proj_123"
   }) {
     id
     name
@@ -33,7 +32,6 @@ mutation CreatePercentField {
   createCustomField(input: {
     name: "Success Rate"
     type: PERCENT
-    projectId: "proj_123"
     description: "Percentage of successful outcomes for this process"
   }) {
     id
@@ -54,6 +52,8 @@ mutation CreatePercentField {
 | `type` | CustomFieldType! | ✅ Yes | Must be `PERCENT` |
 | `description` | String | No | Help text shown to users |
 
+**Note**: Project context is automatically determined from your authentication headers. No `projectId` parameter is needed.
+
 **Note**: PERCENT fields do not support min/max constraints or prefix formatting like NUMBER fields.
 
 ## Setting Percent Values
@@ -68,7 +68,12 @@ mutation SetPercentWithSymbol {
     todoId: "todo_123"
     customFieldId: "field_456"
     number: 75.5
-  })
+  }) {
+    id
+    customField {
+      value  # Returns { number: 75.5 }
+    }
+  }
 }
 ```
 
@@ -80,7 +85,12 @@ mutation SetPercentNumeric {
     todoId: "todo_123"
     customFieldId: "field_456"
     number: 100
-  })
+  }) {
+    id
+    customField {
+      value  # Returns { number: 100.0 }
+    }
+  }
 }
 ```
 
@@ -90,7 +100,7 @@ mutation SetPercentNumeric {
 |-----------|------|----------|-------------|
 | `todoId` | String! | ✅ Yes | ID of the record to update |
 | `customFieldId` | String! | ✅ Yes | ID of the percent custom field |
-| `number` | Float! | ✅ Yes | Numeric percentage value (e.g., 75.5 for 75.5%) |
+| `number` | Float | No | Numeric percentage value (e.g., 75.5 for 75.5%) |
 
 ## Value Storage and Display
 
@@ -100,9 +110,9 @@ mutation SetPercentNumeric {
 - **GraphQL**: Returned as `Float` type
 
 ### Display Format
-- **User interface**: Automatically appends % symbol (e.g., "75.5%")
-- **Formulas**: Displays with % symbol when output type is PERCENTAGE
-- **API responses**: Raw numeric value without % symbol
+- **User interface**: Client applications must append % symbol (e.g., "75.5%")
+- **Charts**: Displays with % symbol when output type is PERCENTAGE
+- **API responses**: Raw numeric value without % symbol (e.g., 75.5)
 
 ## Creating Records with Percent Values
 
@@ -125,9 +135,8 @@ mutation CreateRecordWithPercent {
       customField {
         name
         type
+        value  # Percent is accessed here as { number: 85.5 }
       }
-      number
-      value
     }
   }
 }
@@ -144,31 +153,60 @@ mutation CreateRecordWithPercent {
 
 **Note**: The % symbol is automatically stripped from input and added back during display.
 
+## Querying Percent Values
+
+When querying records with percent custom fields, access the value through the `customField.value.number` path:
+
+```graphql
+query GetRecordWithPercent {
+  todo(id: "todo_123") {
+    id
+    title
+    customFields {
+      id
+      customField {
+        name
+        type
+        value  # For PERCENT type, contains { number: 75.5 }
+      }
+    }
+  }
+}
+```
+
+The response will include the percentage as a raw number:
+
+```json
+{
+  "data": {
+    "todo": {
+      "customFields": [{
+        "customField": {
+          "name": "Completion Rate",
+          "type": "PERCENT",
+          "value": {
+            "number": 75.5
+          }
+        }
+      }]
+    }
+  }
+}
+```
+
 ## Response Fields
 
 ### TodoCustomField Response
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String! | Unique identifier for the field value |
-| `customField` | CustomField! | The custom field definition |
-| `number` | Float | The raw numeric percentage value |
-| `value` | Object | Combined value object (see below) |
+| `id` | ID! | Unique identifier for the field value |
+| `customField` | CustomField! | The custom field definition (contains the percent value) |
 | `todo` | Todo! | The record this value belongs to |
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last modified |
 
-### Value Object Structure
-
-```json
-{
-  "value": {
-    "number": 75.5
-  }
-}
-```
-
-**Note**: The % symbol is not included in the stored value - it's added during display.
+**Important**: Percent values are accessed through the `customField.value.number` field. The % symbol is not included in stored values and must be added by client applications for display.
 
 ## Filtering and Querying
 
@@ -202,26 +240,31 @@ query FilterByPercentRange {
 | `GTE` | Greater than or equal | `percentage ≥ 75` |
 | `LT` | Less than | `percentage < 75` |
 | `LTE` | Less than or equal | `percentage ≤ 75` |
-| `BETWEEN` | Within range | `50 ≤ percentage ≤ 100` |
-| `NULL` | No value set | `percentage is null` |
-| `NOT_NULL` | Has any value | `percentage is not null` |
+| `IN` | Value in list | `percentage in [50, 75, 100]` |
+| `NIN` | Value not in list | `percentage not in [0, 25]` |
+| `IS` | Check for null with `values: null` | `percentage is null` |
+| `NOT` | Check for not null with `values: null` | `percentage is not null` |
 
 ### Range Filtering
+
+For range filtering, use multiple operators:
 
 ```graphql
 query FilterHighPerformers {
   todos(filter: {
     customFields: [{
       customFieldId: "success_rate_field_id"
-      numberRange: {
-        min: 90
-        max: 100
-      }
-      operator: BETWEEN
+      operator: GTE
+      number: 90
     }]
   }) {
     id
     title
+    customFields {
+      customField {
+        value  # Returns { number: 95.5 } for example
+      }
+    }
   }
 }
 ```
@@ -245,47 +288,27 @@ query FilterHighPerformers {
 | `"150.5"` | `150.5` | `150.5%` |
 | `"-25"` | `-25.0` | `-25%` |
 
-## Aggregation and Analysis
+## Chart Aggregation
 
-Percent fields support aggregation functions:
+Percent fields support aggregation in dashboard charts and reports. Available functions include:
 
-```graphql
-query AggregatePercentages {
-  todos(filter: {
-    customFields: [{
-      customFieldId: "completion_rate_field_id"
-      operator: NOT_NULL
-    }]
-  }) {
-    aggregates {
-      sum
-      average
-      min
-      max
-      count
-    }
-  }
-}
-```
+- `AVERAGE` - Mean percentage value
+- `COUNT` - Number of records with values
+- `MIN` - Lowest percentage value
+- `MAX` - Highest percentage value 
+- `SUM` - Total of all percentage values
 
-### Aggregation Results
-
-| Function | Description | Example Result |
-|----------|-------------|----------------|
-| `AVERAGE` | Mean percentage | `75.5%` |
-| `MIN` | Lowest percentage | `25.0%` |
-| `MAX` | Highest percentage | `100.0%` |
-| `SUM` | Total percentage | `450.0%` |
+These aggregations are available when creating charts and dashboards, not in direct GraphQL queries.
 
 ## Required Permissions
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create percent field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update percent field | `CUSTOM_FIELDS_UPDATE` at company or project level |
+| Create percent field | `OWNER` or `ADMIN` role at project level |
+| Update percent field | `OWNER` or `ADMIN` role at project level |
 | Set percent value | Standard record edit permissions |
 | View percent value | Standard record view permissions |
-| Use aggregation functions | Standard record query permissions |
+| Use chart aggregation | Standard chart viewing permissions |
 
 ## Error Responses
 
@@ -402,8 +425,6 @@ query AggregatePercentages {
 
 ## Related Resources
 
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General custom field concepts
-- [Number Custom Field](/custom-fields/number) - For raw numeric values
-- [Formula Custom Field](/custom-fields/formula) - For calculated percentages
+- [Custom Fields Overview](/api/custom-fields/list-custom-fields) - General custom field concepts
+- [Number Custom Field](/api/custom-fields/number) - For raw numeric values
 - [Automations API](/api/automations/index) - Create percentage-based automations
-- [Filtering API](/api/filtering) - Advanced percentage filtering techniques

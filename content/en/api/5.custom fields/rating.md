@@ -59,8 +59,9 @@ mutation CreateDetailedRatingField {
 |-----------|------|----------|-------------|
 | `name` | String! | ✅ Yes | Display name of the rating field |
 | `type` | CustomFieldType! | ✅ Yes | Must be `RATING` |
+| `projectId` | String! | ✅ Yes | The project ID where this field will be created |
 | `description` | String | No | Help text shown to users |
-| `min` | Float | No | Minimum rating value (defaults to 0) |
+| `min` | Float | No | Minimum rating value (no default) |
 | `max` | Float | No | Maximum rating value |
 
 ## Setting Rating Values
@@ -72,7 +73,7 @@ mutation SetRatingValue {
   setTodoCustomField(input: {
     todoId: "todo_123"
     customFieldId: "field_456"
-    number: 4.5
+    value: "4.5"
   })
 }
 ```
@@ -83,7 +84,7 @@ mutation SetRatingValue {
 |-----------|------|----------|-------------|
 | `todoId` | String! | ✅ Yes | ID of the record to update |
 | `customFieldId` | String! | ✅ Yes | ID of the rating custom field |
-| `number` | Float! | ✅ Yes | Rating value within the configured range |
+| `value` | String! | ✅ Yes | Rating value as string (within the configured range) |
 
 ## Creating Records with Rating Values
 
@@ -123,10 +124,12 @@ mutation CreateRecordWithRating {
 |-------|------|-------------|
 | `id` | String! | Unique identifier for the field value |
 | `customField` | CustomField! | The custom field definition |
-| `value` | Float | The stored rating value |
+| `value` | Float | The stored rating value (accessed via customField.value) |
 | `todo` | Todo! | The record this value belongs to |
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last modified |
+
+**Note**: The rating value is actually accessed via `customField.value.number` in queries.
 
 ### CustomField Response
 
@@ -144,14 +147,16 @@ mutation CreateRecordWithRating {
 ### Value Constraints
 - Rating values must be numeric (Float type)
 - Values must be within the configured min/max range
-- If no minimum is specified, defaults to 0
+- If no minimum is specified, there is no default value
 - Maximum value is optional but recommended
 
 ### Validation Rules
-- Input is parsed as a float number
-- Must be greater than or equal to the minimum value
-- Must be less than or equal to the maximum value (if specified)
-- Invalid numeric input throws validation error
+**Important**: Validation only occurs when submitting forms, not when using `setTodoCustomField` directly.
+
+- Input is parsed as a float number (when using forms)
+- Must be greater than or equal to the minimum value (when using forms)
+- Must be less than or equal to the maximum value (when using forms)
+- `setTodoCustomField` accepts any string value without validation
 
 ### Valid Rating Examples
 For a field with min=1, max=5:
@@ -215,58 +220,40 @@ mutation CreatePercentageRating {
 
 ## Required Permissions
 
-| Action | Required Permission |
-|--------|-------------------|
-| Create rating field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update rating field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set rating value | Standard record edit permissions |
-| View rating value | Standard record view permissions |
+Custom field operations follow standard role-based permissions:
+
+| Action | Required Role |
+|--------|---------------|
+| Create rating field | Project member with appropriate role |
+| Update rating field | Project member with appropriate role |
+| Set rating value | Project member with field edit permissions |
+| View rating value | Project member with view permissions |
+
+**Note**: The specific roles required depend on your project's custom role configuration and field-level permissions.
 
 ## Error Responses
 
-### Value Below Minimum
+### Validation Error (Forms Only)
 ```json
 {
   "errors": [{
-    "message": "Rating must be greater than or equal to 1.",
+    "message": "Validation error message",
     "extensions": {
-      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
+      "code": "VALIDATION_ERROR"
     }
   }]
 }
 ```
 
-### Value Above Maximum
-```json
-{
-  "errors": [{
-    "message": "Rating must be less than or equal to 5.",
-    "extensions": {
-      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
-    }
-  }]
-}
-```
+**Important**: Rating value validation (min/max constraints) only occurs when submitting forms, not when using `setTodoCustomField` directly.
 
-### Invalid Numeric Value
+### Custom Field Not Found
 ```json
 {
   "errors": [{
-    "message": "Invalid rating value.",
+    "message": "Custom field was not found.",
     "extensions": {
-      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
-    }
-  }]
-}
-```
-
-### Field Not Found
-```json
-{
-  "errors": [{
-    "message": "Custom field not found",
-    "extensions": {
-      "code": "NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
@@ -332,8 +319,8 @@ mutation CreatePercentageRating {
 - Reference rating data from other records
 - Aggregate rating statistics
 
-### With Forms
-- Automatic range validation
+### With Blue Frontend
+- Automatic range validation in form contexts
 - Visual rating input controls
 - Real-time validation feedback
 - Star or slider input options
@@ -354,11 +341,11 @@ Rating field changes are automatically tracked:
 - No rating metadata storage (comments, context)
 - No automatic rating aggregation or statistics
 - No built-in rating conversion between scales
+- **Critical**: Min/max validation only works in forms, not via `setTodoCustomField`
 
 ## Related Resources
 
-- [Number Fields](/api/custom-fields/number) - For general numeric data
-- [Percent Fields](/api/custom-fields/percent) - For percentage values
-- [Select Fields](/api/custom-fields/select-single) - For discrete choice ratings
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General concepts
-- [Forms API](/api/forms) - For visual rating input controls
+- [Number Fields](/api/5.custom%20fields/number) - For general numeric data
+- [Percent Fields](/api/5.custom%20fields/percent) - For percentage values
+- [Select Fields](/api/5.custom%20fields/select-single) - For discrete choice ratings
+- [Custom Fields Overview](/api/5.custom%20fields/2.list-custom-fields) - General concepts

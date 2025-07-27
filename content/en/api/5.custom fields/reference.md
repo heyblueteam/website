@@ -61,7 +61,7 @@ mutation CreateFilteredReferenceField {
 |-----------|------|----------|-------------|
 | `name` | String! | ✅ Yes | Display name of the reference field |
 | `type` | CustomFieldType! | ✅ Yes | Must be `REFERENCE` |
-| `referenceProjectId` | String! | ✅ Yes | ID of the project to reference |
+| `referenceProjectId` | String | No | ID of the project to reference |
 | `referenceMultiple` | Boolean | No | Allow multiple record selection (default: false) |
 | `referenceFilter` | TodoFilterInput | No | Filter criteria for referenced records |
 | `description` | String | No | Help text shown to users |
@@ -97,11 +97,11 @@ Use `referenceFilter` to limit which records can be selected:
 ```graphql
 {
   referenceFilter: {
-    status: ACTIVE
     assigneeIds: ["user_123"]
-    tags: ["important"]
-    dueDateFrom: "2024-01-01"
-    dueDateTo: "2024-12-31"
+    tagIds: ["tag_123"]
+    dueStart: "2024-01-01"
+    dueEnd: "2024-12-31"
+    showCompleted: false
   }
 }
 ```
@@ -180,12 +180,13 @@ mutation CreateRecordWithReference {
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String! | Unique identifier for the field value |
+| `id` | ID! | Unique identifier for the field value |
 | `customField` | CustomField! | The reference field definition |
-| `selectedTodos` | [Todo!] | Array of referenced records |
 | `todo` | Todo! | The record this value belongs to |
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last modified |
+
+**Note**: Referenced todos are accessed via `customField.selectedTodos`, not directly on TodoCustomField.
 
 ### Referenced Todo Fields
 
@@ -193,7 +194,7 @@ Each referenced Todo includes:
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String! | Unique identifier of the referenced record |
+| `id` | ID! | Unique identifier of the referenced record |
 | `title` | String! | Title of the referenced record |
 | `status` | TodoStatus! | Current status (ACTIVE, COMPLETED, etc.) |
 | `description` | String | Description of the referenced record |
@@ -216,14 +217,14 @@ query GetRecordsWithReferences {
       customField {
         name
         type
-      }
-      selectedTodos {
-        id
-        title
-        status
-        project {
+        selectedTodos {
           id
-          name
+          title
+          status
+          project {
+            id
+            name
+          }
         }
       }
     }
@@ -376,8 +377,8 @@ query GetDetailedReferences {
   referenceProjectId: "infrastructure_project"
   referenceMultiple: true
   referenceFilter: {
-    status: COMPLETED
-    tags: ["prerequisite"]
+    showCompleted: true
+    tagIds: ["prerequisite_tag_id"]
   }
 }
 ```
@@ -392,7 +393,7 @@ query GetDetailedReferences {
   referenceProjectId: "requirements_project"
   referenceFilter: {
     assigneeIds: ["client_user_id"]
-    status: ACTIVE
+    showCompleted: false
   }
 }
 ```
@@ -407,7 +408,7 @@ query GetDetailedReferences {
   referenceProjectId: "resources_project"
   referenceMultiple: true
   referenceFilter: {
-    tags: ["available"]
+    tagIds: ["available_tag_id"]
   }
 }
 ```
@@ -422,15 +423,15 @@ query GetDetailedReferences {
   referenceProjectId: "qa_project"
   referenceMultiple: true
   referenceFilter: {
-    status: ACTIVE
-    tags: ["test-case"]
+    showCompleted: false
+    tagIds: ["test_case_tag_id"]
   }
 }
 ```
 
 ## Integration with Lookups
 
-Reference fields work seamlessly with [Lookup fields](/api/custom-fields/lookup) to pull data from referenced records:
+Reference fields work with [Lookup fields](/api/custom-fields/lookup) to pull data from referenced records. Lookup fields can extract values from records selected in reference fields, but they are data extractors only (no aggregation functions like SUM are supported).
 
 ```graphql
 # Reference field links to records
@@ -440,30 +441,29 @@ Reference fields work seamlessly with [Lookup fields](/api/custom-fields/lookup)
   referenceProjectId: "other_project"
 }
 
-# Lookup field pulls data from referenced records
+# Lookup field extracts data from referenced records
 {
-  name: "Total Budget"
+  name: "Task Status"
   type: LOOKUP
   lookupOption: {
     customFieldId: "related_tasks_field_id"
-    targetField: "budget"
-    function: SUM
+    targetField: "status"
   }
 }
 ```
 
 ## Limitations
 
-- Maximum 100 records can be referenced in a single field
 - Referenced projects must be accessible to the user
-- Circular references between projects are not allowed
-- Reference fields cannot point to records in the same project
 - Changes to referenced project permissions affect reference field access
 - Deep nesting of references may impact performance
+- No built-in validation for circular references
+- No automatic restriction preventing same-project references
+- Filter validation is not enforced when setting reference values
 
 ## Related Resources
 
-- [Lookup Fields](/api/custom-fields/lookup) - Pull data from referenced records
+- [Lookup Fields](/api/custom-fields/lookup) - Extract data from referenced records
 - [Projects API](/api/projects) - Managing projects that contain references
 - [Records API](/api/records) - Working with records that have references
-- [Custom Fields Overview](/api/custom-fields) - General concepts
+- [Custom Fields Overview](/api/custom-fields/list-custom-fields) - General concepts
