@@ -15,7 +15,6 @@ mutation CreateTextSingleField {
   createCustomField(input: {
     name: "Client Name"
     type: TEXT_SINGLE
-    projectId: "proj_123"
   }) {
     id
     name
@@ -33,7 +32,6 @@ mutation CreateDetailedTextSingleField {
   createCustomField(input: {
     name: "Product SKU"
     type: TEXT_SINGLE
-    projectId: "proj_123"
     description: "Unique product identifier code"
   }) {
     id
@@ -64,7 +62,12 @@ mutation SetTextSingleValue {
     todoId: "todo_123"
     customFieldId: "field_456"
     text: "ABC-123-XYZ"
-  })
+  }) {
+    id
+    customField {
+      value  # Returns { text: "ABC-123-XYZ" }
+    }
+  }
 }
 ```
 
@@ -74,7 +77,7 @@ mutation SetTextSingleValue {
 |-----------|------|----------|-------------|
 | `todoId` | String! | ✅ Yes | ID of the record to update |
 | `customFieldId` | String! | ✅ Yes | ID of the text custom field |
-| `text` | String! | ✅ Yes | Single-line text content to store |
+| `text` | String | No | Single-line text content to store |
 
 ## Creating Records with Text Values
 
@@ -97,8 +100,8 @@ mutation CreateRecordWithTextSingle {
       customField {
         name
         type
+        value  # Text is accessed here as { text: "ORD-2024-001" }
       }
-      text
     }
   }
 }
@@ -110,12 +113,13 @@ mutation CreateRecordWithTextSingle {
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `id` | String! | Unique identifier for the field value |
-| `customField` | CustomField! | The custom field definition |
-| `text` | String | The stored single-line text content |
+| `id` | ID! | Unique identifier for the field value |
+| `customField` | CustomField! | The custom field definition (contains the text value) |
 | `todo` | Todo! | The record this value belongs to |
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last modified |
+
+**Important**: Text values are accessed through the `customField.value.text` field, not directly on TodoCustomField.
 
 ## Text Validation
 
