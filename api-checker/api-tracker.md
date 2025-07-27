@@ -50,7 +50,7 @@
 - [🔧] checkbox.md - Fixed: Added case-sensitivity note, clarified import behavior, fixed link paths, removed non-existent forms API link (95% accurate)
 - [🔧] country.md - Fixed: Clarified validation only in createTodo, corrected storage format, explained behavioral differences between mutations
 - [🔧] currency-conversion.md - Fixed: Corrected permission constants from CUSTOM_FIELDS_CREATE/UPDATE to standard user roles (OWNER/ADMIN)
-- [ ] currency.md
+- [🔧] currency.md - Fixed: Removed non-existent projectId/isActive params, corrected permissions model, replaced hallucinated error codes with actual ones (75% accurate)
 - [ ] date.md
 - [ ] email.md
 - [ ] file.md
@@ -59,7 +59,7 @@
 - [🔧] lookup.md - Complete rewrite: Removed all hallucinated aggregation functions, fixed to show lookups as data extractors only (from 30% to 100% accurate)
 - [ ] number.md
 - [ ] percent.md
-- [🔄] phone.md
+- [🔧] phone.md - Fixed: Clarified validation only happens on createTodo, not setTodoCustomField; removed non-existent Forms API link
 - [ ] rating.md
 - [ ] reference.md
 - [ ] select-multi.md
@@ -95,7 +95,7 @@
 
 ## Summary
 - Total Files: 73
-- Verified: 3
-- Issues Found: 1
-- Fixed: 1
+- Verified: 11
+- Issues Found: 0
+- Fixed: 36
 

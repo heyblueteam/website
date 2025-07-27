@@ -61,12 +61,12 @@ mutation CreateConstrainedCurrencyField {
 |-----------|------|----------|-------------|
 | `name` | String! | ✅ Yes | Display name of the currency field |
 | `type` | CustomFieldType! | ✅ Yes | Must be `CURRENCY` |
-| `projectId` | String! | ✅ Yes | Project ID where the field will be created |
 | `currency` | String | No | Default currency code (3-letter ISO code) |
-| `min` | Float | No | Minimum allowed value |
-| `max` | Float | No | Maximum allowed value |
+| `min` | Float | No | Minimum allowed value (stored but not enforced on updates) |
+| `max` | Float | No | Maximum allowed value (stored but not enforced on updates) |
 | `description` | String | No | Help text shown to users |
-| `isActive` | Boolean | No | Whether the field is active (defaults to true) |
+
+**Note**: The project context is automatically determined from your authentication. You must have access to the project where you're creating the field.
 
 ## Setting Currency Values
 
@@ -262,8 +262,8 @@ The system automatically formats currency values based on locale:
 
 ### Amount Validation
 - Must be a valid number
-- Respects `min` and `max` constraints if set
-- Supports up to 2 decimal places
+- Min/max constraints are stored with the field definition but not enforced during value updates
+- Supports up to 2 decimal places for display (full precision stored internally)
 
 ### Currency Code Validation
 - Must be one of the 72 supported currency codes
@@ -291,44 +291,39 @@ Currency values can trigger automations based on:
 
 | Action | Required Permission |
 |--------|-------------------|
-| Create currency field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update currency field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| Set currency value | Standard record edit permissions |
+| Create currency field | Must be a member of the project (any role) |
+| Update currency field | Must be a member of the project (any role) |
+| Set currency value | Must have edit permissions based on project role |
 | View currency value | Standard record view permissions |
+
+**Note**: While any project member can create custom fields, the ability to set values depends on role-based permissions configured for each field.
 
 ## Error Responses
 
-### Invalid Currency Code
+### Invalid Currency Value
 ```json
 {
   "errors": [{
-    "message": "Invalid currency code: 'XYZ'",
+    "message": "Unable to parse custom field value.",
     "extensions": {
-      "code": "INVALID_CURRENCY"
+      "code": "CUSTOM_FIELD_VALUE_PARSE_ERROR"
     }
   }]
 }
 ```
 
-### Value Out of Range
-```json
-{
-  "errors": [{
-    "message": "Value must be between 0 and 1000000",
-    "extensions": {
-      "code": "VALUE_OUT_OF_RANGE"
-    }
-  }]
-}
-```
+This error occurs when:
+- The currency code is not one of the 72 supported codes
+- The number format is invalid
+- The value cannot be parsed correctly
 
-### Invalid Number Format
+### Custom Field Not Found
 ```json
 {
   "errors": [{
-    "message": "Invalid number format",
+    "message": "Custom field was not found.",
     "extensions": {
-      "code": "INVALID_NUMBER"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
@@ -386,4 +381,4 @@ Currency values can trigger automations based on:
 - [Currency Conversion Fields](/api/custom-fields/currency-conversion) - Automatic currency conversion
 - [Number Fields](/api/custom-fields/number) - For non-monetary numeric values
 - [Formula Fields](/api/custom-fields/formula) - Calculate with currency values
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General custom field concepts
+- [List Custom Fields](/api/custom-fields/list-custom-fields) - Query all custom fields in a project
