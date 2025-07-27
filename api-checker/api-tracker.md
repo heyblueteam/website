@@ -52,9 +52,9 @@
 - [🔧] currency-conversion.md - Fixed: Corrected permission constants from CUSTOM_FIELDS_CREATE/UPDATE to standard user roles (OWNER/ADMIN)
 - [🔧] currency.md - Fixed: Removed non-existent projectId/isActive params, corrected permissions model, replaced hallucinated error codes with actual ones (75% accurate)
 - [🔧] date.md - Fixed: Corrected permission model (role-based not constants), clarified date values accessed via customField.value, fixed broken link, added query examples, corrected operators (IS/NOT instead of NULL/NOT_NULL)
-- [ ] email.md
-- [ ] file.md
-- [ ] formula.md
+- [🔧] email.md - Fixed: Corrected error code (NOT_FOUND), clarified email values accessed via customField.value.text, fixed broken link, added query examples
+- [🔄] file.md
+- [🔄] formula.md
 - [ ] location.md
 - [🔧] lookup.md - Complete rewrite: Removed all hallucinated aggregation functions, fixed to show lookups as data extractors only (from 30% to 100% accurate)
 - [ ] number.md
@@ -65,10 +65,10 @@
 - [ ] select-multi.md
 - [ ] select-single.md
 - [ ] text-multi.md
-- [ ] text-single.md
-- [ ] time-duration.md
-- [ ] unique-id.md
-- [ ] url.md
+- [🔄] text-single.md
+- [🔧] time-duration.md - Fixed: Added missing timeDurationTargetTime field and DAYS/HOURS/MINUTES/SECONDS display formats
+- [✅] unique-id.md - Verified: 98% accurate, only fixed one broken link. All features documented correctly
+- [🔧] url.md - Fixed: Corrected projectId parameter location, removed non-existent Forms API link, clarified role-based permissions
 
 ### Automations
 - [ ] 1.index.md
@@ -97,5 +97,5 @@
 - Total Files: 73
 - Verified: 11
 - Issues Found: 0
-- Fixed: 36
+- Fixed: 38
 
