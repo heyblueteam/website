@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 // Router handles file-based routing for HTML pages
@@ -88,11 +89,12 @@ func NewRouter(pagesDir string) *Router {
 	}
 
 	// Generate search index with pre-rendered content
+	searchStart := time.Now()
 	log.Printf("🔍 Building search index...")
 	if err := GenerateSearchIndexWithCaches(markdownService, htmlService); err != nil {
 		log.Printf("⚠️  Warning: failed to generate search index: %v", err)
 	} else {
-		log.Printf("✅ Search index ready")
+		log.Printf("✅ Search index ready (took %v)", time.Since(searchStart))
 	}
 
 	// Link checker moved to main.go for parallel execution

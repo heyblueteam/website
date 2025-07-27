@@ -8,7 +8,10 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+	"sync"
+	"time"
 
+	"golang.org/x/net/html"
 	"gopkg.in/yaml.v3"
 )
 
@@ -82,29 +85,49 @@ func GenerateSearchIndexWithCache(markdownService *MarkdownService) error {
 	return writeSearchIndex(searchItems)
 }
 
+// languageStats tracks timing for each language's processing
+type languageStats struct {
+	itemCount    int
+	collectTime  time.Duration
+	marshalTime  time.Duration
+	writeTime    time.Duration
+	totalTime    time.Duration
+}
+
 // GenerateSearchIndexWithCaches creates a JSON search index using both HTML and markdown caches
 func GenerateSearchIndexWithCaches(markdownService *MarkdownService, htmlService *HTMLService) error {
 	// Load metadata.json for title lookup
+	metadataStart := time.Now()
 	metadata, err := loadMetadata()
 	if err != nil {
 		fmt.Printf("Warning: Could not load metadata.json: %v\n", err)
 	}
+	fmt.Printf("   📊 Metadata loading: %v\n", time.Since(metadataStart))
 
 	// Generate search index for each language in parallel
 	type languageResult struct {
 		lang string
 		err  error
+		stats languageStats
 	}
 
 	resultChan := make(chan languageResult, len(SupportedLanguages))
 
 	// Process each language concurrently with true independence
+	parallelStart := time.Now()
 	for _, lang := range SupportedLanguages {
 		go func(lang string) {
+			langStart := time.Now()
+			stats := languageStats{}
+			
 			// Collect items for this language only
+			collectStart := time.Now()
 			items, err := collectSearchItemsForLanguage(markdownService, htmlService, metadata, lang)
+			stats.collectTime = time.Since(collectStart)
+			stats.itemCount = len(items)
+			
 			if err != nil {
-				resultChan <- languageResult{lang, err}
+				resultChan <- languageResult{lang, err, stats}
 				return
 			}
 
@@ -114,44 +137,334 @@ func GenerateSearchIndexWithCaches(markdownService *MarkdownService, htmlService
 				filename = fmt.Sprintf("public/searchIndex-%s.json", lang)
 			}
 
-			data, err := json.MarshalIndent(items, "", "  ")
+			marshalStart := time.Now()
+			data, err := json.Marshal(items)
+			stats.marshalTime = time.Since(marshalStart)
+			
 			if err != nil {
-				resultChan <- languageResult{lang, fmt.Errorf("failed to marshal search index for language %s: %w", lang, err)}
+				resultChan <- languageResult{lang, fmt.Errorf("failed to marshal search index for language %s: %w", lang, err), stats}
 				return
 			}
 
+			writeStart := time.Now()
 			if err := os.WriteFile(filename, data, 0644); err != nil {
-				resultChan <- languageResult{lang, fmt.Errorf("failed to write search index for language %s: %w", lang, err)}
+				resultChan <- languageResult{lang, fmt.Errorf("failed to write search index for language %s: %w", lang, err), stats}
 				return
 			}
+			stats.writeTime = time.Since(writeStart)
+			stats.totalTime = time.Since(langStart)
 
-			resultChan <- languageResult{lang, nil}
+			resultChan <- languageResult{lang, nil, stats}
 		}(lang)
 	}
 
 	// Wait for all languages to complete and check for errors
+	var totalItems int
+	var maxCollectTime, maxMarshalTime, maxWriteTime time.Duration
+	
 	for i := 0; i < len(SupportedLanguages); i++ {
 		result := <-resultChan
 		if result.err != nil {
 			return result.err
 		}
+		
+		// Track statistics
+		totalItems += result.stats.itemCount
+		if result.stats.collectTime > maxCollectTime {
+			maxCollectTime = result.stats.collectTime
+		}
+		if result.stats.marshalTime > maxMarshalTime {
+			maxMarshalTime = result.stats.marshalTime
+		}
+		if result.stats.writeTime > maxWriteTime {
+			maxWriteTime = result.stats.writeTime
+		}
 	}
+	
+	fmt.Printf("   ⏱️  Search index breakdown:\n")
+	fmt.Printf("      - Collection (max): %v\n", maxCollectTime)
+	fmt.Printf("      - JSON Marshal (max): %v\n", maxMarshalTime)
+	fmt.Printf("      - File Write (max): %v\n", maxWriteTime)
+	fmt.Printf("      - Total items indexed: %d\n", totalItems)
+	fmt.Printf("      - Parallel processing: %v\n", time.Since(parallelStart))
 
 	return nil
 }
 
-// collectSearchItemsForLanguage collects search items for a specific language only
-func collectSearchItemsForLanguage(markdownService *MarkdownService, htmlService *HTMLService, metadata *Metadata, lang string) ([]SearchItem, error) {
-	var searchItems []SearchItem
+// searchTask represents a single item to be indexed
+type searchTask struct {
+	urlPath string
+	content *CachedContent
+	isHTML  bool
+}
 
-	// Index cached HTML pages for this language only
-	if err := indexCachedHTMLPagesForLanguage(&searchItems, htmlService, metadata, lang); err != nil {
-		return nil, fmt.Errorf("failed to index cached HTML pages for language %s: %w", lang, err)
+// processSearchTask processes a single search task into a SearchItem
+func processSearchTask(task searchTask, metadata *Metadata, lang string) (SearchItem, error) {
+	if task.isHTML {
+		return processHTMLSearchTask(task, metadata, lang)
+	}
+	return processMarkdownSearchTask(task, lang)
+}
+
+// processHTMLSearchTask processes an HTML content task
+func processHTMLSearchTask(task searchTask, metadata *Metadata, lang string) (SearchItem, error) {
+	urlPath := task.urlPath
+	content := task.content
+	
+	// Build the actual URL with language prefix if not default
+	actualURL := urlPath
+	if lang != DefaultLanguage && lang != "" {
+		actualURL = "/" + lang + urlPath
 	}
 
-	// Index cached markdown content for this language only
-	if err := indexCachedMarkdownContentForLanguage(&searchItems, markdownService, lang); err != nil {
-		return nil, fmt.Errorf("failed to index cached markdown content for language %s: %w", lang, err)
+	// Extract title from rendered HTML
+	title := ""
+	if metadata != nil {
+		pageKey := getPageKey(urlPath)
+		if pageData, exists := metadata.Pages[pageKey]; exists {
+			// Use the specified language
+			if langMeta, langExists := pageData[lang]; langExists && langMeta.Title != "" {
+				title = langMeta.Title
+			} else if enMeta, enExists := pageData["en"]; enExists && enMeta.Title != "" {
+				// Fallback to English
+				title = enMeta.Title
+			}
+		}
+	}
+	// If no title from metadata, extract from HTML
+	if title == "" {
+		title = extractPageTitleWithLang(content.HTML, actualURL, content.FilePath, metadata, lang)
+	}
+
+	// Get description from metadata if available
+	description := ""
+	if metadata != nil {
+		pageKey := getPageKey(urlPath)
+
+		if pageData, exists := metadata.Pages[pageKey]; exists {
+			// Use the specified language
+			if langMeta, langExists := pageData[lang]; langExists && langMeta.Description != "" {
+				description = langMeta.Description
+			} else if enMeta, enExists := pageData["en"]; enExists && enMeta.Description != "" {
+				// Fallback to English
+				description = enMeta.Description
+			}
+		}
+	}
+
+	// Extract clean text from pre-rendered HTML
+	// Skip text extraction for very large pages to improve performance
+	textContent := ""
+	if len(content.HTML) < 500000 { // Skip extraction for pages larger than 500KB
+		textContent = extractTextFromHTML(content.HTML)
+	}
+
+	// Determine section/type
+	pageType := "page"
+	section := ""
+	if strings.HasPrefix(urlPath, "/platform") {
+		section = "platform"
+	} else if strings.HasPrefix(urlPath, "/company") {
+		section = "company"
+	}
+
+	// Determine category based on URL path
+	category := ""
+	if strings.HasPrefix(urlPath, "/platform/features") {
+		category = "Feature"
+	} else if strings.HasPrefix(urlPath, "/solutions") {
+		category = "Solution"
+	}
+
+	return SearchItem{
+		Title:       title,
+		Description: description,
+		Content:     textContent,
+		URL:         actualURL,
+		Type:        pageType,
+		Section:     section,
+		Category:    category,
+	}, nil
+}
+
+// processMarkdownSearchTask processes a markdown content task
+func processMarkdownSearchTask(task searchTask, lang string) (SearchItem, error) {
+	urlPath := task.urlPath
+	content := task.content
+	
+	// Build actual URL with language prefix if not default
+	actualURL := urlPath
+	if lang != DefaultLanguage {
+		actualURL = "/" + lang + urlPath
+	}
+
+	// Determine section from URL path (using original urlPath, not actualURL)
+	section := ""
+	if strings.HasPrefix(urlPath, "/docs") {
+		section = "docs"
+	} else if strings.HasPrefix(urlPath, "/api") {
+		section = "api-docs"
+	} else if strings.HasPrefix(urlPath, "/legal") {
+		section = "legal"
+	} else {
+		// Extract first part of URL as section
+		parts := strings.Split(strings.Trim(urlPath, "/"), "/")
+		if len(parts) > 0 && parts[0] != "" {
+			section = parts[0]
+		}
+	}
+
+	// Get title from frontmatter or generate from URL
+	title := ""
+	description := ""
+	category := ""
+	if content.Frontmatter != nil {
+		title = content.Frontmatter.Title
+		description = content.Frontmatter.Description
+	}
+
+	// Set category based on URL path
+	if strings.HasPrefix(urlPath, "/docs") {
+		category = "Docs"
+	} else if strings.HasPrefix(urlPath, "/api") {
+		category = "API"
+	} else if strings.HasPrefix(urlPath, "/legal") {
+		category = "Legal"
+	} else if strings.HasPrefix(urlPath, "/insights") {
+		category = "Insights"
+	}
+
+	if title == "" {
+		// Generate title from URL path
+		title = generateTitleFromURL(urlPath)
+	}
+
+	// Extract clean text from pre-rendered HTML
+	// Skip text extraction for very large pages to improve performance
+	textContent := ""
+	if len(content.HTML) < 500000 { // Skip extraction for pages larger than 500KB
+		textContent = extractTextFromHTML(content.HTML)
+	}
+
+	return SearchItem{
+		Title:       title,
+		Description: description,
+		Content:     textContent,
+		URL:         actualURL,
+		Type:        "content",
+		Section:     section,
+		Category:    category,
+	}, nil
+}
+
+// collectSearchItemsForLanguage collects search items for a specific language only
+func collectSearchItemsForLanguage(markdownService *MarkdownService, htmlService *HTMLService, metadata *Metadata, lang string) ([]SearchItem, error) {
+	// Collect all tasks for this language
+	var tasks []searchTask
+	
+	// Get cached HTML pages
+	cacheStart := time.Now()
+	htmlContent := htmlService.GetCachedContentByLanguage(lang)
+	htmlCacheTime := time.Since(cacheStart)
+	
+	for urlPath, content := range htmlContent {
+		tasks = append(tasks, searchTask{
+			urlPath: urlPath,
+			content: content,
+			isHTML:  true,
+		})
+	}
+	
+	// Get cached markdown content
+	cacheStart = time.Now()
+	markdownContent := markdownService.GetCachedContentByLanguage(lang)
+	mdCacheTime := time.Since(cacheStart)
+	
+	for urlPath, content := range markdownContent {
+		tasks = append(tasks, searchTask{
+			urlPath: urlPath,
+			content: content,
+			isHTML:  false,
+		})
+	}
+	
+	if lang == DefaultLanguage {
+		fmt.Printf("      [%s] Cache retrieval: HTML %v, MD %v, Tasks: %d\n", lang, htmlCacheTime, mdCacheTime, len(tasks))
+	}
+	
+	// Process tasks with worker pool
+	processingStart := time.Now()
+	const numWorkers = 30
+	// Buffer channels to avoid blocking
+	taskChan := make(chan searchTask, len(tasks))
+	resultChan := make(chan SearchItem, len(tasks))
+	errorChan := make(chan error, 1) // Only need to capture first error
+	
+	// Track timing for text extraction
+	var extractionTime time.Duration
+	var extractionCount int
+	var extractionMutex sync.Mutex
+	
+	// Start workers
+	var wg sync.WaitGroup
+	for i := 0; i < numWorkers; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for task := range taskChan {
+				// Time the text extraction specifically
+				extractStart := time.Now()
+				item, err := processSearchTask(task, metadata, lang)
+				elapsed := time.Since(extractStart)
+				
+				extractionMutex.Lock()
+				extractionTime += elapsed
+				extractionCount++
+				extractionMutex.Unlock()
+				
+				if err != nil {
+					errorChan <- err
+					continue
+				}
+				resultChan <- item
+			}
+		}()
+	}
+	
+	// Send all tasks
+	for _, task := range tasks {
+		taskChan <- task
+	}
+	close(taskChan)
+	
+	// Wait for workers to finish
+	go func() {
+		wg.Wait()
+		close(resultChan)
+		close(errorChan)
+	}()
+	
+	// Collect results
+	var searchItems []SearchItem
+	for item := range resultChan {
+		searchItems = append(searchItems, item)
+	}
+	
+	// Check for errors
+	select {
+	case err := <-errorChan:
+		if err != nil {
+			return nil, err
+		}
+	default:
+	}
+	
+	if lang == DefaultLanguage {
+		avgExtraction := time.Duration(0)
+		if extractionCount > 0 {
+			avgExtraction = extractionTime / time.Duration(extractionCount)
+		}
+		fmt.Printf("      [%s] Processing: %v (avg extraction: %v × %d items)\n", lang, time.Since(processingStart), avgExtraction, extractionCount)
 	}
 
 	// Build a map of indexed URLs to avoid duplicates from non-cached pages
@@ -791,153 +1104,54 @@ func indexCachedHTMLPagesForLanguage(items *[]SearchItem, htmlService *HTMLServi
 	return nil
 }
 
-// extractTextFromHTML extracts clean text starting from the first H1 tag and excludes script content
-func extractTextFromHTML(html string) string {
-	// First, completely remove all script content (including everything between <script> and </script>)
-	text := html
-	for {
-		start := strings.Index(strings.ToLower(text), "<script")
-		if start == -1 {
-			break
-		}
-		end := strings.Index(strings.ToLower(text[start:]), "</script>")
-		if end == -1 {
-			// Handle unclosed script tags by removing everything after <script
-			text = text[:start]
-			break
-		}
-		// Calculate the actual end position and ensure it doesn't go out of bounds
-		actualEnd := start + end + 9
-		if actualEnd > len(text) {
-			text = text[:start]
-		} else {
-			text = text[:start] + " " + text[actualEnd:]
-		}
-	}
-
-	// Remove style content completely
-	for {
-		start := strings.Index(strings.ToLower(text), "<style")
-		if start == -1 {
-			break
-		}
-		end := strings.Index(strings.ToLower(text[start:]), "</style>")
-		if end == -1 {
-			text = text[:start]
-			break
-		}
-		// Calculate the actual end position and ensure it doesn't go out of bounds
-		actualEnd := start + end + 8
-		if actualEnd > len(text) {
-			text = text[:start]
-		} else {
-			text = text[:start] + " " + text[actualEnd:]
-		}
-	}
-
-	// Find the first H1 tag and start content extraction from there
-	h1Start := strings.Index(strings.ToLower(text), "<h1")
-	if h1Start == -1 {
-		// No H1 found, return empty string as per requirement
+// extractTextFromHTML extracts clean text from HTML using the x/net/html parser
+func extractTextFromHTML(htmlStr string) string {
+	doc, err := html.Parse(strings.NewReader(htmlStr))
+	if err != nil {
 		return ""
 	}
-
-	// Start text extraction from the H1 tag onwards
-	text = text[h1Start:]
-
-	// Remove common problematic elements
-	problematicTags := []string{
-		"<noscript", "</noscript>",
-		"<svg", "</svg>",
-		"<path", "</path>",
-		"<head", "</head>",
-		"<meta", "</meta>",
-		"<link", "</link>",
-	}
-
-	for i := 0; i < len(problematicTags); i += 2 {
-		openTag := problematicTags[i]
-		closeTag := problematicTags[i+1]
-
-		for {
-			start := strings.Index(strings.ToLower(text), openTag)
-			if start == -1 {
-				break
+	
+	var text strings.Builder
+	var h1Found bool
+	var inScript, inStyle bool
+	
+	// Walk the HTML tree and extract text
+	var extractText func(*html.Node)
+	extractText = func(n *html.Node) {
+		// Skip script and style content
+		if n.Type == html.ElementNode {
+			switch n.Data {
+			case "script":
+				inScript = true
+				defer func() { inScript = false }()
+			case "style":
+				inStyle = true
+				defer func() { inStyle = false }()
+			case "h1":
+				h1Found = true
 			}
-			end := strings.Index(strings.ToLower(text[start:]), closeTag)
-			if end == -1 {
-				text = text[:start]
-				break
+		}
+		
+		// Only extract text after finding H1
+		if h1Found && n.Type == html.TextNode && !inScript && !inStyle {
+			// Clean the text
+			cleaned := strings.TrimSpace(n.Data)
+			if cleaned != "" {
+				text.WriteString(cleaned)
+				text.WriteString(" ")
 			}
-			text = text[:start] + " " + text[start+end+len(closeTag):]
+		}
+		
+		// Process children
+		for c := n.FirstChild; c != nil; c = c.NextSibling {
+			extractText(c)
 		}
 	}
-
-	// Remove all remaining HTML tags
-	for {
-		start := strings.Index(text, "<")
-		if start == -1 {
-			break
-		}
-		end := strings.Index(text[start:], ">")
-		if end == -1 {
-			// Handle unclosed tags
-			text = text[:start]
-			break
-		}
-		text = text[:start] + " " + text[start+end+1:]
-	}
-
-	// Remove AlpineJS directives and JavaScript patterns
-	jsPatterns := []string{
-		"x-data=",
-		"x-show=",
-		"x-if=",
-		"x-for=",
-		"x-on:",
-		"@click",
-		"@keydown",
-		"handleKeydown",
-		"showResults",
-		"hideResults",
-		"function(",
-		"if (",
-		"for (",
-		"while (",
-		"return ",
-		"const ",
-		"let ",
-		"var ",
-		"===",
-		"!==",
-		"&&",
-		"||",
-		"addEventListener",
-		"querySelector",
-		"getElementById",
-		"console.log",
-		"window.",
-		"document.",
-	}
-
-	for _, pattern := range jsPatterns {
-		text = strings.ReplaceAll(text, pattern, " ")
-	}
-
-	// Clean up multiple spaces and special characters
-	text = strings.ReplaceAll(text, "{", " ")
-	text = strings.ReplaceAll(text, "}", " ")
-	text = strings.ReplaceAll(text, "(", " ")
-	text = strings.ReplaceAll(text, ")", " ")
-	text = strings.ReplaceAll(text, "[", " ")
-	text = strings.ReplaceAll(text, "]", " ")
-	// Don't remove semicolons as they're part of HTML entities like &amp;
-	text = strings.ReplaceAll(text, ":", " ")
-	text = strings.ReplaceAll(text, "...", " ")
-	text = strings.ReplaceAll(text, "=>", " ")
-	text = strings.ReplaceAll(text, "=", " ")
-
-	// Clean up whitespace and return
-	text = strings.Join(strings.Fields(text), " ")
-	return strings.TrimSpace(text)
+	
+	extractText(doc)
+	
+	// Normalize whitespace
+	result := text.String()
+	result = strings.Join(strings.Fields(result), " ")
+	return strings.TrimSpace(result)
 }
