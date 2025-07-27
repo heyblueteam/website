@@ -104,25 +104,21 @@ mutation CreateCurrencyFormula {
 
 ## Supported Functions
 
-### Aggregation Functions
+### Chart Aggregation Functions
 
-| Function | Description | Example |
-|----------|-------------|---------|
-| `SUM` | Sum of all values | `SUM(Budget)` |
-| `AVERAGE` | Average of numeric values | `AVERAGE(Score)` |
-| `AVERAGEA` | Average including text/empty values | `AVERAGEA(Rating)` |
-| `COUNT` | Count of non-empty values | `COUNT(Tasks)` |
-| `COUNTA` | Count of all values | `COUNTA(Items)` |
-| `MAX` | Maximum value | `MAX(Priority)` |
-| `MIN` | Minimum value | `MIN(StartDate)` |
+Formula fields support the following aggregation functions for chart calculations:
 
-### Mathematical Operations
+| Function | Description | ChartFunction Enum |
+|----------|-------------|-------------------|
+| `SUM` | Sum of all values | `SUM` |
+| `AVERAGE` | Average of numeric values | `AVERAGE` |
+| `AVERAGEA` | Average excluding zeros and nulls | `AVERAGEA` |
+| `COUNT` | Count of values | `COUNT` |
+| `COUNTA` | Count excluding zeros and nulls | `COUNTA` |
+| `MAX` | Maximum value | `MAX` |
+| `MIN` | Minimum value | `MIN` |
 
-- Addition: `SUM(Budget) + SUM(Bonus)`
-- Subtraction: `SUM(Revenue) - SUM(Costs)`
-- Multiplication: `COUNT(Hours) * 25`
-- Division: `SUM(Total) / COUNT(Items)`
-- Parentheses: `(SUM(A) + SUM(B)) / 2`
+**Note**: These functions are used in the `display.function` field and operate on aggregated data for chart visualizations. Complex mathematical expressions or field-level calculations are not supported.
 
 ## Display Types
 
@@ -194,29 +190,22 @@ mutation EditFormulaField {
 }
 ```
 
-## Formula Calculation
+## Formula Processing
 
-### Automatic Updates
+### Chart Calculation Context
 
-Formula fields automatically recalculate when:
-- Source custom field values change
-- Referenced todo properties are updated
-- Dependencies in other formulas change
-- Records are added or removed from the project
+Formula fields are processed in the context of chart segments and dashboards:
+- Calculations happen when charts are rendered or updated
+- Results are stored in `ChartSegment.formulaResult` as decimal values
+- Processing is handled through a dedicated BullMQ queue named 'formula'
+- Updates publish to dashboard subscribers for real-time updates
 
-### Asynchronous Processing
+### Display Formatting
 
-- Calculations are processed in the background
-- Results are cached for fast retrieval
-- Updates are published via GraphQL subscriptions
-- No blocking of user interface during calculations
-
-### Dependency Management
-
-- Formulas can reference other formulas
-- Circular dependency detection prevents infinite loops
-- Nested dependencies are properly resolved
-- Source data changes trigger cascading updates
+The `getFormulaDisplayValue` function formats the calculated results based on the display type:
+- **NUMBER**: Displays as plain number with optional precision
+- **PERCENTAGE**: Adds % suffix with optional precision  
+- **CURRENCY**: Formats using the specified currency code
 
 ## Formula Result Storage
 
@@ -253,144 +242,101 @@ Results are stored in the `formulaResult` field:
 | `createdAt` | DateTime! | When the value was created |
 | `updatedAt` | DateTime! | When the value was last calculated |
 
-## Data Sources
+## Data Context
 
-### Custom Fields
+### Chart Data Source
 
-Reference other custom fields in the same project:
-
-```javascript
-SUM(Budget)           // Sum budget custom field
-AVERAGE(Rating)       // Average rating scores
-COUNT(Status)         // Count non-empty status values
-MAX(Priority)         // Maximum priority value
-```
-
-### Todo Properties
-
-Reference built-in todo properties:
-
-```javascript
-COUNT(Assignees)      // Number of assignees
-COUNT(Tags)           // Number of tags
-COUNT(Comments)       // Number of comments
-SUM(TimeSpent)        // Total time tracked
-```
-
-### Cross-Project References
-
-Use REFERENCE custom fields to access data from other projects:
-
-```javascript
-SUM(Project.Budget)   // Sum budget from referenced project
-COUNT(Tasks.Done)     // Count completed tasks from referenced project
-```
+Formula fields operate within the chart data source context:
+- Formulas aggregate custom field values across todos in a project
+- The aggregation function specified in `display.function` determines the calculation
+- Results are computed using SQL aggregate functions (avg, sum, count, etc.)
+- Calculations are performed at the database level for efficiency
 
 ## Common Formula Examples
 
-### Budget Calculations
+### Total Budget (Chart Display)
 
 ```json
 {
   "logic": {
-    "text": "SUM(Approved Budget) - SUM(Spent)",
-    "html": "<span>SUM(Approved Budget) - SUM(Spent)</span>"
+    "text": "Total Budget",
+    "html": "<span>Total Budget</span>"
   },
   "display": {
     "type": "CURRENCY",
     "currency": { "code": "USD", "name": "US Dollar" },
-    "precision": 2
+    "precision": 2,
+    "function": "SUM"
   }
 }
 ```
 
-### Completion Rate
+### Average Score (Chart Display)
 
 ```json
 {
   "logic": {
-    "text": "(COUNT(Completed) / COUNT(Total)) * 100",
-    "html": "<span>(COUNT(Completed) / COUNT(Total)) * 100</span>"
-  },
-  "display": {
-    "type": "PERCENTAGE",
-    "precision": 1
-  }
-}
-```
-
-### Average Score
-
-```json
-{
-  "logic": {
-    "text": "AVERAGE(Quality Score)",
-    "html": "<span>AVERAGE(Quality Score)</span>"
+    "text": "Average Quality Score",
+    "html": "<span>Average Quality Score</span>"
   },
   "display": {
     "type": "NUMBER",
-    "precision": 1
+    "precision": 1,
+    "function": "AVERAGE"
   }
 }
 ```
 
-### Resource Utilization
+### Task Count (Chart Display)
 
 ```json
 {
   "logic": {
-    "text": "SUM(Hours Used) / SUM(Hours Available)",
-    "html": "<span>SUM(Hours Used) / SUM(Hours Available)</span>"
+    "text": "Total Tasks",
+    "html": "<span>Total Tasks</span>"
   },
   "display": {
-    "type": "PERCENTAGE",
-    "precision": 0
+    "type": "NUMBER",
+    "precision": 0,
+    "function": "COUNT"
   }
 }
 ```
 
 ## Required Permissions
 
-| Action | Required Permission |
-|--------|-------------------|
-| Create formula field | `CUSTOM_FIELDS_CREATE` at company or project level |
-| Update formula field | `CUSTOM_FIELDS_UPDATE` at company or project level |
-| View formula results | Standard record view permissions |
-| Edit formula logic | Same as update permissions |
+Custom field operations follow standard role-based permissions:
+
+| Action | Required Role |
+|--------|---------------|
+| Create formula field | Project member with appropriate role |
+| Update formula field | Project member with appropriate role |
+| View formula results | Project member with view permissions |
+| Delete formula field | Project member with appropriate role |
+
+**Note**: The specific roles required depend on your project's custom role configuration. There are no special permission constants like CUSTOM_FIELDS_CREATE.
 
 ## Error Handling
 
-### Invalid Formula Syntax
+### Validation Error
 ```json
 {
   "errors": [{
-    "message": "Invalid formula syntax",
+    "message": "Validation error message",
     "extensions": {
-      "code": "INVALID_FORMULA"
+      "code": "VALIDATION_ERROR"
     }
   }]
 }
 ```
 
-### Circular Dependency
+### Custom Field Not Found
 ```json
 {
   "errors": [{
-    "message": "Circular dependency detected in formula",
+    "message": "Custom field was not found.",
     "extensions": {
-      "code": "CIRCULAR_DEPENDENCY"
-    }
-  }]
-}
-```
-
-### Missing Reference
-```json
-{
-  "errors": [{
-    "message": "Referenced field not found",
-    "extensions": {
-      "code": "FIELD_NOT_FOUND"
+      "code": "CUSTOM_FIELD_NOT_FOUND"
     }
   }]
 }
@@ -444,17 +390,17 @@ COUNT(Tasks.Done)     // Count completed tasks from referenced project
 
 ## Limitations
 
-- Cannot execute arbitrary code (security restriction)
-- Limited to supported functions and operations
-- No direct database queries
-- Cannot reference external APIs or services
-- Circular dependencies are blocked
-- Complex calculations may have performance impact
+- Formulas are for chart/dashboard aggregations only, not todo-level calculations
+- Limited to the seven supported aggregation functions (SUM, AVERAGE, etc.)
+- No complex mathematical expressions or field-to-field calculations
+- Cannot reference multiple fields in a single formula
+- Results are only visible in charts and dashboards
+- The `logic` field is for display text only, not actual calculation logic
 
 ## Related Resources
 
-- [Number Fields](/api/custom-fields/number) - For static numeric values
-- [Currency Fields](/api/custom-fields/currency) - For monetary values
-- [Reference Fields](/api/custom-fields/reference) - For cross-project data
-- [Lookup Fields](/api/custom-fields/lookup) - For aggregated data
-- [Custom Fields Overview](/custom-fields/list-custom-fields) - General concepts
+- [Number Fields](/api/5.custom%20fields/number) - For static numeric values
+- [Currency Fields](/api/5.custom%20fields/currency) - For monetary values
+- [Reference Fields](/api/5.custom%20fields/reference) - For cross-project data
+- [Lookup Fields](/api/5.custom%20fields/lookup) - For aggregated data
+- [Custom Fields Overview](/api/5.custom%20fields/2.list-custom-fields) - General concepts
