@@ -97,6 +97,10 @@ var templateFuncs = template.FuncMap{
 		}
 		return result.String()
 	},
+	// lower converts a string to lowercase
+	"lower": func(s string) string {
+		return strings.ToLower(s)
+	},
 }
 
 // getTemplateFuncs returns template functions with language-specific translation function
