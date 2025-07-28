@@ -518,5 +518,317 @@
     
     "faq_support_q": "Quali opzioni di supporto sono disponibili?",
     "faq_support_a": "Offriamo supporto via email a support@blue.cc. Offriamo anche pacchetti di supporto a pagamento per importazioni su larga scala, onboarding completo del team, supporto chat prioritario e formazione regolare."
+  },
+  "id": {
+    "org_description": "Blue adalah platform yang kuat untuk membuat, mengelola, dan meningkatkan proses untuk tim modern.",
+    
+    "software_description": "Platform manajemen proses untuk tim modern",
+    "software_category": "AplikasiBisnis",
+    "software_operating_system": "Web, iOS, Android",
+    "feature_process_management": "Manajemen Proses",
+    "feature_team_collaboration": "Kolaborasi Tim",
+    "feature_workflow_automation": "Otomasi Alur Kerja",
+    "feature_custom_fields": "Bidang Kustom",
+    "feature_api_access": "Akses API",
+    "feature_realtime_updates": "Pembaruan Real-time",
+    "feature_file_attachments": "Lampiran File",
+    "feature_custom_permissions": "Izin Kustom",
+    
+    "product_name": "Langganan Blue Core",
+    "product_description": "Semua yang Anda butuhkan untuk membuat, mengelola, dan meningkatkan proses Anda",
+    "price_unit_text": "per pengguna per bulan",
+    
+    "author_name": "Tim Blue",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "Apa itu Blue?",
+    "faq_what_is_blue_a": "Blue adalah platform manajemen proses serbaguna yang dapat digunakan untuk mengelola berbagai proses di seluruh organisasi. Ini membantu staf memahami apa yang harus mereka lakukan, manajer untuk memiliki pengawasan, dan semua orang untuk tetap selaras.",
+    
+    "faq_how_different_q": "Bagaimana Blue berbeda dari Asana, Monday.com, atau Trello?",
+    "faq_how_different_a": "Pertama-tama, Blue jauh lebih murah. Ini juga tidak didanai oleh modal ventura, jadi pelanggan kami adalah prioritas utama kami. Ini sepenuhnya dipimpin oleh pendiri dan kami fokus pada tingkat kesederhanaan yang mungkin tidak mereka miliki.",
+    
+    "faq_cost_q": "Berapa biaya Blue?",
+    "faq_cost_a": "Blue memiliki satu paket utama dengan opsi bulanan dan tahunan: Paket bulanan: $7/bulan/pengguna. Paket tahunan: $70/tahun/pengguna (Anda mendapatkan dua bulan gratis)",
+    
+    "faq_trial_q": "Bagaimana cara kerja uji coba gratis Blue?",
+    "faq_trial_a": "Uji coba gratis memberikan akses penuh ke semua fitur Blue selama 7 hari. Tidak diperlukan kartu kredit untuk memulai. Jika Anda ingin melanjutkan, Anda dapat meningkatkan ke paket berbayar kami di akhir uji coba gratis dan Anda juga akan memiliki opsi untuk memperpanjang uji coba Anda selama 7 hari lagi.",
+    
+    "faq_integrations_q": "Integrasi apa yang didukung Blue?",
+    "faq_integrations_a": "Blue memiliki 5.000+ integrasi melalui Make.com, Zapier, Pabbly Connect, Albato, dan Boost.Space. Kami juga memiliki API lengkap untuk integrasi kustom dan Webhook granular.",
+    
+    "faq_mobile_q": "Apakah Blue memiliki Aplikasi Seluler?",
+    "faq_mobile_a": "Ya, aplikasi iOS dan Android asli tersedia untuk mengakses Blue saat bepergian. Fungsionalitas inti seperti tugas, komentar, dan kalender disinkronkan di seluruh perangkat.",
+    
+    "faq_gdpr_q": "Apakah Blue sesuai dengan GDPR?",
+    "faq_gdpr_a": "Ya, Blue sepenuhnya sesuai dengan GDPR. Untuk detailnya, lihat kebijakan GDPR kami di https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "Bagaimana data dienkripsi di Blue?",
+    "faq_encryption_a": "Blue menggunakan enkripsi tingkat bank untuk data saat istirahat dan dalam transit. Data saat istirahat dienkripsi dengan enkripsi AES 256-bit. Data dalam transit dilindungi dengan protokol TLS 1.2+ (atau lebih tinggi). Ini memastikan informasi Anda aman setiap saat.",
+    
+    "faq_import_q": "Bisakah saya mengimpor data yang ada ke Blue?",
+    "faq_import_a": "Ya, Blue mendukung impor data massal dari file CSV. Ini memungkinkan Anda untuk memigrasikan hingga 200.000 catatan secara bersamaan dan sempurna untuk migrasi dari alur kerja Excel manual atau sistem manajemen kerja lainnya.",
+    
+    "faq_support_q": "Opsi dukungan apa yang tersedia?",
+    "faq_support_a": "Kami menawarkan dukungan email di support@blue.cc. Kami juga menawarkan paket dukungan berbayar untuk impor skala besar, orientasi tim lengkap, dukungan obrolan prioritas, dan pelatihan reguler."
+  },
+  "nl": {
+    "org_description": "Blue is een krachtig platform voor het creëren, beheren en schalen van processen voor moderne teams.",
+    
+    "software_description": "Procesbeheerplatform voor moderne teams",
+    "software_category": "Bedrijfstoepassing",
+    "software_operating_system": "Web, iOS, Android",
+    "feature_process_management": "Procesbeheer",
+    "feature_team_collaboration": "Teamsamenwerking",
+    "feature_workflow_automation": "Workflow Automatisering",
+    "feature_custom_fields": "Aangepaste Velden",
+    "feature_api_access": "API Toegang",
+    "feature_realtime_updates": "Real-time Updates",
+    "feature_file_attachments": "Bestandsbijlagen",
+    "feature_custom_permissions": "Aangepaste Machtigingen",
+    
+    "product_name": "Blue Core Abonnement",
+    "product_description": "Alles wat u nodig heeft om uw processen te creëren, beheren en schalen",
+    "price_unit_text": "per gebruiker per maand",
+    
+    "author_name": "Blue Team",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "Wat is Blue?",
+    "faq_what_is_blue_a": "Blue is een veelzijdig procesbeheerplatform dat kan worden gebruikt om verschillende processen binnen organisaties te beheren. Het helpt personeel te begrijpen wat ze moeten doen, managers om toezicht te houden, en iedereen om op één lijn te blijven.",
+    
+    "faq_how_different_q": "Hoe verschilt Blue van Asana, Monday.com of Trello?",
+    "faq_how_different_a": "Ten eerste is Blue veel goedkoper. Het wordt ook niet gefinancierd door durfkapitaal, dus onze klanten zijn onze belangrijkste prioriteit. Het wordt volledig geleid door de oprichters en we richten ons op een niveau van eenvoud dat zij misschien niet hebben.",
+    
+    "faq_cost_q": "Hoeveel kost Blue?",
+    "faq_cost_a": "Blue heeft één hoofdplan met maandelijkse en jaarlijkse opties: Maandelijks plan: $7/maand/gebruiker. Jaarlijks plan: $70/jaar/gebruiker (u krijgt twee maanden gratis)",
+    
+    "faq_trial_q": "Hoe werkt de gratis proefperiode van Blue?",
+    "faq_trial_a": "De gratis proefperiode biedt 7 dagen volledige toegang tot alle Blue-functies. Er is geen creditcard nodig om te beginnen. Als u wilt doorgaan, kunt u aan het einde van de gratis proefperiode upgraden naar ons betaalde plan en heeft u ook de mogelijkheid om uw proefperiode met nog eens 7 dagen te verlengen.",
+    
+    "faq_integrations_q": "Welke integraties ondersteunt Blue?",
+    "faq_integrations_a": "Blue heeft 5.000+ integraties via Make.com, Zapier, Pabbly Connect, Albato en Boost.Space. We hebben ook een volledige API voor aangepaste integraties en gedetailleerde Webhooks.",
+    
+    "faq_mobile_q": "Heeft Blue mobiele apps?",
+    "faq_mobile_a": "Ja, native iOS- en Android-apps zijn beschikbaar om onderweg toegang te krijgen tot Blue. Kernfunctionaliteit zoals taken, opmerkingen en kalenders synchroniseren tussen apparaten.",
+    
+    "faq_gdpr_q": "Is Blue AVG-conform?",
+    "faq_gdpr_a": "Ja, Blue is volledig AVG-conform. Voor details, zie ons AVG-beleid op https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "Hoe worden gegevens versleuteld in Blue?",
+    "faq_encryption_a": "Blue gebruikt versleuteling op bankniveau voor zowel data in rust als in transit. Data in rust wordt versleuteld met 256-bits AES-versleuteling. Data in transit wordt beschermd met TLS 1.2+ (of hoger) protocollen. Dit zorgt ervoor dat uw informatie te allen tijde veilig is.",
+    
+    "faq_import_q": "Kan ik mijn bestaande gegevens importeren in Blue?",
+    "faq_import_a": "Ja, Blue ondersteunt bulkgegevensimport uit CSV-bestanden. Hiermee kunt u tot 200.000 records tegelijkertijd migreren en is perfect voor migratie van handmatige Excel-workflows of andere werkbeheersystemen.",
+    
+    "faq_support_q": "Welke ondersteuningsopties zijn beschikbaar?",
+    "faq_support_a": "We bieden e-mailondersteuning op support@blue.cc. We bieden ook betaalde ondersteuningspakketten voor grootschalige imports, volledige team-onboarding, prioriteitschatsupport en regelmatige training."
+  },
+  "pl": {
+    "org_description": "Blue to potężna platforma do tworzenia, zarządzania i skalowania procesów dla nowoczesnych zespołów.",
+    
+    "software_description": "Platforma zarządzania procesami dla nowoczesnych zespołów",
+    "software_category": "AplikacjaBiznesowa",
+    "software_operating_system": "Web, iOS, Android",
+    "feature_process_management": "Zarządzanie Procesami",
+    "feature_team_collaboration": "Współpraca Zespołowa",
+    "feature_workflow_automation": "Automatyzacja Przepływu Pracy",
+    "feature_custom_fields": "Niestandardowe Pola",
+    "feature_api_access": "Dostęp do API",
+    "feature_realtime_updates": "Aktualizacje w Czasie Rzeczywistym",
+    "feature_file_attachments": "Załączniki Plików",
+    "feature_custom_permissions": "Niestandardowe Uprawnienia",
+    
+    "product_name": "Subskrypcja Blue Core",
+    "product_description": "Wszystko, czego potrzebujesz do tworzenia, zarządzania i skalowania swoich procesów",
+    "price_unit_text": "za użytkownika miesięcznie",
+    
+    "author_name": "Zespół Blue",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "Czym jest Blue?",
+    "faq_what_is_blue_a": "Blue to uniwersalna platforma zarządzania procesami, która może być używana do zarządzania różnorodnymi procesami w organizacjach. Pomaga pracownikom zrozumieć, co mają robić, menedżerom mieć nadzór, a wszystkim pozostać w zgodzie.",
+    
+    "faq_how_different_q": "Czym Blue różni się od Asany, Monday.com czy Trello?",
+    "faq_how_different_a": "Po pierwsze, Blue jest znacznie tańszy. Nie jest również finansowany przez kapitał wysokiego ryzyka, więc nasi klienci są naszym głównym priorytetem. Jest w pełni prowadzony przez założycieli i skupiamy się na poziomie prostoty, którego oni być może nie mają.",
+    
+    "faq_cost_q": "Ile kosztuje Blue?",
+    "faq_cost_a": "Blue ma jeden główny plan z opcjami miesięcznymi i rocznymi: Plan miesięczny: $7/miesiąc/użytkownik. Plan roczny: $70/rok/użytkownik (otrzymujesz dwa miesiące za darmo)",
+    
+    "faq_trial_q": "Jak działa bezpłatny okres próbny Blue?",
+    "faq_trial_a": "Bezpłatny okres próbny zapewnia pełny dostęp do wszystkich funkcji Blue przez 7 dni. Do rozpoczęcia nie jest wymagana karta kredytowa. Jeśli chcesz kontynuować, możesz przejść na nasz płatny plan na koniec bezpłatnego okresu próbnego i będziesz miał również możliwość przedłużenia okresu próbnego o kolejne 7 dni.",
+    
+    "faq_integrations_q": "Jakie integracje obsługuje Blue?",
+    "faq_integrations_a": "Blue ma ponad 5000 integracji przez Make.com, Zapier, Pabbly Connect, Albato i Boost.Space. Mamy również pełne API do niestandardowych integracji i szczegółowe Webhooki.",
+    
+    "faq_mobile_q": "Czy Blue ma aplikacje mobilne?",
+    "faq_mobile_a": "Tak, natywne aplikacje iOS i Android są dostępne do korzystania z Blue w podróży. Podstawowe funkcje, takie jak zadania, komentarze i kalendarze, synchronizują się między urządzeniami.",
+    
+    "faq_gdpr_q": "Czy Blue jest zgodny z RODO?",
+    "faq_gdpr_a": "Tak, Blue jest w pełni zgodny z RODO. Szczegóły znajdziesz w naszej polityce RODO na stronie https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "Jak dane są szyfrowane w Blue?",
+    "faq_encryption_a": "Blue używa szyfrowania na poziomie bankowym zarówno dla danych w spoczynku, jak i w tranzycie. Dane w spoczynku są szyfrowane za pomocą 256-bitowego szyfrowania AES. Dane w tranzycie są chronione protokołami TLS 1.2+ (lub wyższymi). To zapewnia, że Twoje informacje są zawsze bezpieczne.",
+    
+    "faq_import_q": "Czy mogę zaimportować moje istniejące dane do Blue?",
+    "faq_import_a": "Tak, Blue obsługuje masowy import danych z plików CSV. Pozwala to na migrację do 200 000 rekordów jednocześnie i jest idealny do migracji z ręcznych przepływów pracy Excel lub innych systemów zarządzania pracą.",
+    
+    "faq_support_q": "Jakie opcje wsparcia są dostępne?",
+    "faq_support_a": "Oferujemy wsparcie e-mailowe pod adresem support@blue.cc. Oferujemy również płatne pakiety wsparcia dla importów na dużą skalę, pełnego wdrożenia zespołu, priorytetowego wsparcia czatu i regularnych szkoleń."
+  },
+  "zh-TW": {
+    "org_description": "Blue 是一個強大的平台，幫助現代團隊創建、管理和擴展流程。",
+    
+    "software_description": "現代團隊的流程管理平台",
+    "software_category": "商業應用",
+    "software_operating_system": "網頁版、iOS、Android",
+    "feature_process_management": "流程管理",
+    "feature_team_collaboration": "團隊協作",
+    "feature_workflow_automation": "工作流程自動化",
+    "feature_custom_fields": "自訂欄位",
+    "feature_api_access": "API 存取",
+    "feature_realtime_updates": "即時更新",
+    "feature_file_attachments": "檔案附件",
+    "feature_custom_permissions": "自訂權限",
+    
+    "product_name": "Blue 核心訂閱",
+    "product_description": "創建、管理和擴展流程所需的一切",
+    "price_unit_text": "每使用者每月",
+    
+    "author_name": "Blue 團隊",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "什麼是 Blue？",
+    "faq_what_is_blue_a": "Blue 是一個通用的流程管理平台，可用於管理組織內的各種流程。它幫助員工了解他們需要做什麼，幫助管理者進行監督，並讓每個人保持一致。",
+    
+    "faq_how_different_q": "Blue 與 Asana、Monday.com 或 Trello 有何不同？",
+    "faq_how_different_a": "首先，Blue 的價格要便宜得多。而且我們不是創投資金支持的，所以我們的客戶是我們的首要任務。它完全由創始人領導，我們專注於他們可能沒有的簡單性。",
+    
+    "faq_cost_q": "Blue 的費用是多少？",
+    "faq_cost_a": "Blue 有一個主要計劃，提供月度和年度選項：月度計劃：每月每使用者 7 美元。年度計劃：每年每使用者 70 美元（相當於免費獲得兩個月）",
+    
+    "faq_trial_q": "Blue 的免費試用是如何運作的？",
+    "faq_trial_a": "免費試用提供 7 天對所有 Blue 功能的完全存取權限。開始時不需要信用卡。如果您希望繼續使用，可以在免費試用結束時升級到我們的付費計劃，您還可以選擇將試用期再延長 7 天。",
+    
+    "faq_integrations_q": "Blue 支援哪些整合？",
+    "faq_integrations_a": "Blue 透過 Make.com、Zapier、Pabbly Connect、Albato 和 Boost.Space 擁有 5,000 多個整合。我們還有完整的 API 用於自訂整合和細粒度的 Webhooks。",
+    
+    "faq_mobile_q": "Blue 有行動應用程式嗎？",
+    "faq_mobile_a": "是的，提供原生的 iOS 和 Android 應用程式，讓您隨時隨地存取 Blue。任務、評論和行事曆等核心功能可在裝置間同步。",
+    
+    "faq_gdpr_q": "Blue 符合 GDPR 嗎？",
+    "faq_gdpr_a": "是的，Blue 完全符合 GDPR。有關詳細資訊，請參閱我們的 GDPR 政策：https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "Blue 中的資料是如何加密的？",
+    "faq_encryption_a": "Blue 對靜態資料和傳輸中的資料都使用銀行級加密。靜態資料使用 256 位元 AES 加密進行加密。傳輸中的資料受 TLS 1.2+（或更高）協定保護。這確保您的資訊始終安全。",
+    
+    "faq_import_q": "我可以將現有資料匯入 Blue 嗎？",
+    "faq_import_a": "是的，Blue 支援從 CSV 檔案批量匯入資料。這允許您同時遷移多達 200,000 筆記錄，非常適合從手動 Excel 工作流程或其他工作管理系統遷移。",
+    
+    "faq_support_q": "有哪些支援選項？",
+    "faq_support_a": "我們在 support@blue.cc 提供電子郵件支援。我們還提供付費支援套件，用於大規模匯入、完整團隊入職、優先聊天支援和定期培訓。"
+  },
+  "sv": {
+    "org_description": "Blue är en kraftfull plattform för att skapa, hantera och skala processer för moderna team.",
+    
+    "software_description": "Processhanteringsplattform för moderna team",
+    "software_category": "Företagsapplikation",
+    "software_operating_system": "Webb, iOS, Android",
+    "feature_process_management": "Processhantering",
+    "feature_team_collaboration": "Teamsamarbete",
+    "feature_workflow_automation": "Arbetsflödesautomatisering",
+    "feature_custom_fields": "Anpassade Fält",
+    "feature_api_access": "API-åtkomst",
+    "feature_realtime_updates": "Realtidsuppdateringar",
+    "feature_file_attachments": "Filbilagor",
+    "feature_custom_permissions": "Anpassade Behörigheter",
+    
+    "product_name": "Blue Core-prenumeration",
+    "product_description": "Allt du behöver för att skapa, hantera och skala dina processer",
+    "price_unit_text": "per användare per månad",
+    
+    "author_name": "Blue-teamet",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "Vad är Blue?",
+    "faq_what_is_blue_a": "Blue är en mångsidig processhanteringsplattform som kan användas för att hantera olika processer inom organisationer. Den hjälper personal att förstå vad de behöver göra, chefer att ha översikt, och alla att hålla sig samordnade.",
+    
+    "faq_how_different_q": "Hur skiljer sig Blue från Asana, Monday.com eller Trello?",
+    "faq_how_different_a": "För det första är Blue mycket billigare. Det är inte heller riskkapitalfinansierat, så våra kunder är vår främsta prioritet. Det är helt grundarstyrt och vi fokuserar på en nivå av enkelhet som de kanske inte har.",
+    
+    "faq_cost_q": "Hur mycket kostar Blue?",
+    "faq_cost_a": "Blue har en huvudplan med månads- och årsalternativ: Månadsplan: $7/månad/användare. Årsplan: $70/år/användare (du får två månader gratis)",
+    
+    "faq_trial_q": "Hur fungerar Blues gratisprovperiod?",
+    "faq_trial_a": "Gratisprovperioden ger full tillgång till alla Blue-funktioner i 7 dagar. Inget kreditkort krävs för att börja. Om du vill fortsätta kan du uppgradera till vår betalplan i slutet av gratisprovperioden och du har också möjlighet att förlänga din provperiod med ytterligare 7 dagar.",
+    
+    "faq_integrations_q": "Vilka integrationer stöder Blue?",
+    "faq_integrations_a": "Blue har 5 000+ integrationer via Make.com, Zapier, Pabbly Connect, Albato och Boost.Space. Vi har också ett komplett API för anpassade integrationer och detaljerade Webhooks.",
+    
+    "faq_mobile_q": "Har Blue mobilappar?",
+    "faq_mobile_a": "Ja, inhemska iOS- och Android-appar finns tillgängliga för att komma åt Blue när du är på språng. Kärnfunktioner som uppgifter, kommentarer och kalendrar synkroniseras mellan enheter.",
+    
+    "faq_gdpr_q": "Är Blue GDPR-kompatibelt?",
+    "faq_gdpr_a": "Ja, Blue är helt GDPR-kompatibelt. För detaljer, se vår GDPR-policy på https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "Hur krypteras data i Blue?",
+    "faq_encryption_a": "Blue använder kryptering på banknivå för både data i vila och under överföring. Data i vila krypteras med 256-bitars AES-kryptering. Data under överföring skyddas med TLS 1.2+ (eller högre) protokoll. Detta säkerställer att din information alltid är säker.",
+    
+    "faq_import_q": "Kan jag importera mina befintliga data till Blue?",
+    "faq_import_a": "Ja, Blue stöder bulkdataimport från CSV-filer. Detta gör att du kan migrera upp till 200 000 poster samtidigt och är perfekt för migrering från manuella Excel-arbetsflöden eller andra arbetshanteringssystem.",
+    
+    "faq_support_q": "Vilka supportalternativ finns tillgängliga?",
+    "faq_support_a": "Vi erbjuder e-postsupport på support@blue.cc. Vi erbjuder också betalda supportpaket för storskalig import, fullständig teamintroduktion, prioriterad chattsupport och regelbunden utbildning."
+  },
+  "km": {
+    "org_description": "Blue គឺជាវេទិកាដ៏មានអានុភាពសម្រាប់បង្កើត គ្រប់គ្រង និងពង្រីកដំណើរការសម្រាប់ក្រុមទំនើប។",
+    
+    "software_description": "វេទិកាគ្រប់គ្រងដំណើរការសម្រាប់ក្រុមទំនើប",
+    "software_category": "កម្មវិធីអាជីវកម្ម",
+    "software_operating_system": "គេហទំព័រ, iOS, Android",
+    "feature_process_management": "ការគ្រប់គ្រងដំណើរការ",
+    "feature_team_collaboration": "កិច្ចសហការក្រុម",
+    "feature_workflow_automation": "ស្វ័យប្រវត្តិកម្មលំហូរការងារ",
+    "feature_custom_fields": "វាលផ្ទាល់ខ្លួន",
+    "feature_api_access": "ការចូលប្រើ API",
+    "feature_realtime_updates": "ការធ្វើបច្ចុប្បន្នភាពពេលជាក់ស្តែង",
+    "feature_file_attachments": "ឯកសារភ្ជាប់",
+    "feature_custom_permissions": "ការអនុញ្ញាតផ្ទាល់ខ្លួន",
+    
+    "product_name": "ការជាវ Blue Core",
+    "product_description": "អ្វីគ្រប់យ៉ាងដែលអ្នកត្រូវការដើម្បីបង្កើត គ្រប់គ្រង និងពង្រីកដំណើរការរបស់អ្នក",
+    "price_unit_text": "ក្នុងមួយអ្នកប្រើប្រាស់ក្នុងមួយខែ",
+    
+    "author_name": "ក្រុម Blue",
+    "publisher_name": "Blue",
+    
+    "faq_what_is_blue_q": "តើ Blue ជាអ្វី?",
+    "faq_what_is_blue_a": "Blue គឺជាវេទិកាគ្រប់គ្រងដំណើរការទូទៅដែលអាចប្រើដើម្បីគ្រប់គ្រងដំណើរការផ្សេងៗនៅក្នុងអង្គភាព។ វាជួយបុគ្គលិកឱ្យយល់ពីអ្វីដែលពួកគេត្រូវធ្វើ អ្នកគ្រប់គ្រងឱ្យមានការត្រួតពិនិត្យ និងអ្នកគ្រប់គ្នាឱ្យនៅតម្រឹមគ្នា។",
+    
+    "faq_how_different_q": "តើ Blue ខុសគ្នាយ៉ាងណាពី Asana, Monday.com ឬ Trello?",
+    "faq_how_different_a": "ជាដំបូង Blue មានតម្លៃថោកជាង។ វាក៏មិនត្រូវបានផ្តល់មូលនិធិដោយមូលធនផងដែរ ដូច្នេះអតិថិជនរបស់យើងគឺជាអាទិភាពចម្បងរបស់យើង។ វាត្រូវបានដឹកនាំទាំងស្រុងដោយស្ថាបនិក ហើយយើងផ្តោតលើកម្រិតនៃភាពសាមញ្ញដែលពួកគេប្រហែលជាមិនមាន។",
+    
+    "faq_cost_q": "តើ Blue មានតម្លៃប៉ុន្មាន?",
+    "faq_cost_a": "Blue មានគម្រោងចម្បងមួយជាមួយជម្រើសប្រចាំខែ និងប្រចាំឆ្នាំ៖ គម្រោងប្រចាំខែ៖ $7/ខែ/អ្នកប្រើប្រាស់។ គម្រោងប្រចាំឆ្នាំ៖ $70/ឆ្នាំ/អ្នកប្រើប្រាស់ (អ្នកទទួលបានពីរខែដោយឥតគិតថ្លៃ)",
+    
+    "faq_trial_q": "តើការសាកល្បងឥតគិតថ្លៃរបស់ Blue ដំណើរការយ៉ាងដូចម្តេច?",
+    "faq_trial_a": "ការសាកល្បងឥតគិតថ្លៃផ្តល់ការចូលប្រើពេញលេញទៅមុខងារ Blue ទាំងអស់រយៈពេល 7 ថ្ងៃ។ មិនចាំបាច់មានកាតឥណទានដើម្បីចាប់ផ្តើមទេ។ ប្រសិនបើអ្នកចង់បន្ត អ្នកអាចដំឡើងទៅគម្រោងបង់ប្រាក់របស់យើងនៅចុងបញ្ចប់នៃការសាកល្បងឥតគិតថ្លៃ ហើយអ្នកក៏នឹងមានជម្រើសដើម្បីពន្យារការសាកល្បងរបស់អ្នកសម្រាប់ 7 ថ្ងៃទៀត។",
+    
+    "faq_integrations_q": "តើ Blue គាំទ្រការរួមបញ្ចូលអ្វីខ្លះ?",
+    "faq_integrations_a": "Blue មានការរួមបញ្ចូលជាង 5,000 តាមរយៈ Make.com, Zapier, Pabbly Connect, Albato និង Boost.Space។ យើងក៏មាន API ពេញលេញសម្រាប់ការរួមបញ្ចូលផ្ទាល់ខ្លួន និង Webhooks លម្អិតផងដែរ។",
+    
+    "faq_mobile_q": "តើ Blue មានកម្មវិធីទូរស័ព្ទដៃទេ?",
+    "faq_mobile_a": "បាទ/ចាស កម្មវិធី iOS និង Android ដើមអាចប្រើបានដើម្បីចូលប្រើ Blue នៅពេលធ្វើដំណើរ។ មុខងារស្នូលដូចជាកិច្ចការ មតិយោបល់ និងប្រតិទិនធ្វើសមកាលកម្មឆ្លងឧបករណ៍។",
+    
+    "faq_gdpr_q": "តើ Blue អនុលោមតាម GDPR ទេ?",
+    "faq_gdpr_a": "បាទ/ចាស Blue អនុលោមតាម GDPR ពេញលេញ។ សម្រាប់ព័ត៌មានលម្អិត សូមមើលគោលការណ៍ GDPR របស់យើងនៅ https://blue.cc/legal/gdpr",
+    
+    "faq_encryption_q": "តើទិន្នន័យត្រូវបានអ៊ិនគ្រីបយ៉ាងដូចម្តេចនៅក្នុង Blue?",
+    "faq_encryption_a": "Blue ប្រើការអ៊ិនគ្រីបកម្រិតធនាគារសម្រាប់ទាំងទិន្នន័យនៅស្ងៀម និងក្នុងការបញ្ជូន។ ទិន្នន័យនៅស្ងៀមត្រូវបានអ៊ិនគ្រីបជាមួយការអ៊ិនគ្រីប AES 256-bit។ ទិន្នន័យក្នុងការបញ្ជូនត្រូវបានការពារដោយពិធីការ TLS 1.2+ (ឬខ្ពស់ជាង)។ នេះធានាថាព័ត៌មានរបស់អ្នកមានសុវត្ថិភាពគ្រប់ពេលវេលា។",
+    
+    "faq_import_q": "តើខ្ញុំអាចនាំចូលទិន្នន័យដែលមានស្រាប់របស់ខ្ញុំទៅ Blue បានទេ?",
+    "faq_import_a": "បាទ/ចាស Blue គាំទ្រការនាំចូលទិន្នន័យភាគច្រើនពីឯកសារ CSV។ នេះអនុញ្ញាតឱ្យអ្នកផ្លាស់ទីកំណត់ត្រារហូតដល់ 200,000 ក្នុងពេលតែមួយ និងល្អឥតខ្ចោះសម្រាប់ការផ្លាស់ទីពីលំហូរការងារ Excel ដោយដៃ ឬប្រព័ន្ធគ្រប់គ្រងការងារផ្សេងទៀត។",
+    
+    "faq_support_q": "តើមានជម្រើសគាំទ្រអ្វីខ្លះ?",
+    "faq_support_a": "យើងផ្តល់ការគាំទ្រតាមអ៊ីមែលនៅ support@blue.cc។ យើងក៏ផ្តល់កញ្ចប់គាំទ្របង់ប្រាក់សម្រាប់ការនាំចូលទំហំធំ ការណែនាំក្រុមពេញលេញ ការគាំទ្រជជែកអាទិភាព និងការបណ្តុះបណ្តាលទៀងទាត់។"
   }
 }
