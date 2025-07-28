@@ -1,0 +1,658 @@
+{
+  "en": {
+    "page_title": "Security",
+    "page_subtitle": "Blue is designed from the ground up for security and scale.",
+    "features": {
+      "encryption_title": "Enterprise-Level Encryption",
+      "encryption_desc": "Blue utilizes AWS enterprise-level encryption to protect your sensitive data both at rest and in transit.",
+      "monitoring_title": "Monitoring and Redundancy",
+      "monitoring_desc": "Our advanced monitoring and alert systems, combined with multiple redundant systems, ensure high availability and minimize downtime.",
+      "backend_title": "Secure Backend Systems",
+      "backend_desc": "All backend systems are secured by multi-factor authentication (MFA) to prevent unauthorized access to customer data.",
+      "audits_title": "Regular Security Audits",
+      "audits_desc": "Blue undergoes regular security audits by third parties to identify and address any potential vulnerabilities.",
+      "backups_title": "Daily Data Backups",
+      "backups_desc": "Your data is backed up daily to ensure data integrity and enable quick disaster recovery if needed.",
+      "researchers_title": "External Security Researchers",
+      "researchers_desc": "Blue works with external security researchers to identify and resolve any vulnerabilities proactively."
+    },
+    "detailed_link": "View detailed security information and compliance certifications",
+    "stats": {
+      "title": "Trusted by organizations worldwide for security and reliability",
+      "teams": {
+        "number": "17000+",
+        "label": "teams trust Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "countries served"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB of data"
+      }
+    },
+    "cta": {
+      "title": "Ready to secure your operations?",
+      "secondary_text": "Contact sales",
+      "secondary_url": "/contact",
+      "primary_text": "Start free trial",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "es": {
+    "page_title": "Seguridad",
+    "page_subtitle": "Blue está diseñada desde cero para la seguridad y la escalabilidad.",
+    "features": {
+      "encryption_title": "Cifrado de nivel empresarial",
+      "encryption_desc": "Blue utiliza cifrado de nivel empresarial de AWS para proteger sus datos sensibles tanto en reposo como en tránsito.",
+      "monitoring_title": "Monitoreo y redundancia",
+      "monitoring_desc": "Nuestros sistemas avanzados de monitoreo y alertas, combinados con múltiples sistemas redundantes, garantizan alta disponibilidad y minimizan el tiempo de inactividad.",
+      "backend_title": "Sistemas backend seguros",
+      "backend_desc": "Todos los sistemas backend están protegidos por autenticación multifactor (MFA) para evitar el acceso no autorizado a los datos de los clientes.",
+      "audits_title": "Auditorías de seguridad regulares",
+      "audits_desc": "Blue se somete a auditorías de seguridad regulares por terceros para identificar y abordar cualquier posible vulnerabilidad.",
+      "backups_title": "Copias de seguridad diarias de datos",
+      "backups_desc": "Sus datos se respaldan diariamente para garantizar la integridad y permitir una rápida recuperación ante desastres si es necesario.",
+      "researchers_title": "Investigadores de seguridad externos",
+      "researchers_desc": "Blue trabaja con investigadores de seguridad externos para identificar y resolver proactivamente cualquier vulnerabilidad."
+    },
+    "detailed_link": "Ver información detallada de seguridad y certificaciones de cumplimiento",
+    "stats": {
+      "title": "Confiado por organizaciones de todo el mundo por su seguridad y fiabilidad",
+      "teams": {
+        "number": "17000+",
+        "label": "equipos confían en Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "países atendidos"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB de datos"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para asegurar sus operaciones?",
+      "secondary_text": "Contactar ventas",
+      "secondary_url": "/contact",
+      "primary_text": "Iniciar prueba gratuita",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "zh": {
+    "page_title": "安全性",
+    "page_subtitle": "Blue 从一开始就为安全性和可扩展性而设计。",
+    "features": {
+      "encryption_title": "企业级加密",
+      "encryption_desc": "Blue 使用 AWS 企业级加密，保护您的敏感数据在静态和传输过程中的安全。",
+      "monitoring_title": "监控与冗余",
+      "monitoring_desc": "我们先进的监控和警报系统，结合多重冗余，确保高可用性并最大限度减少停机时间。",
+      "backend_title": "安全的后端系统",
+      "backend_desc": "所有后端系统均通过多因素认证（MFA）保护，防止未经授权访问客户数据。",
+      "audits_title": "定期安全审计",
+      "audits_desc": "Blue 定期接受第三方安全审计，及时发现并解决潜在漏洞。",
+      "backups_title": "每日数据备份",
+      "backups_desc": "您的数据每天都会备份，确保数据完整性，并在需要时实现快速灾难恢复。",
+      "researchers_title": "外部安全研究员",
+      "researchers_desc": "Blue 与外部安全研究员合作，主动识别并解决任何潜在漏洞。"
+    },
+    "detailed_link": "查看详细安全信息和合规认证",
+    "stats": {
+      "title": "全球组织信赖的安全与可靠性",
+      "teams": {
+        "number": "17000+",
+        "label": "团队信赖 Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "服务国家"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB 数据"
+      }
+    },
+    "cta": {
+      "title": "准备好保障您的运营了吗？",
+      "secondary_text": "联系销售",
+      "secondary_url": "/contact",
+      "primary_text": "开始免费试用",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "fr": {
+    "page_title": "Sécurité",
+    "page_subtitle": "Blue est conçue dès le départ pour la sécurité et l'évolutivité.",
+    "features": {
+      "encryption_title": "Chiffrement de niveau entreprise",
+      "encryption_desc": "Blue utilise le chiffrement de niveau entreprise AWS pour protéger vos données sensibles, au repos comme en transit.",
+      "monitoring_title": "Surveillance et redondance",
+      "monitoring_desc": "Nos systèmes avancés de surveillance et d'alerte, combinés à de multiples systèmes redondants, garantissent une haute disponibilité et minimisent les interruptions.",
+      "backend_title": "Systèmes backend sécurisés",
+      "backend_desc": "Tous les systèmes backend sont sécurisés par une authentification multifacteur (MFA) pour empêcher tout accès non autorisé aux données clients.",
+      "audits_title": "Audits de sécurité réguliers",
+      "audits_desc": "Blue subit des audits de sécurité réguliers par des tiers afin d'identifier et de corriger toute vulnérabilité potentielle.",
+      "backups_title": "Sauvegardes quotidiennes des données",
+      "backups_desc": "Vos données sont sauvegardées quotidiennement pour garantir leur intégrité et permettre une reprise rapide en cas de sinistre.",
+      "researchers_title": "Chercheurs en sécurité externes",
+      "researchers_desc": "Blue collabore avec des chercheurs en sécurité externes pour identifier et résoudre de manière proactive toute vulnérabilité."
+    },
+    "detailed_link": "Voir les informations détaillées sur la sécurité et les certifications de conformité",
+    "stats": {
+      "title": "Fiabilité et sécurité reconnues par des organisations du monde entier",
+      "teams": {
+        "number": "17000+",
+        "label": "équipes font confiance à Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "pays desservis"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "Go de données"
+      }
+    },
+    "cta": {
+      "title": "Prêt à sécuriser vos opérations ?",
+      "secondary_text": "Contacter les ventes",
+      "secondary_url": "/contact",
+      "primary_text": "Commencer l'essai gratuit",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "de": {
+    "page_title": "Sicherheit",
+    "page_subtitle": "Blue ist von Grund auf für Sicherheit und Skalierbarkeit entwickelt.",
+    "features": {
+      "encryption_title": "Verschlüsselung auf Unternehmensebene",
+      "encryption_desc": "Blue verwendet AWS-Verschlüsselung auf Unternehmensebene, um Ihre sensiblen Daten sowohl im Ruhezustand als auch bei der Übertragung zu schützen.",
+      "monitoring_title": "Überwachung und Redundanz",
+      "monitoring_desc": "Unsere fortschrittlichen Überwachungs- und Alarmsysteme, kombiniert mit mehreren redundanten Systemen, gewährleisten hohe Verfügbarkeit und minimieren Ausfallzeiten.",
+      "backend_title": "Sichere Backend-Systeme",
+      "backend_desc": "Alle Backend-Systeme sind durch Multi-Faktor-Authentifizierung (MFA) gesichert, um unbefugten Zugriff auf Kundendaten zu verhindern.",
+      "audits_title": "Regelmäßige Sicherheitsaudits",
+      "audits_desc": "Blue unterzieht sich regelmäßigen Sicherheitsaudits durch Dritte, um potenzielle Schwachstellen zu identifizieren und zu beheben.",
+      "backups_title": "Tägliche Datensicherungen",
+      "backups_desc": "Ihre Daten werden täglich gesichert, um die Datenintegrität zu gewährleisten und eine schnelle Wiederherstellung im Notfall zu ermöglichen.",
+      "researchers_title": "Externe Sicherheitsforscher",
+      "researchers_desc": "Blue arbeitet mit externen Sicherheitsforschern zusammen, um Schwachstellen proaktiv zu identifizieren und zu beheben."
+    },
+    "detailed_link": "Detaillierte Sicherheitsinformationen und Compliance-Zertifikate anzeigen",
+    "stats": {
+      "title": "Weltweit von Organisationen für Sicherheit und Zuverlässigkeit vertraut",
+      "teams": {
+        "number": "17000+",
+        "label": "Teams vertrauen Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "Länder bedient"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB an Daten"
+      }
+    },
+    "cta": {
+      "title": "Bereit, Ihre Abläufe zu sichern?",
+      "secondary_text": "Vertrieb kontaktieren",
+      "secondary_url": "/contact",
+      "primary_text": "Kostenlose Testversion starten",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "ja": {
+    "page_title": "セキュリティ",
+    "page_subtitle": "Blueは最初からセキュリティとスケーラビリティを重視して設計されています。",
+    "features": {
+      "encryption_title": "エンタープライズレベルの暗号化",
+      "encryption_desc": "BlueはAWSのエンタープライズレベルの暗号化を利用し、静止時と転送時の両方でお客様の機密データを保護します。",
+      "monitoring_title": "監視と冗長性",
+      "monitoring_desc": "高度な監視・アラートシステムと複数の冗長システムにより、高い可用性を確保し、ダウンタイムを最小限に抑えます。",
+      "backend_title": "安全なバックエンドシステム",
+      "backend_desc": "すべてのバックエンドシステムは多要素認証（MFA）で保護されており、顧客データへの不正アクセスを防止します。",
+      "audits_title": "定期的なセキュリティ監査",
+      "audits_desc": "Blueは第三者による定期的なセキュリティ監査を受け、潜在的な脆弱性を特定し対処しています。",
+      "backups_title": "毎日のデータバックアップ",
+      "backups_desc": "データの完全性を確保し、災害時の迅速な復旧を可能にするため、毎日バックアップを実施しています。",
+      "researchers_title": "外部セキュリティ研究者",
+      "researchers_desc": "Blueは外部のセキュリティ研究者と連携し、脆弱性を積極的に特定・解決しています。"
+    },
+    "detailed_link": "詳細なセキュリティ情報と認証を見る",
+    "stats": {
+      "title": "世界中の組織から信頼されるセキュリティと信頼性",
+      "teams": {
+        "number": "17000+",
+        "label": "チームがBlueを信頼"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "提供国数"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GBのデータ"
+      }
+    },
+    "cta": {
+      "title": "運用のセキュリティを強化しませんか？",
+      "secondary_text": "営業に問い合わせる",
+      "secondary_url": "/contact",
+      "primary_text": "無料トライアルを開始",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "pt": {
+    "page_title": "Segurança",
+    "page_subtitle": "A Blue foi projetada desde o início para segurança e escalabilidade.",
+    "features": {
+      "encryption_title": "Criptografia de nível empresarial",
+      "encryption_desc": "A Blue utiliza criptografia de nível empresarial da AWS para proteger seus dados sensíveis tanto em repouso quanto em trânsito.",
+      "monitoring_title": "Monitoramento e redundância",
+      "monitoring_desc": "Nossos sistemas avançados de monitoramento e alerta, combinados com múltiplos sistemas redundantes, garantem alta disponibilidade e minimizam o tempo de inatividade.",
+      "backend_title": "Sistemas backend seguros",
+      "backend_desc": "Todos os sistemas backend são protegidos por autenticação multifator (MFA) para evitar acesso não autorizado aos dados dos clientes.",
+      "audits_title": "Auditorias de segurança regulares",
+      "audits_desc": "A Blue passa por auditorias de segurança regulares realizadas por terceiros para identificar e corrigir possíveis vulnerabilidades.",
+      "backups_title": "Backups diários de dados",
+      "backups_desc": "Seus dados são copiados diariamente para garantir a integridade e permitir uma rápida recuperação em caso de desastre.",
+      "researchers_title": "Pesquisadores de segurança externos",
+      "researchers_desc": "A Blue trabalha com pesquisadores de segurança externos para identificar e resolver vulnerabilidades de forma proativa."
+    },
+    "detailed_link": "Ver informações detalhadas de segurança e certificações de conformidade",
+    "stats": {
+      "title": "Confiado por organizações em todo o mundo por segurança e confiabilidade",
+      "teams": {
+        "number": "17000+",
+        "label": "equipes confiam na Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "países atendidos"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB de dados"
+      }
+    },
+    "cta": {
+      "title": "Pronto para proteger suas operações?",
+      "secondary_text": "Falar com vendas",
+      "secondary_url": "/contact",
+      "primary_text": "Iniciar teste gratuito",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "ru": {
+    "page_title": "Безопасность",
+    "page_subtitle": "Blue разработан с нуля с учетом безопасности и масштабируемости.",
+    "features": {
+      "encryption_title": "Шифрование корпоративного уровня",
+      "encryption_desc": "Blue использует шифрование корпоративного уровня AWS для защиты ваших конфиденциальных данных как в состоянии покоя, так и при передаче.",
+      "monitoring_title": "Мониторинг и избыточность",
+      "monitoring_desc": "Наши современные системы мониторинга и оповещений, а также несколько резервных систем обеспечивают высокую доступность и минимизируют простои.",
+      "backend_title": "Безопасные серверные системы",
+      "backend_desc": "Все серверные системы защищены многофакторной аутентификацией (MFA) для предотвращения несанкционированного доступа к данным клиентов.",
+      "audits_title": "Регулярные аудиты безопасности",
+      "audits_desc": "Blue регулярно проходит аудиты безопасности сторонними организациями для выявления и устранения потенциальных уязвимостей.",
+      "backups_title": "Ежедневное резервное копирование данных",
+      "backups_desc": "Ваши данные ежедневно резервируются для обеспечения их целостности и быстрой аварийной восстановления при необходимости.",
+      "researchers_title": "Внешние исследователи безопасности",
+      "researchers_desc": "Blue сотрудничает с внешними исследователями безопасности для проактивного выявления и устранения уязвимостей."
+    },
+    "detailed_link": "Просмотреть подробную информацию о безопасности и сертификаты соответствия",
+    "stats": {
+      "title": "Доверие организаций по всему миру к безопасности и надежности",
+      "teams": {
+        "number": "17000+",
+        "label": "команд доверяют Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "стран обслуживается"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "ГБ данных"
+      }
+    },
+    "cta": {
+      "title": "Готовы обезопасить свои операции?",
+      "secondary_text": "Связаться с отделом продаж",
+      "secondary_url": "/contact",
+      "primary_text": "Начать бесплатную пробную версию",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "ko": {
+    "page_title": "보안",
+    "page_subtitle": "Blue는 처음부터 보안과 확장성을 고려하여 설계되었습니다.",
+    "features": {
+      "encryption_title": "엔터프라이즈급 암호화",
+      "encryption_desc": "Blue는 AWS 엔터프라이즈급 암호화를 사용하여 귀하의 민감한 데이터를 저장 및 전송 시 모두 보호합니다.",
+      "monitoring_title": "모니터링 및 이중화",
+      "monitoring_desc": "고급 모니터링 및 알림 시스템과 여러 이중화 시스템이 결합되어 높은 가용성을 보장하고 다운타임을 최소화합니다.",
+      "backend_title": "안전한 백엔드 시스템",
+      "backend_desc": "모든 백엔드 시스템은 다중 인증(MFA)으로 보호되어 고객 데이터에 대한 무단 접근을 방지합니다.",
+      "audits_title": "정기적인 보안 감사",
+      "audits_desc": "Blue는 제3자를 통한 정기적인 보안 감사를 받아 잠재적인 취약점을 식별하고 해결합니다.",
+      "backups_title": "일일 데이터 백업",
+      "backups_desc": "데이터 무결성을 보장하고 필요 시 신속한 재해 복구가 가능하도록 매일 데이터를 백업합니다.",
+      "researchers_title": "외부 보안 연구원",
+      "researchers_desc": "Blue는 외부 보안 연구원과 협력하여 취약점을 사전에 식별하고 해결합니다."
+    },
+    "detailed_link": "자세한 보안 정보 및 인증 보기",
+    "stats": {
+      "title": "전 세계 조직이 신뢰하는 보안과 신뢰성",
+      "teams": {
+        "number": "17000+",
+        "label": "팀이 Blue를 신뢰합니다"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "서비스 국가"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB 데이터"
+      }
+    },
+    "cta": {
+      "title": "운영을 안전하게 보호할 준비가 되셨나요?",
+      "secondary_text": "영업팀 문의",
+      "secondary_url": "/contact",
+      "primary_text": "무료 체험 시작",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "it": {
+    "page_title": "Sicurezza",
+    "page_subtitle": "Blue è progettato fin dall'inizio per sicurezza e scalabilità.",
+    "features": {
+      "encryption_title": "Crittografia di livello aziendale",
+      "encryption_desc": "Blue utilizza la crittografia di livello aziendale AWS per proteggere i tuoi dati sensibili sia a riposo che in transito.",
+      "monitoring_title": "Monitoraggio e ridondanza",
+      "monitoring_desc": "I nostri avanzati sistemi di monitoraggio e allerta, combinati con molteplici sistemi ridondanti, garantiscono alta disponibilità e riducono al minimo i tempi di inattività.",
+      "backend_title": "Sistemi backend sicuri",
+      "backend_desc": "Tutti i sistemi backend sono protetti da autenticazione a più fattori (MFA) per prevenire accessi non autorizzati ai dati dei clienti.",
+      "audits_title": "Audit di sicurezza regolari",
+      "audits_desc": "Blue si sottopone regolarmente ad audit di sicurezza da parte di terzi per identificare e risolvere eventuali vulnerabilità.",
+      "backups_title": "Backup giornalieri dei dati",
+      "backups_desc": "I tuoi dati vengono sottoposti a backup quotidiano per garantire l'integrità e consentire un rapido ripristino in caso di necessità.",
+      "researchers_title": "Ricercatori di sicurezza esterni",
+      "researchers_desc": "Blue collabora con ricercatori di sicurezza esterni per identificare e risolvere proattivamente eventuali vulnerabilità."
+    },
+    "detailed_link": "Visualizza informazioni dettagliate sulla sicurezza e certificazioni di conformità",
+    "stats": {
+      "title": "Affidato da organizzazioni di tutto il mondo per sicurezza e affidabilità",
+      "teams": {
+        "number": "17000+",
+        "label": "team si affidano a Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "paesi serviti"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB di dati"
+      }
+    },
+    "cta": {
+      "title": "Pronto a mettere in sicurezza le tue operazioni?",
+      "secondary_text": "Contatta le vendite",
+      "secondary_url": "/contact",
+      "primary_text": "Inizia la prova gratuita",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "id": {
+    "page_title": "Keamanan",
+    "page_subtitle": "Blue dirancang sejak awal untuk keamanan dan skalabilitas.",
+    "features": {
+      "encryption_title": "Enkripsi Tingkat Perusahaan",
+      "encryption_desc": "Blue menggunakan enkripsi tingkat perusahaan AWS untuk melindungi data sensitif Anda baik saat diam maupun saat transit.",
+      "monitoring_title": "Pemantauan dan Redundansi",
+      "monitoring_desc": "Sistem pemantauan dan peringatan canggih kami, dikombinasikan dengan beberapa sistem redundan, memastikan ketersediaan tinggi dan meminimalkan waktu henti.",
+      "backend_title": "Sistem Backend Aman",
+      "backend_desc": "Semua sistem backend diamankan dengan autentikasi multi-faktor (MFA) untuk mencegah akses tidak sah ke data pelanggan.",
+      "audits_title": "Audit Keamanan Berkala",
+      "audits_desc": "Blue menjalani audit keamanan rutin oleh pihak ketiga untuk mengidentifikasi dan mengatasi potensi kerentanan.",
+      "backups_title": "Cadangan Data Harian",
+      "backups_desc": "Data Anda dicadangkan setiap hari untuk memastikan integritas data dan memungkinkan pemulihan bencana dengan cepat jika diperlukan.",
+      "researchers_title": "Peneliti Keamanan Eksternal",
+      "researchers_desc": "Blue bekerja sama dengan peneliti keamanan eksternal untuk secara proaktif mengidentifikasi dan menyelesaikan kerentanan apa pun."
+    },
+    "detailed_link": "Lihat informasi keamanan terperinci dan sertifikasi kepatuhan",
+    "stats": {
+      "title": "Dipercaya oleh organisasi di seluruh dunia untuk keamanan dan keandalan",
+      "teams": {
+        "number": "17000+",
+        "label": "tim mempercayai Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "negara dilayani"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB data"
+      }
+    },
+    "cta": {
+      "title": "Siap mengamankan operasi Anda?",
+      "secondary_text": "Hubungi penjualan",
+      "secondary_url": "/contact",
+      "primary_text": "Mulai uji coba gratis",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "nl": {
+    "page_title": "Beveiliging",
+    "page_subtitle": "Blue is vanaf de basis ontworpen voor beveiliging en schaalbaarheid.",
+    "features": {
+      "encryption_title": "Versleuteling op ondernemingsniveau",
+      "encryption_desc": "Blue gebruikt AWS-versleuteling op ondernemingsniveau om uw gevoelige gegevens zowel in rust als tijdens transport te beschermen.",
+      "monitoring_title": "Monitoring en redundantie",
+      "monitoring_desc": "Onze geavanceerde monitoring- en waarschuwingssystemen, gecombineerd met meerdere redundante systemen, zorgen voor hoge beschikbaarheid en minimaliseren uitvaltijd.",
+      "backend_title": "Veilige backend-systemen",
+      "backend_desc": "Alle backend-systemen zijn beveiligd met multi-factor authenticatie (MFA) om ongeautoriseerde toegang tot klantgegevens te voorkomen.",
+      "audits_title": "Regelmatige beveiligingsaudits",
+      "audits_desc": "Blue ondergaat regelmatige beveiligingsaudits door derden om potentiële kwetsbaarheden te identificeren en aan te pakken.",
+      "backups_title": "Dagelijkse databack-ups",
+      "backups_desc": "Uw gegevens worden dagelijks geback-upt om de integriteit te waarborgen en snelle herstelmogelijkheden bij calamiteiten te bieden.",
+      "researchers_title": "Externe beveiligingsonderzoekers",
+      "researchers_desc": "Blue werkt samen met externe beveiligingsonderzoekers om kwetsbaarheden proactief te identificeren en op te lossen."
+    },
+    "detailed_link": "Bekijk gedetailleerde beveiligingsinformatie en certificeringen",
+    "stats": {
+      "title": "Vertrouwd door organisaties wereldwijd voor beveiliging en betrouwbaarheid",
+      "teams": {
+        "number": "17000+",
+        "label": "teams vertrouwen op Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "landen bediend"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB aan data"
+      }
+    },
+    "cta": {
+      "title": "Klaar om uw operaties te beveiligen?",
+      "secondary_text": "Contact met verkoop",
+      "secondary_url": "/contact",
+      "primary_text": "Start gratis proefperiode",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "pl": {
+    "page_title": "Bezpieczeństwo",
+    "page_subtitle": "Blue został zaprojektowany od podstaw z myślą o bezpieczeństwie i skalowalności.",
+    "features": {
+      "encryption_title": "Szyfrowanie klasy korporacyjnej",
+      "encryption_desc": "Blue wykorzystuje szyfrowanie klasy korporacyjnej AWS, aby chronić Twoje wrażliwe dane zarówno w spoczynku, jak i podczas przesyłania.",
+      "monitoring_title": "Monitorowanie i redundancja",
+      "monitoring_desc": "Nasze zaawansowane systemy monitorowania i powiadamiania, w połączeniu z wieloma redundantnymi systemami, zapewniają wysoką dostępność i minimalizują przestoje.",
+      "backend_title": "Bezpieczne systemy backendowe",
+      "backend_desc": "Wszystkie systemy backendowe są zabezpieczone uwierzytelnianiem wieloskładnikowym (MFA), aby zapobiec nieautoryzowanemu dostępowi do danych klientów.",
+      "audits_title": "Regularne audyty bezpieczeństwa",
+      "audits_desc": "Blue przechodzi regularne audyty bezpieczeństwa przeprowadzane przez strony trzecie w celu identyfikacji i usuwania potencjalnych luk.",
+      "backups_title": "Codzienne kopie zapasowe danych",
+      "backups_desc": "Twoje dane są codziennie archiwizowane, aby zapewnić ich integralność i umożliwić szybką odbudowę w razie potrzeby.",
+      "researchers_title": "Zewnętrzni badacze bezpieczeństwa",
+      "researchers_desc": "Blue współpracuje z zewnętrznymi badaczami bezpieczeństwa, aby proaktywnie identyfikować i rozwiązywać wszelkie luki."
+    },
+    "detailed_link": "Zobacz szczegółowe informacje o bezpieczeństwie i certyfikaty zgodności",
+    "stats": {
+      "title": "Zaufany przez organizacje na całym świecie za bezpieczeństwo i niezawodność",
+      "teams": {
+        "number": "17000+",
+        "label": "zespoły ufają Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "obsługiwane kraje"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB danych"
+      }
+    },
+    "cta": {
+      "title": "Gotowy, aby zabezpieczyć swoje operacje?",
+      "secondary_text": "Skontaktuj się z działem sprzedaży",
+      "secondary_url": "/contact",
+      "primary_text": "Rozpocznij bezpłatny okres próbny",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "zh-TW": {
+    "page_title": "安全性",
+    "page_subtitle": "Blue 從一開始就以安全性與可擴展性為設計核心。",
+    "features": {
+      "encryption_title": "企業級加密",
+      "encryption_desc": "Blue 採用 AWS 企業級加密，保護您的敏感資料在靜態與傳輸過程中的安全。",
+      "monitoring_title": "監控與備援",
+      "monitoring_desc": "我們先進的監控與警報系統，結合多重備援，確保高可用性並將停機時間降至最低。",
+      "backend_title": "安全的後端系統",
+      "backend_desc": "所有後端系統皆以多重驗證（MFA）保護，防止未經授權存取客戶資料。",
+      "audits_title": "定期安全稽核",
+      "audits_desc": "Blue 定期接受第三方安全稽核，主動發現並解決潛在漏洞。",
+      "backups_title": "每日資料備份",
+      "backups_desc": "您的資料每日備份，確保資料完整性，並於需要時能快速災難復原。",
+      "researchers_title": "外部安全研究人員",
+      "researchers_desc": "Blue 與外部安全研究人員合作，主動識別並解決任何潛在漏洞。"
+    },
+    "detailed_link": "檢視詳細安全資訊與合規認證",
+    "stats": {
+      "title": "全球組織信賴的安全與可靠性",
+      "teams": {
+        "number": "17000+",
+        "label": "團隊信賴 Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "服務國家"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB 資料"
+      }
+    },
+    "cta": {
+      "title": "準備好保護您的營運了嗎？",
+      "secondary_text": "聯絡銷售",
+      "secondary_url": "/contact",
+      "primary_text": "開始免費試用",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "sv": {
+    "page_title": "Säkerhet",
+    "page_subtitle": "Blue är utformad från grunden för säkerhet och skalbarhet.",
+    "features": {
+      "encryption_title": "Kryptering på företagsnivå",
+      "encryption_desc": "Blue använder AWS-kryptering på företagsnivå för att skydda din känsliga data både i vila och under överföring.",
+      "monitoring_title": "Övervakning och redundans",
+      "monitoring_desc": "Våra avancerade övervaknings- och varningssystem, i kombination med flera redundanta system, säkerställer hög tillgänglighet och minimerar driftstopp.",
+      "backend_title": "Säkra backend-system",
+      "backend_desc": "Alla backend-system är skyddade med multifaktorautentisering (MFA) för att förhindra obehörig åtkomst till kunddata.",
+      "audits_title": "Regelbundna säkerhetsgranskningar",
+      "audits_desc": "Blue genomgår regelbundna säkerhetsgranskningar av tredje part för att identifiera och åtgärda eventuella sårbarheter.",
+      "backups_title": "Dagliga säkerhetskopior av data",
+      "backups_desc": "Din data säkerhetskopieras dagligen för att säkerställa dataintegritet och möjliggöra snabb återställning vid behov.",
+      "researchers_title": "Externa säkerhetsforskare",
+      "researchers_desc": "Blue samarbetar med externa säkerhetsforskare för att proaktivt identifiera och åtgärda eventuella sårbarheter."
+    },
+    "detailed_link": "Visa detaljerad säkerhetsinformation och certifieringar",
+    "stats": {
+      "title": "Betrodd av organisationer världen över för säkerhet och tillförlitlighet",
+      "teams": {
+        "number": "17000+",
+        "label": "team litar på Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "länder betjänas"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB data"
+      }
+    },
+    "cta": {
+      "title": "Redo att säkra din verksamhet?",
+      "secondary_text": "Kontakta säljteamet",
+      "secondary_url": "/contact",
+      "primary_text": "Starta gratis provperiod",
+      "primary_url": "https://app.blue.cc"
+    }
+  },
+  "km": {
+    "page_title": "សុវត្ថិភាព",
+    "page_subtitle": "Blue ត្រូវបានរចនាចាប់តាំងពីដំបូងសម្រាប់សុវត្ថិភាព និងសមត្ថភាពពង្រីក។",
+    "features": {
+      "encryption_title": "ការអ៊ិនគ្រីបកម្រិតសហគ្រាស",
+      "encryption_desc": "Blue ប្រើការអ៊ិនគ្រីបកម្រិតសហគ្រាសរបស់ AWS ដើម្បីការពារទិន្នន័យសំខាន់របស់អ្នកទាំងនៅពេលស្ងប់ និងពេលផ្ទេរ។",
+      "monitoring_title": "ការត្រួតពិនិត្យ និងការបម្រុងទុក",
+      "monitoring_desc": "ប្រព័ន្ធត្រួតពិនិត្យ និងជូនដំណឹងកម្រិតខ្ពស់របស់យើង រួមបញ្ចូលនឹងប្រព័ន្ធបម្រុងទុកជាច្រើនធានាថាមានភាពអាចប្រើបានខ្ពស់ និងកាត់បន្ថយពេលឈប់ដំណើរការ។",
+      "backend_title": "ប្រព័ន្ធ backend មានសុវត្ថិភាព",
+      "backend_desc": "ប្រព័ន្ធ backend ទាំងអស់ត្រូវបានការពារដោយការផ្ទៀងផ្ទាត់អត្តសញ្ញាណពហុកត្តា (MFA) ដើម្បីបញ្ចៀសការចូលប្រើដោយគ្មានការអនុញ្ញាតទៅទិន្នន័យអតិថិជន។",
+      "audits_title": "ការត្រួតពិនិត្យសុវត្ថិភាពជាប្រចាំ",
+      "audits_desc": "Blue ត្រូវបានត្រួតពិនិត្យសុវត្ថិភាពជាប្រចាំដោយភាគីទីបី ដើម្បីកំណត់ និងដោះស្រាយចំណុចខ្សោយអាចកើតមាន។",
+      "backups_title": "ការបម្រុងទុកទិន្នន័យប្រចាំថ្ងៃ",
+      "backups_desc": "ទិន្នន័យរបស់អ្នកត្រូវបានបម្រុងទុករៀងរាល់ថ្ងៃ ដើម្បីធានាថាមានភាពគ្រប់គ្រង និងអាចស្ដារឡើងវិញបានយ៉ាងឆាប់រហ័សបើចាំបាច់។",
+      "researchers_title": "អ្នកស្រាវជ្រាវសុវត្ថិភាពខាងក្រៅ",
+      "researchers_desc": "Blue ធ្វើការជាមួយអ្នកស្រាវជ្រាវសុវត្ថិភាពខាងក្រៅ ដើម្បីកំណត់ និងដោះស្រាយចំណុចខ្សោយជាសកម្ម។"
+    },
+    "detailed_link": "មើលព័ត៌មានសុវត្ថិភាពលម្អិត និងវិញ្ញាបនបត្រត្រូវគ្នា",
+    "stats": {
+      "title": "ទទួលបានការជឿទុកចិត្តពីអង្គភាពជុំវិញពិភពលោកសម្រាប់សុវត្ថិភាព និងភាពទុកចិត្តបាន",
+      "teams": {
+        "number": "17000+",
+        "label": "ក្រុមជឿទុកចិត្ត Blue"
+      },
+      "countries": {
+        "number": "120+",
+        "label": "ប្រទេសដែលបម្រើ"
+      },
+      "data": {
+        "number": "60000+",
+        "label": "GB ទិន្នន័យ"
+      }
+    },
+    "cta": {
+      "title": "តើអ្នកត្រៀមខ្លួនរួចសម្រាប់ការពារប្រតិបត្តិការរបស់អ្នកឬនៅ?",
+      "secondary_text": "ទាក់ទងផ្នែកលក់",
+      "secondary_url": "/contact",
+      "primary_text": "ចាប់ផ្តើមសាកល្បងឥតគិតថ្លៃ",
+      "primary_url": "https://app.blue.cc"
+    }
+  }
+} 

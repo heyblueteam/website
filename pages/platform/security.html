@@ -2,8 +2,8 @@
     <!-- Custom Security Heading with Airport Flip Effect -->
     <div class="mb-16" 
          x-data="{ 
-             title: 'Security',
-             subtitle: 'Blue is designed from the ground up for security and scale.',
+             title: '{{t "security.page_title"}}',
+             subtitle: '{{t "security.page_subtitle"}}',
              words: [],
              animatedWords: [], 
              showSubtitle: false
@@ -64,80 +64,80 @@
         <!-- Enterprise-Level Encryption -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4 border-b border-gray-200 dark:border-gray-700 md:border-r md:dark:border-gray-700">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'Enterprise-Level Encryption'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.encryption_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">Blue utilizes AWS enterprise-level encryption to protect your sensitive data both at rest and in transit.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.encryption_desc"}}</p>
         </div>
         
         <!-- Advanced Monitoring -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4 border-b border-gray-200 dark:border-gray-700">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'Monitoring and Redundancy'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.monitoring_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">Our advanced monitoring and alert systems, combined with multiple redundant systems, ensure high availability and minimize downtime.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.monitoring_desc"}}</p>
         </div>
         
         <!-- Secure Backend -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4 border-b border-gray-200 dark:border-gray-700 md:border-r md:dark:border-gray-700">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'Secure Backend Systems'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.backend_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">All backend systems are secured by multi-factor authentication (MFA) to prevent unauthorized access to customer data.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.backend_desc"}}</p>
         </div>
         
         <!-- Security Audits -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4 border-b border-gray-200 dark:border-gray-700">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'Regular Security Audits'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.audits_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">Blue undergoes regular security audits by third parties to identify and address any potential vulnerabilities.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.audits_desc"}}</p>
         </div>
         
         <!-- Daily Data Backups -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4 md:border-r border-gray-200 dark:border-gray-700 md:dark:border-gray-700">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'Daily Data Backups'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.backups_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">Your data is backed up daily to ensure data integrity and enable quick disaster recovery if needed.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.backups_desc"}}</p>
         </div>
         
         <!-- External Security Researchers -->
         <div class="p-6 sm:p-8 space-y-3 sm:space-y-4">
             <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-gray-100">
-                <template x-for="(char, index) in 'External Security Researchers'.split('')" :key="index">
+                <template x-for="(char, index) in '{{t "security.features.researchers_title"}}'.split('')" :key="index">
                     <span @mouseenter="window.flipChar($event)" 
                           :class="char === ' ' ? '' : 'flip-char'" 
                           x-text="char"></span>
                 </template>
             </h3>
-            <p class="text-gray-600 dark:text-gray-400">Blue works with external security researchers to identify and resolve any vulnerabilities proactively.</p>
+            <p class="text-gray-600 dark:text-gray-400">{{t "security.features.researchers_desc"}}</p>
         </div>
     </div>
 
     <!-- Link to detailed security information -->
     <div class="max-w-5xl mx-auto mb-20 text-center">
         <a href="/legal/security" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-            View detailed security information and compliance certifications
+            {{t "security.detailed_link"}}
             <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
@@ -145,34 +145,25 @@
     </div>
 
     <!-- Stats Section -->
-    {{$statsData := parseJSON `{
-        "Title": "Trusted by organizations worldwide for security and reliability",
+    {{$statsData := parseJSON (printf `{
+        "Title": "%s",
         "Stats": [
-            {
-                "Number": "17000+",
-                "Description": "teams trust Blue"
-            },
-            {
-                "Number": "120+",
-                "Description": "countries served"
-            },
-            {
-                "Number": "60000+",
-                "Description": "GB of data"
-            }
+            {"Number": "%s", "Description": "%s"},
+            {"Number": "%s", "Description": "%s"},
+            {"Number": "%s", "Description": "%s"}
         ]
-    }`}}
+    }` (t "security.stats.title") (t "security.stats.teams.number") (t "security.stats.teams.label") (t "security.stats.countries.number") (t "security.stats.countries.label") (t "security.stats.data.number") (t "security.stats.data.label"))}}
     
     {{template "stats-section" $statsData}}
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Ready to secure your operations?",
-        "SecondaryText": "Contact sales",
-        "SecondaryUrl": "/contact",
-        "PrimaryText": "Start free trial",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := parseJSON (printf `{
+        "Title": "%s",
+        "SecondaryText": "%s",
+        "SecondaryUrl": "%s",
+        "PrimaryText": "%s",
+        "PrimaryUrl": "%s"
+    }` (t "security.cta.title") (t "security.cta.secondary_text") (t "security.cta.secondary_url") (t "security.cta.primary_text") (t "security.cta.primary_url"))}}
     
     {{template "dual-button-cta" $ctaData}}
 
