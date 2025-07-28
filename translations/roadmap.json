@@ -2026,5 +2026,473 @@
         "description": "Pozwala właścicielom firmy zapraszać się do dowolnego projektu"
       }
     }
+  },
+  "zh-TW": {
+    "page_title": "產品路線圖",
+    "subtitle": "追蹤我們的進展，了解即將推出的功能",
+    "columns": {
+      "ideas": "想法",
+      "planned": "已計劃",
+      "in_progress": "進行中",
+      "testing": "測試中"
+    },
+    "changelog_card": {
+      "title": "查看我們的更新日誌",
+      "description": "查看最新功能和改進。"
+    },
+    "items": {
+      "voice_notes": {
+        "title": "語音筆記",
+        "description": "在評論區添加帶轉錄的語音筆記"
+      },
+      "ai_project_assistant": {
+        "title": "AI專案助手",
+        "description": "用於專案管理的智慧助手"
+      },
+      "ai_email_automations": {
+        "title": "AI郵件自動化",
+        "description": "使用AI增強郵件自動化功能"
+      },
+      "rest_api": {
+        "title": "REST API",
+        "description": "在現有GraphQL API之上添加REST API"
+      },
+      "n8n_integration": {
+        "title": "n8n整合",
+        "description": "將Blue與n8n連接以實現高級工作流程自動化"
+      },
+      "mcp_server": {
+        "title": "MCP伺服器",
+        "description": "用於AI整合的模型上下文協議伺服器"
+      },
+      "data_residency": {
+        "title": "資料駐留選項",
+        "description": "選擇資料儲存位置：美國/歐盟/亞太地區"
+      },
+      "time_tracking": {
+        "title": "時間追蹤",
+        "description": "追蹤時間並生成可下載的時間表"
+      },
+      "saved_filtered_views": {
+        "title": "儲存的篩選檢視",
+        "description": "建立並儲存自訂篩選的專案檢視"
+      },
+      "customizable_project_tabs": {
+        "title": "可自訂的專案標籤頁",
+        "description": "使用自訂標籤頁個人化專案介面"
+      },
+      "public_views": {
+        "title": "公開檢視",
+        "description": "將專案檢視作為公開唯讀連結分享"
+      },
+      "multiple_company_owners": {
+        "title": "多個公司所有者",
+        "description": "支援多個公司所有者"
+      },
+      "customizable_cards": {
+        "title": "可自訂卡片",
+        "description": "選擇要在卡片正面顯示的欄位"
+      },
+      "enhanced_login_options": {
+        "title": "增強的登入選項",
+        "description": "更多登入方式和安全功能"
+      },
+      "project_level_dashboard": {
+        "title": "專案級儀表板",
+        "description": "特定於專案的儀表板"
+      },
+      "reseller_platform": {
+        "title": "經銷商平台",
+        "description": "專門為經銷商設計的平台"
+      },
+      "threaded_comments": {
+        "title": "線程評論",
+        "description": "允許在評論中回覆和建立線程"
+      },
+      "dashboard_tables": {
+        "title": "儀表板表格",
+        "description": "在儀表板中建立可自訂的表格"
+      },
+      "share_file_folders": {
+        "title": "分享檔案資料夾",
+        "description": "建立資料夾的公開分享連結"
+      },
+      "multi_homing_records": {
+        "title": "多歸屬記錄",
+        "description": "允許記錄同時存在於多個專案中"
+      },
+      "memory_usage_optimization": {
+        "title": "記憶體使用優化",
+        "description": "提高效能並減少記憶體占用"
+      },
+      "scheduled_automations": {
+        "title": "計劃自動化",
+        "description": "設定自動化在特定時間或間隔執行"
+      },
+      "relative_date_actions": {
+        "title": "相對日期操作",
+        "description": "基於動態日期計算建立操作"
+      },
+      "system_upgrade": {
+        "title": "系統升級",
+        "description": "Vue2升級到Vue3和新的快取引擎"
+      },
+      "new_design_system": {
+        "title": "新設計系統",
+        "description": "Vuetify2升級到Vuetify3"
+      },
+      "mobile_app_speed": {
+        "title": "行動應用速度改進",
+        "description": "iOS和Android效能增強"
+      },
+      "copy_automation": {
+        "title": "複製自動化",
+        "description": "在專案內複製自動化的功能"
+      },
+      "conditional_automations": {
+        "title": "條件自動化",
+        "description": "為自動化觸發器添加與/或邏輯"
+      },
+      "zapier_integration": {
+        "title": "Zapier整合",
+        "description": "通過Zapier將Blue與數千個應用程式連接"
+      },
+      "relative_date_triggers": {
+        "title": "相對日期觸發器",
+        "description": "基於到期日期前後的天數觸發自動化"
+      },
+      "enhanced_cover_images": {
+        "title": "增強的封面圖像",
+        "description": "更好的圖像處理，包括裁剪和優化功能"
+      },
+      "custom_date_automations": {
+        "title": "自訂日期自動化",
+        "description": "基於自訂日期欄位值建立自動化"
+      },
+      "file_renaming": {
+        "title": "檔案重新命名",
+        "description": "直接在Blue中重新命名上傳的檔案"
+      },
+      "granular_deletion_permissions": {
+        "title": "細粒度刪除權限",
+        "description": "控制特定使用者角色的記錄刪除權限"
+      },
+      "owner_project_access": {
+        "title": "所有者專案存取權限",
+        "description": "允許公司所有者自行邀請加入任何專案"
+      }
+    }
+  },
+  "sv": {
+    "page_title": "Produktvägkarta",
+    "subtitle": "Följ våra framsteg och se vad som kommer härnäst",
+    "columns": {
+      "ideas": "Idéer",
+      "planned": "Planerat",
+      "in_progress": "Pågående",
+      "testing": "Testar"
+    },
+    "changelog_card": {
+      "title": "Kolla in vår ändringslogg",
+      "description": "Se de senaste funktionerna och förbättringarna."
+    },
+    "items": {
+      "voice_notes": {
+        "title": "Röstanteckningar",
+        "description": "Lägg till röstanteckningar med transkriptioner i kommentarsområden"
+      },
+      "ai_project_assistant": {
+        "title": "AI-projektassistent",
+        "description": "Intelligent assistent för projekthantering"
+      },
+      "ai_email_automations": {
+        "title": "AI-e-postautomatiseringar",
+        "description": "Förbättra e-postautomatiseringar med AI"
+      },
+      "rest_api": {
+        "title": "REST API",
+        "description": "Lägg till ett REST API ovanpå befintligt GraphQL API"
+      },
+      "n8n_integration": {
+        "title": "n8n-integration",
+        "description": "Anslut Blue med n8n för avancerad arbetsflödesautomatisering"
+      },
+      "mcp_server": {
+        "title": "MCP-server",
+        "description": "Model Context Protocol-server för AI-integrationer"
+      },
+      "data_residency": {
+        "title": "Dataresidensalternativ",
+        "description": "Välj datalagringsplats i US/EU/APAC"
+      },
+      "time_tracking": {
+        "title": "Tidsspårning",
+        "description": "Spåra tid och generera nedladdningsbara tidrapporter"
+      },
+      "saved_filtered_views": {
+        "title": "Sparade filtrerade vyer",
+        "description": "Skapa och spara anpassade filtrerade projektvyer"
+      },
+      "customizable_project_tabs": {
+        "title": "Anpassningsbara projektflikar",
+        "description": "Anpassa projektgränssnittet med anpassade flikar"
+      },
+      "public_views": {
+        "title": "Offentliga vyer",
+        "description": "Dela projektvyer som offentliga skrivskyddade länkar"
+      },
+      "multiple_company_owners": {
+        "title": "Flera företagsägare",
+        "description": "Stöd för flera företagsägare"
+      },
+      "customizable_cards": {
+        "title": "Anpassningsbara kort",
+        "description": "Välj fält att visa på kortets framsida"
+      },
+      "enhanced_login_options": {
+        "title": "Förbättrade inloggningsalternativ",
+        "description": "Fler inloggningsmetoder och säkerhetsfunktioner"
+      },
+      "project_level_dashboard": {
+        "title": "Projektnivå Dashboard",
+        "description": "Projektspecifik dashboard"
+      },
+      "reseller_platform": {
+        "title": "Återförsäljarplattform",
+        "description": "Dedikerad plattform för återförsäljare"
+      },
+      "threaded_comments": {
+        "title": "Trådade kommentarer",
+        "description": "Tillåt svar och trådar i kommentarer"
+      },
+      "dashboard_tables": {
+        "title": "Dashboard-tabeller",
+        "description": "Skapa anpassningsbara tabeller i dashboards"
+      },
+      "share_file_folders": {
+        "title": "Dela filmappar",
+        "description": "Skapa offentliga delningslänkar för mappar"
+      },
+      "multi_homing_records": {
+        "title": "Multi-homing poster",
+        "description": "Tillåt poster att existera i flera projekt samtidigt"
+      },
+      "memory_usage_optimization": {
+        "title": "Minnesanvändningsoptimering",
+        "description": "Förbättra prestanda och minska minnesavtrycket"
+      },
+      "scheduled_automations": {
+        "title": "Schemalagda automatiseringar",
+        "description": "Ställ in automatiseringar att köras vid specifika tider eller intervaller"
+      },
+      "relative_date_actions": {
+        "title": "Relativa datumåtgärder",
+        "description": "Skapa åtgärder baserade på dynamiska datumberäkningar"
+      },
+      "system_upgrade": {
+        "title": "Systemuppgradering",
+        "description": "Vue2 till Vue3 uppgradering och ny cache-motor"
+      },
+      "new_design_system": {
+        "title": "Nytt designsystem",
+        "description": "Vuetify2 till Vuetify3 uppgradering"
+      },
+      "mobile_app_speed": {
+        "title": "Mobilapp hastighetsförbättringar",
+        "description": "iOS & Android prestandaförbättringar"
+      },
+      "copy_automation": {
+        "title": "Kopiera automatisering",
+        "description": "Möjlighet att kopiera automatisering inom ett projekt"
+      },
+      "conditional_automations": {
+        "title": "Villkorliga automatiseringar",
+        "description": "Lägg till OCH/ELLER-logik till automatiseringstriggers"
+      },
+      "zapier_integration": {
+        "title": "Zapier-integration",
+        "description": "Anslut Blue med tusentals appar genom Zapier"
+      },
+      "relative_date_triggers": {
+        "title": "Relativa datumtriggers",
+        "description": "Utlös automatiseringar baserat på dagar före eller efter förfallodatum"
+      },
+      "enhanced_cover_images": {
+        "title": "Förbättrade omslagsbilder",
+        "description": "Bättre bildhantering med beskärnings- och optimeringsfunktioner"
+      },
+      "custom_date_automations": {
+        "title": "Anpassade datumautomatiseringar",
+        "description": "Skapa automatiseringar baserade på anpassade datumfältvärden"
+      },
+      "file_renaming": {
+        "title": "Filnamnbyte",
+        "description": "Byt namn på uppladdade filer direkt inom Blue"
+      },
+      "granular_deletion_permissions": {
+        "title": "Granulära raderingsbehörigheter",
+        "description": "Kontrollera postraderingsrättigheter för specifika användarroller"
+      },
+      "owner_project_access": {
+        "title": "Ägarprojektåtkomst",
+        "description": "Tillåt företagsägare att själv-bjuda in sig till vilket projekt som helst"
+      }
+    }
+  },
+  "km": {
+    "page_title": "ផែនការផលិតផល",
+    "subtitle": "តាមដានវឌ្ឍនភាពរបស់យើង និងមើលអ្វីដែលនឹងមកដល់",
+    "columns": {
+      "ideas": "គំនិត",
+      "planned": "បានគ្រោង",
+      "in_progress": "កំពុងដំណើរការ",
+      "testing": "កំពុងសាកល្បង"
+    },
+    "changelog_card": {
+      "title": "មើលកំណត់ហេតុផ្លាស់ប្តូររបស់យើង",
+      "description": "មើលមុខងារ និងការកែលម្អថ្មីៗ។"
+    },
+    "items": {
+      "voice_notes": {
+        "title": "កំណត់ត្រាសំឡេង",
+        "description": "បន្ថែមកំណត់ត្រាសំឡេងជាមួយការចម្លងនៅក្នុងតំបន់មតិយោបល់"
+      },
+      "ai_project_assistant": {
+        "title": "ជំនួយការគម្រោង AI",
+        "description": "ជំនួយការឆ្លាតវៃសម្រាប់ការគ្រប់គ្រងគម្រោង"
+      },
+      "ai_email_automations": {
+        "title": "ស្វ័យប្រវត្តិកម្មអ៊ីមែលជាមួយ AI",
+        "description": "ពង្រឹងស្វ័យប្រវត្តិកម្មអ៊ីមែលជាមួយ AI"
+      },
+      "rest_api": {
+        "title": "REST API",
+        "description": "បន្ថែម REST API លើ GraphQL API ដែលមានស្រាប់"
+      },
+      "n8n_integration": {
+        "title": "ការរួមបញ្ចូល n8n",
+        "description": "ភ្ជាប់ Blue ជាមួយ n8n សម្រាប់ស្វ័យប្រវត្តិកម្មលំហូរការងារកម្រិតខ្ពស់"
+      },
+      "mcp_server": {
+        "title": "ម៉ាស៊ីនមេ MCP",
+        "description": "ម៉ាស៊ីនមេពិធីការបរិបទគំរូសម្រាប់ការរួមបញ្ចូល AI"
+      },
+      "data_residency": {
+        "title": "ជម្រើសទីលំនៅទិន្នន័យ",
+        "description": "ជ្រើសទីតាំងផ្ទុកទិន្នន័យនៅ US/EU/APAC"
+      },
+      "time_tracking": {
+        "title": "ការតាមដានពេលវេលា",
+        "description": "តាមដានពេលវេលា និងបង្កើតសន្លឹកពេលវេលាដែលអាចទាញយកបាន"
+      },
+      "saved_filtered_views": {
+        "title": "ទិដ្ឋភាពដែលបានរក្សាទុកត្រងចេញ",
+        "description": "បង្កើត និងរក្សាទុកទិដ្ឋភាពគម្រោងដែលបានត្រងផ្ទាល់ខ្លួន"
+      },
+      "customizable_project_tabs": {
+        "title": "ផ្ទាំងគម្រោងដែលអាចកែប្រែបាន",
+        "description": "ធ្វើឱ្យចំណុចប្រទាក់គម្រោងមានលក្ខណៈផ្ទាល់ខ្លួនជាមួយផ្ទាំងផ្ទាល់ខ្លួន"
+      },
+      "public_views": {
+        "title": "ទិដ្ឋភាពសាធារណៈ",
+        "description": "ចែករំលែកទិដ្ឋភាពគម្រោងជាតំណសាធារណៈសម្រាប់តែអាន"
+      },
+      "multiple_company_owners": {
+        "title": "ម្ចាស់ក្រុមហ៊ុនច្រើននាក់",
+        "description": "គាំទ្រសម្រាប់ម្ចាស់ក្រុមហ៊ុនច្រើននាក់"
+      },
+      "customizable_cards": {
+        "title": "កាតដែលអាចកែប្រែបាន",
+        "description": "ជ្រើសវាលដើម្បីបង្ហាញនៅលើផ្នែកខាងមុខកាត"
+      },
+      "enhanced_login_options": {
+        "title": "ជម្រើសចូលដែលបានពង្រឹង",
+        "description": "វិធីចូលច្រើនទៀត និងមុខងារសុវត្ថិភាព"
+      },
+      "project_level_dashboard": {
+        "title": "ផ្ទាំងគ្រប់គ្រងកម្រិតគម្រោង",
+        "description": "ផ្ទាំងគ្រប់គ្រងជាក់លាក់គម្រោង"
+      },
+      "reseller_platform": {
+        "title": "វេទិកាអ្នកលក់បន្ត",
+        "description": "វេទិកាពិសេសសម្រាប់អ្នកលក់បន្ត"
+      },
+      "threaded_comments": {
+        "title": "មតិយោបល់ជាខ្សែស្រឡាយ",
+        "description": "អនុញ្ញាតការឆ្លើយតប និងខ្សែស្រឡាយក្នុងមតិយោបល់"
+      },
+      "dashboard_tables": {
+        "title": "តារាងផ្ទាំងគ្រប់គ្រង",
+        "description": "បង្កើតតារាងដែលអាចកែប្រែបានក្នុងផ្ទាំងគ្រប់គ្រង"
+      },
+      "share_file_folders": {
+        "title": "ចែករំលែកថតឯកសារ",
+        "description": "បង្កើតតំណចែករំលែកសាធារណៈសម្រាប់ថត"
+      },
+      "multi_homing_records": {
+        "title": "កំណត់ត្រាពហុគម្រោង",
+        "description": "អនុញ្ញាតឱ្យកំណត់ត្រាមាននៅក្នុងគម្រោងច្រើនក្នុងពេលតែមួយ"
+      },
+      "memory_usage_optimization": {
+        "title": "ការបង្កើនប្រសិទ្ធភាពការប្រើប្រាស់អង្គចងចាំ",
+        "description": "កែលម្អដំណើរការ និងកាត់បន្ថយការប្រើប្រាស់អង្គចងចាំ"
+      },
+      "scheduled_automations": {
+        "title": "ស្វ័យប្រវត្តិកម្មដែលបានកំណត់ពេល",
+        "description": "កំណត់ស្វ័យប្រវត្តិកម្មដើម្បីដំណើរការនៅពេលវេលា ឬចន្លោះពេលជាក់លាក់"
+      },
+      "relative_date_actions": {
+        "title": "សកម្មភាពកាលបរិច្ឆេទទាក់ទង",
+        "description": "បង្កើតសកម្មភាពផ្អែកលើការគណនាកាលបរិច្ឆេទថាមវន្ត"
+      },
+      "system_upgrade": {
+        "title": "ការដំឡើងប្រព័ន្ធ",
+        "description": "ដំឡើងពី Vue2 ទៅ Vue3 និងម៉ាស៊ីនឃ្លាំងសម្ងាត់ថ្មី"
+      },
+      "new_design_system": {
+        "title": "ប្រព័ន្ធរចនាថ្មី",
+        "description": "ដំឡើងពី Vuetify2 ទៅ Vuetify3"
+      },
+      "mobile_app_speed": {
+        "title": "ការកែលម្អល្បឿនកម្មវិធីទូរស័ព្ទ",
+        "description": "ការកែលម្អដំណើរការ iOS និង Android"
+      },
+      "copy_automation": {
+        "title": "ចម្លងស្វ័យប្រវត្តិកម្ម",
+        "description": "សមត្ថភាពចម្លងស្វ័យប្រវត្តិកម្មក្នុងគម្រោង"
+      },
+      "conditional_automations": {
+        "title": "ស្វ័យប្រវត្តិកម្មតាមលក្ខខណ្ឌ",
+        "description": "បន្ថែមតក្កវិទ្យា AND/OR ទៅគន្លឹះស្វ័យប្រវត្តិកម្ម"
+      },
+      "zapier_integration": {
+        "title": "ការរួមបញ្ចូល Zapier",
+        "description": "ភ្ជាប់ Blue ជាមួយកម្មវិធីរាប់ពាន់តាមរយៈ Zapier"
+      },
+      "relative_date_triggers": {
+        "title": "គន្លឹះកាលបរិច្ឆេទទាក់ទង",
+        "description": "បញ្ចេញស្វ័យប្រវត្តិកម្មផ្អែកលើថ្ងៃមុន ឬក្រោយកាលបរិច្ឆេទកំណត់"
+      },
+      "enhanced_cover_images": {
+        "title": "រូបភាពគម្របដែលបានពង្រឹង",
+        "description": "ការគ្រប់គ្រងរូបភាពប្រសើរជាងមុនជាមួយមុខងារកាត់ និងបង្កើនប្រសិទ្ធភាព"
+      },
+      "custom_date_automations": {
+        "title": "ស្វ័យប្រវត្តិកម្មកាលបរិច្ឆេទផ្ទាល់ខ្លួន",
+        "description": "បង្កើតស្វ័យប្រវត្តិកម្មផ្អែកលើតម្លៃវាលកាលបរិច្ឆេទផ្ទាល់ខ្លួន"
+      },
+      "file_renaming": {
+        "title": "ការប្តូរឈ្មោះឯកសារ",
+        "description": "ប្តូរឈ្មោះឯកសារដែលបានផ្ទុកឡើងដោយផ្ទាល់ក្នុង Blue"
+      },
+      "granular_deletion_permissions": {
+        "title": "សិទ្ធិលុបលម្អិត",
+        "description": "គ្រប់គ្រងសិទ្ធិលុបកំណត់ត្រាសម្រាប់តួនាទីអ្នកប្រើជាក់លាក់"
+      },
+      "owner_project_access": {
+        "title": "ការចូលប្រើគម្រោងរបស់ម្ចាស់",
+        "description": "អនុញ្ញាតឱ្យម្ចាស់ក្រុមហ៊ុនអញ្ជើញខ្លួនឯងទៅគម្រោងណាមួយ"
+      }
+    }
   }
 }

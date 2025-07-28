@@ -1,195 +1,195 @@
 <!-- Roadmap Page -->
     {{template "page-heading" 
         dict 
-            "Title" "Product Roadmap" 
-            "Subtitle" "Track our progress and see what's coming next" 
+            "Title" (t "roadmap.page_title") 
+            "Subtitle" (t "roadmap.subtitle") 
             "MarginBottom" "mb-8"
     }}
     
-    {{$roadmapData := parseJSON `{
-        "ideas": [
-            {
-                "id": 1,
-                "title": "Voice notes",
-                "description": "Add voice notes with transcriptions in comment areas"
-            },
-            {
-                "id": 2,
-                "title": "AI Project Assistant",
-                "description": "Intelligent assistant for project management"
-            },
-            {
-                "id": 3,
-                "title": "AI Email Automations",
-                "description": "Enhance email automations with AI"
-            },
-            {
-                "id": 4,
-                "title": "REST API",
-                "description": "Add a REST API on top of existing GraphQL API"
-            },
-            {
-                "id": 5,
-                "title": "n8n Integration",
-                "description": "Connect Blue with n8n for advanced workflow automation"
-            },
-            {
-                "id": 6,
-                "title": "MCP Server",
-                "description": "Model Context Protocol server for AI integrations"
-            }
-        ],
-        "planned": [
-            {
-                "id": 4,
-                "title": "Data Residency Options",
-                "description": "Choose data storage location in US/EU/APAC"
-            },
-            {
-                "id": 5,
-                "title": "Time Tracking",
-                "description": "Track time and generate downloadable time sheets"
-            },
-            {
-                "id": 6,
-                "title": "Saved Filtered Views",
-                "description": "Create and save custom filtered project views"
-            },
-            {
-                "id": 7,
-                "title": "Customizable Project Tabs",
-                "description": "Personalize project interface with custom tabs"
-            },
-            {
-                "id": 8,
-                "title": "Public Views",
-                "description": "Share project views as public view-only links"
-            },
-            {
-                "id": 9,
-                "title": "Multiple Company Owners",
-                "description": "Support for multiple company owners"
-            },
-            {
-                "id": 10,
-                "title": "Customizable Cards",
-                "description": "Choose fields to display on card front"
-            },
-            {
-                "id": 11,
-                "title": "Enhanced Login Options",
-                "description": "More login methods and security features"
-            },
-            {
-                "id": 12,
-                "title": "Project Level Dashboard",
-                "description": "Project-specific dashboard"
-            },
-            {
-                "id": 13,
-                "title": "Reseller Platform",
-                "description": "Dedicated platform for resellers"
-            },
-            {
-                "id": 14,
-                "title": "Threaded Comments",
-                "description": "Allow replies and threads in comments"
-            },
-            {
-                "id": 15,
-                "title": "Dashboard Tables",
-                "description": "Create customizable tables in dashboards"
-            },
-            {
-                "id": 16,
-                "title": "Share File Folders",
-                "description": "Create public sharing links for folders"
-            }
-        ],
-        "inProgress": [
-            {
-                "id": 7,
-                "title": "Multi-homing Records",
-                "description": "Allow records to exist in multiple projects simultaneously"
-            },
-            {
-                "id": 8,
-                "title": "Memory Usage Optimization",
-                "description": "Improve performance and reduce memory footprint"
-            },
-            {
-                "id": 9,
-                "title": "Scheduled Automations",
-                "description": "Set up automations to run at specific times or intervals"
-            },
-            {
-                "id": 10,
-                "title": "Relative Date Actions",
-                "description": "Create actions based on dynamic date calculations"
-            },
-            {
-                "id": 11,
-                "title": "System Upgrade",
-                "description": "Vue2 to Vue3 Upgrade and new caching engine"
-            },
-            {
-                "id": 12,
-                "title": "New Design System",
-                "description": "Vuetify2 to Vuetify3 Upgrade"
-            },
-            {
-                "id": 13,
-                "title": "Mobile App Speed Improvements",
-                "description": "iOS & Android performance enhancements"
-            },
-            {
-                "id": 14,
-                "title": "Copy Automation",
-                "description": "Ability to copy automation within a project"
-            },
-            {
-                "id": 15,
-                "title": "Conditional Automations",
-                "description": "Add And/Or logic to automation triggers"
-            }
-        ],
-        "testing": [
-            {
-                "id": 11,
-                "title": "Zapier Integration",
-                "description": "Connect Blue with thousands of apps through Zapier"
-            },
-            {
-                "id": 12,
-                "title": "Relative Date Triggers",
-                "description": "Trigger automations based on days before or after due dates"
-            },
-            {
-                "id": 13,
-                "title": "Enhanced Cover Images",
-                "description": "Better image handling with cropping and optimization features"
-            },
-            {
-                "id": 14,
-                "title": "Custom Date Automations",
-                "description": "Create automations based on custom date field values"
-            },
-            {
-                "id": 15,
-                "title": "File Renaming",
-                "description": "Rename uploaded files directly within Blue"
-            },
-            {
-                "id": 16,
-                "title": "Granular Deletion Permissions",
-                "description": "Control record deletion rights for specific user roles"
-            },
-            {
-                "id": 17,
-                "title": "Owner Project Access",
-                "description": "Allow company owners to self-invite to any project"
-            }
-        ]
-    }`}}
+    {{$roadmapData := dict 
+        "ideas" (slice
+            (dict
+                "id" 1
+                "title" (t "roadmap.items.voice_notes.title")
+                "description" (t "roadmap.items.voice_notes.description")
+            )
+            (dict
+                "id" 2
+                "title" (t "roadmap.items.ai_project_assistant.title")
+                "description" (t "roadmap.items.ai_project_assistant.description")
+            )
+            (dict
+                "id" 3
+                "title" (t "roadmap.items.ai_email_automations.title")
+                "description" (t "roadmap.items.ai_email_automations.description")
+            )
+            (dict
+                "id" 4
+                "title" (t "roadmap.items.rest_api.title")
+                "description" (t "roadmap.items.rest_api.description")
+            )
+            (dict
+                "id" 5
+                "title" (t "roadmap.items.n8n_integration.title")
+                "description" (t "roadmap.items.n8n_integration.description")
+            )
+            (dict
+                "id" 6
+                "title" (t "roadmap.items.mcp_server.title")
+                "description" (t "roadmap.items.mcp_server.description")
+            )
+        )
+        "planned" (slice
+            (dict
+                "id" 4
+                "title" (t "roadmap.items.data_residency.title")
+                "description" (t "roadmap.items.data_residency.description")
+            )
+            (dict
+                "id" 5
+                "title" (t "roadmap.items.time_tracking.title")
+                "description" (t "roadmap.items.time_tracking.description")
+            )
+            (dict
+                "id" 6
+                "title" (t "roadmap.items.saved_filtered_views.title")
+                "description" (t "roadmap.items.saved_filtered_views.description")
+            )
+            (dict
+                "id" 7
+                "title" (t "roadmap.items.customizable_project_tabs.title")
+                "description" (t "roadmap.items.customizable_project_tabs.description")
+            )
+            (dict
+                "id" 8
+                "title" (t "roadmap.items.public_views.title")
+                "description" (t "roadmap.items.public_views.description")
+            )
+            (dict
+                "id" 9
+                "title" (t "roadmap.items.multiple_company_owners.title")
+                "description" (t "roadmap.items.multiple_company_owners.description")
+            )
+            (dict
+                "id" 10
+                "title" (t "roadmap.items.customizable_cards.title")
+                "description" (t "roadmap.items.customizable_cards.description")
+            )
+            (dict
+                "id" 11
+                "title" (t "roadmap.items.enhanced_login_options.title")
+                "description" (t "roadmap.items.enhanced_login_options.description")
+            )
+            (dict
+                "id" 12
+                "title" (t "roadmap.items.project_level_dashboard.title")
+                "description" (t "roadmap.items.project_level_dashboard.description")
+            )
+            (dict
+                "id" 13
+                "title" (t "roadmap.items.reseller_platform.title")
+                "description" (t "roadmap.items.reseller_platform.description")
+            )
+            (dict
+                "id" 14
+                "title" (t "roadmap.items.threaded_comments.title")
+                "description" (t "roadmap.items.threaded_comments.description")
+            )
+            (dict
+                "id" 15
+                "title" (t "roadmap.items.dashboard_tables.title")
+                "description" (t "roadmap.items.dashboard_tables.description")
+            )
+            (dict
+                "id" 16
+                "title" (t "roadmap.items.share_file_folders.title")
+                "description" (t "roadmap.items.share_file_folders.description")
+            )
+        )
+        "inProgress" (slice
+            (dict
+                "id" 7
+                "title" (t "roadmap.items.multi_homing_records.title")
+                "description" (t "roadmap.items.multi_homing_records.description")
+            )
+            (dict
+                "id" 8
+                "title" (t "roadmap.items.memory_usage_optimization.title")
+                "description" (t "roadmap.items.memory_usage_optimization.description")
+            )
+            (dict
+                "id" 9
+                "title" (t "roadmap.items.scheduled_automations.title")
+                "description" (t "roadmap.items.scheduled_automations.description")
+            )
+            (dict
+                "id" 10
+                "title" (t "roadmap.items.relative_date_actions.title")
+                "description" (t "roadmap.items.relative_date_actions.description")
+            )
+            (dict
+                "id" 11
+                "title" (t "roadmap.items.system_upgrade.title")
+                "description" (t "roadmap.items.system_upgrade.description")
+            )
+            (dict
+                "id" 12
+                "title" (t "roadmap.items.new_design_system.title")
+                "description" (t "roadmap.items.new_design_system.description")
+            )
+            (dict
+                "id" 13
+                "title" (t "roadmap.items.mobile_app_speed.title")
+                "description" (t "roadmap.items.mobile_app_speed.description")
+            )
+            (dict
+                "id" 14
+                "title" (t "roadmap.items.copy_automation.title")
+                "description" (t "roadmap.items.copy_automation.description")
+            )
+            (dict
+                "id" 15
+                "title" (t "roadmap.items.conditional_automations.title")
+                "description" (t "roadmap.items.conditional_automations.description")
+            )
+        )
+        "testing" (slice
+            (dict
+                "id" 11
+                "title" (t "roadmap.items.zapier_integration.title")
+                "description" (t "roadmap.items.zapier_integration.description")
+            )
+            (dict
+                "id" 12
+                "title" (t "roadmap.items.relative_date_triggers.title")
+                "description" (t "roadmap.items.relative_date_triggers.description")
+            )
+            (dict
+                "id" 13
+                "title" (t "roadmap.items.enhanced_cover_images.title")
+                "description" (t "roadmap.items.enhanced_cover_images.description")
+            )
+            (dict
+                "id" 14
+                "title" (t "roadmap.items.custom_date_automations.title")
+                "description" (t "roadmap.items.custom_date_automations.description")
+            )
+            (dict
+                "id" 15
+                "title" (t "roadmap.items.file_renaming.title")
+                "description" (t "roadmap.items.file_renaming.description")
+            )
+            (dict
+                "id" 16
+                "title" (t "roadmap.items.granular_deletion_permissions.title")
+                "description" (t "roadmap.items.granular_deletion_permissions.description")
+            )
+            (dict
+                "id" 17
+                "title" (t "roadmap.items.owner_project_access.title")
+                "description" (t "roadmap.items.owner_project_access.description")
+            )
+        )
+    }}
     
     {{template "roadmap-board" $roadmapData}}
