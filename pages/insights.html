@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Insights" 
-            "Subtitle" "Stay up to date with the latest news, updates, and best practices." 
+            "Title" (t "insights.page_title") 
+            "Subtitle" (t "insights.page_subtitle") 
             "MarginBottom" "mb-8"
     }}
     
@@ -21,42 +21,42 @@
                 <button @click="activeCategory = 'all'" 
                         :class="activeCategory === 'all' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    All
+                    {{t "insights.categories.all"}}
                 </button>
                 <button @click="activeCategory = 'product-updates'" 
                         :class="activeCategory === 'product-updates' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    Product Updates
+                    {{t "insights.categories.product-updates"}}
                 </button>
                 <button @click="activeCategory = 'engineering'" 
                         :class="activeCategory === 'engineering' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    Engineering
+                    {{t "insights.categories.engineering"}}
                 </button>
                 <button @click="activeCategory = 'ceo-blog'" 
                         :class="activeCategory === 'ceo-blog' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    CEO Blog
+                    {{t "insights.categories.ceo-blog"}}
                 </button>
                 <button @click="activeCategory = 'best-practices'" 
                         :class="activeCategory === 'best-practices' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    Best Practices
+                    {{t "insights.categories.best-practices"}}
                 </button>
                 <button @click="activeCategory = 'modern-work-practices'" 
                         :class="activeCategory === 'modern-work-practices' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    Modern Work Practices
+                    {{t "insights.categories.modern-work-practices"}}
                 </button>
                 <button @click="activeCategory = 'news'" 
                         :class="activeCategory === 'news' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    News
+                    {{t "insights.categories.news"}}
                 </button>
                 <button @click="activeCategory = 'faq'" 
                         :class="activeCategory === 'faq' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
                         class="pb-0.5 sm:pb-1 cursor-pointer">
-                    FAQ
+                    {{t "insights.categories.faq"}}
                 </button>
             </nav>
         </div>
@@ -70,7 +70,7 @@
             {{else}}
             <!-- No insights available -->
             <div class="col-span-full text-center py-12">
-                <p class="text-gray-500 text-lg">No insights available.</p>
+                <p class="text-gray-500 text-lg">{{t "insights.no_insights"}}</p>
             </div>
             {{end}}
             

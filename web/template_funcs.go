@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
+	"strings"
 	"time"
 )
 
@@ -81,6 +82,20 @@ var templateFuncs = template.FuncMap{
 	"t": func(key string, args ...interface{}) string {
 		// Default fallback - just return the key
 		return key
+	},
+	// normalizeCategory converts a category name to its translation key format
+	"normalizeCategory": func(category string) string {
+		// Convert to lowercase and replace spaces with hyphens
+		normalized := strings.ToLower(category)
+		normalized = strings.ReplaceAll(normalized, " ", "-")
+		// Remove any non-alphanumeric characters except hyphens
+		var result strings.Builder
+		for _, r := range normalized {
+			if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') || r == '-' {
+				result.WriteRune(r)
+			}
+		}
+		return result.String()
 	},
 }
 

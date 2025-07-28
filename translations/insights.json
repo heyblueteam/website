@@ -1,0 +1,242 @@
+{
+  "en": {
+    "page_title": "Insights",
+    "page_subtitle": "Stay up to date with the latest news, updates, and best practices.",
+    "no_insights": "No insights available.",
+    "categories": {
+      "all": "All",
+      "product-updates": "Product Updates",
+      "engineering": "Engineering",
+      "ceo-blog": "CEO Blog",
+      "best-practices": "Best Practices",
+      "modern-work-practices": "Modern Work Practices",
+      "news": "News",
+      "faq": "FAQ"
+    }
+  },
+  "zh": {
+    "page_title": "洞察",
+    "page_subtitle": "了解最新消息、更新和最佳实践。",
+    "no_insights": "暂无洞察内容。",
+    "categories": {
+      "all": "全部",
+      "product-updates": "产品更新",
+      "engineering": "工程技术",
+      "ceo-blog": "CEO博客",
+      "best-practices": "最佳实践",
+      "modern-work-practices": "现代工作实践",
+      "news": "新闻",
+      "faq": "常见问题"
+    }
+  },
+  "es": {
+    "page_title": "Perspectivas",
+    "page_subtitle": "Mantente al día con las últimas noticias, actualizaciones y mejores prácticas.",
+    "no_insights": "No hay perspectivas disponibles.",
+    "categories": {
+      "all": "Todos",
+      "product-updates": "Actualizaciones del Producto",
+      "engineering": "Ingeniería",
+      "ceo-blog": "Blog del CEO",
+      "best-practices": "Mejores Prácticas",
+      "modern-work-practices": "Prácticas de Trabajo Modernas",
+      "news": "Noticias",
+      "faq": "Preguntas Frecuentes"
+    }
+  },
+  "fr": {
+    "page_title": "Perspectives",
+    "page_subtitle": "Restez informé des dernières nouvelles, mises à jour et meilleures pratiques.",
+    "no_insights": "Aucune perspective disponible.",
+    "categories": {
+      "all": "Tout",
+      "product-updates": "Mises à jour du produit",
+      "engineering": "Ingénierie",
+      "ceo-blog": "Blog du PDG",
+      "best-practices": "Meilleures pratiques",
+      "modern-work-practices": "Pratiques de travail modernes",
+      "news": "Actualités",
+      "faq": "FAQ"
+    }
+  },
+  "de": {
+    "page_title": "Einblicke",
+    "page_subtitle": "Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten, Updates und Best Practices.",
+    "no_insights": "Keine Einblicke verfügbar.",
+    "categories": {
+      "all": "Alle",
+      "product-updates": "Produktaktualisierungen",
+      "engineering": "Technik",
+      "ceo-blog": "CEO-Blog",
+      "best-practices": "Best Practices",
+      "modern-work-practices": "Moderne Arbeitspraktiken",
+      "news": "Nachrichten",
+      "faq": "Häufige Fragen"
+    }
+  },
+  "ja": {
+    "page_title": "インサイト",
+    "page_subtitle": "最新のニュース、アップデート、ベストプラクティスをご覧ください。",
+    "no_insights": "インサイトはありません。",
+    "categories": {
+      "all": "すべて",
+      "product-updates": "製品アップデート",
+      "engineering": "エンジニアリング",
+      "ceo-blog": "CEOブログ",
+      "best-practices": "ベストプラクティス",
+      "modern-work-practices": "モダンワークプラクティス",
+      "news": "ニュース",
+      "faq": "よくある質問"
+    }
+  },
+  "pt": {
+    "page_title": "Insights",
+    "page_subtitle": "Fique atualizado com as últimas notícias, atualizações e melhores práticas.",
+    "no_insights": "Nenhum insight disponível.",
+    "categories": {
+      "all": "Todos",
+      "product-updates": "Atualizações do Produto",
+      "engineering": "Engenharia",
+      "ceo-blog": "Blog do CEO",
+      "best-practices": "Melhores Práticas",
+      "modern-work-practices": "Práticas de Trabalho Modernas",
+      "news": "Notícias",
+      "faq": "Perguntas Frequentes"
+    }
+  },
+  "ru": {
+    "page_title": "Аналитика",
+    "page_subtitle": "Будьте в курсе последних новостей, обновлений и лучших практик.",
+    "no_insights": "Нет доступной аналитики.",
+    "categories": {
+      "all": "Все",
+      "product-updates": "Обновления продукта",
+      "engineering": "Инженерия",
+      "ceo-blog": "Блог CEO",
+      "best-practices": "Лучшие практики",
+      "modern-work-practices": "Современные рабочие практики",
+      "news": "Новости",
+      "faq": "Часто задаваемые вопросы"
+    }
+  },
+  "ko": {
+    "page_title": "인사이트",
+    "page_subtitle": "최신 뉴스, 업데이트 및 모범 사례를 확인하세요.",
+    "no_insights": "인사이트가 없습니다.",
+    "categories": {
+      "all": "전체",
+      "product-updates": "제품 업데이트",
+      "engineering": "엔지니어링",
+      "ceo-blog": "CEO 블로그",
+      "best-practices": "모범 사례",
+      "modern-work-practices": "현대적 업무 방식",
+      "news": "뉴스",
+      "faq": "자주 묻는 질문"
+    }
+  },
+  "it": {
+    "page_title": "Approfondimenti",
+    "page_subtitle": "Rimani aggiornato con le ultime notizie, aggiornamenti e best practice.",
+    "no_insights": "Nessun approfondimento disponibile.",
+    "categories": {
+      "all": "Tutti",
+      "product-updates": "Aggiornamenti del prodotto",
+      "engineering": "Ingegneria",
+      "ceo-blog": "Blog del CEO",
+      "best-practices": "Best practice",
+      "modern-work-practices": "Pratiche di lavoro moderne",
+      "news": "Notizie",
+      "faq": "Domande frequenti"
+    }
+  },
+  "id": {
+    "page_title": "Wawasan",
+    "page_subtitle": "Tetap terkini dengan berita, pembaruan, dan praktik terbaik terbaru.",
+    "no_insights": "Tidak ada wawasan yang tersedia.",
+    "categories": {
+      "all": "Semua",
+      "product-updates": "Pembaruan Produk",
+      "engineering": "Teknik",
+      "ceo-blog": "Blog CEO",
+      "best-practices": "Praktik Terbaik",
+      "modern-work-practices": "Praktik Kerja Modern",
+      "news": "Berita",
+      "faq": "Tanya Jawab"
+    }
+  },
+  "nl": {
+    "page_title": "Inzichten",
+    "page_subtitle": "Blijf op de hoogte van het laatste nieuws, updates en best practices.",
+    "no_insights": "Geen inzichten beschikbaar.",
+    "categories": {
+      "all": "Alle",
+      "product-updates": "Productupdates",
+      "engineering": "Engineering",
+      "ceo-blog": "CEO-blog",
+      "best-practices": "Best practices",
+      "modern-work-practices": "Moderne werkpraktijken",
+      "news": "Nieuws",
+      "faq": "Veelgestelde vragen"
+    }
+  },
+  "pl": {
+    "page_title": "Spostrzeżenia",
+    "page_subtitle": "Bądź na bieżąco z najnowszymi wiadomościami, aktualizacjami i najlepszymi praktykami.",
+    "no_insights": "Brak dostępnych spostrzeżeń.",
+    "categories": {
+      "all": "Wszystkie",
+      "product-updates": "Aktualizacje produktu",
+      "engineering": "Inżynieria",
+      "ceo-blog": "Blog CEO",
+      "best-practices": "Najlepsze praktyki",
+      "modern-work-practices": "Nowoczesne praktyki pracy",
+      "news": "Aktualności",
+      "faq": "Często zadawane pytania"
+    }
+  },
+  "zh-TW": {
+    "page_title": "洞察",
+    "page_subtitle": "了解最新消息、更新和最佳實踐。",
+    "no_insights": "暫無洞察內容。",
+    "categories": {
+      "all": "全部",
+      "product-updates": "產品更新",
+      "engineering": "工程技術",
+      "ceo-blog": "CEO部落格",
+      "best-practices": "最佳實踐",
+      "modern-work-practices": "現代工作實踐",
+      "news": "新聞",
+      "faq": "常見問題"
+    }
+  },
+  "sv": {
+    "page_title": "Insikter",
+    "page_subtitle": "Håll dig uppdaterad med de senaste nyheterna, uppdateringarna och bästa praxis.",
+    "no_insights": "Inga insikter tillgängliga.",
+    "categories": {
+      "all": "Alla",
+      "product-updates": "Produktuppdateringar",
+      "engineering": "Teknik",
+      "ceo-blog": "VD-blogg",
+      "best-practices": "Bästa praxis",
+      "modern-work-practices": "Moderna arbetssätt",
+      "news": "Nyheter",
+      "faq": "Vanliga frågor"
+    }
+  },
+  "km": {
+    "page_title": "ការយល់ដឹង",
+    "page_subtitle": "ទទួលបានព័ត៌មានថ្មីៗ ការធ្វើបច្ចុប្បន្នភាព និងការអនុវត្តល្អបំផុត។",
+    "no_insights": "មិនមានការយល់ដឹងទេ។",
+    "categories": {
+      "all": "ទាំងអស់",
+      "product-updates": "ការធ្វើបច្ចុប្បន្នភាពផលិតផល",
+      "engineering": "វិស្វកម្ម",
+      "ceo-blog": "ប្លុករបស់ CEO",
+      "best-practices": "ការអនុវត្តល្អបំផុត",
+      "modern-work-practices": "ការអនុវត្តការងារទំនើប",
+      "news": "ព័ត៌មាន",
+      "faq": "សំណួរដែលសួរញឹកញាប់"
+    }
+  }
+}
