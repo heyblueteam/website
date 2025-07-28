@@ -144,6 +144,7 @@ window.SPAUtils = {
 
         // Get all components that need updating
         const componentsToUpdate = [
+            { selector: '.fixed.top-0.left-0.right-0.z-\\[60\\]', name: 'top-news-bar' },
             { selector: 'header', name: 'topbar' },
             { selector: 'nav[x-data*="currentPath"]', name: 'left-sidebar' },
             { selector: 'main', name: 'main' },
