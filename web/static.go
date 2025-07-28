@@ -58,6 +58,9 @@ func NewCacheFileServer(root string) *CacheFileServer {
 
 		// HTML - no cache for dynamic content
 		".html": {MaxAge: 0, Public: false},
+
+		// JSON - cache search indexes (1 week) but allow revalidation
+		".json": {MaxAge: 604800, Public: true},
 	}
 
 	// Override cache policies in development
