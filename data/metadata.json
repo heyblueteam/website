@@ -1088,6 +1088,88 @@
         "description": "បង្កើនផលប៉ះពាល់បេសកកម្មដោយការគ្រប់គ្រងជំនួយសម្រាប់គម្រោងដែលបានកែលម្អ ការសម្របសម្រួលអ្នកស្ម័គ្រចិត្ត និងការតាមដានអ្នកបរិច្ចាគ។",
         "keywords": ["អង្គការមិនរកប្រាក់ចំណេញ", "ការគ្រប់គ្រងជំនួយគម្រោង", "ការសម្របសម្រួលអ្នកស្ម័គ្រចិត្ត", "ការតាមដានអ្នកបរិច្ចាគ", "ផលប៉ះពាល់បេសកកម្ម", "blue"]
       }
+    },
+    "solutions/industry/government": {
+      "en": {
+        "title": "Government Solutions",
+        "description": "Streamline government processes and improve citizen services with Blue's secure, compliant platform.",
+        "keywords": ["government solutions", "citizen services", "government processes", "public sector", "compliance", "blue"]
+      },
+      "es": {
+        "title": "Soluciones Gubernamentales",
+        "description": "Optimiza los procesos gubernamentales y mejora los servicios ciudadanos con la plataforma segura y conforme de Blue.",
+        "keywords": ["soluciones gubernamentales", "servicios ciudadanos", "procesos gubernamentales", "sector público", "cumplimiento", "blue"]
+      },
+      "zh": {
+        "title": "政府解决方案",
+        "description": "使用 Blue 安全合规的平台简化政府流程并改善公民服务。",
+        "keywords": ["政府解决方案", "公民服务", "政府流程", "公共部门", "合规", "blue"]
+      },
+      "fr": {
+        "title": "Solutions Gouvernementales",
+        "description": "Rationalisez les processus gouvernementaux et améliorez les services citoyens avec la plateforme sécurisée et conforme de Blue.",
+        "keywords": ["solutions gouvernementales", "services citoyens", "processus gouvernementaux", "secteur public", "conformité", "blue"]
+      },
+      "de": {
+        "title": "Regierungslösungen",
+        "description": "Optimieren Sie Regierungsprozesse und verbessern Sie Bürgerdienste mit Blues sicherer, konformer Plattform.",
+        "keywords": ["regierungslösungen", "bürgerdienste", "regierungsprozesse", "öffentlicher sektor", "compliance", "blue"]
+      },
+      "ja": {
+        "title": "政府ソリューション",
+        "description": "Blueの安全でコンプライアンスに準拠したプラットフォームで政府プロセスを合理化し、市民サービスを向上させます。",
+        "keywords": ["政府ソリューション", "市民サービス", "政府プロセス", "公共部門", "コンプライアンス", "blue"]
+      },
+      "pt": {
+        "title": "Soluções Governamentais",
+        "description": "Otimize processos governamentais e melhore os serviços aos cidadãos com a plataforma segura e compatível da Blue.",
+        "keywords": ["soluções governamentais", "serviços aos cidadãos", "processos governamentais", "setor público", "conformidade", "blue"]
+      },
+      "ru": {
+        "title": "Государственные Решения",
+        "description": "Оптимизируйте государственные процессы и улучшите услуги для граждан с помощью безопасной и соответствующей требованиям платформы Blue.",
+        "keywords": ["государственные решения", "услуги для граждан", "государственные процессы", "государственный сектор", "соответствие требованиям", "blue"]
+      },
+      "ko": {
+        "title": "정부 솔루션",
+        "description": "Blue의 안전하고 규정을 준수하는 플랫폼으로 정부 프로세스를 간소화하고 시민 서비스를 개선하세요.",
+        "keywords": ["정부 솔루션", "시민 서비스", "정부 프로세스", "공공 부문", "규정 준수", "blue"]
+      },
+      "it": {
+        "title": "Soluzioni Governative",
+        "description": "Semplifica i processi governativi e migliora i servizi ai cittadini con la piattaforma sicura e conforme di Blue.",
+        "keywords": ["soluzioni governative", "servizi ai cittadini", "processi governativi", "settore pubblico", "conformità", "blue"]
+      },
+      "id": {
+        "title": "Solusi Pemerintah",
+        "description": "Sederhanakan proses pemerintahan dan tingkatkan layanan warga dengan platform Blue yang aman dan sesuai standar.",
+        "keywords": ["solusi pemerintah", "layanan warga", "proses pemerintahan", "sektor publik", "kepatuhan", "blue"]
+      },
+      "nl": {
+        "title": "Overheidsoplossingen",
+        "description": "Stroomlijn overheidsprocessen en verbeter burgerdiensten met Blue's veilige, conforme platform.",
+        "keywords": ["overheidsoplossingen", "burgerdiensten", "overheidsprocessen", "publieke sector", "compliance", "blue"]
+      },
+      "pl": {
+        "title": "Rozwiązania Rządowe",
+        "description": "Uspraw procesy rządowe i popraw usługi dla obywateli dzięki bezpiecznej i zgodnej platformie Blue.",
+        "keywords": ["rozwiązania rządowe", "usługi dla obywateli", "procesy rządowe", "sektor publiczny", "zgodność", "blue"]
+      },
+      "zh-TW": {
+        "title": "政府解決方案",
+        "description": "使用 Blue 安全合規的平台簡化政府流程並改善公民服務。",
+        "keywords": ["政府解決方案", "公民服務", "政府流程", "公共部門", "合規", "blue"]
+      },
+      "sv": {
+        "title": "Regeringslösningar",
+        "description": "Effektivisera regeringsprocesser och förbättra medborgarservice med Blues säkra, regelefterlevande plattform.",
+        "keywords": ["regeringslösningar", "medborgarservice", "regeringsprocesser", "offentlig sektor", "regelefterlevnad", "blue"]
+      },
+      "km": {
+        "title": "ដំណោះស្រាយរដ្ឋាភិបាល",
+        "description": "ធ្វើឱ្យដំណើរការរដ្ឋាភិបាលកាន់តែប្រសើរ និងកែលម្អសេវាកម្មពលរដ្ឋជាមួយនឹងវេទិកាមានសុវត្ថិភាព និងអនុលោមតាមបទបញ្ញត្តិរបស់ Blue។",
+        "keywords": ["ដំណោះស្រាយរដ្ឋាភិបាល", "សេវាកម្មពលរដ្ឋ", "ដំណើរការរដ្ឋាភិបាល", "វិស័យសាធារណៈ", "ការអនុលោមតាម", "blue"]
+      }
     }
   },
   "defaults": {
