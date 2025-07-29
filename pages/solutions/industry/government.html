@@ -117,27 +117,7 @@
 
 
 
-    <!-- Citizen Service Requests Feature -->
-    <div class="mb-20 px-6 lg:px-8">
-        {{$citizenServicesData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "/product/forms.mp4",
-            "Title": "Citizen Service requests and case management",
-            "Description": "Streamline how citizens submit requests, track their status, and receive updates. From permit applications to maintenance requests, give citizens transparency while reducing staff workload.",
-            "Button": {
-                "Text": "Learn about service requests",
-                "Url": "/solutions/use-case/service-tickets"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Forms", "Description": "create online forms for citizen requests", "Url": "/platform/features/forms" },
-                    { "Text": "White Label", "Description": "brand the citizen portal with your agency's identity", "Url": "/platform/white-label" },
-                    { "Text": "Audit Trails", "Description": "track real-time status of citizen requests", "Url": "/platform/features/audit-trails" }
-                ]
-            }
-        }`}}
-        {{template "feature-video" $citizenServicesData}}
-    </div>
+
 
     <!-- Inter-departmental Project Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
@@ -161,27 +141,7 @@
         {{template "feature-video" $projectManagementData}}
     </div>
 
-    <!-- Records Management Feature -->
-    <div class="mb-20 px-6 lg:px-8">
-        {{$recordsManagementData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "/product/database.mp4",
-            "Title": "Digital records and document management",
-            "Description": "Maintain accurate, searchable records that meet retention requirements. Track documents through their lifecycle with full audit trails and version control.",
-            "Button": {
-                "Text": "See records management features",
-                "Url": "/platform/features/database"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Audit Trails", "Description": "track all changes for compliance requirements", "Url": "/platform/features/audit-trails" },
-                    { "Text": "Search", "Description": "quickly find any record or document", "Url": "/platform/features/search" },
-                    { "Text": "PDF Generation", "Description": "create official documents and reports", "Url": "/platform/features/pdf-generation" }
-                ]
-            }
-        }`}}
-        {{template "feature-video" $recordsManagementData}}
-    </div>
+
 
 
 
