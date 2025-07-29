@@ -679,6 +679,88 @@
         "keywords": ["កំណត់ត្រា", "ការគ្រប់គ្រងទិន្នន័យ", "ការតាមដានកិច្ចការ", "ការគ្រប់គ្រងអតិថិជន", "កិច្ចព្រមព្រៀង", "សំបុត្រ", "blue"]
       }
     },
+    "platform/features/sales-crm": {
+      "en": {
+        "title": "Sales CRM",
+        "description": "Create simple, clear processes for your sales team with real-time visibility into your pipeline and automations.",
+        "keywords": ["sales crm", "pipeline management", "sales process", "lead tracking", "sales automation", "blue"]
+      },
+      "es": {
+        "title": "CRM de Ventas",
+        "description": "Crea procesos simples y claros para tu equipo de ventas con visibilidad en tiempo real de tu pipeline y automatizaciones.",
+        "keywords": ["crm de ventas", "gestión de pipeline", "proceso de ventas", "seguimiento de leads", "automatización de ventas", "blue"]
+      },
+      "zh": {
+        "title": "销售 CRM",
+        "description": "为您的销售团队创建简单明了的流程，实时查看您的销售管道和自动化。",
+        "keywords": ["销售 crm", "管道管理", "销售流程", "潜在客户跟踪", "销售自动化", "blue"]
+      },
+      "fr": {
+        "title": "CRM des ventes",
+        "description": "Créez des processus simples et clairs pour votre équipe de vente avec une visibilité en temps réel sur votre pipeline et vos automatisations.",
+        "keywords": ["crm des ventes", "gestion de pipeline", "processus de vente", "suivi des prospects", "automatisation des ventes", "blue"]
+      },
+      "de": {
+        "title": "Vertriebs-CRM",
+        "description": "Erstellen Sie einfache, klare Prozesse für Ihr Vertriebsteam mit Echtzeit-Einblick in Ihre Pipeline und Automatisierungen.",
+        "keywords": ["vertriebs-crm", "pipeline-verwaltung", "vertriebsprozess", "lead-verfolgung", "vertriebsautomatisierung", "blue"]
+      },
+      "ja": {
+        "title": "営業 CRM",
+        "description": "営業チーム向けにシンプルで明確なプロセスを作成し、パイプラインと自動化をリアルタイムで可視化します。",
+        "keywords": ["営業 crm", "パイプライン管理", "営業プロセス", "リード追跡", "営業自動化", "blue"]
+      },
+      "pt": {
+        "title": "CRM de Vendas",
+        "description": "Crie processos simples e claros para sua equipe de vendas com visibilidade em tempo real do seu pipeline e automações.",
+        "keywords": ["crm de vendas", "gestão de pipeline", "processo de vendas", "rastreamento de leads", "automação de vendas", "blue"]
+      },
+      "ru": {
+        "title": "CRM продаж",
+        "description": "Создавайте простые, понятные процессы для вашей команды продаж с видимостью вашего пайплайна и автоматизации в реальном времени.",
+        "keywords": ["crm продаж", "управление пайплайном", "процесс продаж", "отслеживание лидов", "автоматизация продаж", "blue"]
+      },
+      "ko": {
+        "title": "영업 CRM",
+        "description": "영업팀을 위한 간단하고 명확한 프로세스를 만들고 파이프라인과 자동화를 실시간으로 확인하세요.",
+        "keywords": ["영업 crm", "파이프라인 관리", "영업 프로세스", "리드 추적", "영업 자동화", "blue"]
+      },
+      "it": {
+        "title": "CRM Vendite",
+        "description": "Crea processi semplici e chiari per il tuo team di vendita con visibilità in tempo reale sulla tua pipeline e automazioni.",
+        "keywords": ["crm vendite", "gestione pipeline", "processo di vendita", "tracciamento lead", "automazione vendite", "blue"]
+      },
+      "id": {
+        "title": "CRM Penjualan",
+        "description": "Buat proses yang sederhana dan jelas untuk tim penjualan Anda dengan visibilitas real-time ke dalam pipeline dan otomasi Anda.",
+        "keywords": ["crm penjualan", "manajemen pipeline", "proses penjualan", "pelacakan prospek", "otomasi penjualan", "blue"]
+      },
+      "nl": {
+        "title": "Verkoop CRM",
+        "description": "Creëer eenvoudige, duidelijke processen voor uw verkoopteam met realtime zichtbaarheid in uw pipeline en automatiseringen.",
+        "keywords": ["verkoop crm", "pipeline management", "verkoopproces", "lead tracking", "verkoopautomatisering", "blue"]
+      },
+      "pl": {
+        "title": "CRM Sprzedaży",
+        "description": "Twórz proste, jasne procesy dla swojego zespołu sprzedaży z widocznością pipeline'u i automatyzacji w czasie rzeczywistym.",
+        "keywords": ["crm sprzedaży", "zarządzanie pipeline", "proces sprzedaży", "śledzenie leadów", "automatyzacja sprzedaży", "blue"]
+      },
+      "zh-TW": {
+        "title": "銷售 CRM",
+        "description": "為您的銷售團隊創建簡單明了的流程，實時查看您的銷售管道和自動化。",
+        "keywords": ["銷售 crm", "管道管理", "銷售流程", "潛在客戶追蹤", "銷售自動化", "blue"]
+      },
+      "sv": {
+        "title": "Sälj-CRM",
+        "description": "Skapa enkla, tydliga processer för ditt säljteam med realtidsinsyn i din pipeline och automatiseringar.",
+        "keywords": ["sälj-crm", "pipeline-hantering", "säljprocess", "lead-spårning", "säljautomatisering", "blue"]
+      },
+      "km": {
+        "title": "CRM ការលក់",
+        "description": "បង្កើតដំណើរការសាមញ្ញ និងច្បាស់លាស់សម្រាប់ក្រុមលក់របស់អ្នកជាមួយនឹងភាពមើលឃើញពេលវេលាជាក់ស្តែងចូលទៅក្នុងបំពង់ និងស្វ័យប្រវត្តិកម្មរបស់អ្នក។",
+        "keywords": ["crm ការលក់", "ការគ្រប់គ្រងបំពង់", "ដំណើរការលក់", "ការតាមដានអតិថិជនសក្តានុពល", "ស្វ័យប្រវត្តិកម្មការលក់", "blue"]
+      }
+    },
     "platform/white-label": {
       "en": {
         "title": "White Label",
