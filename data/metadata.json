@@ -679,6 +679,170 @@
         "keywords": ["កំណត់ត្រា", "ការគ្រប់គ្រងទិន្នន័យ", "ការតាមដានកិច្ចការ", "ការគ្រប់គ្រងអតិថិជន", "កិច្ចព្រមព្រៀង", "សំបុត្រ", "blue"]
       }
     },
+    "platform/white-label": {
+      "en": {
+        "title": "White Label",
+        "description": "Transform Blue into your own branded platform. Remove all Blue branding and create a seamless experience for your customers.",
+        "keywords": ["white label", "branding", "custom domain", "rebrand", "platform customization", "blue"]
+      },
+      "es": {
+        "title": "Marca Blanca",
+        "description": "Transforma Blue en tu propia plataforma de marca. Elimina toda la marca Blue y crea una experiencia perfecta para tus clientes.",
+        "keywords": ["marca blanca", "branding", "dominio personalizado", "cambio de marca", "personalización de plataforma", "blue"]
+      },
+      "zh": {
+        "title": "白标",
+        "description": "将 Blue 转变为您自己的品牌平台。删除所有 Blue 品牌并为您的客户创造无缝体验。",
+        "keywords": ["白标", "品牌", "自定义域名", "重新品牌", "平台定制", "blue"]
+      },
+      "fr": {
+        "title": "Marque Blanche",
+        "description": "Transformez Blue en votre propre plateforme de marque. Supprimez toute la marque Blue et créez une expérience transparente pour vos clients.",
+        "keywords": ["marque blanche", "branding", "domaine personnalisé", "rebranding", "personnalisation de plateforme", "blue"]
+      },
+      "de": {
+        "title": "White Label",
+        "description": "Verwandeln Sie Blue in Ihre eigene Markenplattform. Entfernen Sie alle Blue-Branding und schaffen Sie eine nahtlose Erfahrung für Ihre Kunden.",
+        "keywords": ["white label", "branding", "benutzerdefinierte domain", "rebranding", "plattform-anpassung", "blue"]
+      },
+      "ja": {
+        "title": "ホワイトラベル",
+        "description": "Blueをあなただけのブランドプラットフォームに変換します。すべてのBlueブランディングを削除し、お客様にシームレスな体験を提供します。",
+        "keywords": ["ホワイトラベル", "ブランディング", "カスタムドメイン", "リブランディング", "プラットフォームカスタマイズ", "blue"]
+      },
+      "pt": {
+        "title": "Marca Branca",
+        "description": "Transforme o Blue em sua própria plataforma de marca. Remova toda a marca Blue e crie uma experiência perfeita para seus clientes.",
+        "keywords": ["marca branca", "branding", "domínio personalizado", "rebranding", "personalização de plataforma", "blue"]
+      },
+      "ru": {
+        "title": "Белая метка",
+        "description": "Превратите Blue в вашу собственную брендовую платформу. Удалите все брендинг Blue и создайте бесшовный опыт для ваших клиентов.",
+        "keywords": ["белая метка", "брендинг", "пользовательский домен", "ребрендинг", "настройка платформы", "blue"]
+      },
+      "ko": {
+        "title": "화이트 라벨",
+        "description": "Blue를 귀하만의 브랜드 플랫폼으로 변환하세요. 모든 Blue 브랜딩을 제거하고 고객을 위한 원활한 경험을 만들어보세요.",
+        "keywords": ["화이트 라벨", "브랜딩", "커스텀 도메인", "리브랜딩", "플랫폼 커스터마이징", "blue"]
+      },
+      "it": {
+        "title": "Marchio Bianco",
+        "description": "Trasforma Blue nella tua piattaforma di marca. Rimuovi tutto il branding Blue e crea un'esperienza senza soluzione di continuità per i tuoi clienti.",
+        "keywords": ["marchio bianco", "branding", "dominio personalizzato", "rebranding", "personalizzazione piattaforma", "blue"]
+      },
+      "id": {
+        "title": "Label Putih",
+        "description": "Ubah Blue menjadi platform bermerek Anda sendiri. Hapus semua branding Blue dan ciptakan pengalaman yang mulus untuk pelanggan Anda.",
+        "keywords": ["label putih", "branding", "domain kustom", "rebranding", "kustomisasi platform", "blue"]
+      },
+      "nl": {
+        "title": "White Label",
+        "description": "Transformeer Blue in uw eigen merkplatform. Verwijder alle Blue-branding en creëer een naadloze ervaring voor uw klanten.",
+        "keywords": ["white label", "branding", "aangepast domein", "rebranding", "platform aanpassing", "blue"]
+      },
+      "pl": {
+        "title": "Biała Etykieta",
+        "description": "Przekształć Blue w swoją własną platformę marki. Usuń wszystkie branding Blue i stwórz bezproblemowe doświadczenie dla swoich klientów.",
+        "keywords": ["biała etykieta", "branding", "niestandardowa domena", "rebranding", "dostosowanie platformy", "blue"]
+      },
+      "zh-TW": {
+        "title": "白標",
+        "description": "將 Blue 轉變為您自己的品牌平台。刪除所有 Blue 品牌並為您的客戶創造無縫體驗。",
+        "keywords": ["白標", "品牌", "自訂域名", "重新品牌", "平台客製化", "blue"]
+      },
+      "sv": {
+        "title": "Vit Etikett",
+        "description": "Förvandla Blue till din egen märkesplattform. Ta bort all Blue-branding och skapa en sömlös upplevelse för dina kunder.",
+        "keywords": ["vit etikett", "varumärkning", "anpassad domän", "omprofilering", "plattformsanpassning", "blue"]
+      },
+      "km": {
+        "title": "ស្លាកសេ",
+        "description": "បំប្លែង Blue ទៅជាវេទិកាម៉ាកយីហោរបស់អ្នកផ្ទាល់។ លុបម៉ាកយីហោ Blue ទាំងអស់ និងបង្កើតបទពិសោធន៍គ្មានឧបសគ្គសម្រាប់អតិថិជនរបស់អ្នក។",
+        "keywords": ["ស្លាកសេ", "ម៉ាកយីហោ", "ដែនផ្ទាល់ខ្លួន", "ប្តូរម៉ាកយីហោ", "ការប្ដូរវេទិកា", "blue"]
+      }
+    },
+    "enterprise": {
+      "en": {
+        "title": "Enterprise",
+        "description": "Dedicated infrastructure, custom development, and white-label solutions for organizations that need serious scale with refreshing simplicity.",
+        "keywords": ["enterprise", "dedicated infrastructure", "custom development", "white-label", "scale", "blue"]
+      },
+      "es": {
+        "title": "Empresarial",
+        "description": "Infraestructura dedicada, desarrollo personalizado y soluciones de marca blanca para organizaciones que necesitan una escala seria con una simplicidad refrescante.",
+        "keywords": ["empresarial", "infraestructura dedicada", "desarrollo personalizado", "marca blanca", "escala", "blue"]
+      },
+      "zh": {
+        "title": "企业版",
+        "description": "为需要大规模部署又要保持简洁性的组织提供专用基础设施、定制开发和白标解决方案。",
+        "keywords": ["企业版", "专用基础设施", "定制开发", "白标", "规模", "blue"]
+      },
+      "fr": {
+        "title": "Entreprise",
+        "description": "Infrastructure dédiée, développement personnalisé et solutions en marque blanche pour les organisations qui ont besoin d'une échelle sérieuse avec une simplicité rafraîchissante.",
+        "keywords": ["entreprise", "infrastructure dédiée", "développement personnalisé", "marque blanche", "échelle", "blue"]
+      },
+      "de": {
+        "title": "Unternehmen",
+        "description": "Dedizierte Infrastruktur, kundenspezifische Entwicklung und White-Label-Lösungen für Organisationen, die ernsthafte Skalierung mit erfrischender Einfachheit benötigen.",
+        "keywords": ["unternehmen", "dedizierte infrastruktur", "kundenspezifische entwicklung", "white-label", "skalierung", "blue"]
+      },
+      "ja": {
+        "title": "エンタープライズ",
+        "description": "本格的なスケールを必要としながらも、すっきりとしたシンプルさを求める組織のための専用インフラストラクチャ、カスタム開発、ホワイトラベルソリューション。",
+        "keywords": ["エンタープライズ", "専用インフラストラクチャ", "カスタム開発", "ホワイトラベル", "スケール", "blue"]
+      },
+      "pt": {
+        "title": "Empresarial",
+        "description": "Infraestrutura dedicada, desenvolvimento personalizado e soluções de marca branca para organizações que precisam de escala séria com simplicidade refrescante.",
+        "keywords": ["empresarial", "infraestrutura dedicada", "desenvolvimento personalizado", "marca branca", "escala", "blue"]
+      },
+      "ru": {
+        "title": "Корпоративный",
+        "description": "Выделенная инфраструктура, индивидуальная разработка и решения белой метки для организаций, которым нужен серьезный масштаб с освежающей простотой.",
+        "keywords": ["корпоративный", "выделенная инфраструктура", "индивидуальная разработка", "белая метка", "масштаб", "blue"]
+      },
+      "ko": {
+        "title": "엔터프라이즈",
+        "description": "진지한 규모가 필요하면서도 상쾌한 단순함을 원하는 조직을 위한 전용 인프라, 맞춤 개발 및 화이트 라벨 솔루션.",
+        "keywords": ["엔터프라이즈", "전용 인프라", "맞춤 개발", "화이트 라벨", "규모", "blue"]
+      },
+      "it": {
+        "title": "Enterprise",
+        "description": "Infrastruttura dedicata, sviluppo personalizzato e soluzioni a marchio bianco per organizzazioni che necessitano di una scala seria con semplicità rinfrescante.",
+        "keywords": ["enterprise", "infrastruttura dedicata", "sviluppo personalizzato", "marchio bianco", "scala", "blue"]
+      },
+      "id": {
+        "title": "Perusahaan",
+        "description": "Infrastruktur khusus, pengembangan kustom, dan solusi label putih untuk organisasi yang membutuhkan skala serius dengan kesederhanaan yang menyegarkan.",
+        "keywords": ["perusahaan", "infrastruktur khusus", "pengembangan kustom", "label putih", "skala", "blue"]
+      },
+      "nl": {
+        "title": "Enterprise",
+        "description": "Toegewijde infrastructuur, aangepaste ontwikkeling en white-label oplossingen voor organisaties die serieuze schaal nodig hebben met verfrissende eenvoud.",
+        "keywords": ["enterprise", "toegewijde infrastructuur", "aangepaste ontwikkeling", "white-label", "schaal", "blue"]
+      },
+      "pl": {
+        "title": "Przedsiębiorstwo",
+        "description": "Dedykowana infrastruktura, niestandardowy rozwój i rozwiązania białej etykiety dla organizacji, które potrzebują poważnej skali z odświeżającą prostotą.",
+        "keywords": ["przedsiębiorstwo", "dedykowana infrastruktura", "niestandardowy rozwój", "biała etykieta", "skala", "blue"]
+      },
+      "zh-TW": {
+        "title": "企業版",
+        "description": "為需要大規模部署又要保持簡潔性的組織提供專用基礎設施、客製化開發和白標解決方案。",
+        "keywords": ["企業版", "專用基礎設施", "客製化開發", "白標", "規模", "blue"]
+      },
+      "sv": {
+        "title": "Företag",
+        "description": "Dedikerad infrastruktur, anpassad utveckling och white-label-lösningar för organisationer som behöver seriös skala med uppfriskande enkelhet.",
+        "keywords": ["företag", "dedikerad infrastruktur", "anpassad utveckling", "white-label", "skala", "blue"]
+      },
+      "km": {
+        "title": "សហគ្រាស",
+        "description": "ហេដ្ឋារចនាសម្ព័ន្ធឯកតា ការអភិវឌ្ឍន៍តាមតម្រូវការ និងដំណោះស្រាយស្លាកសេសម្រាប់អង្គការដែលត្រូវការទំហំធំជាមួយនឹងភាពសាមញ្ញស្រស់ស្អាត។",
+        "keywords": ["សហគ្រាស", "ហេដ្ឋារចនាសម្ព័ន្ធឯកតា", "ការអភិវឌ្ឍន៍តាមតម្រូវការ", "ស្លាកសេ", "ទំហំ", "blue"]
+      }
+    },
     "solutions/industry/non-profits": {
       "en": {
         "title": "Non-Profit Solutions",
