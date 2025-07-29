@@ -158,11 +158,33 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	// Serve component files
 	if strings.HasPrefix(cleanPath, "/components/") {
 		componentPath := strings.TrimPrefix(cleanPath, "/components/")
-		filePath := filepath.Join(r.componentsDir, componentPath)
-
+		
 		// Add .html extension if not present
-		if !strings.HasSuffix(filePath, ".html") {
-			filePath += ".html"
+		if !strings.HasSuffix(componentPath, ".html") {
+			componentPath += ".html"
+		}
+		
+		// Sanitize the path to prevent directory traversal
+		filePath := filepath.Join(r.componentsDir, componentPath)
+		filePath = filepath.Clean(filePath)
+		
+		// Ensure the resolved path is within the components directory
+		absComponentsDir, err := filepath.Abs(r.componentsDir)
+		if err != nil {
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+		
+		absFilePath, err := filepath.Abs(filePath)
+		if err != nil {
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+		
+		// Verify the file path is within the components directory
+		if !strings.HasPrefix(absFilePath, absComponentsDir+string(filepath.Separator)) {
+			http.Error(w, "Not found", http.StatusNotFound)
+			return
 		}
 
 		http.ServeFile(w, req, filePath)
