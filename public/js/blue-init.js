@@ -68,6 +68,9 @@ window.BlueInit = {
             const main = document.querySelector('main');
             if (main) {
                 Alpine.initTree(main);
+                
+                // Manually trigger x-init for status monitoring components
+                this.initStatusMonitoring(main);
             }
         }
     },
@@ -151,5 +154,25 @@ window.BlueInit = {
         } else {
             console.warn('AuthCookie or AuthStateManager not loaded - auth state detection will not work');
         }
+    },
+    
+    /**
+     * Initialize status monitoring components after SPA navigation
+     * @param {HTMLElement} container - Container element to search within
+     */
+    initStatusMonitoring(container) {
+        // Find all status monitoring components
+        const statusComponents = container.querySelectorAll('[x-data*="StatusUtils.createStatusPageData"], [x-data*="StatusUtils.createApiStatusData"]');
+        
+        statusComponents.forEach(component => {
+            // Get the Alpine data object
+            const alpineData = component._x_dataStack?.[0];
+            
+            if (alpineData && typeof alpineData.loadData === 'function') {
+                console.log('📊 Loading status data for component...');
+                // Trigger data loading
+                alpineData.loadData();
+            }
+        });
     }
 };
