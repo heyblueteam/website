@@ -925,6 +925,88 @@
         "keywords": ["សហគ្រាស", "ហេដ្ឋារចនាសម្ព័ន្ធឯកតា", "ការអភិវឌ្ឍន៍តាមតម្រូវការ", "ស្លាកសេ", "ទំហំ", "blue"]
       }
     },
+    "platform/features/database": {
+      "en": {
+        "title": "Database",
+        "description": "Collaborate effortlessly, edit records instantly, and manage millions of rows with our intuitive spreadsheet-style interface.",
+        "keywords": ["database", "spreadsheet", "data management", "collaboration", "records", "table view", "blue"]
+      },
+      "es": {
+        "title": "Base de Datos",
+        "description": "Colabora sin esfuerzo, edita registros instantáneamente y gestiona millones de filas con nuestra interfaz intuitiva tipo hoja de cálculo.",
+        "keywords": ["base de datos", "hoja de cálculo", "gestión de datos", "colaboración", "registros", "vista de tabla", "blue"]
+      },
+      "zh": {
+        "title": "数据库",
+        "description": "通过我们直观的电子表格式界面，轻松协作、即时编辑记录并管理数百万行数据。",
+        "keywords": ["数据库", "电子表格", "数据管理", "协作", "记录", "表格视图", "blue"]
+      },
+      "fr": {
+        "title": "Base de Données",
+        "description": "Collaborez sans effort, éditez les enregistrements instantanément et gérez des millions de lignes avec notre interface intuitive de type tableur.",
+        "keywords": ["base de données", "tableur", "gestion des données", "collaboration", "enregistrements", "vue tableau", "blue"]
+      },
+      "de": {
+        "title": "Datenbank",
+        "description": "Arbeiten Sie mühelos zusammen, bearbeiten Sie Datensätze sofort und verwalten Sie Millionen von Zeilen mit unserer intuitiven Tabellenkalkulations-Oberfläche.",
+        "keywords": ["datenbank", "tabellenkalkulation", "datenmanagement", "zusammenarbeit", "datensätze", "tabellenansicht", "blue"]
+      },
+      "ja": {
+        "title": "データベース",
+        "description": "直感的なスプレッドシート形式のインターフェースで、簡単にコラボレーションし、レコードを瞬時に編集し、数百万行を管理できます。",
+        "keywords": ["データベース", "スプレッドシート", "データ管理", "コラボレーション", "レコード", "テーブルビュー", "blue"]
+      },
+      "pt": {
+        "title": "Banco de Dados",
+        "description": "Colabore sem esforço, edite registros instantaneamente e gerencie milhões de linhas com nossa interface intuitiva estilo planilha.",
+        "keywords": ["banco de dados", "planilha", "gestão de dados", "colaboração", "registros", "visualização de tabela", "blue"]
+      },
+      "ru": {
+        "title": "База Данных",
+        "description": "Легко сотрудничайте, мгновенно редактируйте записи и управляйте миллионами строк с нашим интуитивным интерфейсом в стиле электронных таблиц.",
+        "keywords": ["база данных", "электронная таблица", "управление данными", "сотрудничество", "записи", "табличный вид", "blue"]
+      },
+      "ko": {
+        "title": "데이터베이스",
+        "description": "직관적인 스프레드시트 스타일 인터페이스로 손쉽게 협업하고, 레코드를 즉시 편집하며, 수백만 행을 관리하세요.",
+        "keywords": ["데이터베이스", "스프레드시트", "데이터 관리", "협업", "레코드", "테이블 뷰", "blue"]
+      },
+      "it": {
+        "title": "Database",
+        "description": "Collabora senza sforzo, modifica i record istantaneamente e gestisci milioni di righe con la nostra interfaccia intuitiva in stile foglio di calcolo.",
+        "keywords": ["database", "foglio di calcolo", "gestione dati", "collaborazione", "record", "vista tabella", "blue"]
+      },
+      "id": {
+        "title": "Basis Data",
+        "description": "Berkolaborasi dengan mudah, edit record secara instan, dan kelola jutaan baris dengan antarmuka intuitif bergaya spreadsheet kami.",
+        "keywords": ["basis data", "spreadsheet", "manajemen data", "kolaborasi", "record", "tampilan tabel", "blue"]
+      },
+      "nl": {
+        "title": "Database",
+        "description": "Werk moeiteloos samen, bewerk records direct en beheer miljoenen rijen met onze intuïtieve spreadsheet-achtige interface.",
+        "keywords": ["database", "spreadsheet", "databeheer", "samenwerking", "records", "tabelweergave", "blue"]
+      },
+      "pl": {
+        "title": "Baza Danych",
+        "description": "Współpracuj bez wysiłku, edytuj rekordy natychmiastowo i zarządzaj milionami wierszy dzięki naszemu intuicyjnemu interfejsowi w stylu arkusza kalkulacyjnego.",
+        "keywords": ["baza danych", "arkusz kalkulacyjny", "zarządzanie danymi", "współpraca", "rekordy", "widok tabeli", "blue"]
+      },
+      "zh-TW": {
+        "title": "資料庫",
+        "description": "通過我們直觀的電子試算表式介面，輕鬆協作、即時編輯記錄並管理數百萬行資料。",
+        "keywords": ["資料庫", "電子試算表", "資料管理", "協作", "記錄", "表格檢視", "blue"]
+      },
+      "sv": {
+        "title": "Databas",
+        "description": "Samarbeta utan ansträngning, redigera poster omedelbart och hantera miljontals rader med vårt intuitiva kalkylblads-liknande gränssnitt.",
+        "keywords": ["databas", "kalkylblad", "datahantering", "samarbete", "poster", "tabellvy", "blue"]
+      },
+      "km": {
+        "title": "មូលដ្ឋានទិន្នន័យ",
+        "description": "សហការដោយងាយស្រួល កែសម្រួលកំណត់ត្រាភ្លាមៗ និងគ្រប់គ្រងជួរជាលានជាមួយនឹងចំណុចប្រទាក់ដូចសៀវភៅបញ្ជីដ៏ងាយស្រួលរបស់យើង។",
+        "keywords": ["មូលដ្ឋានទិន្នន័យ", "សៀវភៅបញ្ជី", "ការគ្រប់គ្រងទិន្នន័យ", "កិច្ចសហការ", "កំណត់ត្រា", "ទិដ្ឋភាពតារាង", "blue"]
+      }
+    },
     "solutions/industry/non-profits": {
       "en": {
         "title": "Non-Profit Solutions",
