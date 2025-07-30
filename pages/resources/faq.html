@@ -1,381 +1,204 @@
 <!-- FAQ Page -->
     {{template "page-heading" 
         dict 
-            "Title" "Frequently Asked Questions" 
-            "Subtitle" "We've answered the most common questions about Blue. If you have any other questions, email support@blue.cc" 
+            "Title" (t "faq.page_title") 
+            "Subtitle" (t "faq.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
     
-    {{$faqData := parseJSON `{
-        "categories": [
-            {
-                "id": "general",
-                "name": "General",
-                "questions": [
-                    {
-                        "question": "What is Blue?",
-                        "answer": "Blue is a general purpose process management platform that can be used to manage a variety of processes across organizations. It helps staff to understand what they have to do, managers to have oversight, and for everyone to stay aligned."
-                    },
-                    {
-                        "question": "What are the key benefits of using Blue?",
-                        "answer": "Blue offers robust features to help teams organize work and collaborate effectively. Key benefits include customizable workflows, intelligent automation, real-time communication, and powerful analytics."
-                    },
-                    {
-                        "question": "When was Blue started?",
-                        "answer": "Blue was founded in April 2018 due to a frustration with existing process and project management platforms."
-                    },
-                    {
-                        "question": "Where is Blue based?",
-                        "answer": "Blue is a US Company (Delaware C Corp) with a fully remote team based in the Americas, Europe, and Asia."
-                    },
-                    {
-                        "question": "Is Blue available in another languages besides English?",
-                        "answer": "Yes, Blue is available in 24 languages.\n\nArabic (ar), Bengali (bn), Chinese (zh), Czech (cz), English (en), French (fr), Georgian (ka), German (de), Hindi (hi), Hungarian (hu), Indonesian (id), Italian (it), Japanese (ja), Khmer (km), Korean (ko), Latvian (lv), Marathi (mr), Portuguese (pt), Romanian (ro), Russian (ru), Spanish (es), Swedish (se), Thai (th), and Vietnamese (vi)."
-                    },
-                    {
-                        "question": "What types of businesses use Blue?",
-                        "answer": "Blue serves a really broad range of businesses across different industries, which is fantastic because we get this incredible horizontal view instead of a vertical industry view. Sometimes we create a feature to solve one problem in one industry, and then another industry can repurpose that feature to solve a completely different problem."
-                    },
-                    {
-                        "question": "How is Blue different from Asana, Monday.com, or Trello?",
-                        "answer": "First of all, Blue is way cheaper. It's also not venture-funded, so our customers are our main priority. It's completely founder-led and we focus on a level of simplicity that they perhaps don't."
-                    },
-                    {
-                        "question": "Can Blue replace our Excel spreadsheets?",
-                        "answer": "Yes, exactly! We have a database view that allows you to do that, and then you get the advantage of having full audit trails for all changes."
-                    },
-                    {
-                        "question": "Is Blue suitable for small teams or enterprises?",
-                        "answer": "Blue is suitable for both small teams and enterprises."
-                    }
-                ]
-            },
-            {
-                "id": "pricing",
-                "name": "Pricing & Plans",
-                "questions": [
-                    {
-                        "question": "How much does Blue cost?",
-                        "answer": "Blue has one main plan with monthly and yearly options: \n\n • Monthly plan: $7/month/user. \n • Yearly plan: $70/year/user (so you get two months free)"
-                    },
-                     {
-                        "question": "Which user roles count as a paid role?",
-                        "answer": "These users roles are paid:\n\n• Project Administrator\n• Team Member\n• Custom User Roles\n\nAnd these user roles are free:\n\n• Clients\n• Comment Only\n• View Only"
-                    },
-                    {
-                        "question": "How does the Blue free trial work?",
-                        "answer": "The free trial provides full access to all Blue features for 7 days. No credit card is required to start. If you wish to continue, you can upgrade to our paid plan at the end of the free trial and you will also have an option to extend your trial for another 7 days.\n\nYou can always email us at support@blue.cc if you need a longer trial or you want personalized onboarding."
-                    },
-                    {
-                        "question": "What's the White Label Plan?",
-                        "answer": "The White Label Plan is an optional add-on, priced at $200/year per company, that allow you to fully customize the branding of Blue to make it look like your own process system. This means that you can run Blue on your own domain, emails will come from your email addresses, and that you can add your logo and brand colours. "
-                    },
-                    {
-                        "question": "What's the Enterprise Plan?",
-                        "answer": "The Blue Enterprise plan is for medium to large companies that want to make Blue a core part of their operational processes and have dedicated support and engineering resources on their account. This allow Blue to customize the platform for their specific requirements."
-                    },
-                     {
-                        "question": "Are there discounts for non-profits or educational institutions?",
-                        "answer": "Yes, Blue offers 50% discounted on listed prices for registered non-profits, non-commercial educational institutions, and open-source projects."
-                    },
-                    {
-                        "question": "How does billing work when adding/removing users mid-cycle?",
-                        "answer": "We count by the day, so if you remove someone halfway through the month, you're only billed for the exact time they were on the platform. If you add someone halfway through a month, you're only billed for half a month."
-                    },
-                    {
-                        "question": "Can I switch between monthly and yearly plans?",
-                        "answer": "Yes, you can switch between monthly and yearly plans in the Company Billing settings."
-                    },
-                    {
-                        "question": "What happens to my data if I cancel my subscription?",
-                        "answer": "After 60 days, your data will be deleted."
-                    },
-                    {
-                        "question": "Do you offer volume discounts for large teams?",
-                        "answer": "Yes, please email sales@blue.cc to discuss volume discounts."
-                    },
-                    {
-                        "question": "Is there a lifetime deal available?",
-                        "answer": "No, we did go on AppSumo in the past but those deals are no longer available."
-                    }
-                ]
-            },
-            {
-                "id": "features",
-                "name": "Features & Functionality",
-                "questions": [
-                    {
-                        "question": "What integrations does Blue support?",
-                        "answer": "Blue has 5,000+ integrations via Make.com, Zapier, Pabbly Connect, Albato, and Boost.Space. We also have a full API for custom integrations and granular Webhooks."
-                    },
-                    {
-                        "question": "What supports options are available?",
-                        "answer": "We offer email us at support@blue.cc. We also offer paid support packages for large-scale imports, full-team onboarding, priority chat support, and regular training. Email us at support@blue.cc to learn more."
-                    },
-                    {
-                        "question": "Can I import my existing data into Blue?",
-                        "answer": "Yes, Blue supports bulk data import from CSV files. This allows you to migrate up to 200,000 records simultaneously and is perfect for migration from manual Excel workflows or other work management systems. You can reach out to support@blue.cc if you have questions about importing your data or to enquire about paid support packages."
-                    },
-                    {
-                        "question": "Does Blue have Mobile Apps?",
-                        "answer": "Yes, native iOS and Android apps are available to access Blue on the go. Core functionality like tasks, comments, and calendars sync across devices."
-                    },
-                    {
-                        "question": "How do permissions work in Blue?",
-                        "answer": "Permissions are set at the project level, so users can have different access levels across projects based on their roles. Blue has a powerful custom user roles system that allows you to define the precise access for each user group in each project."
-                    },
-                    {
-                        "question": "Can I customize the interface and workflows in Blue?",
-                        "answer": "Yes, you can completely customize fields, views, automation rules, forms, and more to match your work requirements. You can choose the colour of the interface and upload your company logo. We also allow you to have a custom domain."
-                    },
-                    {
-                        "question": "What analytics does Blue provide?",
-                        "answer": "Blue offers real-time dashboards and cross-project reporting to analyze progress, productivity, and trends."
-                    },
-                    {
-                        "question": "Can I export my data from Blue?",
-                        "answer": "Yes, you can export all your Blue data anytime via the API or bulk CSV Export. You own your data, and it is always accessible."
-                    },
-                    {
-                        "question": "What file storage limits exist in Blue?",
-                        "answer": "Blue offers 500GB of storage space per customer. Additional storage can be requested for enterprise accounts."
-                    },
-                    {
-                        "question": "Where do I submit feature requests for Blue?",
-                        "answer": "We'd love to hear your feature ideas! You can email us directly at support@blue.cc or join our community forums at https://ask.blue.cc"
-                    },
-                    {
-                        "question": "What are automations and how many can I create?",
-                        "answer": "You can create as many automations as you wish. They work on a trigger basis - you can say \"when something happens, then do this.\" It's a great way to automate administrative work."
-                    },
-                    {
-                        "question": "Can I create public forms for external submissions?",
-                        "answer": "Yes, you can create public forms for external submissions."
-                    },
-                    {
-                        "question": "How do custom fields work and which types are available?",
-                        "answer": "Custom fields allow you to create your own database structure in Blue. There are over 24 types available."
-                    },
-                    {
-                        "question": "Can I use formulas to calculate values automatically?",
-                        "answer": "You can use formulas to calculate values automatically. You can pull from number custom fields, currency custom fields, and percentage custom fields to generate specific values."
-                    },
-                    {
-                        "question": "What's the difference between projects and records?",
-                        "answer": "A project is a holder of many records, and a record is the most granular unit in Blue. A record contains custom fields."
-                    },
-                    {
-                        "question": "Can I create templates for recurring projects?",
-                        "answer": "Yes, you can create templates for recurring projects and processes."
-                    },
-                    {
-                        "question": "How do dependencies between tasks work?",
-                        "answer": "You can create dependencies between tasks by using the dependency custom field."
-                    },
-                    {
-                        "question": "Is there a limit on the number of projects I can create?",
-                        "answer": "No, there's no limit on the number of projects you can create."
-                    },
-                    {
-                        "question": "Can I set up recurring tasks?",
-                        "answer": "Yes, you can set up recurring tasks."
-                    },
-                    {
-                        "question": "How does the AI summarization feature work?",
-                        "answer": "We send all the comments to a custom AI model that gives back a summary."
-                    }
-                ]
-            },
-            {
-                "id": "security",
-                "name": "Security",
-                    "questions": [
-                    {
-                        "question": "Is Blue GDPR compliant?",
-                        "answer": "Yes, Blue is fully GDPR-compliant. For details, see our GDPR policy at https://blue.cc/legal/gdpr"
-                    },
-                    {
-                        "question": "Is Blue HIPAA compliant?",
-                        "answer": "Yes, Blue is HIPAA-compliant, so you can upload healthcare-related data. Learn more in our HIPAA policy at https://blue.cc/legal/hipaa"
-                    },
-                    {
-                        "question": "How is data encrypted in Blue?",
-                        "answer": "Blue uses bank-level encryption for both data at rest and in transit. \n\n • Data at rest is encrypted with 256-bit AES encryption. \n • Data in transit is protected with TLS 1.2+ (or higher) protocols. \n\nThis ensures your information is secure at all times."
-                    },
-                    {
-                        "question": "Where is my data stored?",
-                        "answer": "Data is stored in multiple data centers both in Europe and in Asia."
-                    },
-                    {
-                        "question": "How often are backups performed?",
-                        "answer": "Backups are done daily for 30 days."
-                    },
-                    {
-                        "question": "Can I restrict access to specific fields or records?",
-                        "answer": "Yes, you can restrict access to specific fields or records using the custom user permissions."
-                    },
-                    {
-                        "question": "Is two-factor authentication available?",
-                        "answer": "We don't have two-factor authentication available, but all logins are done by Magic Link."
-                    },
-                    {
-                        "question": "How do you handle data breaches?",
-                        "answer": "We fortunately have never had a data breach before, but we do have a notification system in place if that were to happen."
-                    }
-                ]
-            },
-            {
-                "id": "getting-started",
-                "name": "Getting Started & Onboarding",
-                "questions": [
-                    {
-                        "question": "How do I set up my first project in Blue?",
-                        "answer": "After signing up, you can create your first project from the dashboard. We recommend starting with a template that matches your use case, then customizing it with your own fields and workflows."
-                    },
-                    {
-                        "question": "Can I get help migrating from another tool?",
-                        "answer": "Yes, Blue supports bulk data import from CSV files for up to 200,000 records. For assistance with migration, email support@blue.cc or inquire about our paid support packages."
-                    },
-                    {
-                        "question": "Is there a guided onboarding process?",
-                        "answer": "Yes, new users are guided through initial setup steps. We also offer paid onboarding packages for teams who want personalized training."
-                    },
-                    {
-                        "question": "How long does it take to get started with Blue?",
-                        "answer": "Most users can set up their first project and start collaborating within minutes. The intuitive interface makes it easy to get productive quickly."
-                    },
-                    {
-                        "question": "Are there templates I can use to get started quickly?",
-                        "answer": "Yes, Blue offers various project templates for common use cases that you can customize to fit your needs."
-                    },
-                    {
-                        "question": "Do you offer training or implementation services?",
-                        "answer": "Yes, we offer paid support packages for full-team onboarding, training sessions, and implementation assistance. Email support@blue.cc to learn more."
-                    }
-                ]
-            },
-            {
-                "id": "API",
-                "name": "Technical & API",
-                "questions": [
-                    {
-                        "question": "What programming languages can I use with the Blue API?",
-                        "answer": "The Blue GraphQL API can be used with any programming language that supports HTTP requests. We provide examples in popular languages like JavaScript, Python, and Ruby."
-                    },
-                    {
-                        "question": "Are there rate limits on API requests?",
-                        "answer": "Yes, API requests are rate-limited to ensure platform stability. Contact support for specific limits and enterprise options."
-                    },
-                    {
-                        "question": "How do webhooks work in Blue?",
-                        "answer": "Webhooks allow you to receive real-time notifications when events occur in Blue. You can configure webhooks to trigger on various events like record creation, updates, or status changes."
-                    },
-                    {
-                        "question": "Can I build custom integrations?",
-                        "answer": "Yes, you can build custom integrations using our GraphQL API which provides 100% coverage of Blue's functionality."
-                    },
-                    {
-                        "question": "Is there API documentation available?",
-                        "answer": "Yes, comprehensive API documentation is available at blue.cc/docs/api."
-                    },
-                    {
-                        "question": "How do I authenticate with the API?",
-                        "answer": "API authentication uses API keys that you can generate from your account settings. Include the key in your request headers."
-                    }
-                ]
-            },
-            {
-                "id": "collaboration-teams",
-                "name": "Collaboration & Teams",
-                "questions": [
-                    {
-                        "question": "How do I invite team members to Blue?",
-                        "answer": "You can invite team members from the Company Administration section. They'll receive an email invitation to join your workspace."
-                    },
-                    {
-                        "question": "Can external clients access specific projects?",
-                        "answer": "Yes, you can add clients to specific projects with the free \"Client\" user role, giving them limited access to only what they need to see."
-                    },
-                    {
-                        "question": "How do notifications work?",
-                        "answer": "Blue sends notifications for mentions, assignments, due dates, and other important events. You can customize notification preferences in your profile settings."
-                    },
-                    {
-                        "question": "Can I mention team members in comments?",
-                        "answer": "Yes, use @ followed by their name to mention team members in comments. They'll receive a notification."
-                    },
-                    {
-                        "question": "How do I set up approval workflows?",
-                        "answer": "You can create approval workflows using automations and custom fields to route work through different stages and assignees."
-                    },
-                    {
-                        "question": "Can different teams have isolated workspaces?",
-                        "answer": "Yes, you can create separate projects for different teams with customized permissions to ensure proper isolation."
-                    }
-                ]
-            },
-            {
-                "id": "data-management",
-                "name": "Data Management",
-                "questions": [
-                    {
-                        "question": "What's the maximum file size I can upload?",
-                        "answer": "Individual file uploads are limited to ensure platform performance. For specific limits, check your plan details or contact support."
-                    },
-                    {
-                        "question": "How do I bulk update multiple records?",
-                        "answer": "You can bulk update records by selecting multiple items and using the bulk actions menu, or by using the CSV import with update mode."
-                    },
-                    {
-                        "question": "Can I create relationships between different projects?",
-                        "answer": "Yes, you can use reference and lookup custom fields to create relationships between records in different projects."
-                    },
-                    {
-                        "question": "How do I archive old projects?",
-                        "answer": "Projects can be archived from the project settings menu. Archived projects are hidden from active views but data remains accessible."
-                    },
-                    {
-                        "question": "What search capabilities are available?",
-                        "answer": "Blue offers powerful search across all projects, with filters for records, files, comments, and more. You can save frequently used searches."
-                    },
-                    {
-                        "question": "Can I create custom reports?",
-                        "answer": "Yes, use the Dashboards feature to create custom reports with various chart types and cross-project analytics."
-                    }
-                ]
-            },
-            {
-                "id": "troubleshooting-support",
-                "name": "Troubleshooting & Support",
-                "questions": [
-                    {
-                        "question": "Why can't I see a project that was shared with me?",
-                        "answer": "Check that you've been added to the project with appropriate permissions. If issues persist, contact your administrator or support@blue.cc."
-                    },
-                    {
-                        "question": "How do I recover deleted data?",
-                        "answer": "Contact support immediately at support@blue.cc. We maintain backups for 30 days and may be able to help recover recently deleted data."
-                    },
-                    {
-                        "question": "What browsers are supported?",
-                        "answer": "Blue works best on modern browsers including Chrome, Firefox, Safari, and Edge. We recommend keeping your browser updated."
-                    },
-                    {
-                        "question": "Why are my automations not triggering?",
-                        "answer": "Check that automations are enabled for your project and that trigger conditions are properly configured. Review the automation logs for details."
-                    },
-                    {
-                        "question": "How do I report a bug?",
-                        "answer": "Report bugs by emailing support@blue.cc with details about the issue, steps to reproduce, and any error messages."
-                    },
-                    {
-                        "question": "Is there a status page for service availability?",
-                        "answer": "Yes, check blue.cc/platform/status for real-time system status and incident updates."
-                    }
-                ]
-            }
-        ]
-    }`}}
-    
-    {{template "faq-sections" $faqData}}
+    <!-- General Category -->
+    {{$generalData := dict
+        "categories" (slice
+            (dict
+                "id" "general"
+                "name" (t "faq.categories.general")
+                "questions" (slice
+                    (dict "question" (t "faq.general.what_is_blue_q") "answer" (t "faq.general.what_is_blue_a"))
+                    (dict "question" (t "faq.general.key_benefits_q") "answer" (t "faq.general.key_benefits_a"))
+                    (dict "question" (t "faq.general.when_started_q") "answer" (t "faq.general.when_started_a"))
+                    (dict "question" (t "faq.general.where_based_q") "answer" (t "faq.general.where_based_a"))
+                    (dict "question" (t "faq.general.languages_available_q") "answer" (t "faq.general.languages_available_a"))
+                    (dict "question" (t "faq.general.types_of_businesses_q") "answer" (t "faq.general.types_of_businesses_a"))
+                    (dict "question" (t "faq.general.different_from_competitors_q") "answer" (t "faq.general.different_from_competitors_a"))
+                    (dict "question" (t "faq.general.replace_excel_q") "answer" (t "faq.general.replace_excel_a"))
+                    (dict "question" (t "faq.general.suitable_for_teams_q") "answer" (t "faq.general.suitable_for_teams_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $generalData}}
+
+    <!-- Pricing Category -->
+    {{$pricingData := dict
+        "categories" (slice
+            (dict
+                "id" "pricing"
+                "name" (t "faq.categories.pricing")
+                "questions" (slice
+                    (dict "question" (t "faq.pricing.cost_q") "answer" (t "faq.pricing.cost_a"))
+                    (dict "question" (t "faq.pricing.paid_roles_q") "answer" (t "faq.pricing.paid_roles_a"))
+                    (dict "question" (t "faq.pricing.free_trial_q") "answer" (t "faq.pricing.free_trial_a"))
+                    (dict "question" (t "faq.pricing.white_label_q") "answer" (t "faq.pricing.white_label_a"))
+                    (dict "question" (t "faq.pricing.enterprise_plan_q") "answer" (t "faq.pricing.enterprise_plan_a"))
+                    (dict "question" (t "faq.pricing.nonprofit_discounts_q") "answer" (t "faq.pricing.nonprofit_discounts_a"))
+                    (dict "question" (t "faq.pricing.billing_mid_cycle_q") "answer" (t "faq.pricing.billing_mid_cycle_a"))
+                    (dict "question" (t "faq.pricing.switch_plans_q") "answer" (t "faq.pricing.switch_plans_a"))
+                    (dict "question" (t "faq.pricing.cancel_data_q") "answer" (t "faq.pricing.cancel_data_a"))
+                    (dict "question" (t "faq.pricing.volume_discounts_q") "answer" (t "faq.pricing.volume_discounts_a"))
+                    (dict "question" (t "faq.pricing.lifetime_deal_q") "answer" (t "faq.pricing.lifetime_deal_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $pricingData}}
+
+    <!-- Features Category -->
+    {{$featuresData := dict
+        "categories" (slice
+            (dict
+                "id" "features"
+                "name" (t "faq.categories.features")
+                "questions" (slice
+                    (dict "question" (t "faq.features.integrations_q") "answer" (t "faq.features.integrations_a"))
+                    (dict "question" (t "faq.features.support_options_q") "answer" (t "faq.features.support_options_a"))
+                    (dict "question" (t "faq.features.import_data_q") "answer" (t "faq.features.import_data_a"))
+                    (dict "question" (t "faq.features.mobile_apps_q") "answer" (t "faq.features.mobile_apps_a"))
+                    (dict "question" (t "faq.features.permissions_q") "answer" (t "faq.features.permissions_a"))
+                    (dict "question" (t "faq.features.customize_interface_q") "answer" (t "faq.features.customize_interface_a"))
+                    (dict "question" (t "faq.features.analytics_q") "answer" (t "faq.features.analytics_a"))
+                    (dict "question" (t "faq.features.export_data_q") "answer" (t "faq.features.export_data_a"))
+                    (dict "question" (t "faq.features.file_storage_limits_q") "answer" (t "faq.features.file_storage_limits_a"))
+                    (dict "question" (t "faq.features.feature_requests_q") "answer" (t "faq.features.feature_requests_a"))
+                    (dict "question" (t "faq.features.automations_q") "answer" (t "faq.features.automations_a"))
+                    (dict "question" (t "faq.features.public_forms_q") "answer" (t "faq.features.public_forms_a"))
+                    (dict "question" (t "faq.features.custom_fields_q") "answer" (t "faq.features.custom_fields_a"))
+                    (dict "question" (t "faq.features.formulas_q") "answer" (t "faq.features.formulas_a"))
+                    (dict "question" (t "faq.features.projects_vs_records_q") "answer" (t "faq.features.projects_vs_records_a"))
+                    (dict "question" (t "faq.features.templates_q") "answer" (t "faq.features.templates_a"))
+                    (dict "question" (t "faq.features.dependencies_q") "answer" (t "faq.features.dependencies_a"))
+                    (dict "question" (t "faq.features.project_limit_q") "answer" (t "faq.features.project_limit_a"))
+                    (dict "question" (t "faq.features.recurring_tasks_q") "answer" (t "faq.features.recurring_tasks_a"))
+                    (dict "question" (t "faq.features.ai_summarization_q") "answer" (t "faq.features.ai_summarization_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $featuresData}}
+
+    <!-- Security Category -->
+    {{$securityData := dict
+        "categories" (slice
+            (dict
+                "id" "security"
+                "name" (t "faq.categories.security")
+                "questions" (slice
+                    (dict "question" (t "faq.security.gdpr_compliant_q") "answer" (t "faq.security.gdpr_compliant_a"))
+                    (dict "question" (t "faq.security.hipaa_compliant_q") "answer" (t "faq.security.hipaa_compliant_a"))
+                    (dict "question" (t "faq.security.data_encryption_q") "answer" (t "faq.security.data_encryption_a"))
+                    (dict "question" (t "faq.security.data_storage_q") "answer" (t "faq.security.data_storage_a"))
+                    (dict "question" (t "faq.security.backup_frequency_q") "answer" (t "faq.security.backup_frequency_a"))
+                    (dict "question" (t "faq.security.restrict_access_q") "answer" (t "faq.security.restrict_access_a"))
+                    (dict "question" (t "faq.security.two_factor_auth_q") "answer" (t "faq.security.two_factor_auth_a"))
+                    (dict "question" (t "faq.security.data_breaches_q") "answer" (t "faq.security.data_breaches_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $securityData}}
+
+    <!-- Getting Started Category -->
+    {{$gettingStartedData := dict
+        "categories" (slice
+            (dict
+                "id" "getting-started"
+                "name" (t "faq.categories.getting_started")
+                "questions" (slice
+                    (dict "question" (t "faq.getting_started.setup_first_project_q") "answer" (t "faq.getting_started.setup_first_project_a"))
+                    (dict "question" (t "faq.getting_started.migration_help_q") "answer" (t "faq.getting_started.migration_help_a"))
+                    (dict "question" (t "faq.getting_started.guided_onboarding_q") "answer" (t "faq.getting_started.guided_onboarding_a"))
+                    (dict "question" (t "faq.getting_started.time_to_start_q") "answer" (t "faq.getting_started.time_to_start_a"))
+                    (dict "question" (t "faq.getting_started.templates_available_q") "answer" (t "faq.getting_started.templates_available_a"))
+                    (dict "question" (t "faq.getting_started.training_services_q") "answer" (t "faq.getting_started.training_services_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $gettingStartedData}}
+
+    <!-- API Category -->
+    {{$apiData := dict
+        "categories" (slice
+            (dict
+                "id" "API"
+                "name" (t "faq.categories.api")
+                "questions" (slice
+                    (dict "question" (t "faq.api.programming_languages_q") "answer" (t "faq.api.programming_languages_a"))
+                    (dict "question" (t "faq.api.rate_limits_q") "answer" (t "faq.api.rate_limits_a"))
+                    (dict "question" (t "faq.api.webhooks_work_q") "answer" (t "faq.api.webhooks_work_a"))
+                    (dict "question" (t "faq.api.custom_integrations_q") "answer" (t "faq.api.custom_integrations_a"))
+                    (dict "question" (t "faq.api.api_documentation_q") "answer" (t "faq.api.api_documentation_a"))
+                    (dict "question" (t "faq.api.api_authentication_q") "answer" (t "faq.api.api_authentication_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $apiData}}
+
+    <!-- Collaboration Category -->
+    {{$collaborationData := dict
+        "categories" (slice
+            (dict
+                "id" "collaboration-teams"
+                "name" (t "faq.categories.collaboration")
+                "questions" (slice
+                    (dict "question" (t "faq.collaboration.invite_team_q") "answer" (t "faq.collaboration.invite_team_a"))
+                    (dict "question" (t "faq.collaboration.external_clients_q") "answer" (t "faq.collaboration.external_clients_a"))
+                    (dict "question" (t "faq.collaboration.notifications_work_q") "answer" (t "faq.collaboration.notifications_work_a"))
+                    (dict "question" (t "faq.collaboration.mention_team_q") "answer" (t "faq.collaboration.mention_team_a"))
+                    (dict "question" (t "faq.collaboration.approval_workflows_q") "answer" (t "faq.collaboration.approval_workflows_a"))
+                    (dict "question" (t "faq.collaboration.isolated_workspaces_q") "answer" (t "faq.collaboration.isolated_workspaces_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $collaborationData}}
+
+    <!-- Data Management Category -->
+    {{$dataManagementData := dict
+        "categories" (slice
+            (dict
+                "id" "data-management"
+                "name" (t "faq.categories.data_management")
+                "questions" (slice
+                    (dict "question" (t "faq.data_management.max_file_size_q") "answer" (t "faq.data_management.max_file_size_a"))
+                    (dict "question" (t "faq.data_management.bulk_update_q") "answer" (t "faq.data_management.bulk_update_a"))
+                    (dict "question" (t "faq.data_management.relationships_projects_q") "answer" (t "faq.data_management.relationships_projects_a"))
+                    (dict "question" (t "faq.data_management.archive_projects_q") "answer" (t "faq.data_management.archive_projects_a"))
+                    (dict "question" (t "faq.data_management.search_capabilities_q") "answer" (t "faq.data_management.search_capabilities_a"))
+                    (dict "question" (t "faq.data_management.custom_reports_q") "answer" (t "faq.data_management.custom_reports_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $dataManagementData}}
+
+    <!-- Troubleshooting Category -->
+    {{$troubleshootingData := dict
+        "categories" (slice
+            (dict
+                "id" "troubleshooting-support"
+                "name" (t "faq.categories.troubleshooting")
+                "questions" (slice
+                    (dict "question" (t "faq.troubleshooting.cant_see_project_q") "answer" (t "faq.troubleshooting.cant_see_project_a"))
+                    (dict "question" (t "faq.troubleshooting.recover_deleted_q") "answer" (t "faq.troubleshooting.recover_deleted_a"))
+                    (dict "question" (t "faq.troubleshooting.supported_browsers_q") "answer" (t "faq.troubleshooting.supported_browsers_a"))
+                    (dict "question" (t "faq.troubleshooting.automations_not_triggering_q") "answer" (t "faq.troubleshooting.automations_not_triggering_a"))
+                    (dict "question" (t "faq.troubleshooting.report_bug_q") "answer" (t "faq.troubleshooting.report_bug_a"))
+                    (dict "question" (t "faq.troubleshooting.status_page_q") "answer" (t "faq.troubleshooting.status_page_a"))
+                )
+            )
+        )
+    }}
+    {{template "faq-sections" $troubleshootingData}}
+
 
