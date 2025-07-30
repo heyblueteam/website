@@ -34,33 +34,94 @@
     <section class="mb-16">
         <!-- Smart Ticket Creation & Routing -->
         <div class="mb-16">
-            {{$ticketCreationData := parseJSON `{
-                "Title": "Tickets from anywhere, routed instantly.",
-                "Description": "Create tickets via forms, email, API, or QR codes on equipment. Intelligent automations ensure every ticket reaches the right team member based on type, priority, or custom rules.",
-                "VideoUrl": "/testvideo2.mp4",
-                "VideoPosition": "right",
-                "Button": {
-                    "Text": "Learn about forms",
-                    "Url": "/docs/forms/introduction"
-                },
-                "SeeAlso": {
-                    "Heading": "See also",
-                    "Links": [
-                        {
-                            "Text": "QR code generation",
-                            "Url": "/docs/forms/qr-codes",
-                            "Description": "for equipment and location-based tickets"
-                        },
-                        {
-                            "Text": "API integration",
-                            "Url": "/docs/integrations/api",
-                            "Description": "to create tickets programmatically"
-                        }
-                    ]
-                }
-            }`}}
-            
-            {{template "feature-video" $ticketCreationData}}
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left side - Text content -->
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">
+                            Tickets from anywhere, routed instantly.
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Create tickets via forms, email, API, or QR codes on equipment. Intelligent automations ensure every ticket reaches the right team member based on type, priority, or custom rules.
+                        </p>
+                        
+                        <!-- Button -->
+                        <div class="pt-2">
+                            <a href="/api/start-guide/introduction" 
+                               class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out">
+                                Discover our API
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- See Also -->
+                        <div class="pt-4">
+                            <h5 class="text-sm font-medium text-gray-900 dark:text-white mb-3">
+                                See also
+                            </h5>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="/docs/forms/introduction" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
+                                        Forms & ticket creation
+                                    </a>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> build custom ticket submission forms</span>
+                                </li>
+                                <li>
+                                    <a href="/docs/forms/qr-codes" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
+                                        QR code generation
+                                    </a>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> for equipment and location-based tickets</span>
+                                </li>
+                                <li>
+                                    <a href="/docs/integrations/api" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
+                                        API integration
+                                    </a>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> to create tickets programmatically</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right side - Code Example -->
+                    <div class="prose prose-lg max-w-none">
+                        <pre><code class="language-graphql">mutation CreateServiceTicket {
+  createTodo(
+    input: {
+      title: "Server outage in data center"
+      description: "&lt;p&gt;Primary web server experiencing intermittent connectivity issues since 2:30 PM EST.&lt;/p&gt;"
+      placement: TOP
+      duedAt: "2025-01-15T17:00:00Z"
+      assigneeIds: ["user_it_admin"]
+      tags: [
+        { title: "Critical", color: "#ff4b4b" }
+        { title: "Infrastructure" }
+      ]
+      customFields: [
+        {
+          customFieldId: "Priority"
+          value: "High"
+        }
+        {
+          customFieldId: "Category"
+          value: "Infrastructure"
+        }
+        {
+          customFieldId: "Customer Email"
+          value: "admin@company.com"
+        }
+        {
+          customFieldId: "Office"
+          value: "New York HQ"
+        }
+      ]
+    }
+  )
+}</code></pre>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- SLA Tracking -->
@@ -100,7 +161,7 @@
             {{$customizationData := parseJSON `{
                 "Title": "Your support process, your way.",
                 "Description": "Design your perfect ticket structure with custom fields, statuses, and workflows. No rigid templates—build exactly what your team needs. Color-code priorities, add tags for escalation, and create the ideal ticket lifecycle.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "https://media.blue.cc/service-tickets-fields-example.mp4",
                 "VideoPosition": "right",
                 "Button": {
                     "Text": "Explore custom fields",
@@ -116,7 +177,7 @@
             {{$communicationData := parseJSON `{
                 "Title": "Keep everyone in the loop, automatically.",
                 "Description": "Automated email updates notify customers at each stage. Reduce follow-up inquiries and improve satisfaction with proactive communication. Set up custom email templates for different ticket types and statuses.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "https://media.blue.cc/service-ticket-email-example.mp4",
                 "VideoPosition": "left",
                 "SeeAlso": {
                     "Heading": "Communication features",
@@ -180,17 +241,6 @@
         {{template "interactive-feature-showcase" $showcaseData}}
     </section>
 
-    <!-- Testimonial -->
-    <section class="mb-16">        
-        {{template "testimonial-single" 
-            dict 
-                "Quote" "Blue transformed our support operations. We reduced ticket resolution time by 40% and our customers love the automatic updates."
-                "VideoUrl" "/testvideo2.mp4"
-                "PosterUrl" "/testimonials/june.jpg"
-                "Name" "Sarah Chen"
-                "Title" "IT Service Manager"
-        }}
-    </section>
 
     <!-- First CTA -->
     <section class="mb-16">
