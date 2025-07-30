@@ -43,7 +43,7 @@ Znaczenie Kanban w nowoczesnym zarządzaniu projektami jest nie do przecenienia.
 
 Kanban przekształca zarządzanie projektami z tego, co mogłoby wydawać się ogromną, przytłaczającą listą rzeczy do zrobienia, w dynamiczną, priorytetową aktywność. To wizualne podejście pozwala małym zespołom osiągać wielkie rzeczy, wymuszając priorytetyzację i zapewniając natychmiastową klarowność statusu pracy.
 
-Pomimo szerokiego przyjęcia, Kanban nie jest wolny od nieporozumień. Niektórzy błędnie uważają, że jest trudny do skonfigurowania lub nie wystarczająco potężny do *"poważnej pracy"*, która zawsze wymaga długich pisemnych planów i [Wykresów Gantta](/platform/features/timeline-gantt-charts). W rzeczywistości, prostota Kanban *jest* jedną z jego największych sił, co czyni go dostosowalnym do różnych skal i złożoności pracy.
+Pomimo szerokiego przyjęcia, Kanban nie jest wolny od nieporozumień. Niektórzy błędnie uważają, że jest trudny do skonfigurowania lub nie wystarczająco potężny do *"poważnej pracy"*, która zawsze wymaga długich pisemnych planów i [Wykresów Gantta](/docs/views/timeline-gantt-charts). W rzeczywistości, prostota Kanban *jest* jedną z jego największych sił, co czyni go dostosowalnym do różnych skal i złożoności pracy.
 
 Dla wielu liderów Kanban przynosi poczucie spokoju i kontroli. Jeden z CEO, który korzysta z Blue, zgłosił:
 

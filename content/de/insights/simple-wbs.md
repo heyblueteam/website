@@ -206,7 +206,7 @@ Um die WBS während des gesamten Projektlebenszyklus nützlich und relevant zu h
 
 Ein bedeutendes Missverständnis besteht darin, die WBS als einmalige Aufgabe zu betrachten, anstatt als einen fortlaufenden Prozess. Effektives Projektmanagement umfasst die kontinuierliche Verfeinerung und Aktualisierung der WBS, während das Projekt voranschreitet. Dieser iterative Ansatz stellt sicher, dass die WBS ein lebendiges Dokument bleibt, das sich an die Bedürfnisse des Projekts anpasst.
 
-Blue hilft, diese häufigen Fehler zu mildern, indem es vollständige Sichtbarkeit in die WBS bietet und jeden Punkt durch verschiedene Ansichten wie [Kanban-Boards](/platform/features/kanban-board), [Datenbankansichten](/platform/features/database) (Excel-ähnliche Ansichten) und [Gantt-Diagramme](/platform/features/timeline-gantt-charts) verfolgt.
+Blue hilft, diese häufigen Fehler zu mildern, indem es vollständige Sichtbarkeit in die WBS bietet und jeden Punkt durch verschiedene Ansichten wie [Kanban-Boards](/platform/features/kanban-board), [Datenbankansichten](/platform/features/database) (Excel-ähnliche Ansichten) und [Gantt-Diagramme](/docs/views/timeline-gantt-charts) verfolgt.
 
 Diese Flexibilität stellt sicher, dass die WBS nicht nur leicht zugänglich ist, sondern auch ein dynamisches Werkzeug bleibt, das das Projektmanagement effektiv unterstützt.
 

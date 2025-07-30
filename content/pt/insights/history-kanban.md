@@ -43,7 +43,7 @@ A importância do Kanban na gestão de projetos moderna não pode ser subestimad
 
 O Kanban transforma o gerenciamento de projetos do que poderia parecer uma lista de tarefas massiva e opressora em uma atividade dinâmica e priorizada. Essa abordagem visual permite que pequenas equipes realizem grandes feitos, forçando a priorização e fornecendo clareza instantânea sobre o status do trabalho.
 
-Apesar de sua ampla adoção, o Kanban não está isento de equívocos. Alguns acreditam erroneamente que é difícil de configurar ou não é poderoso o suficiente para *"trabalho sério"* que sempre requer longos planos escritos e [Gráficos de Gantt](/platform/features/timeline-gantt-charts). Na realidade, a simplicidade do Kanban *é* uma de suas maiores forças, tornando-o adaptável a várias escalas e complexidades de trabalho.
+Apesar de sua ampla adoção, o Kanban não está isento de equívocos. Alguns acreditam erroneamente que é difícil de configurar ou não é poderoso o suficiente para *"trabalho sério"* que sempre requer longos planos escritos e [Gráficos de Gantt](/docs/views/timeline-gantt-charts). Na realidade, a simplicidade do Kanban *é* uma de suas maiores forças, tornando-o adaptável a várias escalas e complexidades de trabalho.
 
 Para muitos líderes, o Kanban traz uma sensação de calma e controle. Um CEO que usa a Blue relatou:
 

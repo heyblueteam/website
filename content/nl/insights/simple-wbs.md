@@ -210,7 +210,7 @@ Om de WBS nuttig en relevant te houden gedurende de levenscyclus van het project
 
 Een belangrijke misvatting is het beschouwen van de WBS als een eenmalige taak in plaats van een doorlopend proces. Effectief projectmanagement houdt in dat de WBS voortdurend wordt verfijnd en bijgewerkt naarmate het project vordert. Deze iteratieve benadering zorgt ervoor dat de WBS een levend document blijft dat zich aanpast aan de behoeften van het project.
 
-Blue helpt deze veelvoorkomende fouten te verminderen door volledige zichtbaarheid in de WBS te bieden en elk item te volgen via verschillende weergaven zoals [Kanban-borden](/platform/features/kanban-board), [databaseweergaven](/platform/features/database) (Excel-achtige weergaven), en [Gantt-diagrammen](/platform/features/timeline-gantt-charts).
+Blue helpt deze veelvoorkomende fouten te verminderen door volledige zichtbaarheid in de WBS te bieden en elk item te volgen via verschillende weergaven zoals [Kanban-borden](/platform/features/kanban-board), [databaseweergaven](/platform/features/database) (Excel-achtige weergaven), en [Gantt-diagrammen](/docs/views/timeline-gantt-charts).
 
 Deze flexibiliteit zorgt ervoor dat de WBS niet alleen gemakkelijk toegankelijk is, maar ook een dynamisch hulpmiddel blijft dat projectmanagement effectief ondersteunt.
 

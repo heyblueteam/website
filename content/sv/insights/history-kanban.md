@@ -43,7 +43,7 @@ Betydelsen av Kanban i modern projektledning kan inte överskattas. Det har bliv
 
 Kanban omvandlar projektledning från vad som kan verka som en massiv, överväldigande att-göra-lista till en dynamisk, prioriterad aktivitet. Denna visuella metod gör det möjligt för små team att åstadkomma stora saker genom att tvinga fram prioritering och ge omedelbar klarhet om arbetsstatus.
 
-Trots sin utbredda användning är Kanban inte utan sina missuppfattningar. Vissa tror felaktigt att det är svårt att sätta upp eller inte tillräckligt kraftfullt för *"seriöst arbete"* som alltid kräver långa skriftliga planer och [Gantt-diagram](/platform/features/timeline-gantt-charts). I verkligheten är Kanbans enkelhet *en* av dess största styrkor, vilket gör den anpassningsbar till olika skalor och komplexiteter av arbete.
+Trots sin utbredda användning är Kanban inte utan sina missuppfattningar. Vissa tror felaktigt att det är svårt att sätta upp eller inte tillräckligt kraftfullt för *"seriöst arbete"* som alltid kräver långa skriftliga planer och [Gantt-diagram](/docs/views/timeline-gantt-charts). I verkligheten är Kanbans enkelhet *en* av dess största styrkor, vilket gör den anpassningsbar till olika skalor och komplexiteter av arbete.
 
 För många ledare ger Kanban en känsla av lugn och kontroll. En VD som använder Blue rapporterade:
 

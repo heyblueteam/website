@@ -207,7 +207,7 @@ Para manter a WBS útil e relevante ao longo do ciclo de vida do projeto, ela de
 
 Uma grande concepção errônea é tratar a WBS como uma tarefa única, em vez de um processo contínuo. O gerenciamento de projetos eficaz envolve continuamente refinar e atualizar a WBS à medida que o projeto avança. Essa abordagem iterativa garante que a WBS permaneça um documento vivo que se adapta às necessidades do projeto.
 
-O Blue ajuda a mitigar esses erros comuns, proporcionando total visibilidade na WBS e rastreando cada item através de diferentes visualizações, como [quadros Kanban](/platform/features/kanban-board), [visualizações de banco de dados](/platform/features/database) (visualizações semelhantes ao Excel) e [gráficos de Gantt](/platform/features/timeline-gantt-charts).
+O Blue ajuda a mitigar esses erros comuns, proporcionando total visibilidade na WBS e rastreando cada item através de diferentes visualizações, como [quadros Kanban](/platform/features/kanban-board), [visualizações de banco de dados](/platform/features/database) (visualizações semelhantes ao Excel) e [gráficos de Gantt](/docs/views/timeline-gantt-charts).
 
 Essa flexibilidade garante que a WBS não apenas seja facilmente acessível, mas também permaneça uma ferramenta dinâmica que apoia efetivamente o gerenciamento de projetos.
 

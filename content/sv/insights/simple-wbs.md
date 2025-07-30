@@ -210,7 +210,7 @@ För att hålla WBS användbar och relevant under hela projektets livscykel mås
 
 En betydande missuppfattning är att behandla WBS som en engångsuppgift snarare än en pågående process. Effektiv projektledning involverar kontinuerligt att förfina och uppdatera WBS när projektet fortskrider. Denna iterativa metod säkerställer att WBS förblir ett levande dokument som anpassar sig till projektets behov.
 
-Blue hjälper till att mildra dessa vanliga misstag genom att ge full insyn i WBS och spåra varje punkt genom olika vyer som [Kanban-tavlor](/platform/features/kanban-board), [databasutskrifter](/platform/features/database) (Excel-liknande vyer) och [Gantt-diagram](/platform/features/timeline-gantt-charts). 
+Blue hjälper till att mildra dessa vanliga misstag genom att ge full insyn i WBS och spåra varje punkt genom olika vyer som [Kanban-tavlor](/platform/features/kanban-board), [databasutskrifter](/platform/features/database) (Excel-liknande vyer) och [Gantt-diagram](/docs/views/timeline-gantt-charts). 
 
 Denna flexibilitet säkerställer att WBS inte bara är lättillgänglig utan också förblir ett dynamiskt verktyg som effektivt stöder projektledning.
 

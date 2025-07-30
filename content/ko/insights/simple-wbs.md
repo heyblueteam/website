@@ -210,7 +210,7 @@ WBS를 프로젝트 생애 주기 전반에 걸쳐 유용하고 관련성 있게
 
 중대한 오해는 WBS를 일회성 작업으로 간주하는 것입니다. 효과적인 프로젝트 관리는 프로젝트가 진행됨에 따라 WBS를 지속적으로 다듬고 업데이트하는 것을 포함합니다. 이러한 반복적인 접근 방식은 WBS가 프로젝트의 필요에 따라 적응하는 살아있는 문서로 남도록 보장합니다.
 
-Blue는 [칸반 보드](/platform/features/kanban-board), [데이터베이스 보기](/platform/features/database) (엑셀 유사 보기), [간트 차트](/platform/features/timeline-gantt-charts)와 같은 다양한 보기로 WBS에 대한 완전한 가시성을 제공하고 모든 항목을 추적하여 이러한 일반적인 실수를 완화하는 데 도움을 줍니다.
+Blue는 [칸반 보드](/platform/features/kanban-board), [데이터베이스 보기](/platform/features/database) (엑셀 유사 보기), [간트 차트](/docs/views/timeline-gantt-charts)와 같은 다양한 보기로 WBS에 대한 완전한 가시성을 제공하고 모든 항목을 추적하여 이러한 일반적인 실수를 완화하는 데 도움을 줍니다.
 
 이러한 유연성은 WBS가 쉽게 접근 가능할 뿐만 아니라 프로젝트 관리를 효과적으로 지원하는 동적 도구로 남도록 보장합니다.
 

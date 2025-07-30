@@ -206,7 +206,7 @@ Untuk menjaga WBS tetap berguna dan relevan sepanjang siklus hidup proyek, harus
 
 Salah satu kesalahpahaman yang signifikan adalah memperlakukan WBS sebagai tugas satu kali daripada proses yang berkelanjutan. Manajemen proyek yang efektif melibatkan terus-menerus menyempurnakan dan memperbarui WBS seiring kemajuan proyek. Pendekatan iteratif ini memastikan bahwa WBS tetap menjadi dokumen hidup yang beradaptasi dengan kebutuhan proyek.
 
-Blue membantu mengurangi kesalahan umum ini dengan memberikan visibilitas penuh ke dalam WBS dan melacak setiap item melalui berbagai tampilan seperti [papan Kanban](/platform/features/kanban-board), [tampilan basis data](/platform/features/database) (tampilan mirip Excel), dan [diagram Gantt](/platform/features/timeline-gantt-charts).
+Blue membantu mengurangi kesalahan umum ini dengan memberikan visibilitas penuh ke dalam WBS dan melacak setiap item melalui berbagai tampilan seperti [papan Kanban](/platform/features/kanban-board), [tampilan basis data](/platform/features/database) (tampilan mirip Excel), dan [diagram Gantt](/docs/views/timeline-gantt-charts).
 
 Fleksibilitas ini memastikan bahwa WBS tidak hanya mudah diakses tetapi juga tetap menjadi alat dinamis yang mendukung manajemen proyek secara efektif.
 

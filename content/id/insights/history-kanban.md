@@ -43,7 +43,7 @@ Signifikansi Kanban dalam manajemen proyek modern tidak dapat diabaikan. Ini tel
 
 Kanban mengubah manajemen proyek dari apa yang bisa tampak seperti daftar tugas yang besar dan menakutkan menjadi aktivitas dinamis yang diprioritaskan. Pendekatan visual ini memungkinkan tim kecil untuk mencapai hal-hal besar dengan memaksa prioritas dan memberikan kejelasan instan tentang status pekerjaan.
 
-Meskipun telah diadopsi secara luas, Kanban tidak tanpa kesalahpahaman. Beberapa orang keliru percaya bahwa sulit untuk diatur atau tidak cukup kuat untuk *"pekerjaan serius"* yang selalu memerlukan rencana tertulis yang panjang dan [Diagram Gantt](/platform/features/timeline-gantt-charts). Pada kenyataannya, kesederhanaan Kanban *adalah* salah satu kekuatan terbesarnya, menjadikannya dapat disesuaikan dengan berbagai skala dan kompleksitas pekerjaan.
+Meskipun telah diadopsi secara luas, Kanban tidak tanpa kesalahpahaman. Beberapa orang keliru percaya bahwa sulit untuk diatur atau tidak cukup kuat untuk *"pekerjaan serius"* yang selalu memerlukan rencana tertulis yang panjang dan [Diagram Gantt](/docs/views/timeline-gantt-charts). Pada kenyataannya, kesederhanaan Kanban *adalah* salah satu kekuatan terbesarnya, menjadikannya dapat disesuaikan dengan berbagai skala dan kompleksitas pekerjaan.
 
 Bagi banyak pemimpin, Kanban membawa rasa tenang dan kontrol. Salah satu CEO yang menggunakan Blue melaporkan:
 

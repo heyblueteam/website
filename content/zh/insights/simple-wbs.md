@@ -207,7 +207,7 @@ WBS在整个项目生命周期中跟踪进度方面也发挥着至关重要的�
 
 一个重大误解是将WBS视为一次性任务，而不是一个持续的过程。有效的项目管理涉及在项目进展过程中不断完善和更新WBS。这种迭代的方法确保WBS始终是一个活文档，能够适应项目的需求。
 
-Blue通过提供对WBS的全面可见性，并通过不同视图（如[看板](/platform/features/kanban-board)、[数据库视图](/platform/features/database)（类似Excel的视图）和[甘特图](/platform/features/timeline-gantt-charts)）跟踪每个项目，帮助减轻这些常见错误。
+Blue通过提供对WBS的全面可见性，并通过不同视图（如[看板](/platform/features/kanban-board)、[数据库视图](/platform/features/database)（类似Excel的视图）和[甘特图](/docs/views/timeline-gantt-charts)）跟踪每个项目，帮助减轻这些常见错误。
 
 这种灵活性确保WBS不仅易于访问，而且仍然是一个动态工具，有效支持项目管理。
 

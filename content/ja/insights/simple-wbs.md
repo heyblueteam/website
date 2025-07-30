@@ -206,7 +206,7 @@ WBSをプロジェクトライフサイクル全体で有用かつ関連性の�
 
 重要な誤解は、WBSを一度きりのタスクと見なすことです。効果的なプロジェクト管理は、プロジェクトが進行するにつれてWBSを継続的に洗練し、更新することを含みます。この反復的なアプローチは、WBSがプロジェクトのニーズに適応する生きた文書であり続けることを保証します。
 
-Blueは、[カンバンボード](/platform/features/kanban-board)、[データベースビュー](/platform/features/database)（Excelのようなビュー）、[ガントチャート](/platform/features/timeline-gantt-charts)などの異なるビューを通じてWBSの完全な可視性を提供し、これらの一般的な間違いを軽減するのに役立ちます。
+Blueは、[カンバンボード](/platform/features/kanban-board)、[データベースビュー](/platform/features/database)（Excelのようなビュー）、[ガントチャート](/docs/views/timeline-gantt-charts)などの異なるビューを通じてWBSの完全な可視性を提供し、これらの一般的な間違いを軽減するのに役立ちます。
 
 この柔軟性により、WBSは簡単にアクセスできるだけでなく、プロジェクト管理を効果的にサポートする動的なツールとして機能し続けます。
 

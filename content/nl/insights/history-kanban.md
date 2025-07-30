@@ -43,7 +43,7 @@ Het belang van Kanban in modern projectmanagement kan niet worden overschat. Het
 
 Kanban transformeert projectmanagement van wat een enorme, overweldigende takenlijst lijkt in een dynamische, geprioriteerde activiteit. Deze visuele benadering stelt kleine teams in staat om geweldige dingen te bereiken door prioritering af te dwingen en directe duidelijkheid te bieden over de status van het werk.
 
-Ondanks de wijdverspreide adoptie is Kanban niet zonder misvattingen. Sommigen geloven ten onrechte dat het moeilijk op te zetten is of niet krachtig genoeg voor *"serieuze werkzaamheden"* die altijd lange geschreven plannen en [Gantt-diagrammen](/platform/features/timeline-gantt-charts) vereisen. In werkelijkheid is de eenvoud van Kanban *een van zijn grootste sterktepunten*, waardoor het aanpasbaar is aan verschillende schalen en complexiteiten van werk.
+Ondanks de wijdverspreide adoptie is Kanban niet zonder misvattingen. Sommigen geloven ten onrechte dat het moeilijk op te zetten is of niet krachtig genoeg voor *"serieuze werkzaamheden"* die altijd lange geschreven plannen en [Gantt-diagrammen](/docs/views/timeline-gantt-charts) vereisen. In werkelijkheid is de eenvoud van Kanban *een van zijn grootste sterktepunten*, waardoor het aanpasbaar is aan verschillende schalen en complexiteiten van werk.
 
 Voor veel leiders brengt Kanban een gevoel van rust en controle. Een CEO die Blue gebruikt, meldde:
 

@@ -207,7 +207,7 @@ Aby WBS była użyteczna i aktualna przez cały cykl życia projektu, musi być 
 
 Znaczącym błędnym przekonaniem jest traktowanie WBS jako jednorazowego zadania, a nie jako procesu ciągłego. Efektywne zarządzanie projektem polega na ciągłym udoskonalaniu i aktualizowaniu WBS w miarę postępu projektu. To iteracyjne podejście zapewnia, że WBS pozostaje żywym dokumentem, który dostosowuje się do potrzeb projektu.
 
-Blue pomaga łagodzić te powszechne błędy, zapewniając pełną widoczność WBS i śledząc każdy element za pomocą różnych widoków, takich jak [tablice Kanban](/platform/features/kanban-board), [widoki bazy danych](/platform/features/database) (widoki podobne do Excela) i [wykresy Gantta](/platform/features/timeline-gantt-charts).
+Blue pomaga łagodzić te powszechne błędy, zapewniając pełną widoczność WBS i śledząc każdy element za pomocą różnych widoków, takich jak [tablice Kanban](/platform/features/kanban-board), [widoki bazy danych](/platform/features/database) (widoki podobne do Excela) i [wykresy Gantta](/docs/views/timeline-gantt-charts).
 
 Ta elastyczność zapewnia, że WBS jest nie tylko łatwo dostępna, ale także pozostaje dynamicznym narzędziem, które skutecznie wspiera zarządzanie projektami.
 

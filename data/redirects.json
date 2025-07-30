@@ -92,7 +92,7 @@
     "/platform/list": "/platform/features/views",
     "/platform/map": "/platform/features/views",
     "/platform/records": "/platform/features/records",
-    "/platform/timeline-gantt-charts": "/platform/features/timeline-gantt-charts",
+    "/platform/timeline-gantt-charts": "/docs/views/timeline-gantt-charts",
     "/platform/user-permissions": "/platform/features/user-permissions",
     "/platform/wiki-docs": "/docs/features/wiki-docs",
     "/project-management-dictionary/bottleneck": "/insights",

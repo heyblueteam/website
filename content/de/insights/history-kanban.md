@@ -41,7 +41,7 @@ Die Bedeutung von Kanban im modernen Projektmanagement kann nicht überbewertet 
 
 Kanban transformiert das Projektmanagement von dem, was wie eine massive, überwältigende To-Do-Liste erscheinen könnte, in eine dynamische, priorisierte Aktivität. Dieser visuelle Ansatz ermöglicht es kleinen Teams, großartige Dinge zu erreichen, indem er Priorisierung erzwingt und sofortige Klarheit über den Arbeitsstatus bietet.
 
-Trotz seiner weit verbreiteten Annahme ist Kanban nicht ohne seine Missverständnisse. Einige glauben fälschlicherweise, es sei schwer einzurichten oder nicht mächtig genug für *"ernsthafte Arbeit"*, die immer lange schriftliche Pläne und [Gantt Charts](/platform/features/timeline-gantt-charts) erfordert. In Wirklichkeit ist Kanbans Einfachheit *eine* seiner größten Stärken und macht es an verschiedene Maßstäbe und Komplexitäten der Arbeit anpassbar.
+Trotz seiner weit verbreiteten Annahme ist Kanban nicht ohne seine Missverständnisse. Einige glauben fälschlicherweise, es sei schwer einzurichten oder nicht mächtig genug für *"ernsthafte Arbeit"*, die immer lange schriftliche Pläne und [Gantt Charts](/docs/views/timeline-gantt-charts) erfordert. In Wirklichkeit ist Kanbans Einfachheit *eine* seiner größten Stärken und macht es an verschiedene Maßstäbe und Komplexitäten der Arbeit anpassbar.
 
 Für viele Führungskräfte bringt Kanban ein Gefühl von Ruhe und Kontrolle. Ein CEO, der Blue verwendet, berichtete:
 
