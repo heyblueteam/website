@@ -1252,6 +1252,88 @@
         "description": "បំប្លែងប្រតិបត្តិការគាំទ្ររបស់អ្នកជាមួយនឹងការគ្រប់គ្រងសំបុត្រដែលអាចបត់បែនបាន ការបញ្ជូនឆ្លាតវៃ និងការតាមដាន SLA ពេលវេលាជាក់ស្តែង។",
         "keywords": ["សំបុត្រសេវាកម្ម", "ការគ្រប់គ្រងសំបុត្រ", "ប្រតិបត្តិការគាំទ្រ", "ការបញ្ជូនឆ្លាតវៃ", "ការតាមដាន SLA", "តុជំនួយ", "blue"]
       }
+    },
+    "solutions/industry/professional-services": {
+      "en": {
+        "title": "Professional Services",
+        "description": "Built by a professional services agency, for agencies and service firms. Manage clients, projects, and processes in one unified platform.",
+        "keywords": ["professional services", "agency management", "client management", "project management", "service firms", "unified platform", "blue"]
+      },
+      "es": {
+        "title": "Servicios Profesionales",
+        "description": "Construido por una agencia de servicios profesionales, para agencias y empresas de servicios. Gestiona clientes, proyectos y procesos en una plataforma unificada.",
+        "keywords": ["servicios profesionales", "gestión de agencias", "gestión de clientes", "gestión de proyectos", "empresas de servicios", "plataforma unificada", "blue"]
+      },
+      "zh": {
+        "title": "专业服务",
+        "description": "由专业服务机构打造，专为机构和服务公司而设。在一个统一平台中管理客户、项目和流程。",
+        "keywords": ["专业服务", "机构管理", "客户管理", "项目管理", "服务公司", "统一平台", "blue"]
+      },
+      "fr": {
+        "title": "Services Professionnels",
+        "description": "Conçu par une agence de services professionnels, pour les agences et les entreprises de services. Gérez les clients, les projets et les processus dans une plateforme unifiée.",
+        "keywords": ["services professionnels", "gestion d'agence", "gestion de clients", "gestion de projets", "entreprises de services", "plateforme unifiée", "blue"]
+      },
+      "de": {
+        "title": "Professionelle Dienstleistungen",
+        "description": "Von einer professionellen Dienstleistungsagentur entwickelt, für Agenturen und Dienstleistungsunternehmen. Verwalten Sie Kunden, Projekte und Prozesse in einer einheitlichen Plattform.",
+        "keywords": ["professionelle dienstleistungen", "agenturverwaltung", "kundenverwaltung", "projektmanagement", "dienstleistungsunternehmen", "einheitliche plattform", "blue"]
+      },
+      "ja": {
+        "title": "プロフェッショナルサービス",
+        "description": "プロフェッショナルサービス機関によって構築され、エージェンシーやサービス企業のために作られました。統一されたプラットフォームでクライアント、プロジェクト、プロセスを管理します。",
+        "keywords": ["プロフェッショナルサービス", "エージェンシー管理", "クライアント管理", "プロジェクト管理", "サービス企業", "統一プラットフォーム", "blue"]
+      },
+      "pt": {
+        "title": "Serviços Profissionais",
+        "description": "Construído por uma agência de serviços profissionais, para agências e empresas de serviços. Gerencie clientes, projetos e processos em uma plataforma unificada.",
+        "keywords": ["serviços profissionais", "gestão de agências", "gestão de clientes", "gestão de projetos", "empresas de serviços", "plataforma unificada", "blue"]
+      },
+      "ru": {
+        "title": "Профессиональные Услуги",
+        "description": "Создано агентством профессиональных услуг для агентств и сервисных компаний. Управляйте клиентами, проектами и процессами на единой платформе.",
+        "keywords": ["профессиональные услуги", "управление агентством", "управление клиентами", "управление проектами", "сервисные компании", "единая платформа", "blue"]
+      },
+      "ko": {
+        "title": "전문 서비스",
+        "description": "전문 서비스 에이전시가 에이전시와 서비스 회사를 위해 구축했습니다. 하나의 통합 플랫폼에서 고객, 프로젝트 및 프로세스를 관리하세요.",
+        "keywords": ["전문 서비스", "에이전시 관리", "고객 관리", "프로젝트 관리", "서비스 회사", "통합 플랫폼", "blue"]
+      },
+      "it": {
+        "title": "Servizi Professionali",
+        "description": "Costruito da un'agenzia di servizi professionali, per agenzie e aziende di servizi. Gestisci clienti, progetti e processi in una piattaforma unificata.",
+        "keywords": ["servizi professionali", "gestione agenzia", "gestione clienti", "gestione progetti", "aziende di servizi", "piattaforma unificata", "blue"]
+      },
+      "id": {
+        "title": "Layanan Profesional",
+        "description": "Dibangun oleh agensi layanan profesional, untuk agensi dan perusahaan layanan. Kelola klien, proyek, dan proses dalam satu platform terpadu.",
+        "keywords": ["layanan profesional", "manajemen agensi", "manajemen klien", "manajemen proyek", "perusahaan layanan", "platform terpadu", "blue"]
+      },
+      "nl": {
+        "title": "Professionele Diensten",
+        "description": "Gebouwd door een professioneel dienstverleningsbureau, voor bureaus en dienstverleners. Beheer klanten, projecten en processen in één geïntegreerd platform.",
+        "keywords": ["professionele diensten", "bureaubeheer", "klantbeheer", "projectbeheer", "dienstverleners", "geïntegreerd platform", "blue"]
+      },
+      "pl": {
+        "title": "Usługi Profesjonalne",
+        "description": "Zbudowane przez agencję usług profesjonalnych, dla agencji i firm usługowych. Zarządzaj klientami, projektami i procesami na jednej zunifikowanej platformie.",
+        "keywords": ["usługi profesjonalne", "zarządzanie agencją", "zarządzanie klientami", "zarządzanie projektami", "firmy usługowe", "zunifikowana platforma", "blue"]
+      },
+      "zh-TW": {
+        "title": "專業服務",
+        "description": "由專業服務機構打造，專為機構和服務公司而設。在一個統一平台中管理客戶、專案和流程。",
+        "keywords": ["專業服務", "機構管理", "客戶管理", "專案管理", "服務公司", "統一平台", "blue"]
+      },
+      "sv": {
+        "title": "Professionella Tjänster",
+        "description": "Byggd av en byrå för professionella tjänster, för byråer och tjänsteföretag. Hantera kunder, projekt och processer i en enhetlig plattform.",
+        "keywords": ["professionella tjänster", "byrå management", "kundhantering", "projekthantering", "tjänsteföretag", "enhetlig plattform", "blue"]
+      },
+      "km": {
+        "title": "សេវាកម្មវិជ្ជាជីវៈ",
+        "description": "បង្កើតឡើងដោយទីភ្នាក់ងារសេវាកម្មវិជ្ជាជីវៈ សម្រាប់ទីភ្នាក់ងារ និងក្រុមហ៊ុនសេវាកម្ម។ គ្រប់គ្រងអតិថិជន គម្រោង និងដំណើរការនៅក្នុងវេទិកាតែមួយ។",
+        "keywords": ["សេវាកម្មវិជ្ជាជីវៈ", "ការគ្រប់គ្រងទីភ្នាក់ងារ", "ការគ្រប់គ្រងអតិថិជន", "ការគ្រប់គ្រងគម្រោង", "ក្រុមហ៊ុនសេវាកម្ម", "វេទិកាតែមួយ", "blue"]
+      }
     }
   },
   "defaults": {
