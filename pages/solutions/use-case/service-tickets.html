@@ -125,36 +125,40 @@
         </div>
         
         <!-- SLA Tracking -->
-        <div class="mb-16">
-            {{$slaData := parseJSON `{
-                "Title": "Never miss an SLA again.",
-                "Description": "Track time in each stage, monitor response times, and visualize performance with real-time dashboards. Know exactly where bottlenecks occur and optimize your workflow.",
-                "VideoUrl": "/testvideo2.mp4",
-                "VideoPosition": "left",
-                "SeeAlso": {
-                    "Heading": "Key features",
-                    "Links": [
-                        {
-                            "Text": "Time in list tracking",
-                            "Url": "/docs/custom-fields/time-in-list",
-                            "Description": "shows duration in each status"
-                        },
-                        {
-                            "Text": "Duration fields",
-                            "Url": "/docs/custom-fields/duration",
-                            "Description": "measure time between any two events"
-                        },
-                        {
-                            "Text": "Real-time dashboards",
-                            "Url": "/docs/dashboards/introduction",
-                            "Description": "for SLA monitoring"
-                        }
-                    ]
-                }
-            }`}}
+        <section class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Never miss an SLA again.</h2>
             
-            {{template "feature-video" $slaData}}
-        </div>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-16">
+                Track time in each stage, monitor response times, and visualize performance with real-time dashboards. Know exactly where bottlenecks occur and optimize your workflow.
+            </p>
+            {{template "hero-video" 
+                dict 
+                    "Youtube" "https://www.youtube.com/embed/8Aifkoqptzk"
+                    "MarginBottom" "mb-16"
+            }}
+            
+            {{$slaTrackingBenefits := parseJSON `{
+                "Benefits": [
+                    {
+                        "Title": "Time in List Tracking",
+                        "Description": "Automatically track how long tickets spend in each status, giving you precise data on resolution times and bottlenecks.",
+                        "Url": "/docs/custom-fields/time-in-list"
+                    },
+                    {
+                        "Title": "Duration Fields",
+                        "Description": "Measure time between any two events in your ticket lifecycle, from first response to final resolution.",
+                        "Url": "/docs/custom-fields/duration"
+                    },
+                    {
+                        "Title": "Real-time Dashboards",
+                        "Description": "Monitor SLA performance with live dashboards that update automatically and alert you to potential breaches.",
+                        "Url": "/docs/dashboards/introduction"
+                    }
+                ],
+                "MarginBottom": "mb-16"
+            }`}}
+            {{template "feature-benefits-grid" $slaTrackingBenefits}}
+        </section>
         
         <!-- Complete Customization -->
         <div class="mb-16">
