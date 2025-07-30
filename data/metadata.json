@@ -1580,6 +1580,88 @@
         "description": "ស្វែងយល់លក្ខណៈពិសេស និងម៉ូឌុលទាំងអស់នៅក្នុង Blue",
         "keywords": ["លក្ខណៈពិសេស", "ម៉ូឌុល", "លក្ខណៈពិសេសវេទិកា", "ទិដ្ឋភាពលក្ខណៈពិសេស", "មុខងារ", "សមត្ថភាព", "blue"]
       }
+    },
+    "resources/faq": {
+      "en": {
+        "title": "Frequently Asked Questions",
+        "description": "We've answered the most common questions about Blue. If you have any other questions, email support@blue.cc",
+        "keywords": ["faq", "frequently asked questions", "help", "support", "questions", "answers", "blue"]
+      },
+      "es": {
+        "title": "Preguntas Frecuentes",
+        "description": "Hemos respondido las preguntas más comunes sobre Blue. Si tienes alguna otra pregunta, envía un correo a support@blue.cc",
+        "keywords": ["faq", "preguntas frecuentes", "ayuda", "soporte", "preguntas", "respuestas", "blue"]
+      },
+      "zh": {
+        "title": "常见问题",
+        "description": "我们已经回答了关于 Blue 的最常见问题。如果您有任何其他问题，请发送邮件至 support@blue.cc",
+        "keywords": ["faq", "常见问题", "帮助", "支持", "问题", "答案", "blue"]
+      },
+      "fr": {
+        "title": "Questions Fréquemment Posées",
+        "description": "Nous avons répondu aux questions les plus courantes sur Blue. Si vous avez d'autres questions, envoyez un e-mail à support@blue.cc",
+        "keywords": ["faq", "questions fréquemment posées", "aide", "support", "questions", "réponses", "blue"]
+      },
+      "de": {
+        "title": "Häufig Gestellte Fragen",
+        "description": "Wir haben die häufigsten Fragen zu Blue beantwortet. Wenn Sie weitere Fragen haben, senden Sie eine E-Mail an support@blue.cc",
+        "keywords": ["faq", "häufig gestellte fragen", "hilfe", "support", "fragen", "antworten", "blue"]
+      },
+      "ja": {
+        "title": "よくある質問",
+        "description": "Blueに関するよくある質問にお答えしました。その他の質問がございましたら、support@blue.cc までメールでお問い合わせください",
+        "keywords": ["faq", "よくある質問", "ヘルプ", "サポート", "質問", "回答", "blue"]
+      },
+      "pt": {
+        "title": "Perguntas Frequentes",
+        "description": "Respondemos às perguntas mais comuns sobre Blue. Se você tiver outras perguntas, envie um e-mail para support@blue.cc",
+        "keywords": ["faq", "perguntas frequentes", "ajuda", "suporte", "perguntas", "respostas", "blue"]
+      },
+      "ru": {
+        "title": "Часто Задаваемые Вопросы",
+        "description": "Мы ответили на самые распространенные вопросы о Blue. Если у вас есть другие вопросы, отправьте письмо на support@blue.cc",
+        "keywords": ["faq", "часто задаваемые вопросы", "помощь", "поддержка", "вопросы", "ответы", "blue"]
+      },
+      "ko": {
+        "title": "자주 묻는 질문",
+        "description": "Blue에 대한 가장 일반적인 질문에 답변했습니다. 다른 질문이 있으시면 support@blue.cc로 이메일을 보내주세요",
+        "keywords": ["faq", "자주 묻는 질문", "도움말", "지원", "질문", "답변", "blue"]
+      },
+      "it": {
+        "title": "Domande Frequenti",
+        "description": "Abbiamo risposto alle domande più comuni su Blue. Se hai altre domande, invia un'email a support@blue.cc",
+        "keywords": ["faq", "domande frequenti", "aiuto", "supporto", "domande", "risposte", "blue"]
+      },
+      "id": {
+        "title": "Pertanyaan yang Sering Diajukan",
+        "description": "Kami telah menjawab pertanyaan paling umum tentang Blue. Jika Anda memiliki pertanyaan lain, kirim email ke support@blue.cc",
+        "keywords": ["faq", "pertanyaan yang sering diajukan", "bantuan", "dukungan", "pertanyaan", "jawaban", "blue"]
+      },
+      "nl": {
+        "title": "Veelgestelde Vragen",
+        "description": "We hebben de meest voorkomende vragen over Blue beantwoord. Als je andere vragen hebt, stuur dan een e-mail naar support@blue.cc",
+        "keywords": ["faq", "veelgestelde vragen", "hulp", "ondersteuning", "vragen", "antwoorden", "blue"]
+      },
+      "pl": {
+        "title": "Często Zadawane Pytania",
+        "description": "Odpowiedzieliśmy na najczęstsze pytania dotyczące Blue. Jeśli masz inne pytania, wyślij e-mail na support@blue.cc",
+        "keywords": ["faq", "często zadawane pytania", "pomoc", "wsparcie", "pytania", "odpowiedzi", "blue"]
+      },
+      "zh-TW": {
+        "title": "常見問題",
+        "description": "我們已經回答了關於 Blue 的最常見問題。如果您有任何其他問題，請發送郵件至 support@blue.cc",
+        "keywords": ["faq", "常見問題", "幫助", "支援", "問題", "答案", "blue"]
+      },
+      "sv": {
+        "title": "Vanliga Frågor",
+        "description": "Vi har svarat på de vanligaste frågorna om Blue. Om du har andra frågor, skicka ett e-postmeddelande till support@blue.cc",
+        "keywords": ["faq", "vanliga frågor", "hjälp", "support", "frågor", "svar", "blue"]
+      },
+      "km": {
+        "title": "សំណួរដែលសួរញឹកញាប់",
+        "description": "យើងបានឆ្លើយសំណួរទូទៅបំផុតអំពី Blue។ ប្រសិនបើអ្នកមានសំណួរផ្សេងទៀត សូមផ្ញើអ៊ីមែលទៅ support@blue.cc",
+        "keywords": ["faq", "សំណួរដែលសួរញឹកញាប់", "ជំនួយ", "ការគាំទ្រ", "សំណួរ", "ចម្លើយ", "blue"]
+      }
     }
   },
   "defaults": {
