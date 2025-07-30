@@ -1253,6 +1253,88 @@
         "keywords": ["សំបុត្រសេវាកម្ម", "ការគ្រប់គ្រងសំបុត្រ", "ប្រតិបត្តិការគាំទ្រ", "ការបញ្ជូនឆ្លាតវៃ", "ការតាមដាន SLA", "តុជំនួយ", "blue"]
       }
     },
+    "solutions/use-case/recruitment": {
+      "en": {
+        "title": "Recruitment",
+        "description": "Streamline your hiring process from application to onboarding with Blue's customizable workflows and automations.",
+        "keywords": ["recruitment", "hiring", "hiring process", "candidate tracking", "onboarding", "recruitment pipeline", "blue"]
+      },
+      "es": {
+        "title": "Reclutamiento",
+        "description": "Optimiza tu proceso de contratación desde la solicitud hasta la incorporación con los flujos de trabajo y automatizaciones personalizables de Blue.",
+        "keywords": ["reclutamiento", "contratación", "proceso de contratación", "seguimiento de candidatos", "incorporación", "pipeline de reclutamiento", "blue"]
+      },
+      "zh": {
+        "title": "招聘",
+        "description": "使用 Blue 的可定制工作流程和自动化功能，简化从申请到入职的整个招聘流程。",
+        "keywords": ["招聘", "雇佣", "招聘流程", "候选人跟踪", "入职", "招聘管道", "blue"]
+      },
+      "fr": {
+        "title": "Recrutement",
+        "description": "Rationalisez votre processus de recrutement de la candidature à l'intégration avec les flux de travail et automatisations personnalisables de Blue.",
+        "keywords": ["recrutement", "embauche", "processus de recrutement", "suivi des candidats", "intégration", "pipeline de recrutement", "blue"]
+      },
+      "de": {
+        "title": "Rekrutierung",
+        "description": "Optimieren Sie Ihren Einstellungsprozess von der Bewerbung bis zum Onboarding mit Blues anpassbaren Workflows und Automatisierungen.",
+        "keywords": ["rekrutierung", "einstellung", "einstellungsprozess", "kandidatenverfolgung", "onboarding", "rekrutierungs-pipeline", "blue"]
+      },
+      "ja": {
+        "title": "採用",
+        "description": "Blueのカスタマイズ可能なワークフローと自動化により、応募からオンボーディングまでの採用プロセスを合理化します。",
+        "keywords": ["採用", "雇用", "採用プロセス", "候補者追跡", "オンボーディング", "採用パイプライン", "blue"]
+      },
+      "pt": {
+        "title": "Recrutamento",
+        "description": "Otimize seu processo de contratação desde a candidatura até a integração com os fluxos de trabalho e automações personalizáveis do Blue.",
+        "keywords": ["recrutamento", "contratação", "processo de contratação", "rastreamento de candidatos", "integração", "pipeline de recrutamento", "blue"]
+      },
+      "ru": {
+        "title": "Подбор персонала",
+        "description": "Оптимизируйте процесс найма от подачи заявки до адаптации с помощью настраиваемых рабочих процессов и автоматизации Blue.",
+        "keywords": ["подбор персонала", "найм", "процесс найма", "отслеживание кандидатов", "адаптация", "конвейер найма", "blue"]
+      },
+      "ko": {
+        "title": "채용",
+        "description": "Blue의 맞춤형 워크플로우와 자동화를 통해 지원부터 온보딩까지의 채용 프로세스를 간소화하세요.",
+        "keywords": ["채용", "고용", "채용 프로세스", "후보자 추적", "온보딩", "채용 파이프라인", "blue"]
+      },
+      "it": {
+        "title": "Reclutamento",
+        "description": "Ottimizza il tuo processo di assunzione dalla candidatura all'onboarding con i flussi di lavoro e le automazioni personalizzabili di Blue.",
+        "keywords": ["reclutamento", "assunzione", "processo di assunzione", "tracciamento candidati", "onboarding", "pipeline di reclutamento", "blue"]
+      },
+      "id": {
+        "title": "Rekrutmen",
+        "description": "Sederhanakan proses perekrutan Anda dari aplikasi hingga onboarding dengan alur kerja dan otomasi yang dapat disesuaikan dari Blue.",
+        "keywords": ["rekrutmen", "perekrutan", "proses perekrutan", "pelacakan kandidat", "onboarding", "pipeline rekrutmen", "blue"]
+      },
+      "nl": {
+        "title": "Recruitment",
+        "description": "Stroomlijn uw wervingsproces van sollicitatie tot onboarding met Blue's aanpasbare workflows en automatiseringen.",
+        "keywords": ["recruitment", "werving", "wervingsproces", "kandidaat tracking", "onboarding", "wervingspipeline", "blue"]
+      },
+      "pl": {
+        "title": "Rekrutacja",
+        "description": "Usprawnij proces rekrutacji od aplikacji do wdrożenia dzięki konfigurowalnym przepływom pracy i automatyzacji Blue.",
+        "keywords": ["rekrutacja", "zatrudnienie", "proces rekrutacji", "śledzenie kandydatów", "wdrożenie", "pipeline rekrutacyjny", "blue"]
+      },
+      "zh-TW": {
+        "title": "招募",
+        "description": "使用 Blue 的可客製化工作流程和自動化功能，簡化從申請到入職的整個招募流程。",
+        "keywords": ["招募", "雇用", "招募流程", "候選人追蹤", "入職", "招募管道", "blue"]
+      },
+      "sv": {
+        "title": "Rekrytering",
+        "description": "Effektivisera din rekryteringsprocess från ansökan till introduktion med Blues anpassningsbara arbetsflöden och automatiseringar.",
+        "keywords": ["rekrytering", "anställning", "rekryteringsprocess", "kandidatspårning", "introduktion", "rekryteringspipeline", "blue"]
+      },
+      "km": {
+        "title": "ការជ្រើសរើសបុគ្គលិក",
+        "description": "ធ្វើឱ្យដំណើរការជ្រើសរើសបុគ្គលិករបស់អ្នកកាន់តែប្រសើរពីការដាក់ពាក្យសុំទៅដល់ការចូលធ្វើការជាមួយនឹងលំហូរការងារ និងស្វ័យប្រវត្តិកម្មដែលអាចកែប្រែបានរបស់ Blue។",
+        "keywords": ["ការជ្រើសរើសបុគ្គលិក", "ការជ្រើសរើស", "ដំណើរការជ្រើសរើស", "ការតាមដានបេក្ខជន", "ការចូលធ្វើការ", "បំពង់ជ្រើសរើស", "blue"]
+      }
+    },
     "solutions/industry/professional-services": {
       "en": {
         "title": "Professional Services",
