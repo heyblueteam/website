@@ -37,7 +37,7 @@
             {{$kanbanData := parseJSON `{
                 "Title": "Visualize work the way your brain thinks.",
                 "Description": "Drag and drop tasks across boards, see bottlenecks instantly, and give everyone clarity on what's happening. Multiple views mean each team member can work how they prefer—Kanban, list, calendar, or timeline.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "https://media.blue.cc/switch-views.mp4",
                 "VideoPosition": "right",
                 "Button": {
                     "Text": "Explore project views",
@@ -48,17 +48,17 @@
                     "Links": [
                         {
                             "Text": "Kanban boards",
-                            "Url": "/docs/projects/view-types",
+                            "Url": "/docs/views/kanban-board",
                             "Description": "for visual workflow management"
                         },
                         {
                             "Text": "Timeline view",
-                            "Url": "/docs/projects/view-types",
+                            "Url": "/docs/views/timeline-gantt-charts",
                             "Description": "for Gantt-style planning"
                         },
                         {
                             "Text": "Calendar view",
-                            "Url": "/docs/projects/view-types",
+                            "Url": "/docs/views/calendar",
                             "Description": "for deadline management"
                         }
                     ]
@@ -73,7 +73,7 @@
             {{$dependenciesData := parseJSON `{
                 "Title": "Dependencies that prevent disaster.",
                 "Description": "Link related tasks so nothing falls through the cracks. When timelines shift, Blue automatically adjusts dependent tasks and notifies affected team members. No more manually updating project plans or surprise delays.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "https://media.blue.cc/dependencies-example.mp4",
                 "VideoPosition": "left",
                 "Button": {
                     "Text": "Learn about dependencies",
@@ -84,18 +84,18 @@
                     "Links": [
                         {
                             "Text": "Task dependencies",
-                            "Url": "/docs/custom-fields/reference",
+                            "Url": "/docs/records/dependencies",
                             "Description": "to link related work"
                         },
                         {
-                            "Text": "Milestone tracking",
-                            "Url": "/docs/projects/lists",
-                            "Description": "for key deliverables"
+                            "Text": "Timeline planning",
+                            "Url": "/docs/views/timeline-gantt-charts",
+                            "Description": "with drag-and-drop scheduling"
                         },
                         {
-                            "Text": "Critical path analysis",
-                            "Url": "/docs/dashboards/introduction",
-                            "Description": "to identify blockers"
+                            "Text": "Project lists",
+                            "Url": "/docs/records/lists",
+                            "Description": "to organize work stages"
                         }
                     ]
                 }
@@ -109,7 +109,7 @@
             {{$customFieldsData := parseJSON `{
                 "Title": "Automate the boring stuff.",
                 "Description": "Create custom fields for budgets, resources, or project phases. Then layer automations to assign tasks, send updates, and move work forward automatically. Your project management runs itself while you focus on delivery.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "https://media.blue.cc/automations-on-off.mp4",
                 "VideoPosition": "right",
                 "Button": {
                     "Text": "Explore automations",
@@ -129,7 +129,7 @@
                             "Description": "to eliminate manual work"
                         },
                         {
-                            "Text": "Assignment rules",
+                            "Text": "Assignment automation",
                             "Url": "/docs/automations/actions",
                             "Description": "for automatic task distribution"
                         }
@@ -140,94 +140,6 @@
             {{template "feature-video" $customFieldsData}}
         </div>
         
-        <!-- Dashboards Feature -->
-        <div>
-            {{$dashboardsData := parseJSON `{
-                "Title": "Real-time insights that drive decisions.",
-                "Description": "Custom dashboards show project health, team capacity, and progress at a glance. Track budgets, timelines, and deliverables in real-time. Share read-only dashboards with stakeholders for complete transparency.",
-                "VideoUrl": "/testvideo2.mp4",
-                "VideoPosition": "left",
-                "Button": {
-                    "Text": "Discover dashboards",
-                    "Url": "/docs/dashboards/introduction"
-                },
-                "SeeAlso": {
-                    "Heading": "Project analytics",
-                    "Links": [
-                        {
-                            "Text": "Progress tracking",
-                            "Url": "/docs/dashboards/charts",
-                            "Description": "with burndown charts"
-                        },
-                        {
-                            "Text": "Resource management",
-                            "Url": "/docs/dashboards/introduction",
-                            "Description": "to balance workloads"
-                        },
-                        {
-                            "Text": "Budget monitoring",
-                            "Url": "/docs/custom-fields/currency",
-                            "Description": "with real-time calculations"
-                        }
-                    ]
-                }
-            }`}}
-            
-            {{template "feature-video" $dashboardsData}}
-        </div>
-    </section>
-
-    <!-- Interactive Feature Showcase -->
-    <section class="mb-16">
-        {{$showcaseData := parseJSON `{
-            "Title": "Built for every type of project",
-            "Features": [
-                {
-                    "Id": "software",
-                    "Title": "Software Development",
-                    "VideoUrl": "/testvideo2.mp4"
-                },
-                {
-                    "Id": "marketing",
-                    "Title": "Marketing Campaigns",
-                    "ImageUrl": "https://www.blue.cc/product/simple-screenshot-home.png"
-                },
-                {
-                    "Id": "construction",
-                    "Title": "Construction Projects",
-                    "VideoUrl": "/testvideo2.mp4"
-                },
-                {
-                    "Id": "product",
-                    "Title": "Product Launches",
-                    "ImageUrl": "https://www.blue.cc/product/simple-screenshot-home.png"
-                },
-                {
-                    "Id": "events",
-                    "Title": "Event Planning",
-                    "VideoUrl": "/testvideo2.mp4"
-                },
-                {
-                    "Id": "consulting",
-                    "Title": "Consulting Engagements",
-                    "ImageUrl": "https://www.blue.cc/product/simple-screenshot-home.png"
-                }
-            ]
-        }`}}
-        
-        {{template "interactive-feature-showcase" $showcaseData}}
-    </section>
-
-    <!-- Testimonial -->
-    <section class="mb-16">        
-        {{template "testimonial-single" 
-            dict 
-                "Quote" "Blue transformed how we manage projects. We went from constant fire-fighting to calm, predictable delivery. Our on-time completion rate improved by 40% in the first quarter."
-                "VideoUrl" "/testvideo2.mp4"
-                "PosterUrl" "/testimonials/june.jpg"
-                "Name" "Sarah Chen"
-                "Title" "VP of Engineering"
-        }}
     </section>
 
     <!-- Value Proposition Section -->
