@@ -6,6 +6,12 @@
             "MarginBottom" "mb-16"
     }}
 
+    {{template "hero-video" 
+    dict 
+        "Youtube" "https://www.youtube.com/embed/tDTKhsgY0jI"
+        "MarginBottom" "mb-0"
+}}
+
     <!-- Eran Bucai Testimonial -->
     <div class="mb-16">
         {{$testimonialData := parseJSON `{
@@ -17,6 +23,7 @@
         
         {{template "testimonial-single" $testimonialData}}
     </div>
+   
 
     <!-- Reminders Feature -->
     <div class="mb-16">
