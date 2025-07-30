@@ -1498,6 +1498,88 @@
         "description": "ធ្វើឱ្យអាជីវកម្មរបស់អ្នកកាន់តែប្រសើរជាមួយនឹងដំណោះស្រាយតែមួយដែលបំពេញតម្រូវការទាំងអស់របស់អ្នក ដោយផ្តល់ពេលវេលាសម្រាប់សកម្មភាពដែលផ្តោតលើការលូតលាស់ និងកាត់បន្ថយភាពស្មុគស្មាញក្នុងប្រតិបត្តិការ។",
         "keywords": ["អ្នកចាប់ផ្តើមអាជីវកម្មដោយខ្លួនឯង", "អាជីវកម្មតូច", "ការគ្រប់គ្រងអាជីវកម្ម", "អ្នកចាប់ផ្តើមអាជីវកម្មបុគ្គល", "ផលិតភាព", "ស្វ័យប្រវត្តិកម្មអាជីវកម្ម", "blue"]
       }
+    },
+    "platform/features/index": {
+      "en": {
+        "title": "Feature Index",
+        "description": "Discover all the features and modules in Blue",
+        "keywords": ["features", "modules", "platform features", "feature overview", "functionality", "capabilities", "blue"]
+      },
+      "es": {
+        "title": "Índice de Características",
+        "description": "Descubre todas las características y módulos en Blue",
+        "keywords": ["características", "módulos", "características de la plataforma", "resumen de características", "funcionalidad", "capacidades", "blue"]
+      },
+      "zh": {
+        "title": "功能索引",
+        "description": "探索 Blue 中的所有功能和模块",
+        "keywords": ["功能", "模块", "平台功能", "功能概览", "功能性", "能力", "blue"]
+      },
+      "fr": {
+        "title": "Index des Fonctionnalités",
+        "description": "Découvrez toutes les fonctionnalités et modules dans Blue",
+        "keywords": ["fonctionnalités", "modules", "fonctionnalités de la plateforme", "aperçu des fonctionnalités", "fonctionnalité", "capacités", "blue"]
+      },
+      "de": {
+        "title": "Funktionsindex",
+        "description": "Entdecken Sie alle Funktionen und Module in Blue",
+        "keywords": ["funktionen", "module", "plattformfunktionen", "funktionsübersicht", "funktionalität", "fähigkeiten", "blue"]
+      },
+      "ja": {
+        "title": "機能インデックス",
+        "description": "Blue のすべての機能とモジュールを発見する",
+        "keywords": ["機能", "モジュール", "プラットフォーム機能", "機能概要", "機能性", "能力", "blue"]
+      },
+      "pt": {
+        "title": "Índice de Recursos",
+        "description": "Descubra todos os recursos e módulos no Blue",
+        "keywords": ["recursos", "módulos", "recursos da plataforma", "visão geral de recursos", "funcionalidade", "capacidades", "blue"]
+      },
+      "ru": {
+        "title": "Индекс функций",
+        "description": "Откройте для себя все функции и модули в Blue",
+        "keywords": ["функции", "модули", "функции платформы", "обзор функций", "функциональность", "возможности", "blue"]
+      },
+      "ko": {
+        "title": "기능 인덱스",
+        "description": "Blue의 모든 기능과 모듈을 확인해 보세요",
+        "keywords": ["기능", "모듈", "플랫폼 기능", "기능 개요", "기능성", "역량", "blue"]
+      },
+      "it": {
+        "title": "Indice delle Funzionalità",
+        "description": "Scopri tutte le funzionalità e i moduli in Blue",
+        "keywords": ["funzionalità", "moduli", "funzionalità della piattaforma", "panoramica delle funzionalità", "funzionalità", "capacità", "blue"]
+      },
+      "id": {
+        "title": "Indeks Fitur",
+        "description": "Temukan semua fitur dan modul di Blue",
+        "keywords": ["fitur", "modul", "fitur platform", "ikhtisar fitur", "fungsionalitas", "kemampuan", "blue"]
+      },
+      "nl": {
+        "title": "Functie-index",
+        "description": "Ontdek alle functies en modules in Blue",
+        "keywords": ["functies", "modules", "platformfuncties", "functie-overzicht", "functionaliteit", "mogelijkheden", "blue"]
+      },
+      "pl": {
+        "title": "Indeks Funkcji",
+        "description": "Odkryj wszystkie funkcje i moduły w Blue",
+        "keywords": ["funkcje", "moduły", "funkcje platformy", "przegląd funkcji", "funkcjonalność", "możliwości", "blue"]
+      },
+      "zh-TW": {
+        "title": "功能索引",
+        "description": "探索 Blue 中的所有功能和模組",
+        "keywords": ["功能", "模組", "平台功能", "功能概覽", "功能性", "能力", "blue"]
+      },
+      "sv": {
+        "title": "Funktionsindex",
+        "description": "Upptäck alla funktioner och moduler i Blue",
+        "keywords": ["funktioner", "moduler", "plattformsfunktioner", "funktionsöversikt", "funktionalitet", "möjligheter", "blue"]
+      },
+      "km": {
+        "title": "លិបិក្រមលក្ខណៈពិសេស",
+        "description": "ស្វែងយល់លក្ខណៈពិសេស និងម៉ូឌុលទាំងអស់នៅក្នុង Blue",
+        "keywords": ["លក្ខណៈពិសេស", "ម៉ូឌុល", "លក្ខណៈពិសេសវេទិកា", "ទិដ្ឋភាពលក្ខណៈពិសេស", "មុខងារ", "សមត្ថភាព", "blue"]
+      }
     }
   },
   "defaults": {
