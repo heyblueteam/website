@@ -1,134 +1,134 @@
 <!-- Customers Page -->
     {{template "page-heading" 
         dict 
-            "Title" "Meet our customers" 
-            "Subtitle" (printf "Trusted by more than %d forward-thinking organizations, <br>from ambitious startups to established enterprises." .CustomerNumber | html)
+            "Title" (t "customers.page_title") 
+            "Subtitle" (printf (t "customers.page_subtitle") .CustomerNumber | html)
             "MarginBottom" "mb-16"
     }}
 
-    {{$testimonialData := parseJSON `{
-        "testimonials": [
-            {
-                "quote": "Blue just helps keep things completely organised — it's an absolutely wonderful tool.",
-                "videoUrl": "https://media.blue.cc/davidzack-testimonial.mp4",
-                "posterUrl": "/testimonials/davidsacks.jpeg"
-            },
-            {
-                "quote": "The automation features of Blue help us run our operations seamlessly.",
-                "videoUrl": "https://media.blue.cc/lady.mp4",
-                "posterUrl": "/testimonials/lady.jpg"
-            },
-            {
-                "quote": "My entire life is in Blue! I love how fantastically responsive the team is.",
-                "videoUrl": "https://media.blue.cc/ricklews-testimonial.mov",
-                "posterUrl": "/testimonials/ricklewis.jpg"
-            },
-            {
-                "quote": "If you're wondering if you should buy Blue...the answer is YES.",
-                "videoUrl": "https://media.blue.cc/ana.mov",
-                "posterUrl": "/testimonials/ana-testimonial.jpg"
-            },
-            {
-                "quote": "Blue is amazing because it is fully white labelled and is really fast & reliable.",
-                "videoUrl": "https://media.blue.cc/pere.mp4",
-                "posterUrl": "/testimonials/pere.jpg"
-            },
-            {
-                "quote": "I have used a lot of tools over the years, but Blue just clicked for me.",
-                "videoUrl": "https://media.blue.cc/raybrown.mp4",
-                "posterUrl": "/testimonials/raybrown.jpg"
-            },
-            {
-                "quote": "Investing in Blue was one of the best business decisions I have ever made.",
-                "videoUrl": "https://media.blue.cc/rike-whelan.mp4",
-                "posterUrl": "/testimonials/rike-whelan.jpg"
-            },
-            {
-                "quote": "We are saving each sales rep in our team 9 hours a week with Blue.",
-                "videoUrl": "https://media.blue.cc/dandeigan.mp4",
-                "posterUrl": "/testimonials/dandeigan.jpg"
-            },
-            {
-                "quote": "It is really nice to work with a team that really care about their customers.",
-                "videoUrl": "https://media.blue.cc/barryrodrigues.mp4",
-                "posterUrl": "/testimonials/barryrodriguez.jpg"
-            },
-            {
-                "quote": "Blue has saved us so much time and handles all of our repetitive tasks.",
-                "videoUrl": "https://media.blue.cc/garth.mp4",
-                "posterUrl": "/testimonials/garth.jpg"
-            },
-            {
-                "quote": "I can highly recommend it and I love the customer service.",
-                "videoUrl": "https://media.blue.cc/afl-testimonial.mp4",
-                "posterUrl": "/testimonials/alf.jpeg"
-            },
-            {
-                "quote": "I have migrated all my clients to Blue and they love it, we are sold!",
-                "videoUrl": "https://media.blue.cc/nadiaschoeman.mp4",
-                "posterUrl": "/testimonials/nadiaschoeman.jpg"
-            },
-            {
-                "quote": "The only way to manage all the chaos is with Blue, one of my best purchases.",
-                "videoUrl": "https://media.blue.cc/akshaydatt.mp4",
-                "posterUrl": "/testimonials/akshaydatt.jpg"
-            },
-            {
-                "quote": "We help Blue to streamline our processes, which Blue makes it very easy to do.",
-                "videoUrl": "https://media.blue.cc/carlos.mp4",
-                "posterUrl": "/testimonials/carlos.jpg"
-            },
-            {
-                "quote": "We really love Blue because it's flexible and updated all the time.",
-                "videoUrl": "https://media.blue.cc/june.mp4",
-                "posterUrl": "/testimonials/june.jpg"
-            },
-            {
-                "quote": "Blue is really easy to use and the templates help to save a lot of time.",
-                "videoUrl": "https://media.blue.cc/dingchinghong.mp4",
-                "posterUrl": "/testimonials/dingchinghong.jpg"
-            },
-            {
-                "quote": "What I like about Blue is that it keeps improving and the founder is very hands on.",
-                "videoUrl": "https://media.blue.cc/garychan.mp4",
-                "posterUrl": "/testimonials/garychan.jpg"
-            },
-            {
-                "quote": "The UI/UX is very good, and the automation tools are really helpful.",
-                "videoUrl": "https://media.blue.cc/gopikrishna.mp4",
-                "posterUrl": "/testimonials/gopikrishna.jpg"
-            },
-            {
-                "quote": "Blue is an awesome productivity tool for my needs.",
-                "videoUrl": "https://media.blue.cc/grantcollins.mp4",
-                "posterUrl": "/testimonials/grantcollins.jpg"
-            },
-            {
-                "quote": "We use Blue and we love it. We think it's a really good tool.",
-                "videoUrl": "https://media.blue.cc/jimmybogroff.mp4",
-                "posterUrl": "/testimonials/jimmybogroff.jpg"
-            },
-            {
-                "quote": "Using Blue gives me the leverage to get data in easily via forms.",
-                "videoUrl": "https://media.blue.cc/johanielagcao.mp4",
-                "posterUrl": "/testimonials/johanielagcao.jpg"
-            },
-            {
-                "quote": "Blue has helped me consolidate all the tasks in a single platform.",
-                "videoUrl": "https://media.blue.cc/naseem.mp4",
-                "posterUrl": "/testimonials/naseem.jpg"
-            },
-            {
-                "quote": "Blue has helped me be twice as productive and better understand my projects.",
-                "videoUrl": "https://media.blue.cc/johnorosco.mp4",
-                "posterUrl": "/testimonials/johnorosco.jpg"
-            },
-            {
-                "quote": "I am surprised to see how fast the Blue team is at implementing new features.",
-                "videoUrl": "https://media.blue.cc/rajeshpabari.mp4",
-                "posterUrl": "/testimonials/rajeshpabari.jpg"
-            }
-        ]
-    }`}}
+    {{$testimonialData := dict
+        "testimonials" (slice
+            (dict
+                "quote" (t "customers.testimonial_1")
+                "videoUrl" "https://media.blue.cc/davidzack-testimonial.mp4"
+                "posterUrl" "/testimonials/davidsacks.jpeg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_2")
+                "videoUrl" "https://media.blue.cc/lady.mp4"
+                "posterUrl" "/testimonials/lady.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_3")
+                "videoUrl" "https://media.blue.cc/ricklews-testimonial.mov"
+                "posterUrl" "/testimonials/ricklewis.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_4")
+                "videoUrl" "https://media.blue.cc/ana.mov"
+                "posterUrl" "/testimonials/ana-testimonial.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_5")
+                "videoUrl" "https://media.blue.cc/pere.mp4"
+                "posterUrl" "/testimonials/pere.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_6")
+                "videoUrl" "https://media.blue.cc/raybrown.mp4"
+                "posterUrl" "/testimonials/raybrown.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_7")
+                "videoUrl" "https://media.blue.cc/rike-whelan.mp4"
+                "posterUrl" "/testimonials/rike-whelan.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_8")
+                "videoUrl" "https://media.blue.cc/dandeigan.mp4"
+                "posterUrl" "/testimonials/dandeigan.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_9")
+                "videoUrl" "https://media.blue.cc/barryrodrigues.mp4"
+                "posterUrl" "/testimonials/barryrodriguez.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_10")
+                "videoUrl" "https://media.blue.cc/garth.mp4"
+                "posterUrl" "/testimonials/garth.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_11")
+                "videoUrl" "https://media.blue.cc/afl-testimonial.mp4"
+                "posterUrl" "/testimonials/alf.jpeg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_12")
+                "videoUrl" "https://media.blue.cc/nadiaschoeman.mp4"
+                "posterUrl" "/testimonials/nadiaschoeman.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_13")
+                "videoUrl" "https://media.blue.cc/akshaydatt.mp4"
+                "posterUrl" "/testimonials/akshaydatt.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_14")
+                "videoUrl" "https://media.blue.cc/carlos.mp4"
+                "posterUrl" "/testimonials/carlos.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_15")
+                "videoUrl" "https://media.blue.cc/june.mp4"
+                "posterUrl" "/testimonials/june.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_16")
+                "videoUrl" "https://media.blue.cc/dingchinghong.mp4"
+                "posterUrl" "/testimonials/dingchinghong.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_17")
+                "videoUrl" "https://media.blue.cc/garychan.mp4"
+                "posterUrl" "/testimonials/garychan.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_18")
+                "videoUrl" "https://media.blue.cc/gopikrishna.mp4"
+                "posterUrl" "/testimonials/gopikrishna.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_19")
+                "videoUrl" "https://media.blue.cc/grantcollins.mp4"
+                "posterUrl" "/testimonials/grantcollins.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_20")
+                "videoUrl" "https://media.blue.cc/jimmybogroff.mp4"
+                "posterUrl" "/testimonials/jimmybogroff.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_21")
+                "videoUrl" "https://media.blue.cc/johanielagcao.mp4"
+                "posterUrl" "/testimonials/johanielagcao.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_22")
+                "videoUrl" "https://media.blue.cc/naseem.mp4"
+                "posterUrl" "/testimonials/naseem.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_23")
+                "videoUrl" "https://media.blue.cc/johnorosco.mp4"
+                "posterUrl" "/testimonials/johnorosco.jpg"
+            )
+            (dict
+                "quote" (t "customers.testimonial_24")
+                "videoUrl" "https://media.blue.cc/rajeshpabari.mp4"
+                "posterUrl" "/testimonials/rajeshpabari.jpg"
+            )
+        )
+    }}
 
     {{template "testimonial-videos" $testimonialData}}
