@@ -1,24 +1,24 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Turn chaos into clear, repeatable processes." 
-            "Subtitle" "Design, automate, and optimize any business process with Blue's flexible workflow engine and complete visibility." 
+            "Title" (t "process-management.page_title")
+            "Subtitle" (t "process-management.page_subtitle")
             "MarginBottom" "mb-16"
     }}
 
     <!-- Customer Logos -->
     <section class="mb-16">
-        {{$logoData := parseJSON `{
-            "title": "500M+ processes automated in Blue",
-            "logos": [
-                { "name": "Heineken", "src": "/customers/heineken.svg" },
-                { "name": "Deloitte", "src": "/customers/deloitte.svg" },
-                { "name": "Save the Children", "src": "/customers/savethechildren.svg" },
-                { "name": "FedEx", "src": "/customers/fedex.svg" },
-                { "name": "World Food Programme", "src": "/customers/wfp.svg" },
-                { "name": "ILO", "src": "/customers/ilo.webp" }
-            ]
-        }`}}
+        {{$logoData := dict
+            "title" (t "process-management.logo_section_title")
+            "logos" (slice
+                (dict "name" "Heineken" "src" "/customers/heineken.svg")
+                (dict "name" "Deloitte" "src" "/customers/deloitte.svg")
+                (dict "name" "Save the Children" "src" "/customers/savethechildren.svg")
+                (dict "name" "FedEx" "src" "/customers/fedex.svg")
+                (dict "name" "World Food Programme" "src" "/customers/wfp.svg")
+                (dict "name" "ILO" "src" "/customers/ilo.webp")
+            )
+        }}
         
         {{template "logo-grid" $logoData}}
     </section>
@@ -27,67 +27,67 @@
     <section class="mb-16">
         <!-- Visual Process Design -->
         <div class="mb-16">
-            {{$processDesignData := parseJSON `{
-                "Title": "Design processes that actually work.",
-                "Description": "Create custom lists for each process step, add the exact fields you need, and organize everything in folders. No templates to fight against—build processes that match how your team actually works.",
-                "VideoUrl": "https://media.blue.cc/recruitment-board.mp4",
-                "VideoPosition": "right",
-                "Button": {
-                    "Text": "Learn about custom fields",
-                    "Url": "/docs/custom-fields/introduction"
-                },
-                "SeeAlso": {
-                    "Heading": "Process building blocks",
-                    "Links": [
-                        {
-                            "Text": "Lists and statuses",
-                            "Url": "/docs/projects/lists",
-                            "Description": "for process steps"
-                        },
-                        {
-                            "Text": "Folders and organization",
-                            "Url": "/docs/projects/folders",
-                            "Description": "to group related processes"
-                        }
-                    ]
-                }
-            }`}}
+            {{$processDesignData := dict
+                "Title" (t "process-management.process_design_title")
+                "Description" (t "process-management.process_design_description")
+                "VideoUrl" "https://media.blue.cc/recruitment-board.mp4"
+                "VideoPosition" "right"
+                "Button" (dict
+                    "Text" (t "process-management.process_design_button")
+                    "Url" "/docs/custom-fields/introduction"
+                )
+                "SeeAlso" (dict
+                    "Heading" (t "process-management.process_design_heading")
+                    "Links" (slice
+                        (dict
+                            "Text" (t "process-management.process_design_link_1_text")
+                            "Url" "/docs/projects/lists"
+                            "Description" (t "process-management.process_design_link_1_desc")
+                        )
+                        (dict
+                            "Text" (t "process-management.process_design_link_2_text")
+                            "Url" "/docs/projects/folders"
+                            "Description" (t "process-management.process_design_link_2_desc")
+                        )
+                    )
+                )
+            }}
             
             {{template "feature-video" $processDesignData}}
         </div>
         
         <!-- Automated Workflows -->
         <div class="mb-16">
-            {{$automationData := parseJSON `{
-                "Title": "Processes that run themselves.",
-                "Description": "Stack and layer automations to keep work moving forward. Create checklists, set due dates, assign tasks, and automatically move records to the next step when conditions are met. Your processes never get stuck.",
-                "VideoUrl": "https://media.blue.cc/automations-on-off.mp4",
-                "VideoPosition": "left",
-                "Button": {
-                    "Text": "Explore automations",
-                    "Url": "/docs/automations/introduction"
-                },
-                "SeeAlso": {
-                    "Heading": "Automation types",
-                    "Links": [
-                        {
-                            "Text": "Checklist automations",
-                            "Url": "/docs/automations/introduction",
-                            "Description": "for step-by-step processes"
-                        },
-                        {
-                            "Text": "Due date automations",
-                            "Url": "/docs/automations/introduction",
-                            "Description": "for SLA compliance"
-                        },
-                        {
-                            "Text": "Assignment automations",
-                            "Url": "/docs/automations/introduction",
-                            "Description": "for workload distribution"
-                        }
-                    ]
-                }
-            }`}}
+            {{$automationData := dict
+                "Title" (t "process-management.automation_title")
+                "Description" (t "process-management.automation_description")
+                "VideoUrl" "https://media.blue.cc/automations-on-off.mp4"
+                "VideoPosition" "left"
+                "Button" (dict
+                    "Text" (t "process-management.automation_button")
+                    "Url" "/docs/automations/introduction"
+                )
+                "SeeAlso" (dict
+                    "Heading" (t "process-management.automation_heading")
+                    "Links" (slice
+                        (dict
+                            "Text" (t "process-management.automation_link_1_text")
+                            "Url" "/docs/automations/introduction"
+                            "Description" (t "process-management.automation_link_1_desc")
+                        )
+                        (dict
+                            "Text" (t "process-management.automation_link_2_text")
+                            "Url" "/docs/automations/introduction"
+                            "Description" (t "process-management.automation_link_2_desc")
+                        )
+                        (dict
+                            "Text" (t "process-management.automation_link_3_text")
+                            "Url" "/docs/automations/introduction"
+                            "Description" (t "process-management.automation_link_3_desc")
+                        )
+                    )
+                )
+            }}
             
             {{template "feature-video" $automationData}}
         </div>
@@ -95,9 +95,9 @@
         <!-- Process Visibility & Tracking -->
         <div class="mb-16">
             <div class="max-w-7xl mx-auto mb-8">
-                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">See exactly where processes get stuck.</h2>
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">{{t "process-management.visibility_title"}}</h2>
                 <div class="mb-8">
-                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">Real-time dashboards show completion rates, bottlenecks, and performance metrics. Track time in each stage, identify where processes slow down, and optimize your workflows based on actual data.</p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">{{t "process-management.visibility_description"}}</p>
                 </div>
                 
                 {{template "hero-video" 
@@ -110,32 +110,32 @@
         
         <!-- Security & Compliance -->
         <div>
-            {{$complianceData := parseJSON `{
-                "Title": "Enterprise-grade security and compliance.",
-                "Description": "Complete audit trails log every change, field-level permissions control access to sensitive data, and multi-workspace collaboration keeps teams organized. Perfect for healthcare, finance, and regulated industries.",
-                "VideoUrl": "/testvideo2.mp4",
-                "VideoPosition": "left",
-                "SeeAlso": {
-                    "Heading": "Security features",
-                    "Links": [
-                        {
-                            "Text": "Field-level permissions",
-                            "Url": "/docs/user-management/roles/custom-user-roles",
-                            "Description": "control data access by role"
-                        },
-                        {
-                            "Text": "Audit logging",
-                            "Url": "/docs/projects/activity",
-                            "Description": "tracks all changes"
-                        },
-                        {
-                            "Text": "Multi-workspace collaboration",
-                            "Url": "/docs/user-management/organisation-administrator",
-                            "Description": "for cross-team processes"
-                        }
-                    ]
-                }
-            }`}}
+            {{$complianceData := dict
+                "Title" (t "process-management.compliance_title")
+                "Description" (t "process-management.compliance_description")
+                "VideoUrl" "/testvideo2.mp4"
+                "VideoPosition" "left"
+                "SeeAlso" (dict
+                    "Heading" (t "process-management.compliance_heading")
+                    "Links" (slice
+                        (dict
+                            "Text" (t "process-management.compliance_link_1_text")
+                            "Url" "/docs/user-management/roles/custom-user-roles"
+                            "Description" (t "process-management.compliance_link_1_desc")
+                        )
+                        (dict
+                            "Text" (t "process-management.compliance_link_2_text")
+                            "Url" "/docs/projects/activity"
+                            "Description" (t "process-management.compliance_link_2_desc")
+                        )
+                        (dict
+                            "Text" (t "process-management.compliance_link_3_text")
+                            "Url" "/docs/user-management/organisation-administrator"
+                            "Description" (t "process-management.compliance_link_3_desc")
+                        )
+                    )
+                )
+            }}
             
             {{template "feature-video" $complianceData}}
         </div>
@@ -143,51 +143,51 @@
    
          <!-- Ivan Keogh Testimonial -->
          <div class="mb-16">
-            {{$testimonialData := parseJSON `{
-                "ImageUrl": "/customers/ivan-keogh.jpeg",
-                "Quote": "Comin Asia (part of RMA Group) has relied on Blue for nearly six years as our core CRM platform. We chose Blue for its intuitive interface, real‑time dashboards, and flexible automation—boosting our sales visibility and reducing manual administration and helping Comin Asia scale across Cambodia, Vietnam, Thailand, Laos, and Myanmar. We work closely with the Blue team to develop bespoke customization that enhances our ability to apply data driven decision making across our business operations.",
-                "Name": "Ivan Keogh",
-                "Title": "CEO of Comin Asia",
-                "DesktopFontSize": "lg:text-3xl"
-            }`}}
+            {{$testimonialData := dict
+                "ImageUrl" "/customers/ivan-keogh.jpeg"
+                "Quote" (t "process-management.testimonial_quote")
+                "Name" (t "process-management.testimonial_name")
+                "Title" (t "process-management.testimonial_title")
+                "DesktopFontSize" "lg:text-3xl"
+            }}
             
             {{template "testimonial-single" $testimonialData}}
         </div>
 
     <!-- Value Proposition Section -->
     <section class="mb-16">
-        {{$valuePropsData := parseJSON `{
-            "Title": "Why teams choose Blue for process management",
-            "Description": "Unlike rigid workflow tools, Blue adapts to your processes—not the other way around.",
-            "ValueProps": [
-                {
-                    "Title": "No forced templates",
-                    "Description": "Build processes that match your exact workflow, not generic templates."
-                },
-                {
-                    "Title": "Complete visibility",
-                    "Description": "See bottlenecks, track performance, and optimize based on real data."
-                },
-                {
-                    "Title": "Seamless automation",
-                    "Description": "Layer automations to keep work flowing without manual intervention."
-                }
-            ]
-        }`}}
+        {{$valuePropsData := dict
+            "Title" (t "process-management.value_props_title")
+            "Description" (t "process-management.value_props_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "process-management.value_prop_1_title")
+                    "Description" (t "process-management.value_prop_1_description")
+                )
+                (dict
+                    "Title" (t "process-management.value_prop_2_title")
+                    "Description" (t "process-management.value_prop_2_description")
+                )
+                (dict
+                    "Title" (t "process-management.value_prop_3_title")
+                    "Description" (t "process-management.value_prop_3_description")
+                )
+            )
+        }}
         
         {{template "value-propositions" $valuePropsData}}
     </section>
 
     <!-- First CTA -->
     <section class="mb-16">
-        {{$firstCTA := parseJSON `{
-            "Title": "Start building better processes today.",
-            "Subtitle": "Join thousands of teams who've eliminated chaos and created clarity with Blue.",
-            "SecondaryText": "See a demo",
-            "SecondaryUrl": "/contact",
-            "PrimaryText": "Start free trial",
-            "PrimaryUrl": "https://app.blue.cc"
-        }`}}
+        {{$firstCTA := dict
+            "Title" (t "process-management.cta_title")
+            "Subtitle" (t "process-management.cta_subtitle")
+            "SecondaryText" (t "process-management.cta_secondary_text")
+            "SecondaryUrl" "/contact"
+            "PrimaryText" (t "process-management.cta_primary_text")
+            "PrimaryUrl" "https://app.blue.cc"
+        }}
         
         {{template "dual-button-cta" $firstCTA}}
     </section>
@@ -195,55 +195,55 @@
     <!-- FAQ Section -->
     <section class="mb-16">
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Frequently asked questions",
-                    "questions": [
-                        {
-                            "question": "How quickly can I set up a process in Blue?",
-                            "answer": "Most processes can be set up in under an hour. Create your lists (process steps), add the custom fields you need, and layer in automations. Blue's visual interface makes it easy to build exactly what you need."
-                        },
-                        {
-                            "question": "Can I track where processes get stuck or delayed?",
-                            "answer": "Yes, Blue's time-in-list tracking shows exactly how long each record spends in every stage. Use dashboards to identify bottlenecks and optimize your workflows based on real performance data."
-                        },
-                        {
-                            "question": "How do automations work in Blue processes?",
-                            "answer": "You can stack and layer automations to create sophisticated workflows. For example, create a checklist that automatically moves a record to the next stage when completed, assigns it to the right person, and sets due dates—all without manual intervention."
-                        },
-                        {
-                            "question": "Can different team members see different parts of a process?",
-                            "answer": "Absolutely. Blue offers field-level permissions, so you can control exactly what each role sees. For example, hide cost and profit data from junior staff while showing it to managers—even within the same process."
-                        },
-                        {
-                            "question": "Is Blue suitable for compliance-heavy industries?",
-                            "answer": "Yes, Blue provides complete audit trails that log every change, field-level security controls, and the ability to create processes that meet regulatory requirements. It's used by healthcare, finance, and other regulated industries."
-                        },
-                        {
-                            "question": "How does Blue handle complex processes that involve multiple departments?",
-                            "answer": "Use multi-workspace collaboration where the same record can live in multiple team workspaces. For example, a sales process can automatically trigger a finance process, with each team managing their own workflow on the same underlying record."
-                        },
-                        {
-                            "question": "Can I import existing processes from other systems?",
-                            "answer": "Yes, Blue supports data import via CSV files or API integration. You can bring over existing process data and recreate your workflows in Blue's flexible structure."
-                        },
-                        {
-                            "question": "What types of processes work best in Blue?",
-                            "answer": "Blue handles any step-by-step process: employee onboarding, compliance workflows, approval processes, manufacturing SOPs, quality control, client delivery, and more. If it has stages and requirements, Blue can manage it."
-                        },
-                        {
-                            "question": "How do I measure process performance and success?",
-                            "answer": "Create custom dashboards to track completion rates, average cycle times, records by category, and other KPIs. Blue's real-time analytics help you continuously improve your processes."
-                        },
-                        {
-                            "question": "Can Blue scale as our processes become more complex?",
-                            "answer": "Absolutely. Blue scales from simple checklists to complex multi-stage workflows with dozens of automations. Add more steps, fields, and automations as your processes evolve without rebuilding from scratch."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "process-management.faq_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "process-management.faq_question_1")
+                            "answer" (t "process-management.faq_answer_1")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_2")
+                            "answer" (t "process-management.faq_answer_2")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_3")
+                            "answer" (t "process-management.faq_answer_3")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_4")
+                            "answer" (t "process-management.faq_answer_4")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_5")
+                            "answer" (t "process-management.faq_answer_5")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_6")
+                            "answer" (t "process-management.faq_answer_6")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_7")
+                            "answer" (t "process-management.faq_answer_7")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_8")
+                            "answer" (t "process-management.faq_answer_8")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_9")
+                            "answer" (t "process-management.faq_answer_9")
+                        )
+                        (dict
+                            "question" (t "process-management.faq_question_10")
+                            "answer" (t "process-management.faq_answer_10")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
