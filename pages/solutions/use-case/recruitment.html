@@ -1,177 +1,177 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Transform your hiring from chaos to clarity." 
-            "Subtitle" "Build a structured recruitment pipeline that moves candidates smoothly from application to offer. Never lose track of a promising candidate again." 
+            "Title" (t "recruitment.page_title") 
+            "Subtitle" (t "recruitment.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- Problem Section -->
     <section class="mb-16">
-        {{$hiringProblems := parseJSON `{
-            "Title": "Stop losing great candidates to a broken process.",
-            "Description": "The best talent won't wait while you dig through emails and spreadsheets. Blue creates a seamless hiring experience that impresses candidates and empowers your team.",
-            "ValueProps": [
-                {
-                    "Title": "Candidates fall through the cracks",
-                    "Description": "Strong applicants get buried in email chaos while you're interviewing weaker candidates. Blue surfaces the right people at the right time."
-                },
-                {
-                    "Title": "Zero visibility creates bottlenecks",
-                    "Description": "Nobody knows who's interviewing whom, what feedback was given, or who needs to take the next step. Blue shows everyone exactly where things stand."
-                },
-                {
-                    "Title": "Hours wasted on coordination",
-                    "Description": "Your team spends more time scheduling interviews and chasing feedback than actually evaluating talent. Blue automates the logistics so you can focus on finding the right fit."
-                }
-            ]
-        }`}}
+        {{$hiringProblems := dict
+            "Title" (t "recruitment.problems_title")
+            "Description" (t "recruitment.problems_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "recruitment.problem_1_title")
+                    "Description" (t "recruitment.problem_1_description")
+                )
+                (dict
+                    "Title" (t "recruitment.problem_2_title")
+                    "Description" (t "recruitment.problem_2_description")
+                )
+                (dict
+                    "Title" (t "recruitment.problem_3_title")
+                    "Description" (t "recruitment.problem_3_description")
+                )
+            )
+        }}
         {{template "value-propositions" $hiringProblems}}
     </section>
 
     <!-- Feature Video: Hiring Pipeline -->
     <section class="mb-16">
-        {{$hiringPipelineData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "https://media.blue.cc/recruitment-board.mp4",
-            "Title": "See every candidate's journey at a glance",
-            "Description": "Your entire hiring pipeline visualized. Drag candidates between stages, spot bottlenecks instantly, and ensure no one gets forgotten. Customize stages to match your exact process—from 'Applied' to 'Offer Accepted.'",
-            "Button": {
-                "Text": "Explore kanban boards",
-                "Url": "/platform/features/kanban-board"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Custom fields", "Description": "track interview scores, salary expectations, and availability", "Url": "/platform/features/custom-fields" },
-                    { "Text": "Views & filters", "Description": "focus on specific roles, departments, or urgency levels", "Url": "/platform/features/views" },
-                    { "Text": "List management", "Description": "organize candidates by stage, role, or priority", "Url": "/docs/records/lists" }
-                ]
-            }
-        }`}}
+        {{$hiringPipelineData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "https://media.blue.cc/recruitment-board.mp4"
+            "Title" (t "recruitment.pipeline_title")
+            "Description" (t "recruitment.pipeline_description")
+            "Button" (dict
+                "Text" (t "recruitment.pipeline_button")
+                "Url" "/platform/features/kanban-board"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "recruitment.pipeline_link_1") "Description" (t "recruitment.pipeline_link_1_desc") "Url" "/platform/features/custom-fields")
+                    (dict "Text" (t "recruitment.pipeline_link_2") "Description" (t "recruitment.pipeline_link_2_desc") "Url" "/platform/features/views")
+                    (dict "Text" (t "recruitment.pipeline_link_3") "Description" (t "recruitment.pipeline_link_3_desc") "Url" "/docs/records/lists")
+                )
+            )
+        }}
         {{template "feature-video" $hiringPipelineData}}
     </section>
 
     <!-- Feature Video: Onboarding Automation -->
     <section class="mb-16">
-        {{$onboardingData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "https://media.blue.cc/automations-on-off.mp4",
-            "Title": "From offer accepted to day one—automatically",
-            "Description": "The moment a candidate accepts, Blue springs into action. Automations create IT tickets, schedule orientation, assign mentors, and build onboarding checklists. Your new hire gets a smooth first day while HR saves hours of manual coordination.",
-            "Button": {
-                "Text": "Discover automation power",
-                "Url": "/platform/features/automations"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Automation templates", "Description": "standardize onboarding for every role", "Url": "/docs/automations/introduction" },
-                    { "Text": "Email automations", "Description": "send welcome materials and first-day info automatically", "Url": "/docs/automations/actions/email-automations" },
-                    { "Text": "Automation triggers", "Description": "schedule tasks for day 1, week 1, and beyond", "Url": "/docs/automations/triggers" }
-                ]
-            }
-        }`}}
+        {{$onboardingData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "https://media.blue.cc/automations-on-off.mp4"
+            "Title" (t "recruitment.onboarding_title")
+            "Description" (t "recruitment.onboarding_description")
+            "Button" (dict
+                "Text" (t "recruitment.onboarding_button")
+                "Url" "/platform/features/automations"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "recruitment.onboarding_link_1") "Description" (t "recruitment.onboarding_link_1_desc") "Url" "/docs/automations/introduction")
+                    (dict "Text" (t "recruitment.onboarding_link_2") "Description" (t "recruitment.onboarding_link_2_desc") "Url" "/docs/automations/actions/email-automations")
+                    (dict "Text" (t "recruitment.onboarding_link_3") "Description" (t "recruitment.onboarding_link_3_desc") "Url" "/docs/automations/triggers")
+                )
+            )
+        }}
         {{template "feature-video" $onboardingData}}
     </section>
 
     <!-- Feature Video: Application Forms -->
     <section class="mb-16">
-        {{$formsData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "/product/forms.mp4",
-            "Title": "Collect applications that actually get reviewed",
-            "Description": "Replace scattered emails with structured application forms. Candidates submit resumes, portfolios, and answers to screening questions in one place. Every application flows directly into your pipeline—searchable, sortable, and impossible to lose.",
-            "Button": {
-                "Text": "See forms in action",
-                "Url": "/platform/features/forms"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Forms documentation", "Description": "screen for must-have skills upfront", "Url": "/docs/projects/forms" },
-                    { "Text": "File attachments", "Description": "collect resumes, portfolios, and work samples", "Url": "/docs/custom-fields/file" },
-                    { "Text": "Email notifications", "Description": "confirm receipt and set expectations", "Url": "/docs/automations/actions/email-automations" }
-                ]
-            }
-        }`}}
+        {{$formsData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "/product/forms.mp4"
+            "Title" (t "recruitment.forms_title")
+            "Description" (t "recruitment.forms_description")
+            "Button" (dict
+                "Text" (t "recruitment.forms_button")
+                "Url" "/platform/features/forms"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "recruitment.forms_link_1") "Description" (t "recruitment.forms_link_1_desc") "Url" "/docs/projects/forms")
+                    (dict "Text" (t "recruitment.forms_link_2") "Description" (t "recruitment.forms_link_2_desc") "Url" "/docs/custom-fields/file")
+                    (dict "Text" (t "recruitment.forms_link_3") "Description" (t "recruitment.forms_link_3_desc") "Url" "/docs/automations/actions/email-automations")
+                )
+            )
+        }}
         {{template "feature-video" $formsData}}
     </section>
 
     <!-- Feature Video: Collaboration -->
     <section class="mb-16">
-        {{$collaborationData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "https://media.blue.cc/user-permissions-custom-fields.mp4",
-            "Title": "Get the whole team hiring better, together",
-            "Description": "No more 'What did you think of that candidate?' emails. Interviewers leave feedback directly on candidate profiles. Hiring managers see scorecards in real-time. Everyone knows their role and the next steps. Make better decisions, faster.",
-            "Button": {
-                "Text": "Learn about collaboration",
-                "Url": "/platform/features/user-permissions"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Custom fields", "Description": "structured feedback from every interviewer", "Url": "/platform/features/custom-fields" },
-                    { "Text": "User permissions", "Description": "show salary data only to those who need it", "Url": "/docs/user-management/roles/custom-user-roles" },
-                    { "Text": "Activity tracking", "Description": "see who did what and when", "Url": "/docs/projects/activity" }
-                ]
-            }
-        }`}}
+        {{$collaborationData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "https://media.blue.cc/user-permissions-custom-fields.mp4"
+            "Title" (t "recruitment.collaboration_title")
+            "Description" (t "recruitment.collaboration_description")
+            "Button" (dict
+                "Text" (t "recruitment.collaboration_button")
+                "Url" "/platform/features/user-permissions"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "recruitment.collaboration_link_1") "Description" (t "recruitment.collaboration_link_1_desc") "Url" "/platform/features/custom-fields")
+                    (dict "Text" (t "recruitment.collaboration_link_2") "Description" (t "recruitment.collaboration_link_2_desc") "Url" "/docs/user-management/roles/custom-user-roles")
+                    (dict "Text" (t "recruitment.collaboration_link_3") "Description" (t "recruitment.collaboration_link_3_desc") "Url" "/docs/projects/activity")
+                )
+            )
+        }}
         {{template "feature-video" $collaborationData}}
     </section>
 
     <!-- FAQ Section -->
     <section class="mb-16">
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Common questions about hiring with Blue",
-                    "questions": [
-                        {
-                            "question": "How quickly can I set up my hiring pipeline?",
-                            "answer": "Most teams have their pipeline running in under 30 minutes. Start with our hiring template, customize the stages to match your process (phone screen, technical interview, culture fit, etc.), and you're ready to add candidates. No complex setup or training required."
-                        },
-                        {
-                            "question": "Can different team members see different information?",
-                            "answer": "Absolutely. Use field-level permissions to control who sees what. For example, interviewers can see resumes and leave feedback but not salary expectations. HR sees everything. Hiring managers see scorecards but not confidential notes. You have complete control."
-                        },
-                        {
-                            "question": "How does Blue handle high-volume recruiting?",
-                            "answer": "Blue scales effortlessly. Use bulk actions to move groups of candidates, create saved filters for different roles, and set up automations to handle routine tasks. Teams hiring hundreds of people use the same simple interface as those hiring a handful."
-                        },
-                        {
-                            "question": "What happens when we reject a candidate?",
-                            "answer": "Configure exactly what happens. Send a personalized rejection email automatically, move them to a talent pool for future opportunities, or trigger a feedback survey. You can even set different actions for different rejection reasons."
-                        },
-                        {
-                            "question": "Can candidates check their application status?",
-                            "answer": "Yes, if you enable it. Use Blue's portal feature to give candidates secure access to view their status, upload additional documents, or communicate with your team. They'll only see what you want them to see."
-                        },
-                        {
-                            "question": "How do I ensure GDPR/privacy compliance?",
-                            "answer": "Blue includes built-in tools for compliance. Set automatic data deletion after a specified time, track consent, generate data exports for candidates who request them, and maintain detailed audit logs of who accessed what information."
-                        },
-                        {
-                            "question": "Can I integrate with our existing HR tools?",
-                            "answer": "Yes. Blue offers native integrations with popular HR platforms through Zapier, Make.com, and our API. Sync candidate data with your HRIS, push new hires to payroll systems, or connect with background check providers."
-                        },
-                        {
-                            "question": "What kind of reports can I generate?",
-                            "answer": "Track everything that matters: time-to-hire by role, source effectiveness, bottlenecks in your pipeline, interviewer participation rates, offer acceptance rates, and more. Build custom dashboards to show exactly the metrics your team needs."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "recruitment.faq_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "recruitment.faq_question_1")
+                            "answer" (t "recruitment.faq_answer_1")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_2")
+                            "answer" (t "recruitment.faq_answer_2")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_3")
+                            "answer" (t "recruitment.faq_answer_3")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_4")
+                            "answer" (t "recruitment.faq_answer_4")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_5")
+                            "answer" (t "recruitment.faq_answer_5")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_6")
+                            "answer" (t "recruitment.faq_answer_6")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_7")
+                            "answer" (t "recruitment.faq_answer_7")
+                        )
+                        (dict
+                            "question" (t "recruitment.faq_question_8")
+                            "answer" (t "recruitment.faq_answer_8")
+                        )
+                    )
+                )
+            )
+        }}
         {{template "faq-sections" $faqData}}
     </section>
 
     <!-- Final CTA -->
     <section class="mb-16">
-        {{$ctaData := parseJSON `{
-            "Title": "Start hiring the best people, faster.",
-            "Subtitle": "Join thousands of teams who've transformed their chaotic hiring process into a competitive advantage.",
-            "SecondaryText": "See it in action",
-            "SecondaryUrl": "/request-demo",
-            "PrimaryText": "Try it free",
-            "PrimaryUrl": "https://app.blue.cc"
-        }`}}
+        {{$ctaData := dict
+            "Title" (t "recruitment.cta_title")
+            "Subtitle" (t "recruitment.cta_subtitle")
+            "SecondaryText" (t "recruitment.cta_secondary_text")
+            "SecondaryUrl" "/request-demo"
+            "PrimaryText" (t "recruitment.cta_primary_text")
+            "PrimaryUrl" "https://app.blue.cc"
+        }}
         {{template "dual-button-cta" $ctaData}}
     </section>
