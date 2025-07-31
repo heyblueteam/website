@@ -1,0 +1,99 @@
+{
+  "en": {
+    "page_title": "Streamline data collection.",
+    "page_subtitle": "Effortlessly gather information from clients, employees, or the public with Blue forms.",
+    
+    "news_bar_text": "Run forms on your own domain with White Label.",
+    "news_bar_button": "Learn more",
+    
+    "value_props_title": "Collect data seamlessly.<br>From anyone, anywhere.",
+    "value_props_description": "Blue forms integrate directly with your projects, automatically creating records and triggering workflows when submissions come in.",
+    
+    "value_prop_1_title": "Public access, private data",
+    "value_prop_1_description": "Share forms with anyone via links, QR codes, or embeds. No Blue accounts needed, but data flows securely into your projects.",
+    
+    "value_prop_2_title": "The exact information you need",
+    "value_prop_2_description": "From text inputs to file uploads, star ratings, and location mapping. Capture exactly the data you need with drag-and-drop ease.",
+    
+    "value_prop_3_title": "Automatic record creation",
+    "value_prop_3_description": "Every submission instantly becomes a record in your project. Route to lists, assign to team members, and trigger automations.",
+    
+    "form_builder_title": "Say Goodbye to Generic Forms.",
+    "form_builder_description": "Our form builder puts you in full control. Craft on-brand forms tailored to your unique needs in minutes.",
+    
+    "form_builder_benefit_1_title": "Powerful Options",
+    "form_builder_benefit_1_description": "Drag-and-drop any form fields – text, dropdowns, file uploads, and more.",
+    
+    "form_builder_benefit_2_title": "Branded Experience",
+    "form_builder_benefit_2_description": "Customize colors, logos, and styling to make forms your own.",
+    
+    "form_builder_benefit_3_title": "No Coding Required",
+    "form_builder_benefit_3_description": "Our intuitive interface makes form building accessible to anyone.",
+    
+    "form_sharing_title": "Make sharing forms a breeze.",
+    "form_sharing_description": "Never deal with clunky file attachments again. Blue offers multiple seamless ways to share and distribute forms.",
+    
+    "sharing_option_1_title": "Links",
+    "sharing_option_1_description": "Generate shareable links to deploy forms anywhere.",
+    
+    "sharing_option_2_title": "QR Codes",
+    "sharing_option_2_description": "Download QR codes to print and post up.",
+    
+    "sharing_option_3_title": "Website Embedding",
+    "sharing_option_3_description": "Embed forms directly onto your website.",
+    
+    "faq_category_general": "General",
+    "faq_category_sharing_access": "Sharing & Access",
+    "faq_category_building_forms": "Building Forms",
+    "faq_category_management_automation": "Management & Automation",
+    
+    "faq_question_1": "What are forms in Blue?",
+    "faq_answer_1": "Forms in Blue are customizable data collection tools that integrate seamlessly with your projects. They allow you to gather information from internal teams or external users through beautiful, branded interfaces.",
+    
+    "faq_question_2": "Who can create and modify forms?",
+    "faq_answer_2": "Forms can be created and modified by users with appropriate permissions in the project. Admins and project owners have full control, while members may have limited editing capabilities based on their role.",
+    
+    "faq_question_3": "How are forms linked to projects?",
+    "faq_answer_3": "Forms are directly connected to specific projects in Blue. When someone submits a form, the data automatically flows into the designated project, creating new records or updating existing ones.",
+    
+    "faq_question_4": "Can forms be shared with external users?",
+    "faq_answer_4": "Yes! Forms can be shared with anyone via public links, QR codes, or embedded on websites. External users don't need a Blue account to submit forms.",
+    
+    "faq_question_5": "Are forms public?",
+    "faq_answer_5": "Forms are private by default. You control who can access them by sharing specific links or embedding them on your website. Only those with the link can view and submit the form.",
+    
+    "faq_question_6": "How can forms be shared?",
+    "faq_answer_6": "Forms can be shared through multiple channels: shareable links, downloadable QR codes, website embedding via HTML snippet, or direct integration into your existing workflows.",
+    
+    "faq_question_7": "Can forms be embedded on a website?",
+    "faq_answer_7": "Absolutely! Blue provides a simple embed code that you can add to any website. The form will appear seamlessly on your site while submissions flow directly into Blue.",
+    
+    "faq_question_8": "How do you build forms in Blue?",
+    "faq_answer_8": "Building forms is simple with our drag-and-drop interface. Choose from various field types, arrange them as needed, customize the design, and publish - all without writing a single line of code.",
+    
+    "faq_question_9": "What custom fields are available?",
+    "faq_answer_9": "Blue offers extensive field types including text inputs, dropdowns, checkboxes, radio buttons, file uploads, date pickers, signatures, ratings, and more. Each field can be customized with validation rules.",
+    
+    "faq_question_10": "Can forms have logos and descriptions?",
+    "faq_answer_10": "Yes! Forms can be fully branded with your logo, custom colors, header images, and detailed descriptions. Make each form feel like a natural extension of your brand.",
+    
+    "faq_question_11": "Can you customize the form's appearance?",
+    "faq_answer_11": "Absolutely. Customize colors, fonts, button styles, field layouts, and more. Our theme editor gives you complete control over the form's look and feel.",
+    
+    "faq_question_12": "How are submitted forms managed?",
+    "faq_answer_12": "Form submissions are automatically organized in your project. View them in lists, kanban boards, or custom views. Each submission becomes a record you can track, assign, and manage.",
+    
+    "faq_question_13": "Can forms trigger automations?",
+    "faq_answer_13": "Yes! Form submissions can trigger powerful automations like sending emails, creating tasks, updating fields, or notifying team members. Build complex workflows that start with a simple form submission.",
+    
+    "faq_question_14": "Can you copy forms to other projects?",
+    "faq_answer_14": "Forms can be duplicated within or across projects. This makes it easy to reuse successful form templates while maintaining project-specific customizations.",
+    
+    "faq_question_15": "Can you send confirmation emails?",
+    "faq_answer_15": "Yes, Blue can automatically send customized confirmation emails to form submitters. Include submission details, next steps, or any other relevant information.",
+    
+    "cta_title": "Start collecting data with forms today.",
+    "cta_primary_text": "Get Started Free",
+    "cta_secondary_text": "View documentation"
+  }
+}

@@ -1,146 +1,146 @@
-{{template "page-heading" dict "Title" "The modern way to manage files" "Subtitle" "Centralize all files in one secure source of truth—no more scattering across chats, emails, and storage."}}
+{{template "page-heading" dict "Title" (t "file-management.page_title") "Subtitle" (t "file-management.page_subtitle")}}
 
 <!-- Hero Video -->
 {{template "hero-video" dict "VideoUrl" "https://media.blue.cc/file-folders-example.mp4" "MarginBottom" "mb-20"}}
 
 <!-- File Privacy Benefits -->
-{{$privacyBenefits := parseJSON `{
-    "Benefits": [
-        {
-            "Title": "Private by default",
-            "Description": "Project files are private by default. Only invited members can view them. Your data stays confidential and secure.",
-            "Url": "/platform/features/user-permissions"
-        },
-        {
-            "Title": "Control",
-            "Description": "Grant or revoke file access anytime. You're in charge."
-        },
-        {
-            "Title": "Collaborate",
-            "Description": "Generate secure public links. Share files externally with ease."
-        }
-    ],
-    "MarginBottom": "mb-20"
-}`}}
+{{$privacyBenefits := dict
+    "Benefits" (slice
+        (dict
+            "Title" (t "file-management.privacy_benefit_1_title")
+            "Description" (t "file-management.privacy_benefit_1_description")
+            "Url" "/platform/features/user-permissions"
+        )
+        (dict
+            "Title" (t "file-management.privacy_benefit_2_title")
+            "Description" (t "file-management.privacy_benefit_2_description")
+        )
+        (dict
+            "Title" (t "file-management.privacy_benefit_3_title")
+            "Description" (t "file-management.privacy_benefit_3_description")
+        )
+    )
+    "MarginBottom" "mb-20"
+}}
 {{template "feature-benefits-grid" $privacyBenefits}}
 
 <!-- File Sharing Feature -->
-{{$fileSharingData := parseJSON `{
-    "Title": "File organization, mastered",
-    "Description": "Stay on top of your files with Blue's intuitive folder management. Create folders, subfolders, and color-code to your heart's content.",
-    "VideoUrl": "https://media.blue.cc/file-folders-example.mp4",
-    "VideoPosition": "right",
-    "SeeAlso": {
-        "Links": [
-            {
-                "Text": "Customize",
-                "Url": "/docs/projects/file-management#folders",
-                "Description": "Build a folder structure that fits your needs perfectly."
-            },
-            {
-                "Text": "Categorize", 
-                "Url": "/docs/projects/file-management#setting-folder-color",
-                "Description": "Use colors to group folders by project, client, or category."
-            },
-            {
-                "Text": "Conquer Clutter",
-                "Url": "/docs/projects/file-management#moving-files",
-                "Description": "Effortlessly organize and locate files within nested folders."
-            }
-        ]
-    },
-    "MarginBottom": "mb-20"
-}`}}
+{{$fileSharingData := dict
+    "Title" (t "file-management.file_organization_title")
+    "Description" (t "file-management.file_organization_description")
+    "VideoUrl" "https://media.blue.cc/file-folders-example.mp4"
+    "VideoPosition" "right"
+    "SeeAlso" (dict
+        "Links" (slice
+            (dict
+                "Text" (t "file-management.file_organization_link_1_text")
+                "Url" "/docs/projects/file-management#folders"
+                "Description" (t "file-management.file_organization_link_1_description")
+            )
+            (dict
+                "Text" (t "file-management.file_organization_link_2_text")
+                "Url" "/docs/projects/file-management#setting-folder-color"
+                "Description" (t "file-management.file_organization_link_2_description")
+            )
+            (dict
+                "Text" (t "file-management.file_organization_link_3_text")
+                "Url" "/docs/projects/file-management#moving-files"
+                "Description" (t "file-management.file_organization_link_3_description")
+            )
+        )
+    )
+    "MarginBottom" "mb-20"
+}}
 {{template "feature-video" $fileSharingData}}
 
 <!-- File Search Feature -->
-{{$fileSearchData := parseJSON `{
-    "Title": "All your data at your fingertips in milliseconds",
-    "Description": "Finding files has never been easier. Instantly search across all projects and locate exactly where any document originated.",
-    "ImageUrl": "/product/file-search.png",
-    "ImagePosition": "left",
-    "SeeAlso": {
-        "Links": [
-            {
-                "Text": "Lightning Fast",
-                "Url": "/docs/projects/file-management#searching-for-files",
-                "Description": "Powerful search returns results in milliseconds."
-            },
-            {
-                "Text": "Complete Context",
-                "Url": "/docs/projects/file-management#locating-files",
-                "Description": "See the full path of a file - which project, record or comment it's linked to."
-            },
-            {
-                "Text": "No More Guessing",
-                "Url": "/docs/projects/file-management#files-tab",
-                "Description": "Blue surfaces what you need, when you need it."
-            }
-        ]
-    }
-}`}}
+{{$fileSearchData := dict
+    "Title" (t "file-management.file_search_title")
+    "Description" (t "file-management.file_search_description")
+    "ImageUrl" "/product/file-search.png"
+    "ImagePosition" "left"
+    "SeeAlso" (dict
+        "Links" (slice
+            (dict
+                "Text" (t "file-management.file_search_link_1_text")
+                "Url" "/docs/projects/file-management#searching-for-files"
+                "Description" (t "file-management.file_search_link_1_description")
+            )
+            (dict
+                "Text" (t "file-management.file_search_link_2_text")
+                "Url" "/docs/projects/file-management#locating-files"
+                "Description" (t "file-management.file_search_link_2_description")
+            )
+            (dict
+                "Text" (t "file-management.file_search_link_3_text")
+                "Url" "/docs/projects/file-management#files-tab"
+                "Description" (t "file-management.file_search_link_3_description")
+            )
+        )
+    )
+}}
 {{template "feature-image" $fileSearchData}}
 
 <!-- File Integration Feature -->
-{{$fileIntegrationData := parseJSON `{
-    "Title": "Files that work everywhere in Blue",
-    "Description": "Attach files directly to comments and records using File custom fields. Keep all related documents exactly where you need them in your workflow.",
-    "VideoUrl": "https://media.blue.cc/file-custom-field-example.mp4",
-    "VideoPosition": "right"
-}`}}
+{{$fileIntegrationData := dict
+    "Title" (t "file-management.file_integration_title")
+    "Description" (t "file-management.file_integration_description")
+    "VideoUrl" "https://media.blue.cc/file-custom-field-example.mp4"
+    "VideoPosition" "right"
+}}
 {{template "feature-video" $fileIntegrationData}}
 
 <!-- FAQ Section -->
 <section class="mb-20">
-    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "file-management.faq_section_title"}}</h2>
     
-    {{$faqData := parseJSON `{
-        "categories": [
-            {
-                "name": "File Management",
-                "questions": [
-                    {
-                        "question": "What file types can I upload to Blue?",
-                        "answer": "Blue supports all file types with no restrictions. You can upload documents, images, videos, audio files, archives, and any other file format you need for your projects."
-                    },
-                    {
-                        "question": "Is there a limit to file sizes I can upload?",
-                        "answer": "Individual files can be up to 5GB in size. This accommodates most business files including large videos, design files, and data exports."
-                    },
-                    {
-                        "question": "How do I organize files in Blue?",
-                        "answer": "You can create nested folder structures with unlimited depth to organize your files exactly how you need them. Create folders and subfolders, and use color-coding to visually categorize different types of content."
-                    },
-                    {
-                        "question": "Can I share files with people outside my organization?",
-                        "answer": "Yes, you can generate secure public links for individual files to share with external collaborators, clients, or stakeholders. These links allow access without requiring a Blue account."
-                    },
-                    {
-                        "question": "How do files integrate with other Blue features?",
-                        "answer": "Files can be attached to comments for contextual discussions and added to records using File custom fields. This keeps all related documents directly connected to your workflows and projects."
-                    },
-                    {
-                        "question": "Can I access my files when I'm offline?",
-                        "answer": "Files require an internet connection to access as they are stored securely in the cloud. However, once downloaded, you can work with files offline and re-upload them when you're back online."
-                    },
-                    {
-                        "question": "Does Blue keep versions of my files?",
-                        "answer": "Blue stores the current version of your files. If you need to maintain multiple versions, you can upload them as separate files or use descriptive naming conventions to track different iterations."
-                    }
-                ]
-            }
-        ]
-    }`}}
+    {{$faqData := dict
+        "categories" (slice
+            (dict
+                "name" (t "file-management.faq_category_file_management")
+                "questions" (slice
+                    (dict
+                        "question" (t "file-management.faq_question_1")
+                        "answer" (t "file-management.faq_answer_1")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_2")
+                        "answer" (t "file-management.faq_answer_2")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_3")
+                        "answer" (t "file-management.faq_answer_3")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_4")
+                        "answer" (t "file-management.faq_answer_4")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_5")
+                        "answer" (t "file-management.faq_answer_5")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_6")
+                        "answer" (t "file-management.faq_answer_6")
+                    )
+                    (dict
+                        "question" (t "file-management.faq_question_7")
+                        "answer" (t "file-management.faq_answer_7")
+                    )
+                )
+            )
+        )
+    }}
     
     {{template "faq-sections" $faqData}}
 </section>
 
 <!-- Call to Action -->
-{{$ctaData := parseJSON `{
-    "Title": "Organize your files the smart way.",
-    "PrimaryText": "Get Started Free",
-    "PrimaryUrl": "https://app.blue.cc",
-    "SecondaryText": "View documentation",
-    "SecondaryUrl": "/docs/projects/file-management"
-}`}}
+{{$ctaData := dict
+    "Title" (t "file-management.cta_title")
+    "PrimaryText" (t "file-management.cta_primary_text")
+    "PrimaryUrl" "https://app.blue.cc"
+    "SecondaryText" (t "file-management.cta_secondary_text")
+    "SecondaryUrl" "/docs/projects/file-management"
+}}
 {{template "dual-button-cta" $ctaData}}

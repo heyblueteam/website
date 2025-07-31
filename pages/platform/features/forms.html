@@ -1,7 +1,7 @@
   {{template "page-heading" 
     dict 
-      "Title" "Streamline data collection." 
-      "Subtitle" "Effortlessly gather information from clients, employees, or the public with Blue forms." 
+      "Title" (t "forms.page_title") 
+      "Subtitle" (t "forms.page_subtitle") 
       "MarginBottom" "mb-16"
   }}
 
@@ -12,92 +12,92 @@
   {{template "hero-video" $heroData}}
 
   <!-- News Bar - White Label Forms Support -->
-  {{$newsBarData := parseJSON `{
-    "MainText": "Run forms on your own domain with White Label.",
-    "ButtonText": "Learn more",
-    "ButtonUrl": "/platform/white-label",
-    "MarginBottom": "mb-16"
-  }`}}
+  {{$newsBarData := dict
+    "MainText" (t "forms.news_bar_text")
+    "ButtonText" (t "forms.news_bar_button")
+    "ButtonUrl" "/platform/white-label"
+    "MarginBottom" "mb-16"
+  }}
   {{template "news-bar" $newsBarData}}
 
   <!-- Value Propositions Section -->
-  {{$valuePropsData := parseJSON `{
-    "Title": "Collect data seamlessly.<br>From anyone, anywhere.",
-    "Description": "Blue forms integrate directly with your projects, automatically creating records and triggering workflows when submissions come in.",
-    "Animation": false,
-    "ValueProps": [
-        {
-          "Title": "Public access, private data",
-          "Description": "Share forms with anyone via links, QR codes, or embeds. No Blue accounts needed, but data flows securely into your projects."
-        },
-        {
-          "Title": "The exact information you need",
-          "Description": "From text inputs to file uploads, star ratings, and location mapping. Capture exactly the data you need with drag-and-drop ease."
-        },
-        {
-          "Title": "Automatic record creation",
-          "Description": "Every submission instantly becomes a record in your project. Route to lists, assign to team members, and trigger automations."
-        }
-      ],
-    "MarginBottom": "mb-20"
-  }`}}
+  {{$valuePropsData := dict
+    "Title" (t "forms.value_props_title")
+    "Description" (t "forms.value_props_description")
+    "Animation" false
+    "ValueProps" (slice
+        (dict
+          "Title" (t "forms.value_prop_1_title")
+          "Description" (t "forms.value_prop_1_description")
+        )
+        (dict
+          "Title" (t "forms.value_prop_2_title")
+          "Description" (t "forms.value_prop_2_description")
+        )
+        (dict
+          "Title" (t "forms.value_prop_3_title")
+          "Description" (t "forms.value_prop_3_description")
+        )
+      )
+    "MarginBottom" "mb-20"
+  }}
   {{template "value-propositions" $valuePropsData}}
 
 
   <!-- Form Builder Feature Section -->
-  {{$formBuilderVideo := parseJSON `{
-    "VideoPosition": "left",
-    "Title": "Say Goodbye to Generic Forms.",
-    "Description": "Our form builder puts you in full control. Craft on-brand forms tailored to your unique needs in minutes.",
-    "VideoUrl": "https://media.blue.cc/form-branding-example.mp4"
-  }`}}
+  {{$formBuilderVideo := dict
+    "VideoPosition" "left"
+    "Title" (t "forms.form_builder_title")
+    "Description" (t "forms.form_builder_description")
+    "VideoUrl" "https://media.blue.cc/form-branding-example.mp4"
+  }}
   {{template "feature-video" $formBuilderVideo}}
 
   <!-- Form Builder Benefits -->
-  {{$formBuilderBenefits := parseJSON `{
-    "Benefits": [
-      {
-        "Title": "Powerful Options",
-        "Description": "Drag-and-drop any form fields – text, dropdowns, file uploads, and more."
-      },
-      {
-        "Title": "Branded Experience",
-        "Description": "Customize colors, logos, and styling to make forms your own."
-      },
-      {
-        "Title": "No Coding Required",
-        "Description": "Our intuitive interface makes form building accessible to anyone."
-      }
-    ]
-  }`}}
+  {{$formBuilderBenefits := dict
+    "Benefits" (slice
+      (dict
+        "Title" (t "forms.form_builder_benefit_1_title")
+        "Description" (t "forms.form_builder_benefit_1_description")
+      )
+      (dict
+        "Title" (t "forms.form_builder_benefit_2_title")
+        "Description" (t "forms.form_builder_benefit_2_description")
+      )
+      (dict
+        "Title" (t "forms.form_builder_benefit_3_title")
+        "Description" (t "forms.form_builder_benefit_3_description")
+      )
+    )
+  }}
   {{template "feature-benefits-grid" $formBuilderBenefits}}
 
   <!-- Form Sharing Feature Section -->
-  {{$formSharingVideo := parseJSON `{
-    "VideoPosition": "right",
-    "Title": "Make sharing forms a breeze.",
-    "Description": "Never deal with clunky file attachments again. Blue offers multiple seamless ways to share and distribute forms.",
-    "VideoUrl": "https://media.blue.cc/form-sharing.mp4"
-  }`}}
+  {{$formSharingVideo := dict
+    "VideoPosition" "right"
+    "Title" (t "forms.form_sharing_title")
+    "Description" (t "forms.form_sharing_description")
+    "VideoUrl" "https://media.blue.cc/form-sharing.mp4"
+  }}
   {{template "feature-video" $formSharingVideo}}
 
   <!-- Form Sharing Options -->
-  {{$sharingOptions := parseJSON `{
-    "Benefits": [
-      {
-        "Title": "Links",
-        "Description": "Generate shareable links to deploy forms anywhere."
-      },
-      {
-        "Title": "QR Codes",
-        "Description": "Download QR codes to print and post up."
-      },
-      {
-        "Title": "Website Embedding",
-        "Description": "Embed forms directly onto your website."
-      }
-    ]
-  }`}}
+  {{$sharingOptions := dict
+    "Benefits" (slice
+      (dict
+        "Title" (t "forms.sharing_option_1_title")
+        "Description" (t "forms.sharing_option_1_description")
+      )
+      (dict
+        "Title" (t "forms.sharing_option_2_title")
+        "Description" (t "forms.sharing_option_2_description")
+      )
+      (dict
+        "Title" (t "forms.sharing_option_3_title")
+        "Description" (t "forms.sharing_option_3_description")
+      )
+    )
+  }}
   {{template "feature-benefits-grid" $sharingOptions}}
 
 
