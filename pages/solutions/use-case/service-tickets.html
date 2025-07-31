@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Service tickets that actually get resolved." 
-            "Subtitle" "Transform your support operations with flexible ticket management, intelligent routing, and real-time SLA tracking." 
+            "Title" (t "service-tickets.page_title") 
+            "Subtitle" (t "service-tickets.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -15,17 +15,17 @@
 
     <!-- Customer Logos -->
     <section class="mb-16">
-        {{$logoData := parseJSON `{
-            "title": "Teams resolve 3M+ tickets annually in Blue",
-            "logos": [
-                { "name": "Deloitte", "src": "/customers/deloitte.svg" },
-                { "name": "FedEx", "src": "/customers/fedex.svg" },
-                { "name": "Cisco", "src": "/customers/cisco.svg" },
-                { "name": "Red Hat", "src": "/customers/redhat.svg" },
-                { "name": "Manulife", "src": "/customers/manulife.svg" },
-                { "name": "CBRE", "src": "/customers/cbre.svg" }
-            ]
-        }`}}
+        {{$logoData := dict
+            "title" (t "service-tickets.logo_section_title")
+            "logos" (slice
+                (dict "name" "Deloitte" "src" "/customers/deloitte.svg")
+                (dict "name" "FedEx" "src" "/customers/fedex.svg")
+                (dict "name" "Cisco" "src" "/customers/cisco.svg")
+                (dict "name" "Red Hat" "src" "/customers/redhat.svg")
+                (dict "name" "Manulife" "src" "/customers/manulife.svg")
+                (dict "name" "CBRE" "src" "/customers/cbre.svg")
+            )
+        }}
         
         {{template "logo-grid" $logoData}}
     </section>
@@ -39,17 +39,17 @@
                     <!-- Left side - Text content -->
                     <div class="space-y-4">
                         <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">
-                            Tickets from anywhere, routed instantly.
+                            {{t "service-tickets.tickets_routing_title"}}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-300">
-                            Create tickets via forms, email, API, or QR codes on equipment. Intelligent automations ensure every ticket reaches the right team member based on type, priority, or custom rules.
+                            {{t "service-tickets.tickets_routing_description"}}
                         </p>
                         
                         <!-- Button -->
                         <div class="pt-2">
                             <a href="/api/start-guide/introduction" 
                                class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out">
-                                Discover our API
+                                {{t "service-tickets.tickets_routing_button"}}
                                 <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                                 </svg>
@@ -59,26 +59,26 @@
                         <!-- See Also -->
                         <div class="pt-4">
                             <h5 class="text-sm font-medium text-gray-900 dark:text-white mb-3">
-                                See also
+                                {{t "service-tickets.tickets_routing_see_also"}}
                             </h5>
                             <ul class="space-y-2">
                                 <li>
                                     <a href="/docs/forms/introduction" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                        Forms & ticket creation
+                                        {{t "service-tickets.tickets_routing_link_1"}}
                                     </a>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400"> build custom ticket submission forms</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "service-tickets.tickets_routing_link_1_desc"}}</span>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/qr-codes" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                        QR code generation
+                                        {{t "service-tickets.tickets_routing_link_2"}}
                                     </a>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400"> for equipment and location-based tickets</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "service-tickets.tickets_routing_link_2_desc"}}</span>
                                 </li>
                                 <li>
                                     <a href="/docs/integrations/api" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                        API integration
+                                        {{t "service-tickets.tickets_routing_link_3"}}
                                     </a>
-                                    <span class="text-sm text-gray-500 dark:text-gray-400"> to create tickets programmatically</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "service-tickets.tickets_routing_link_3_desc"}}</span>
                                 </li>
                             </ul>
                         </div>
@@ -126,10 +126,10 @@
         
         <!-- SLA Tracking -->
         <section class="mb-16">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Never miss an SLA again.</h2>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">{{t "service-tickets.sla_heading"}}</h2>
             
             <p class="text-lg text-gray-600 dark:text-gray-400 mb-16">
-                Track time in each stage, monitor response times, and visualize performance with real-time dashboards. Know exactly where bottlenecks occur and optimize your workflow.
+                {{t "service-tickets.sla_description"}}
             </p>
             {{template "hero-video" 
                 dict 
@@ -137,68 +137,68 @@
                     "MarginBottom" "mb-16"
             }}
             
-            {{$slaTrackingBenefits := parseJSON `{
-                "Benefits": [
-                    {
-                        "Title": "Time in List Tracking",
-                        "Description": "Automatically track how long tickets spend in each status, giving you precise data on resolution times and bottlenecks.",
-                        "Url": "/docs/custom-fields/time-in-list"
-                    },
-                    {
-                        "Title": "Duration Fields",
-                        "Description": "Measure time between any two events in your ticket lifecycle, from first response to final resolution.",
-                        "Url": "/docs/custom-fields/duration"
-                    },
-                    {
-                        "Title": "Real-time Dashboards",
-                        "Description": "Monitor SLA performance with live dashboards that update automatically and alert you to potential breaches.",
-                        "Url": "/docs/dashboards/introduction"
-                    }
-                ],
-                "MarginBottom": "mb-16"
-            }`}}
+            {{$slaTrackingBenefits := dict
+                "Benefits" (slice
+                    (dict
+                        "Title" (t "service-tickets.sla_benefit_1_title")
+                        "Description" (t "service-tickets.sla_benefit_1_description")
+                        "Url" "/docs/custom-fields/time-in-list"
+                    )
+                    (dict
+                        "Title" (t "service-tickets.sla_benefit_2_title")
+                        "Description" (t "service-tickets.sla_benefit_2_description")
+                        "Url" "/docs/custom-fields/duration"
+                    )
+                    (dict
+                        "Title" (t "service-tickets.sla_benefit_3_title")
+                        "Description" (t "service-tickets.sla_benefit_3_description")
+                        "Url" "/docs/dashboards/introduction"
+                    )
+                )
+                "MarginBottom" "mb-16"
+            }}
             {{template "feature-benefits-grid" $slaTrackingBenefits}}
         </section>
         
         <!-- Complete Customization -->
         <div class="mb-16">
-            {{$customizationData := parseJSON `{
-                "Title": "Your support process, your way.",
-                "Description": "Design your perfect ticket structure with custom fields, statuses, and workflows. No rigid templates—build exactly what your team needs. Color-code priorities, add tags for escalation, and create the ideal ticket lifecycle.",
-                "VideoUrl": "https://media.blue.cc/service-tickets-fields-example.mp4",
-                "VideoPosition": "right",
-                "Button": {
-                    "Text": "Explore custom fields",
-                    "Url": "/docs/custom-fields/introduction"
-                }
-            }`}}
+            {{$customizationData := dict
+                "Title" (t "service-tickets.customization_title")
+                "Description" (t "service-tickets.customization_description")
+                "VideoUrl" "https://media.blue.cc/service-tickets-fields-example.mp4"
+                "VideoPosition" "right"
+                "Button" (dict
+                    "Text" (t "service-tickets.customization_button")
+                    "Url" "/docs/custom-fields/introduction"
+                )
+            }}
             
             {{template "feature-video" $customizationData}}
         </div>
         
         <!-- Customer Communication -->
         <div>
-            {{$communicationData := parseJSON `{
-                "Title": "Keep everyone in the loop, automatically.",
-                "Description": "Automated email updates notify customers at each stage. Reduce follow-up inquiries and improve satisfaction with proactive communication. Set up custom email templates for different ticket types and statuses.",
-                "VideoUrl": "https://media.blue.cc/service-ticket-email-example.mp4",
-                "VideoPosition": "left",
-                "SeeAlso": {
-                    "Heading": "Communication features",
-                    "Links": [
-                        {
-                            "Text": "Email automations",
-                            "Url": "/docs/automations/actions/email-automations",
-                            "Description": "for status updates"
-                        },
-                        {
-                            "Text": "Customer portal access",
-                            "Url": "/docs/user-management/roles/project-administrator",
-                            "Description": "with custom permissions"
-                        }
-                    ]
-                }
-            }`}}
+            {{$communicationData := dict
+                "Title" (t "service-tickets.communication_title")
+                "Description" (t "service-tickets.communication_description")
+                "VideoUrl" "https://media.blue.cc/service-ticket-email-example.mp4"
+                "VideoPosition" "left"
+                "SeeAlso" (dict
+                    "Heading" (t "service-tickets.communication_see_also_heading")
+                    "Links" (slice
+                        (dict
+                            "Text" (t "service-tickets.communication_link_1")
+                            "Url" "/docs/automations/actions/email-automations"
+                            "Description" (t "service-tickets.communication_link_1_desc")
+                        )
+                        (dict
+                            "Text" (t "service-tickets.communication_link_2")
+                            "Url" "/docs/user-management/roles/project-administrator"
+                            "Description" (t "service-tickets.communication_link_2_desc")
+                        )
+                    )
+                )
+            }}
             
             {{template "feature-video" $communicationData}}
         </div>
@@ -208,14 +208,14 @@
 
     <!-- First CTA -->
     <section class="mb-16">
-        {{$firstCTA := parseJSON `{
-            "Title": "Start resolving tickets faster.",
-            "Subtitle": "Join thousands of teams delivering exceptional support experiences with Blue.",
-            "SecondaryText": "See a demo",
-            "SecondaryUrl": "/contact",
-            "PrimaryText": "Start free trial",
-            "PrimaryUrl": "https://app.blue.cc"
-        }`}}
+        {{$firstCTA := dict
+            "Title" (t "service-tickets.cta_title")
+            "Subtitle" (t "service-tickets.cta_subtitle")
+            "SecondaryText" (t "service-tickets.cta_secondary_text")
+            "SecondaryUrl" "/contact"
+            "PrimaryText" (t "service-tickets.cta_primary_text")
+            "PrimaryUrl" "https://app.blue.cc"
+        }}
         
         {{template "dual-button-cta" $firstCTA}}
     </section>
@@ -223,55 +223,55 @@
     <!-- FAQ Section -->
     <section class="mb-16">
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Frequently asked questions",
-                    "questions": [
-                        {
-                            "question": "How quickly can I set up Blue for service tickets?",
-                            "answer": "Most teams are operational within 30 minutes. Blue comes with flexible templates you can customize, or build your ticket workflow from scratch. Our visual workflow designer makes it easy to match your existing processes."
-                        },
-                        {
-                            "question": "Can I import existing tickets from other systems?",
-                            "answer": "Yes, Blue supports data import via CSV files or our API. You can bring over your ticket history, customer information, and maintain continuity in your support operations."
-                        },
-                        {
-                            "question": "How does the QR code ticket creation work?",
-                            "answer": "Blue's forms feature generates QR codes that link directly to ticket submission forms. Place these codes on equipment, in facilities, or anywhere customers need support. Scanning opens a mobile-friendly form to submit tickets instantly."
-                        },
-                        {
-                            "question": "Can customers access their tickets?",
-                            "answer": "You can add customers to your Blue portal with custom permissions to view only their tickets. They'll receive automatic email updates at each stage, keeping them informed without constant follow-ups."
-                        },
-                        {
-                            "question": "What metrics can I track for support performance?",
-                            "answer": "Track resolution times, first response times, agent performance, tickets by category, SLA compliance, and more. Blue's real-time dashboards update automatically, and you can export data for compliance and deeper analysis."
-                        },
-                        {
-                            "question": "How does ticket assignment and routing work?",
-                            "answer": "Create automation rules to route tickets based on type, priority, customer tier, or any custom field. Tickets can be auto-assigned to specific agents or teams, with escalation paths for high-priority issues."
-                        },
-                        {
-                            "question": "Is there a limit to how many tickets I can manage?",
-                            "answer": "No, Blue handles virtually unlimited tickets without performance degradation. Our infrastructure scales with your needs, whether you're managing hundreds or millions of tickets annually."
-                        },
-                        {
-                            "question": "How do I handle related or duplicate tickets?",
-                            "answer": "Use reference fields to link related tickets together, creating a complete view of interconnected issues. File attachments and comments keep all relevant information in one place."
-                        },
-                        {
-                            "question": "Does Blue integrate with email and other communication channels?",
-                            "answer": "Yes, integrate with email through Make or Zapier to create tickets from incoming emails. Send automated email updates to customers and use our API to connect with chat systems, phone platforms, and other channels."
-                        },
-                        {
-                            "question": "What's the pricing for external customer access?",
-                            "answer": "There's no additional cost for external customers submitting tickets or accessing their ticket status through your portal. You only pay for internal team members who manage and resolve tickets."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "service-tickets.faq_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "service-tickets.faq_question_1")
+                            "answer" (t "service-tickets.faq_answer_1")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_2")
+                            "answer" (t "service-tickets.faq_answer_2")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_3")
+                            "answer" (t "service-tickets.faq_answer_3")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_4")
+                            "answer" (t "service-tickets.faq_answer_4")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_5")
+                            "answer" (t "service-tickets.faq_answer_5")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_6")
+                            "answer" (t "service-tickets.faq_answer_6")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_7")
+                            "answer" (t "service-tickets.faq_answer_7")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_8")
+                            "answer" (t "service-tickets.faq_answer_8")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_9")
+                            "answer" (t "service-tickets.faq_answer_9")
+                        )
+                        (dict
+                            "question" (t "service-tickets.faq_question_10")
+                            "answer" (t "service-tickets.faq_answer_10")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
