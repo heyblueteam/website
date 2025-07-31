@@ -1,0 +1,14 @@
+{
+  "en": {
+    "page_title": "Download Blue Apps",
+    "page_subtitle": "Blue is available everywhere you work — Web, MacOS, Windows, iOS, & Android.",
+    "desktop_title": "Desktop",
+    "desktop_platforms": "MacOS & Windows",
+    "iphone_title": "iPhone",
+    "iphone_requirement": "iOS 14+",
+    "android_title": "Android",
+    "android_requirement": "Android 8+",
+    "ipad_title": "iPad",
+    "ipad_requirement": "iPadOS 14+"
+  }
+}

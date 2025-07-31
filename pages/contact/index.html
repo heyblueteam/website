@@ -1,8 +1,8 @@
 <!-- Contact Page -->
     {{template "page-heading" 
         dict 
-            "Title" "How can we help?" 
-            "Subtitle" "Get in touch with our sales and support teams for demos, onboarding support, or product questions." 
+            "Title" (t "contact.page_title") 
+            "Subtitle" (t "contact.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
     
@@ -12,11 +12,11 @@
             <!-- Sales Card -->
             <div class="bg-white border border-gray-200 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold">Sales</h3>
-                    <p class="text-gray-600">Explore plans, discuss enterprise solutions, or schedule a personalized demo.</p>
+                    <h3 class="text-2xl font-semibold">{{t "contact.sales_title"}}</h3>
+                    <p class="text-gray-600">{{t "contact.sales_description"}}</p>
                 </div>
                 <a href="/contact/sales" class="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors group">
-                    Talk to Sales
+                    {{t "contact.talk_to_sales"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -26,11 +26,11 @@
             <!-- Support Card -->
             <div class="bg-white border border-gray-200 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold">Help & support</h3>
-                    <p class="text-gray-600">Have questions about features, experiencing issues, or want to share feedback? We're here to help.</p>
+                    <h3 class="text-2xl font-semibold">{{t "contact.support_title"}}</h3>
+                    <p class="text-gray-600">{{t "contact.support_description"}}</p>
                 </div>
                 <a href="/contact/support" class="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors group">
-                    Contact Support
+                    {{t "contact.contact_support"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -42,10 +42,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
             <!-- Community Section -->
             <div class="p-8 space-y-4 border-b border-gray-200 md:border-r">
-                <h3 class="text-2xl font-semibold">Join the community</h3>
-                <p class="text-gray-600">Connect with over 500 Blue users who share insights, workflows, and best practices in our community.</p>
+                <h3 class="text-2xl font-semibold">{{t "contact.community_title"}}</h3>
+                <p class="text-gray-600">{{t "contact.community_description"}}</p>
                 <a href="https://ask.blue.cc" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-                    Join community
+                    {{t "contact.join_community"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
@@ -54,8 +54,8 @@
             
             <!-- General Section -->
             <div class="p-8 space-y-4 border-b border-gray-200">
-                <h3 class="text-2xl font-semibold">General inquiries</h3>
-                <p class="text-gray-600">For partnership opportunities, media inquiries, or other general questions, reach out via email.</p>
+                <h3 class="text-2xl font-semibold">{{t "contact.general_title"}}</h3>
+                <p class="text-gray-600">{{t "contact.general_description"}}</p>
                 <a href="mailto:hello@blue.cc" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium">
                     hello@blue.cc
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,10 +66,10 @@
             
             <!-- Documentation Section -->
             <div class="p-8 space-y-4 md:border-r border-gray-200">
-                <h3 class="text-2xl font-semibold">Documentation</h3>
-                <p class="text-gray-600">Explore comprehensive guides on Blue's features, integrations, and workflows.</p>
+                <h3 class="text-2xl font-semibold">{{t "contact.documentation_title"}}</h3>
+                <p class="text-gray-600">{{t "contact.documentation_description"}}</p>
                 <a href="/docs/start-guide/welcome" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-                    View Blue Docs
+                    {{t "contact.view_docs"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -78,10 +78,10 @@
             
             <!-- Developers Section -->
             <div class="p-8 space-y-4">
-                <h3 class="text-2xl font-semibold">Developers</h3>
-                <p class="text-gray-600">Build powerful integrations and extend Blue with our GraphQL API and Python SDK.</p>
+                <h3 class="text-2xl font-semibold">{{t "contact.developers_title"}}</h3>
+                <p class="text-gray-600">{{t "contact.developers_description"}}</p>
                 <a href="/api/start-guide/introduction" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-                    Explore Blue API
+                    {{t "contact.explore_api"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>

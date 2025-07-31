@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "The Blue API" 
-            "Subtitle" "Blue has a powerful API with 100% feature coverage that allows you to build custom integrations and workflows." 
+            "Title" (t "api.page_title") 
+            "Subtitle" (t "api.page_subtitle") 
             "MarginBottom" "mb-8"
     }}
 
@@ -10,15 +10,15 @@
     <section class="max-w-7xl mx-auto">
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8">
             <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-100">API Status</h2>
+                <h2 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{t "api.api_status_title"}}</h2>
                 <!-- Legend -->
                 <div class="flex items-center space-x-6 text-sm text-gray-600 dark:text-gray-300">
                     <div class="flex items-center relative" x-data="{ tooltipVisible: false }" @mouseenter="tooltipVisible = true" @mouseleave="tooltipVisible = false">
                         <div class="w-3 h-3 bg-green-500 rounded-sm mr-2"></div>
-                        <span class="cursor-help">Operational</span>
+                        <span class="cursor-help">{{t "api.status_operational"}}</span>
                         <div x-show="tooltipVisible" x-transition class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50">
                             <div class="relative px-2 py-1 text-white bg-gray-900 rounded text-xs whitespace-nowrap">
-                                ≥ 99% uptime
+                                {{t "api.status_operational_tooltip"}}
                                 <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
                                     <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-900"></div>
                                 </div>
@@ -27,10 +27,10 @@
                     </div>
                     <div class="flex items-center relative" x-data="{ tooltipVisible: false }" @mouseenter="tooltipVisible = true" @mouseleave="tooltipVisible = false">
                         <div class="w-3 h-3 bg-yellow-500 rounded-sm mr-2"></div>
-                        <span class="cursor-help">Degraded</span>
+                        <span class="cursor-help">{{t "api.status_degraded"}}</span>
                         <div x-show="tooltipVisible" x-transition class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50">
                             <div class="relative px-2 py-1 text-white bg-gray-900 rounded text-xs whitespace-nowrap">
-                                ≥ 95% uptime
+                                {{t "api.status_degraded_tooltip"}}
                                 <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
                                     <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-900"></div>
                                 </div>
@@ -39,10 +39,10 @@
                     </div>
                     <div class="flex items-center relative" x-data="{ tooltipVisible: false }" @mouseenter="tooltipVisible = true" @mouseleave="tooltipVisible = false">
                         <div class="w-3 h-3 bg-red-500 rounded-sm mr-2"></div>
-                        <span class="cursor-help">Outage</span>
+                        <span class="cursor-help">{{t "api.status_outage"}}</span>
                         <div x-show="tooltipVisible" x-transition class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50">
                             <div class="relative px-2 py-1 text-white bg-gray-900 rounded text-xs whitespace-nowrap">
-                                < 95% uptime
+                                {{t "api.status_outage_tooltip"}}
                                 <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
                                     <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-900"></div>
                                 </div>
@@ -61,11 +61,11 @@
                                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" :class="getPulseColor(apiService.currentStatus)"></span>
                                     <span class="relative inline-flex rounded-full h-3 w-3" :class="getStatusDotColor(apiService.currentStatus)"></span>
                                 </span>
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">GraphQL API</h3>
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100">{{t "api.graphql_api"}}</h3>
                             </div>
                             <div class="text-right">
-                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100" x-text="apiService.uptime.toFixed(2) + '% uptime'"></div>
-                                <div class="text-xs text-gray-500 dark:text-gray-400">Last 90 days</div>
+                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100" x-text="apiService.uptime.toFixed(2) + '% {{t "api.uptime_label"}}'"></div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">{{t "api.last_90_days"}}</div>
                             </div>
                         </div>
                         <div class="flex space-x-1">
@@ -99,18 +99,18 @@
                 
                 <!-- Loading state -->
                 <div x-show="loading" class="text-center py-8">
-                    <div class="text-gray-500 dark:text-gray-400">Loading API status...</div>
+                    <div class="text-gray-500 dark:text-gray-400">{{t "api.loading_api_status"}}</div>
                 </div>
                 
                 <!-- Error state -->
                 <div x-show="error" class="text-center py-8">
-                    <div class="text-red-500 dark:text-red-400" x-text="'Unable to load API status data'"></div>
+                    <div class="text-red-500 dark:text-red-400" x-text="'{{t "api.error_loading_status"}}'"></div>
                 </div>
             </div>
             
             <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
                 <a href="/platform/status" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium text-sm group">
-                    View full system status
+                    {{t "api.view_full_status"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -119,24 +119,24 @@
         </div>
     </section>
 
-    {{$valuePropsData := parseJSON `{
-        "Title": "A developer-first API<br> built for scale.",
-        "Description": "Access every feature of Blue through our comprehensive GraphQL API. Built by developers, for developers.",
-        "ValueProps": [
-            {
-                "Title": "100% feature coverage",
-                "Description": "Every feature available in the Blue interface is accessible through our API. No limitations, no exceptions."
-            },
-            {
-                "Title": "GraphQL powered",
-                "Description": "Modern GraphQL API that lets you request exactly the data you need, nothing more, nothing less."
-            },
-            {
-                "Title": "Battle-tested",
-                "Description": "Trusted by thousands of developers and processing millions of API calls daily with 99.9% uptime."
-            }
-        ]
-    }`}}
+    {{$valuePropsData := dict
+        "Title" (t "api.developer_first_title")
+        "Description" (t "api.developer_first_description")
+        "ValueProps" (slice
+            (dict
+                "Title" (t "api.feature_coverage_title")
+                "Description" (t "api.feature_coverage_description")
+            )
+            (dict
+                "Title" (t "api.graphql_powered_title")
+                "Description" (t "api.graphql_powered_description")
+            )
+            (dict
+                "Title" (t "api.battle_tested_title")
+                "Description" (t "api.battle_tested_description")
+            )
+        )
+    }}
     
     {{template "value-propositions" $valuePropsData}}
 
@@ -144,40 +144,40 @@
 
     <!-- Code Examples Section -->
     <section class="max-w-4xl mx-auto mb-20">
-        {{$codeExamplesData := parseJSON `{
-            "Title": "Simple, powerful, intuitive",
-            "Description": "Get started in minutes with our comprehensive GraphQL API and Python SDK. Every operation is straightforward and well-documented.",
-            "Examples": [
-                {
-                    "Type": "create",
-                    "Label": "Create Record",
-                    "Language": "graphql",
-                    "Code": "mutation NewRecord {\n  createTodo(input: {\n    todoListId: \"list-123\"\n    title: \"Deploy new feature\"\n    description: \"Release v2.1 to production\"\n    position: 65535\n  }) {\n    id\n    title\n    status\n    createdAt\n  }\n}"
-                },
-                {
-                    "Type": "update", 
-                    "Label": "Update Record",
-                    "Language": "graphql",
-                    "Code": "mutation UpdateRecord {\n  updateTodo(input: {\n    id: \"task-456\"\n    title: \"Deploy new feature ✓\"\n    status: DONE\n  }) {\n    id\n    title\n    status\n    updatedAt\n  }\n}"
-                },
-                {
-                    "Type": "list",
-                    "Label": "List Records", 
-                    "Language": "graphql",
-                    "Code": "query ListRecords {\n  todoList(filter: {\n    companyIds: [\"company-789\"]\n    status: [ACTIVE, IN_PROGRESS]\n  }) {\n    items {\n      id\n      title\n      status\n      assignee {\n        name\n        email\n      }\n      createdAt\n    }\n  }\n}"
-                },
-                {
-                    "Type": "python",
-                    "Label": "Python SDK",
-                    "Language": "python", 
-                    "Code": "from bluepm import BlueAPIClient\n\n# Initialize client\nclient = BlueAPIClient(\n    token_id=\"your_token_id\",\n    secret_id=\"your_secret_id\"\n)\n\n# Create a new record\ntask = client.todos.create(\n    list_id=\"list-123\",\n    title=\"Deploy new feature\",\n    description=\"Release v2.1 to production\"\n)\n\n# List all projects\nprojects = client.projects.list(company_id)\nprint(f\"Found {len(projects)} projects\")"
-                }
-            ],
-            "Link": {
-                "Text": "Explore Full API Documentation",
-                "Url": "/api/"
-            }
-        }`}}
+        {{$codeExamplesData := dict
+            "Title" (t "api.code_examples_title")
+            "Description" (t "api.code_examples_description")
+            "Examples" (slice
+                (dict
+                    "Type" "create"
+                    "Label" (t "api.create_record_label")
+                    "Language" "graphql"
+                    "Code" "mutation NewRecord {\n  createTodo(input: {\n    todoListId: \"list-123\"\n    title: \"Deploy new feature\"\n    description: \"Release v2.1 to production\"\n    position: 65535\n  }) {\n    id\n    title\n    status\n    createdAt\n  }\n}"
+                )
+                (dict
+                    "Type" "update"
+                    "Label" (t "api.update_record_label")
+                    "Language" "graphql"
+                    "Code" "mutation UpdateRecord {\n  updateTodo(input: {\n    id: \"task-456\"\n    title: \"Deploy new feature ✓\"\n    status: DONE\n  }) {\n    id\n    title\n    status\n    updatedAt\n  }\n}"
+                )
+                (dict
+                    "Type" "list"
+                    "Label" (t "api.list_records_label")
+                    "Language" "graphql"
+                    "Code" "query ListRecords {\n  todoList(filter: {\n    companyIds: [\"company-789\"]\n    status: [ACTIVE, IN_PROGRESS]\n  }) {\n    items {\n      id\n      title\n      status\n      assignee {\n        name\n        email\n      }\n      createdAt\n    }\n  }\n}"
+                )
+                (dict
+                    "Type" "python"
+                    "Label" (t "api.python_sdk_label")
+                    "Language" "python"
+                    "Code" "from bluepm import BlueAPIClient\n\n# Initialize client\nclient = BlueAPIClient(\n    token_id=\"your_token_id\",\n    secret_id=\"your_secret_id\"\n)\n\n# Create a new record\ntask = client.todos.create(\n    list_id=\"list-123\",\n    title=\"Deploy new feature\",\n    description=\"Release v2.1 to production\"\n)\n\n# List all projects\nprojects = client.projects.list(company_id)\nprint(f\"Found {len(projects)} projects\")"
+                )
+            )
+            "Link" (dict
+                "Text" (t "api.explore_api_docs")
+                "Url" "/api/"
+            )
+        }}
         {{template "technical-capability-card" $codeExamplesData}}
     </section>
 
@@ -192,14 +192,14 @@
                             <use href="/icons/sprite.svg#plug"></use>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-gray-100">Python SDK</h3>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-gray-100">{{t "api.python_sdk_title"}}</h3>
                 </div>
                 <p class="text-gray-600 dark:text-gray-400">
-                    Type-safe Python library with 100% API coverage. Install with pip and get started in minutes with code completion and documentation.
+                    {{t "api.python_sdk_description"}}
                 </p>
                 <div class="pt-4">
                     <a href="/api/libraries/python" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium">
-                        View Python documentation
+                        {{t "api.view_python_docs"}}
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
@@ -215,14 +215,14 @@
                             <use href="/icons/sprite.svg#document"></use>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-medium text-gray-900 dark:text-gray-100">API Reference</h3>
+                    <h3 class="text-xl font-medium text-gray-900 dark:text-gray-100">{{t "api.api_reference_title"}}</h3>
                 </div>
                 <p class="text-gray-600 dark:text-gray-400">
-                    Complete GraphQL schema documentation with examples, authentication guides, and interactive playground for testing queries.
+                    {{t "api.api_reference_description"}}
                 </p>
                 <div class="pt-4">
                     <a href="/api/" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium">
-                        Browse API reference
+                        {{t "api.browse_api_reference"}}
                         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>

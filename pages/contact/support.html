@@ -2,8 +2,8 @@
     <!-- Support Contact Page -->
     {{template "page-heading" 
         dict 
-            "Title" "How can we help?" 
-            "Subtitle" "Our support team is here to ensure you get the most out of Blue. Find answers, report issues, or get personalized assistance." 
+            "Title" (t "support.page_title") 
+            "Subtitle" (t "support.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
     
@@ -17,8 +17,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold">Email Support</h3>
-                <p class="text-gray-600">Get help via email. We typically respond within 24 hours during business days.</p>
+                <h3 class="text-xl font-semibold">{{t "support.email_support_title"}}</h3>
+                <p class="text-gray-600">{{t "support.email_support_description"}}</p>
                 <a href="mailto:support@blue.cc" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
                     support@blue.cc
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -34,10 +34,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold">Documentation</h3>
-                <p class="text-gray-600">Browse our comprehensive guides, tutorials, and API documentation.</p>
+                <h3 class="text-xl font-semibold">{{t "support.documentation_title"}}</h3>
+                <p class="text-gray-600">{{t "support.documentation_description"}}</p>
                 <a href="/docs/start-guide/introduction" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-                    View docs
+                    {{t "support.view_docs"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -51,10 +51,10 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-semibold">Community Forum</h3>
-                <p class="text-gray-600">Connect with other Blue users, share tips, and get community support.</p>
+                <h3 class="text-xl font-semibold">{{t "support.community_forum_title"}}</h3>
+                <p class="text-gray-600">{{t "support.community_forum_description"}}</p>
                 <a href="https://ask.blue.cc" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
-                    Join community
+                    {{t "support.join_community"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
@@ -64,23 +64,23 @@
         
         <!-- Common Topics -->
         <div class="mb-16">
-            <h2 class="text-2xl font-semibold mb-8">Common support topics</h2>
+            <h2 class="text-2xl font-semibold mb-8">{{t "support.common_support_topics"}}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <a href="/docs/start-guide/welcome" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="font-semibold mb-2">Getting Started</h3>
-                    <p class="text-gray-600 text-sm">New to Blue? Learn how to set up your account, create your first workflow, and invite team members.</p>
+                    <h3 class="font-semibold mb-2">{{t "support.getting_started_title"}}</h3>
+                    <p class="text-gray-600 text-sm">{{t "support.getting_started_description"}}</p>
                 </a>
                 <a href="/docs/integrations/api" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="font-semibold mb-2">Integrations</h3>
-                    <p class="text-gray-600 text-sm">Connect Blue with your favorite tools including Slack, Gmail, Zapier, and more.</p>
+                    <h3 class="font-semibold mb-2">{{t "support.integrations_title"}}</h3>
+                    <p class="text-gray-600 text-sm">{{t "support.integrations_description"}}</p>
                 </a>
                 <a href="/docs/automations/introduction" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="font-semibold mb-2">Automations</h3>
-                    <p class="text-gray-600 text-sm">Learn how to create powerful automations to streamline repetitive tasks.</p>
+                    <h3 class="font-semibold mb-2">{{t "support.automations_title"}}</h3>
+                    <p class="text-gray-600 text-sm">{{t "support.automations_description"}}</p>
                 </a>
                 <a href="/api/start-guide/introduction" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
-                    <h3 class="font-semibold mb-2">API & Developers</h3>
-                    <p class="text-gray-600 text-sm">Build custom integrations with our GraphQL API and Python SDK.</p>
+                    <h3 class="font-semibold mb-2">{{t "support.api_developers_title"}}</h3>
+                    <p class="text-gray-600 text-sm">{{t "support.api_developers_description"}}</p>
                 </a>
             </div>
         </div>
@@ -88,49 +88,49 @@
         <!-- Support Form -->
         <div class="max-w-2xl mx-auto mb-16">
             <div class="bg-gray-50 border border-gray-200 rounded-xl p-8">
-                <h3 class="text-2xl font-semibold mb-6">Contact support</h3>
+                <h3 class="text-2xl font-semibold mb-6">{{t "support.contact_support_title"}}</h3>
                 <div class="space-y-6">
                     <p class="text-gray-600">
-                        Before reaching out, please check our <a href="/docs/start-guide/introduction" class="text-brand-blue hover:underline">documentation</a> 
-                        and <a href="https://ask.blue.cc" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:underline">community forum</a> 
-                        as your question may already be answered.
+                        {{t "support.contact_support_intro"}} <a href="/docs/start-guide/introduction" class="text-brand-blue hover:underline">{{t "support.documentation_link"}}</a> 
+                        {{t "support.and"}} <a href="https://ask.blue.cc" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:underline">{{t "support.community_forum_link"}}</a> 
+                        {{t "support.contact_support_intro_2"}}
                     </p>
                     
                     <div class="bg-white border border-gray-200 rounded-lg p-6 space-y-4">
-                        <h4 class="font-medium">When contacting support, please include:</h4>
+                        <h4 class="font-medium">{{t "support.when_contacting_support"}}</h4>
                         <ul class="space-y-2 text-gray-600">
                             <li class="flex items-start">
                                 <span class="text-brand-blue mr-2">•</span>
-                                Your company name and account email
+                                {{t "support.include_company_name"}}
                             </li>
                             <li class="flex items-start">
                                 <span class="text-brand-blue mr-2">•</span>
-                                Detailed description of the issue or question
+                                {{t "support.include_description"}}
                             </li>
                             <li class="flex items-start">
                                 <span class="text-brand-blue mr-2">•</span>
-                                Steps to reproduce (for bug reports)
+                                {{t "support.include_steps"}}
                             </li>
                             <li class="flex items-start">
                                 <span class="text-brand-blue mr-2">•</span>
-                                Screenshots or screen recordings if applicable
+                                {{t "support.include_screenshots"}}
                             </li>
                             <li class="flex items-start">
                                 <span class="text-brand-blue mr-2">•</span>
-                                Browser and operating system information
+                                {{t "support.include_browser_info"}}
                             </li>
                         </ul>
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="mailto:support@blue.cc" class="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors group">
-                            Email Support
+                            {{t "support.email_support_button"}}
                             <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
                         </a>
                         <a href="/platform/status" class="inline-flex items-center justify-center px-6 py-3 bg-white text-brand-blue border border-brand-blue font-medium rounded-lg hover:bg-blue-50 transition-colors group">
-                            Check System Status
+                            {{t "support.check_system_status"}}
                             <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -142,56 +142,24 @@
         
         <!-- FAQ Section -->
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-semibold text-center mb-12">Frequently asked questions</h2>
+            <h2 class="text-3xl font-semibold text-center mb-12">{{t "support.faq_title"}}</h2>
             
-            {{$faqData := parseJSON `{
-                "categories": [
-                    {
-                        "questions": [
-                            {
-                                "question": "What are your support hours?",
-                                "answer": "Our support team is available Monday through Friday, 9am-6pm EST. We respond to all inquiries within one business day. For critical issues affecting your business operations, please mark your email as urgent."
-                            },
-                            {
-                                "question": "Do you offer phone support?",
-                                "answer": "Phone support is available for Enterprise customers. All other plans include email support and access to our community forum. We find that email support allows us to provide more thorough, documented responses."
-                            },
-                            {
-                                "question": "How quickly will I get a response?",
-                                "answer": "We aim to respond to all support inquiries within 24 hours during business days. Priority support customers typically receive responses within 4 hours. Critical issues are escalated immediately."
-                            },
-                            {
-                                "question": "Can I request a feature?",
-                                "answer": "Absolutely! We love hearing from our users. Please send feature requests to support@blue.cc with 'Feature Request' in the subject line. You can also vote on features in our community forum."
-                            },
-                            {
-                                "question": "What if I need help outside business hours?",
-                                "answer": "Our documentation is available 24/7, and our community forum is active with helpful users around the globe. For urgent issues, Enterprise customers have access to emergency support."
-                            },
-                            {
-                                "question": "How do I report a bug?",
-                                "answer": "To report a bug, please email support@blue.cc with 'Bug Report' in the subject line. Include detailed steps to reproduce the issue, expected vs actual behavior, screenshots if applicable, and your browser/OS information. This helps us diagnose and fix issues quickly."
-                            },
-                            {
-                                "question": "Do you offer training or onboarding?",
-                                "answer": "Yes! All new customers receive a complimentary onboarding session. We also offer regular webinars, video tutorials, and comprehensive documentation. Enterprise customers can request custom training sessions for their teams."
-                            },
-                            {
-                                "question": "Can I export my data?",
-                                "answer": "Absolutely. You own your data and can export it at any time. Use our API or the built-in export features to download your projects, tasks, and other data in standard formats like CSV, JSON, or Excel."
-                            },
-                            {
-                                "question": "What payment methods do you accept?",
-                                "answer": "We accept all major credit cards (Visa, MasterCard, American Express), ACH bank transfers for annual plans, and can arrange invoicing for Enterprise customers. All payments are processed securely through Stripe."
-                            },
-                            {
-                                "question": "How do I upgrade or downgrade my plan?",
-                                "answer": "You can change your plan anytime from your account settings. Upgrades take effect immediately with prorated billing. Downgrades take effect at the end of your current billing cycle. Contact support if you need assistance with plan changes."
-                            }
-                        ]
-                    }
-                ]
-            }`}}
+            {{$faqData := dict 
+                "categories" (slice (dict 
+                    "questions" (slice 
+                        (dict "question" (t "support.faq_support_hours_question") "answer" (t "support.faq_support_hours_answer"))
+                        (dict "question" (t "support.faq_phone_support_question") "answer" (t "support.faq_phone_support_answer"))
+                        (dict "question" (t "support.faq_response_time_question") "answer" (t "support.faq_response_time_answer"))
+                        (dict "question" (t "support.faq_feature_request_question") "answer" (t "support.faq_feature_request_answer"))
+                        (dict "question" (t "support.faq_outside_hours_question") "answer" (t "support.faq_outside_hours_answer"))
+                        (dict "question" (t "support.faq_report_bug_question") "answer" (t "support.faq_report_bug_answer"))
+                        (dict "question" (t "support.faq_training_question") "answer" (t "support.faq_training_answer"))
+                        (dict "question" (t "support.faq_export_data_question") "answer" (t "support.faq_export_data_answer"))
+                        (dict "question" (t "support.faq_payment_methods_question") "answer" (t "support.faq_payment_methods_answer"))
+                        (dict "question" (t "support.faq_change_plan_question") "answer" (t "support.faq_change_plan_answer"))
+                    )
+                ))
+            }}
             {{template "faq-sections" $faqData}}
         </div>
     </div>

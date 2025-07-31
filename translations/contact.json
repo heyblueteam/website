@@ -1,0 +1,23 @@
+{
+  "en": {
+    "page_title": "How can we help?",
+    "page_subtitle": "Get in touch with our sales and support teams for demos, onboarding support, or product questions.",
+    "sales_title": "Sales",
+    "sales_description": "Explore plans, discuss enterprise solutions, or schedule a personalized demo.",
+    "talk_to_sales": "Talk to Sales",
+    "support_title": "Help & support",
+    "support_description": "Have questions about features, experiencing issues, or want to share feedback? We're here to help.",
+    "contact_support": "Contact Support",
+    "community_title": "Join the community",
+    "community_description": "Connect with over 500 Blue users who share insights, workflows, and best practices in our community.",
+    "join_community": "Join community",
+    "general_title": "General inquiries",
+    "general_description": "For partnership opportunities, media inquiries, or other general questions, reach out via email.",
+    "documentation_title": "Documentation",
+    "documentation_description": "Explore comprehensive guides on Blue's features, integrations, and workflows.",
+    "view_docs": "View Blue Docs",
+    "developers_title": "Developers",
+    "developers_description": "Build powerful integrations and extend Blue with our GraphQL API and Python SDK.",
+    "explore_api": "Explore Blue API"
+  }
+}
