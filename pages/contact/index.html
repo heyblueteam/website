@@ -10,10 +10,10 @@
         <!-- Sales and Support Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <!-- Sales Card -->
-            <div class="bg-white border border-gray-200 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md dark:hover:shadow-gray-900/50 transition-shadow">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold">{{t "contact.sales_title"}}</h3>
-                    <p class="text-gray-600">{{t "contact.sales_description"}}</p>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.sales_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "contact.sales_description"}}</p>
                 </div>
                 <a href="/contact/sales" class="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors group">
                     {{t "contact.talk_to_sales"}}
@@ -24,10 +24,10 @@
             </div>
             
             <!-- Support Card -->
-            <div class="bg-white border border-gray-200 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 space-y-6 shadow-sm hover:shadow-md dark:hover:shadow-gray-900/50 transition-shadow">
                 <div class="space-y-4">
-                    <h3 class="text-2xl font-semibold">{{t "contact.support_title"}}</h3>
-                    <p class="text-gray-600">{{t "contact.support_description"}}</p>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.support_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "contact.support_description"}}</p>
                 </div>
                 <a href="/contact/support" class="inline-flex items-center justify-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors group">
                     {{t "contact.contact_support"}}
@@ -41,9 +41,9 @@
         <!-- Other Sections with Dividers -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
             <!-- Community Section -->
-            <div class="p-8 space-y-4 border-b border-gray-200 md:border-r">
-                <h3 class="text-2xl font-semibold">{{t "contact.community_title"}}</h3>
-                <p class="text-gray-600">{{t "contact.community_description"}}</p>
+            <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700 md:border-r">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.community_title"}}</h3>
+                <p class="text-gray-600 dark:text-gray-300">{{t "contact.community_description"}}</p>
                 <a href="https://ask.blue.cc" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
                     {{t "contact.join_community"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1 group-hover:-translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,9 +53,9 @@
             </div>
             
             <!-- General Section -->
-            <div class="p-8 space-y-4 border-b border-gray-200">
-                <h3 class="text-2xl font-semibold">{{t "contact.general_title"}}</h3>
-                <p class="text-gray-600">{{t "contact.general_description"}}</p>
+            <div class="p-8 space-y-4 border-b border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.general_title"}}</h3>
+                <p class="text-gray-600 dark:text-gray-300">{{t "contact.general_description"}}</p>
                 <a href="mailto:hello@blue.cc" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium">
                     hello@blue.cc
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,9 +65,9 @@
             </div>
             
             <!-- Documentation Section -->
-            <div class="p-8 space-y-4 md:border-r border-gray-200">
-                <h3 class="text-2xl font-semibold">{{t "contact.documentation_title"}}</h3>
-                <p class="text-gray-600">{{t "contact.documentation_description"}}</p>
+            <div class="p-8 space-y-4 md:border-r border-gray-200 dark:border-gray-700">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.documentation_title"}}</h3>
+                <p class="text-gray-600 dark:text-gray-300">{{t "contact.documentation_description"}}</p>
                 <a href="/docs/start-guide/welcome" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
                     {{t "contact.view_docs"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,8 +78,8 @@
             
             <!-- Developers Section -->
             <div class="p-8 space-y-4">
-                <h3 class="text-2xl font-semibold">{{t "contact.developers_title"}}</h3>
-                <p class="text-gray-600">{{t "contact.developers_description"}}</p>
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">{{t "contact.developers_title"}}</h3>
+                <p class="text-gray-600 dark:text-gray-300">{{t "contact.developers_description"}}</p>
                 <a href="/api/start-guide/introduction" class="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium group">
                     {{t "contact.explore_api"}}
                     <svg class="ml-2 w-4 h-4 transition-transform duration-200 ease-out group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
