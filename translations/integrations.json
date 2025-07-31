@@ -1,6 +1,66 @@
 {
+  "de": {
+    "page_subtitle": "Blue arbeitet mit allen gängigen Integrationsplattformen zusammen, um Ihre vorhandenen Tools und Arbeitsabläufe mit Blue zu verbinden.",
+    "page_title": "Mit über 7.000 Tools verbinden"
+  },
   "en": {
-    "page_title": "Connect with 7,000+ tools",
-    "page_subtitle": "Blue works with all major integration platforms to connect your existing tools and workflows to Blue."
+    "page_subtitle": "Blue works with all major integration platforms to connect your existing tools and workflows to Blue.",
+    "page_title": "Connect with 7,000+ tools"
+  },
+  "es": {
+    "page_subtitle": "Blue trabaja con todas las principales plataformas de integración para conectar tus herramientas y flujos de trabajo existentes a Blue.",
+    "page_title": "Conéctate con más de 7,000 herramientas"
+  },
+  "fr": {
+    "page_subtitle": "Blue fonctionne avec toutes les principales plateformes d'intégration pour connecter vos outils et flux de travail existants à Blue.",
+    "page_title": "Connectez-vous à plus de 7 000 outils"
+  },
+  "id": {
+    "page_subtitle": "Blue bekerja dengan semua platform integrasi utama untuk menghubungkan alat dan alur kerja Anda yang ada ke Blue.",
+    "page_title": "Terhubung dengan lebih dari 7.000 alat"
+  },
+  "it": {
+    "page_subtitle": "Blue collabora con tutte le principali piattaforme di integrazione per collegare i tuoi strumenti e flussi di lavoro esistenti a Blue.",
+    "page_title": "Collegati con oltre 7.000 strumenti"
+  },
+  "ja": {
+    "page_subtitle": "Blueは、主要な統合プラットフォームと連携して、既存のツールやワークフローをBlueに接続します。",
+    "page_title": "7,000以上のツールと接続する"
+  },
+  "km": {
+    "page_subtitle": "Blue ប្រើប្រាស់ជាមួយវេទិកាភ្ជាប់សំខាន់ៗទាំងអស់ ដើម្បីភ្ជាប់ឧបករណ៍ និងដំណើរការដែលមានស្រាប់របស់អ្នកទៅកាន់ Blue។",
+    "page_title": "ភ្ជាប់ជាមួយឧបករណ៍លើស 7,000 ធ្វើ"
+  },
+  "ko": {
+    "page_subtitle": "Blue는 모든 주요 통합 플랫폼과 협력하여 귀하의 기존 도구와 워크플로를 Blue에 연결합니다.",
+    "page_title": "7,000개 이상의 도구와 연결하세요."
+  },
+  "nl": {
+    "page_subtitle": "Blue werkt met alle belangrijke integratieplatforms om uw bestaande tools en workflows met Blue te verbinden.",
+    "page_title": "Verbind met meer dan 7.000 tools"
+  },
+  "pl": {
+    "page_subtitle": "Blue współpracuje ze wszystkimi głównymi platformami integracyjnymi, aby połączyć Twoje istniejące narzędzia i przepływy pracy z Blue.",
+    "page_title": "Połącz się z ponad 7 000 narzędzi"
+  },
+  "pt": {
+    "page_subtitle": "A Blue trabalha com todas as principais plataformas de integração para conectar suas ferramentas e fluxos de trabalho existentes à Blue.",
+    "page_title": "Conecte-se com mais de 7.000 ferramentas"
+  },
+  "ru": {
+    "page_subtitle": "Blue работает со всеми основными платформами интеграции, чтобы подключить ваши существующие инструменты и рабочие процессы к Blue.",
+    "page_title": "Подключитесь к более чем 7,000 инструментам"
+  },
+  "sv": {
+    "page_subtitle": "Blue arbetar med alla större integrationsplattformar för att koppla dina befintliga verktyg och arbetsflöden till Blue.",
+    "page_title": "Anslut med över 7 000 verktyg"
+  },
+  "zh": {
+    "page_subtitle": "Blue与所有主要的集成平台合作，将您现有的工具和工作流程连接到Blue。",
+    "page_title": "连接超过7,000种工具"
+  },
+  "zh-TW": {
+    "page_subtitle": "Blue 與所有主要的整合平台合作，將您現有的工具和工作流程連接到 Blue。",
+    "page_title": "連接超過7,000種工具"
   }
 }

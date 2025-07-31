@@ -248,72 +248,72 @@
     <section class="mb-20">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "white-label.faq_title"}}</h2>
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "General Questions",
-                    "questions": [
-                        {
-                            "question": "What is White Label and who is it for?",
-                            "answer": "White Label allows you to completely rebrand Blue as your own platform. It's perfect for agencies, consultants, and SaaS companies who want to offer project management to their clients under their own brand."
-                        },
-                        {
-                            "question": "How long does setup take?",
-                            "answer": "Basic white label setup takes about 30 minutes. This includes uploading your logo, setting brand colors, and configuring your custom domain. Email configuration may take additional time depending on your SMTP provider."
-                        },
-                        {
-                            "question": "Can I white label multiple companies?",
-                            "answer": "Yes! Each company in Blue can have its own white label configuration. This is ideal for agencies managing multiple client brands or companies with multiple subsidiaries."
-                        }
-                    ]
-                },
-                {
-                    "name": "Technical Questions",
-                    "questions": [
-                        {
-                            "question": "Do I need technical knowledge to set up white label?",
-                            "answer": "Basic setup requires no technical knowledge - just upload your logo and set colors. Custom domain setup requires adding a CNAME record to your DNS (we provide step-by-step instructions). Email configuration requires SMTP credentials from your email provider."
-                        },
-                        {
-                            "question": "What can and cannot be customized?",
-                            "answer": "You can customize: logos, colors, domains, email templates, favicons, and all visible Blue branding. The core functionality and user interface layout remain the same to ensure a consistent, high-quality experience."
-                        },
-                        {
-                            "question": "Will my custom domain work everywhere?",
-                            "answer": "Your custom domain works for the main application, public forms, and file sharing links. API endpoints and some system URLs will continue to use Blue's infrastructure for security and performance."
-                        }
-                    ]
-                },
-                {
-                    "name": "Business Questions",
-                    "questions": [
-                        {
-                            "question": "Can I resell Blue under my own brand?",
-                            "answer": "Yes! White label is designed for reselling. You can set your own pricing, bundle it with other services, and build your own customer relationships. Blue remains invisible to your end users."
-                        },
-                        {
-                            "question": "Is white label included in the regular subscription?",
-                            "answer": "White label is an optional add-on priced at $200/year per company. This is in addition to your regular Blue subscription. The add-on covers unlimited users within that company."
-                        },
-                        {
-                            "question": "What support do my customers receive?",
-                            "answer": "With white label, you become the first point of contact for your customers. Blue provides you with priority support to help resolve any technical issues. We also offer co-branded support options for enterprise customers."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "white-label.faq_general_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "white-label.faq_general_q1")
+                            "answer" (t "white-label.faq_general_a1")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_general_q2")
+                            "answer" (t "white-label.faq_general_a2")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_general_q3")
+                            "answer" (t "white-label.faq_general_a3")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "white-label.faq_technical_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "white-label.faq_technical_q1")
+                            "answer" (t "white-label.faq_technical_a1")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_technical_q2")
+                            "answer" (t "white-label.faq_technical_a2")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_technical_q3")
+                            "answer" (t "white-label.faq_technical_a3")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "white-label.faq_business_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "white-label.faq_business_q1")
+                            "answer" (t "white-label.faq_business_a1")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_business_q2")
+                            "answer" (t "white-label.faq_business_a2")
+                        )
+                        (dict
+                            "question" (t "white-label.faq_business_q3")
+                            "answer" (t "white-label.faq_business_a3")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Ready to make Blue your own?",
-        "SecondaryText": "Contact sales",
-        "SecondaryUrl": "/contact",
-        "PrimaryText": "Get started with white label",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := dict
+        "Title" (t "white-label.cta_title")
+        "SecondaryText" (t "white-label.contact_sales")
+        "SecondaryUrl" "/contact"
+        "PrimaryText" (t "white-label.get_started_white_label")
+        "PrimaryUrl" "https://app.blue.cc"
+    }}
     {{template "dual-button-cta" $ctaData}}
 
