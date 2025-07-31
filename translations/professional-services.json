@@ -1,0 +1,106 @@
+{
+  "en": {
+    "page_title": "Professional Services & Agency Solutions",
+    "page_subtitle": "Built by a professional services agency, for agencies and service firms. Manage clients, projects, and processes in one unified platform.",
+    
+    "problems_title": "Agencies and professional services firms deserve<br>better management tools.",
+    "problems_description": "Traditional project management tools weren't built for the unique needs of service-based businesses.",
+    "problem_1_title": "Management can't see what's really happening",
+    "problem_1_description": "Leaders struggle to get visibility into project status, deadlines, and remaining work. Critical information is scattered across emails, spreadsheets, and team members' heads.",
+    "problem_2_title": "Disconnected processes create chaos",
+    "problem_2_description": "Sales, hiring, marketing, and project delivery all happen in separate systems. No single view of your entire business operations and client relationships.",
+    "problem_3_title": "Client communication is fragmented",
+    "problem_3_description": "Important updates get lost in email threads. Clients can't easily see project progress, and you spend hours creating status reports instead of doing billable work.",
+    
+    "why_choose_title": "Why agencies and professional services firms choose Blue",
+    "feature_1_title": "Built by a professional services agency",
+    "feature_1_description": "Blue was originally built as an in-house tool for a professional services agency. We understand your challenges because we lived them.",
+    "feature_2_title": "Unified view of your entire business",
+    "feature_2_description": "See all your processes - sales, hiring, marketing, and project delivery - in one platform. No more switching between disconnected systems.",
+    "feature_3_title": "Client portal with white-label options",
+    "feature_3_description": "Invite clients into their own workspace where they can see progress, upload files, and stay updated. Available with full white-label branding.",
+    
+    "playbook_title": "We literally wrote the book on agency success.",
+    "playbook_description": "We've been in your shoes, and we know what it takes to grow your agency or practice. We've distilled a decade of agency leadership experience to help you scale. Learn to master cash-flow, project management, client relationships, proposal writing — and more.",
+    "playbook_button": "Download eBook",
+    "playbook_alt": "The Agency Success Playbook book cover",
+    
+    "testimonial_quote": "After 30 years in project management I have discovered Blue —and it is blowing me away. The user interface is fantastic, simple to use and so easy to understand.",
+    "testimonial_name": "Lorenzo Hickey",
+    "testimonial_title": "CEO of Shapeshift World",
+    
+    "use_cases_title": "Agency and professional services use cases",
+    
+    "sales_crm_title": "Sales CRM & Client Management",
+    "sales_crm_description": "Track leads, manage proposals, and close deals with a powerful CRM built for professional services. Link opportunities to clients and see your entire sales pipeline in one view.",
+    "sales_crm_button": "Learn about Sales CRM",
+    "sales_crm_link_1": "Formula Fields",
+    "sales_crm_link_1_desc": "calculate deal probabilities and weighted pipeline values",
+    "sales_crm_link_2": "Templates",
+    "sales_crm_link_2_desc": "standardize proposals and sales processes",
+    "sales_crm_link_3": "Activity View",
+    "sales_crm_link_3_desc": "track real-time sales activities and client interactions",
+    
+    "project_management_title": "Project Management & Delivery",
+    "project_management_description": "Keep projects on track with clear workflows, deadlines, and deliverables. Management gets real-time visibility into project status, remaining work, and team capacity.",
+    "project_management_button": "Explore Project Management",
+    "project_management_link_1": "Timeline & Gantt Charts",
+    "project_management_link_1_desc": "visualize project schedules and resource allocation",
+    "project_management_link_2": "Workspaces",
+    "project_management_link_2_desc": "organize client projects into separate collaborative areas",
+    "project_management_link_3": "Duration Fields",
+    "project_management_link_3_desc": "track time spent on tasks and project phases",
+    
+    "client_portal_section_title": "Client Portal & Collaboration",
+    "client_portal_description": "Invite clients into their own workspace where they can see project progress, upload files, and stay updated. Available with full white-label branding options for a seamless client experience.",
+    "client_portal_button": "See Client Portal Features",
+    
+    "bi_title": "Business Intelligence & Analytics",
+    "bi_description": "Get insights into your entire business with cross-project dashboards. Track pipeline value, close rates, revenue goals, and team performance in real-time.",
+    "bi_button": "View Analytics Capabilities",
+    "bi_link_1": "Search",
+    "bi_link_1_desc": "quickly find projects, clients, and financial data",
+    "bi_link_2": "Audit Trails",
+    "bi_link_2_desc": "track all changes for accountability and compliance",
+    "bi_link_3": "API Access",
+    "bi_link_3_desc": "integrate with BI tools and reporting platforms",
+    
+    "stats_title": "Agencies and professional services firms trust Blue to scale their operations",
+    "stat_1_number": "50+",
+    "stat_1_description": "team members supported per firm",
+    "stat_2_number": "100%",
+    "stat_2_description": "white-label client portal available",
+    "stat_3_number": "24/7",
+    "stat_3_description": "client visibility into project progress",
+    
+    "faq_title": "Common questions from agencies and professional services firms",
+    
+    "faq_category_1": "Client Management & Portal",
+    "faq_1_1_question": "Can clients access their projects through Blue?",
+    "faq_1_1_answer": "Yes! Blue offers a client portal where you can invite clients into their own workspace. They can see project progress, upload files, and stay updated on deliverables. The portal is available with full white-label branding so clients never see Blue branding.",
+    "faq_1_2_question": "How do you control what clients can see and do?",
+    "faq_1_2_answer": "Blue's granular user permissions let you control exactly what clients can access. You can hide sensitive information, limit their ability to edit records, and ensure they only see their specific project data.",
+    "faq_1_3_question": "Can we customize the client portal with our branding?",
+    "faq_1_3_answer": "Absolutely. Blue offers full white-label options where clients see your branding instead of Blue's. This creates a seamless, professional experience that reinforces your brand.",
+    
+    "faq_category_2": "Project Management & Visibility",
+    "faq_2_1_question": "How can management get better visibility into projects?",
+    "faq_2_1_answer": "Blue provides real-time dashboards showing project status, deadlines, remaining work, and team capacity. Management can see at a glance which projects are on track, which need attention, and how much work is left to complete.",
+    "faq_2_2_question": "Can we track billable hours and project profitability?",
+    "faq_2_2_answer": "Yes, Blue includes time tracking features that let you monitor billable hours, track project budgets, and analyze profitability. You can see utilization rates, project margins, and revenue trends in real-time.",
+    "faq_2_3_question": "How does Blue handle multiple processes across our business?",
+    "faq_2_3_answer": "Blue lets you manage all your processes - sales, hiring, marketing, and project delivery - in one platform. You can see your entire business operations and client relationships without switching between disconnected systems.",
+    
+    "faq_category_3": "Implementation & Scaling",
+    "faq_3_1_question": "How quickly can we implement Blue?",
+    "faq_3_1_answer": "Most professional services firms are operational within 1-2 weeks. Since Blue was built by a professional services agency, the workflows and processes are already optimized for your business model.",
+    "faq_3_2_question": "What size firms does Blue work best for?",
+    "faq_3_2_answer": "Blue is ideal for professional services firms up to 50 people. It provides the structure and automation that growing firms need while remaining simple enough for everyone to adopt quickly.",
+    "faq_3_3_question": "Can Blue integrate with our existing tools?",
+    "faq_3_3_answer": "Blue offers API integration and webhooks to connect with your existing accounting, email, and other business systems. This ensures data flows seamlessly between your tools.",
+    
+    "cta_title": "Ready to transform your agency or professional services firm?",
+    "cta_secondary_text": "Watch Demo",
+    "cta_primary_text": "Start Free Trial"
+  }
+}

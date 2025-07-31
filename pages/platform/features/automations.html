@@ -1,22 +1,22 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Turn repetitive tasks into automated processes." 
-            "Subtitle" "Build automated systems that adapt to your business rules — eliminating repetitive work across your organization." 
+            "Title" (t "automations.page_title") 
+            "Subtitle" (t "automations.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- Hero Video -->
-    {{$heroData := parseJSON `{
-        "Youtube": "https://www.youtube.com/embed/XTUPR8kjn7A"
-    }`}}
+    {{$heroData := dict
+        "Youtube" "https://www.youtube.com/embed/XTUPR8kjn7A"
+    }}
     {{template "hero-video" $heroData}}
 
     <!-- How Automations Work Section -->
     <section class="mt-20 mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">How process automations work.</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Automations are simple to setup, but powerful.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "automations.how_automations_work_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "automations.how_automations_work_subtitle"}}</p>
             
             <!-- 3-Step Process -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -25,8 +25,8 @@
                     <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-semibold text-brand-blue">1</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Choose your trigger.</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Choose the exact action that will activate the automation.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.step_1_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.step_1_description"}}</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -34,8 +34,8 @@
                     <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-semibold text-brand-blue">2</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Set your action.</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Choose a course of action and arrange the steps in sequence.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.step_2_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.step_2_description"}}</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -43,8 +43,8 @@
                     <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span class="text-2xl font-semibold text-brand-blue">3</span>
                     </div>
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Automate!</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Sit back, relax, and watch how things happen automagically.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.step_3_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.step_3_description"}}</p>
                 </div>
             </div>
         </div>
@@ -52,137 +52,137 @@
 
     <!-- Stats Section -->
     <section class="mb-20">
-        {{$statsData := parseJSON `{
-            "Title": "Millions of actions, automated.",
-            "Description": "Across industries, Blue helps business owners, project managers, and dedicated teams focus on what truly matters by putting repetitive tasks on autopilot.",
-            "Stats": [
-                {
-                    "Number": "5M+",
-                    "Description": "automations executed"
-                },
-                {
-                    "Number": "17000+",
-                    "Description": "teams automated"
-                },
-                {
-                    "Number": "100M+",
-                    "Description": "hours saved"
-                }
-            ]
-        }`}}
+        {{$statsData := dict
+            "Title" (t "automations.stats_title")
+            "Description" (t "automations.stats_description")
+            "Stats" (slice
+                (dict
+                    "Number" "5M+"
+                    "Description" (t "automations.stat_automations")
+                )
+                (dict
+                    "Number" "17000+"
+                    "Description" (t "automations.stat_teams")
+                )
+                (dict
+                    "Number" "100M+"
+                    "Description" (t "automations.stat_hours")
+                )
+            )
+        }}
         {{template "stats-section" $statsData}}
     </section>
 
     <!-- Automation Triggers Section -->
     <section class="mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">28 Powerful Automation Triggers</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Start your automations with any of these triggers to respond to changes in real-time.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "automations.triggers_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "automations.triggers_subtitle"}}</p>
             
             <!-- Triggers Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Record Creation & Movement -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Record Creation & Movement</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_record_creation_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>New record is created</span>
+                            <span>{{t "automations.trigger_new_record"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Record moved to another list</span>
+                            <span>{{t "automations.trigger_record_moved"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Record moved from another workspace</span>
+                            <span>{{t "automations.trigger_record_moved_workspace"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Status Changes -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Status Changes</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_status_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Record marked as complete</span>
+                            <span>{{t "automations.trigger_marked_complete"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Record marked as incomplete</span>
+                            <span>{{t "automations.trigger_marked_incomplete"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Assignment Changes -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Assignment Changes</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_assignment_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Someone assigned to record</span>
+                            <span>{{t "automations.trigger_someone_assigned"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Someone unassigned from record</span>
+                            <span>{{t "automations.trigger_someone_unassigned"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Date Management -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Date Management</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_date_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Due date changes</span>
+                            <span>{{t "automations.trigger_due_date_changes"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Due date removed</span>
+                            <span>{{t "automations.trigger_due_date_removed"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Due date has expired</span>
+                            <span>{{t "automations.trigger_due_date_expired"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Tags & Organization -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Tags & Organization</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_tags_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Tag added to record</span>
+                            <span>{{t "automations.trigger_tag_added"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Tag removed from record</span>
+                            <span>{{t "automations.trigger_tag_removed"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Color added or removed</span>
+                            <span>{{t "automations.trigger_color_changed"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Custom Fields & More -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Custom Fields & More</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.triggers_custom_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Custom field changes</span>
+                            <span>{{t "automations.trigger_custom_field_changes"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Button field clicked</span>
+                            <span>{{t "automations.trigger_button_clicked"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Checklist completed</span>
+                            <span>{{t "automations.trigger_checklist_completed"}}</span>
                         </li>
                     </ul>
                 </div>
@@ -193,121 +193,121 @@
     <!-- Automation Actions Section -->
     <section class="mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Powerful Actions to Transform Your Workflow</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Combine multiple actions to create sophisticated workflows that handle complex business processes.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "automations.actions_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "automations.actions_subtitle"}}</p>
             
             <!-- Actions Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Task Management -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Task Management</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_task_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Move records between lists</span>
+                            <span>{{t "automations.action_move_records"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Mark as complete/incomplete</span>
+                            <span>{{t "automations.action_mark_status"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Copy records</span>
+                            <span>{{t "automations.action_copy_records"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Team Management -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Team Management</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_team_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Assign team members</span>
+                            <span>{{t "automations.action_assign_members"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Remove assignees</span>
+                            <span>{{t "automations.action_remove_assignees"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Update due dates</span>
+                            <span>{{t "automations.action_update_due_dates"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Organization -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Organization</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_organization_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Add or remove tags</span>
+                            <span>{{t "automations.action_add_remove_tags"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Apply color coding</span>
+                            <span>{{t "automations.action_apply_color"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Update custom fields</span>
+                            <span>{{t "automations.action_update_custom_fields"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Checklists -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Checklists</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_checklists_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Create new checklists</span>
+                            <span>{{t "automations.action_create_checklists"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Mark items as done</span>
+                            <span>{{t "automations.action_mark_items_done"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Reset checklist items</span>
+                            <span>{{t "automations.action_reset_checklist"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Communication -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Communication</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_communication_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Send automated emails</span>
+                            <span>{{t "automations.action_send_emails"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Generate PDF documents</span>
+                            <span>{{t "automations.action_generate_pdf"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Post comments</span>
+                            <span>{{t "automations.action_post_comments"}}</span>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Integrations -->
                 <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Integrations</h3>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">{{t "automations.actions_integrations_title"}}</h3>
                     <ul class="space-y-2 text-gray-600 dark:text-gray-400">
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Make HTTP requests</span>
+                            <span>{{t "automations.action_http_requests"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Trigger webhooks</span>
+                            <span>{{t "automations.action_trigger_webhooks"}}</span>
                         </li>
                         <li class="flex items-start">
                             <span class="text-brand-blue mr-2">•</span>
-                            <span>Connect to 5,000+ apps</span>
+                            <span>{{t "automations.action_connect_apps"}}</span>
                         </li>
                     </ul>
                 </div>
@@ -318,64 +318,64 @@
     <!-- Use Cases Section -->
     <section class="mb-20">
         <div class="max-w-7xl mx-auto">
-            <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Use cases for automation</h3>
+            <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "automations.use_cases_title"}}</h3>
         </div>
     </section>
 
     <!-- Feature Sections -->
     <!-- Manager Reviews -->
     <div class="mb-20">
-        {{$managerReviewsData := parseJSON `{
-            "Title": "Manager Reviews",
-            "Description": "Automatically alert managers when items need review based on status, process steps, or tags. No more manual reminders — managers always see what requires their attention.",
-            "VideoUrl": "https://media.blue.cc/automations-manager-review.mp4",
-            "VideoPosition": "right"
-        }`}}
+        {{$managerReviewsData := dict
+            "Title" (t "automations.manager_reviews_title")
+            "Description" (t "automations.manager_reviews_description")
+            "VideoUrl" "https://media.blue.cc/automations-manager-review.mp4"
+            "VideoPosition" "right"
+        }}
         {{template "feature-video" $managerReviewsData}}
     </div>
 
     <!-- On-Time Delivery -->
     <div class="mb-20">
-        {{$onTimeData := parseJSON `{
-            "Title": "Ensure things are on time. Every time.",
-            "Description": "Process automations notify assignees and escalate tasks when they become overdue. This ensures that every process stays on track.",
-            "VideoUrl": "https://media.blue.cc/automations-overdue-notice.mp4",
-            "VideoPosition": "left"
-        }`}}
+        {{$onTimeData := dict
+            "Title" (t "automations.on_time_title")
+            "Description" (t "automations.on_time_description")
+            "VideoUrl" "https://media.blue.cc/automations-overdue-notice.mp4"
+            "VideoPosition" "left"
+        }}
         {{template "feature-video" $onTimeData}}
     </div>
 
     <!-- Automated Task Organization -->
     <div class="mb-20">
-        {{$taskOrgData := parseJSON `{
-            "Title": "Automated task organization",
-            "Description": "Automatically tag and move tasks based on their status — like adding a 'bug' tag to new entries or moving completed tasks to 'Done'. Keep projects organized effortlessly.",
-            "VideoUrl": "/testvideo2.mp4",
-            "VideoPosition": "right"
-        }`}}
+        {{$taskOrgData := dict
+            "Title" (t "automations.task_org_title")
+            "Description" (t "automations.task_org_description")
+            "VideoUrl" "/testvideo2.mp4"
+            "VideoPosition" "right"
+        }}
         {{template "feature-video" $taskOrgData}}
     </div>
 
     <!-- Resources Section -->
     <section class="mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Process Automation Resources</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Learn how to streamline your processes, increase efficiency, and unlock new possibilities for your business.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "automations.resources_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "automations.resources_subtitle"}}</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <a href="/insights/benefits-project-management-automation" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">The Benefits of Process Automations</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Discover how automations can transform your workflow and boost productivity.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.resource_1_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.resource_1_description"}}</p>
                 </a>
                 
                 <a href="/insights/useful-project-management-automations" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Most useful automations</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Learn about the automations that deliver the biggest impact for teams.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.resource_2_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.resource_2_description"}}</p>
                 </a>
                 
                 <a href="/insights/automation-examples" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Top 10 Practical Automations</h3>
-                    <p class="text-gray-600 dark:text-gray-400">See how automations can be used in practice.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "automations.resource_3_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "automations.resource_3_description"}}</p>
                 </a>
             </div>
         </div>
@@ -383,58 +383,58 @@
 
     <!-- FAQ Section -->
     <section class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "automations.faq_title"}}</h2>
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Getting Started",
-                    "questions": [
-                        {
-                            "question": "What are automations in Blue?",
-                            "answer": "Automations in Blue are rules you set up to automatically perform actions when specific triggers occur. They help eliminate repetitive tasks by automatically moving records, sending notifications, updating fields, and more based on the conditions you define."
-                        },
-                        {
-                            "question": "What types of triggers and actions can I use in automations?",
-                            "answer": "Blue offers 28 different triggers including record creation, status changes, assignments, due dates, tags, and custom fields. You can combine these with actions like moving records, assigning team members, sending emails, generating PDFs, and making HTTP requests to create powerful workflows."
-                        },
-                        {
-                            "question": "Can automations work across multiple projects?",
-                            "answer": "Yes, automations can work across projects. You can set up automations that move or copy records between different projects, allowing you to create complex workflows that span your entire organization."
-                        }
-                    ]
-                },
-                {
-                    "name": "Management & Limits",
-                    "questions": [
-                        {
-                            "question": "Who can set up and manage automations?",
-                            "answer": "Project administrators and users with appropriate permissions can create and manage automations. The specific permissions depend on your organization's settings and the custom roles configured by your administrator."
-                        },
-                        {
-                            "question": "Is there a limit to the number of automations I can create?",
-                            "answer": "No, there is no limit to the number of automations you can create in Blue. You can set up as many automations as needed to fully optimize your workflows and processes."
-                        },
-                        {
-                            "question": "Can all team members see the automations set up in our projects?",
-                            "answer": "Team members can see the effects of automations (like records being moved or tagged), but only users with appropriate permissions can view and edit the automation rules themselves. This helps maintain security while keeping workflows transparent."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "automations.faq_getting_started")
+                    "questions" (slice
+                        (dict
+                            "question" (t "automations.faq_what_are_q")
+                            "answer" (t "automations.faq_what_are_a")
+                        )
+                        (dict
+                            "question" (t "automations.faq_types_q")
+                            "answer" (t "automations.faq_types_a")
+                        )
+                        (dict
+                            "question" (t "automations.faq_cross_project_q")
+                            "answer" (t "automations.faq_cross_project_a")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "automations.faq_management_limits")
+                    "questions" (slice
+                        (dict
+                            "question" (t "automations.faq_who_can_q")
+                            "answer" (t "automations.faq_who_can_a")
+                        )
+                        (dict
+                            "question" (t "automations.faq_limit_q")
+                            "answer" (t "automations.faq_limit_a")
+                        )
+                        (dict
+                            "question" (t "automations.faq_visibility_q")
+                            "answer" (t "automations.faq_visibility_a")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Automate Your Workflow",
-        "Description": "Streamline tasks and boost efficiency with Blue's powerful process automations.",
-        "SecondaryText": "View documentation",
-        "SecondaryUrl": "/docs/automations",
-        "PrimaryText": "Get Started Free",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := dict
+        "Title" (t "automations.cta_title")
+        "Description" (t "automations.cta_description")
+        "SecondaryText" (t "automations.cta_view_docs")
+        "SecondaryUrl" "/docs/automations"
+        "PrimaryText" (t "automations.cta_get_started")
+        "PrimaryUrl" "https://app.blue.cc"
+    }}
     {{template "dual-button-cta" $ctaData}}
 

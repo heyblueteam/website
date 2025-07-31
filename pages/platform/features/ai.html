@@ -1,31 +1,31 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Process Management Artificial Intelligence." 
-            "Subtitle" "Leverage Artificial Intelligence to streamline process management and improve efficiency. Automatically categorize your work items and summarize discussions into action points." 
+            "Title" (t "ai.page_title") 
+            "Subtitle" (t "ai.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- AI Included Section -->
     <section class="mb-20">
-        {{$aiIncludedData := parseJSON `{
-            "Title": "AI is included out of the box.",
-            "Description": "Blue comes with AI built-in no extra charges.",
-            "Features": [
-                {
-                    "Title": "Summarize Conversations",
-                    "Description": "Instant Summarization of long conversations with clear action points."
-                },
-                {
-                    "Title": "Categorizations and Tagging",
-                    "Description": "Automatic categorization of records and tasks based on logical tags"
-                },
-                {
-                    "Title": "Semantic Search",
-                    "Description": "Advanced search that understands meaning and context, not just for keywords."
-                }
-            ]
-        }`}}
+        {{$aiIncludedData := dict
+            "Title" (t "ai.ai_included_title")
+            "Description" (t "ai.ai_included_description")
+            "Features" (slice
+                (dict
+                    "Title" (t "ai.ai_feature_summarize_title")
+                    "Description" (t "ai.ai_feature_summarize_description")
+                )
+                (dict
+                    "Title" (t "ai.ai_feature_categorization_title")
+                    "Description" (t "ai.ai_feature_categorization_description")
+                )
+                (dict
+                    "Title" (t "ai.ai_feature_search_title")
+                    "Description" (t "ai.ai_feature_search_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $aiIncludedData}}
     </section>
 
@@ -34,8 +34,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <!-- Text Content -->
             <div class="order-1 lg:order-1 space-y-4">
-                <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">Turn conversations into action items instantly.</h3>
-                <p class="text-lg text-gray-600 dark:text-gray-300">Our AI can summarize conversations and provide actionable insights, saving you valuable reading time.</p>
+                <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">{{t "ai.conversations_to_action_title"}}</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-300">{{t "ai.conversations_to_action_description"}}</p>
             </div>
             
             <!-- Text Animation -->
@@ -69,10 +69,10 @@
                         <div class="absolute inset-0 p-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-opacity duration-500 overflow-hidden"
                              :class="showSummary ? 'opacity-0' : 'opacity-100'">
                             <p class="mb-3">
-                                During our team meeting today, we discussed the Q4 product roadmap extensively. Sarah mentioned that the mobile app redesign is behind schedule due to unexpected technical challenges with the new authentication system. The iOS team needs an additional two weeks to implement biometric login properly. Meanwhile, the Android team is on track but waiting for the iOS implementation to maintain feature parity.
+                                {{t "ai.long_conversation_text"}}
                             </p>
                             <p>
-                                John from marketing emphasized the importance of launching before Black Friday to capitalize on holiday shopping. He suggested we could do a soft launch with basic features and add biometric login in a subsequent update. The engineering team expressed concerns about rushing the release, citing potential security vulnerabilities. After much debate, we need to make a decision by end of week.
+                                {{t "ai.long_conversation_text_2"}}
                             </p>
                         </div>
                         
@@ -83,7 +83,7 @@
                                 <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
-                                <span><strong>Key Decision Needed:</strong> Choose between delayed full-feature launch (2 weeks) or soft launch without biometric login by Black Friday. Decision required by Friday.</span>
+                                <span><strong>{{t "ai.summary_key_decision"}}</strong> {{t "ai.summary_decision_text"}}</span>
                             </p>
                         </div>
                     </div>
@@ -102,25 +102,25 @@
                          intersecting: false,
                          progress: 0,
                          records: [
-                             { id: 1, tags: [{name: 'Priority 1', delay: 0.05}] },
-                             { id: 2, tags: [{name: 'Overdue', delay: 0.1}] },
-                             { id: 3, tags: [{name: 'Planned', delay: 0.15}] },
-                             { id: 4, tags: [{name: 'Priority 2', delay: 0.2}] },
-                             { id: 5, tags: [{name: 'Cancelled', delay: 0.25}] },
-                             { id: 6, tags: [{name: 'Priority 1', delay: 0.3}] },
-                             { id: 7, tags: [{name: 'Overdue', delay: 0.35}] },
-                             { id: 8, tags: [{name: 'Planned', delay: 0.4}] },
-                             { id: 9, tags: [{name: 'Priority 2', delay: 0.45}] },
-                             { id: 10, tags: [{name: 'Planned', delay: 0.5}] },
-                             { id: 11, tags: [{name: 'Priority 1', delay: 0.6}] },
-                             { id: 12, tags: [{name: 'Overdue', delay: 0.65}] }
+                             { id: 1, tags: [{name: '{{t "ai.tag_priority_1"}}', delay: 0.05}] },
+                             { id: 2, tags: [{name: '{{t "ai.tag_overdue"}}', delay: 0.1}] },
+                             { id: 3, tags: [{name: '{{t "ai.tag_planned"}}', delay: 0.15}] },
+                             { id: 4, tags: [{name: '{{t "ai.tag_priority_2"}}', delay: 0.2}] },
+                             { id: 5, tags: [{name: '{{t "ai.tag_cancelled"}}', delay: 0.25}] },
+                             { id: 6, tags: [{name: '{{t "ai.tag_priority_1"}}', delay: 0.3}] },
+                             { id: 7, tags: [{name: '{{t "ai.tag_overdue"}}', delay: 0.35}] },
+                             { id: 8, tags: [{name: '{{t "ai.tag_planned"}}', delay: 0.4}] },
+                             { id: 9, tags: [{name: '{{t "ai.tag_priority_2"}}', delay: 0.45}] },
+                             { id: 10, tags: [{name: '{{t "ai.tag_planned"}}', delay: 0.5}] },
+                             { id: 11, tags: [{name: '{{t "ai.tag_priority_1"}}', delay: 0.6}] },
+                             { id: 12, tags: [{name: '{{t "ai.tag_overdue"}}', delay: 0.65}] }
                          ],
                          tagColors: {
-                             'Priority 1': 'bg-red-500',
-                             'Priority 2': 'bg-orange-500',
-                             'Overdue': 'bg-purple-500',
-                             'Planned': 'bg-blue-500',
-                             'Cancelled': 'bg-gray-500'
+                             '{{t "ai.tag_priority_1"}}': 'bg-red-500',
+                             '{{t "ai.tag_priority_2"}}': 'bg-orange-500',
+                             '{{t "ai.tag_overdue"}}': 'bg-purple-500',
+                             '{{t "ai.tag_planned"}}': 'bg-blue-500',
+                             '{{t "ai.tag_cancelled"}}': 'bg-gray-500'
                          },
                          updateProgress() {
                              const rect = $el.getBoundingClientRect();
@@ -141,7 +141,7 @@
                     <div class="grid grid-cols-4 gap-3">
                         <template x-for="record in records" :key="record.id">
                             <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 relative overflow-hidden">
-                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2" x-text="'Record ' + record.id"></div>
+                                <div class="text-sm font-medium text-gray-900 dark:text-gray-100 mb-2" x-text="'{{t "ai.record_label"}} ' + record.id"></div>
                                 <div class="flex flex-wrap gap-1">
                                     <template x-for="tag in record.tags" :key="tag.name">
                                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium text-white transition-all duration-500 ease-out"
@@ -158,118 +158,118 @@
             
             <!-- Text Content -->
             <div class="order-2 lg:order-2 space-y-4">
-                <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">Keep work organized with automatic categorization of work items</h3>
-                <p class="text-lg text-gray-600 dark:text-gray-300">Blue can automatically choose which tags to apply to records based on the context.</p>
+                <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">{{t "ai.auto_categorization_title"}}</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-300">{{t "ai.auto_categorization_description"}}</p>
             </div>
         </div>
     </section>
 
     <!-- Secure AI Integration Section -->
         
-        {{$securityFeaturesData := parseJSON `{
-            "Title": "Secure AI Integration",
-            "Features": [
-                {
-                    "Title": "Secure Data Processing",
-                    "Description": "Agreements with AI providers ensure your data is not retained or used for model training."
-                },
-                {
-                    "Title": "On-Premise Search Indexing",
-                    "Description": "Search AI indexing is performed on our own cloud servers using open-source models."
-                },
-                {
-                    "Title": "Anonymized Processing",
-                    "Description": "Sensitive information like assignee names is never sent to AI providers."
-                },
-                {
-                    "Title": "Data Residency Compliance",
-                    "Description": "Our AI processing adheres to data residency requirements for international clients."
-                },
-                {
-                    "Title": "User Control",
-                    "Description": "Users can delete AI-generated summaries if needed."
-                },
-                {
-                    "Title": "Organization Control",
-                    "Description": "Organization-wide settings allow you to toggle AI features on or off based on your preferences."
-                },
-                {
-                    "Title": "Secure Cloud Processing",
-                    "Description": "All AI processing is done in secure cloud environments."
-                },
-                {
-                    "Title": "Continuous Improvement",
-                    "Description": "We are always working to enhance our AI privacy features based on your feedback."
-                },
-                {
-                    "Title": "No Third-Party Training",
-                    "Description": "Your data is never used to train third-party AI models, ensuring complete confidentiality."
-                }
-            ]
-        }`}}
+        {{$securityFeaturesData := dict
+            "Title" (t "ai.secure_ai_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "ai.secure_data_title")
+                    "Description" (t "ai.secure_data_description")
+                )
+                (dict
+                    "Title" (t "ai.on_premise_title")
+                    "Description" (t "ai.on_premise_description")
+                )
+                (dict
+                    "Title" (t "ai.anonymized_title")
+                    "Description" (t "ai.anonymized_description")
+                )
+                (dict
+                    "Title" (t "ai.data_residency_title")
+                    "Description" (t "ai.data_residency_description")
+                )
+                (dict
+                    "Title" (t "ai.user_control_title")
+                    "Description" (t "ai.user_control_description")
+                )
+                (dict
+                    "Title" (t "ai.org_control_title")
+                    "Description" (t "ai.org_control_description")
+                )
+                (dict
+                    "Title" (t "ai.secure_cloud_title")
+                    "Description" (t "ai.secure_cloud_description")
+                )
+                (dict
+                    "Title" (t "ai.continuous_improvement_title")
+                    "Description" (t "ai.continuous_improvement_description")
+                )
+                (dict
+                    "Title" (t "ai.no_third_party_title")
+                    "Description" (t "ai.no_third_party_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $securityFeaturesData}}
 
     <!-- FAQ Section -->
     <section class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "ai.faq_title"}}</h2>
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "AI Features",
-                    "questions": [
-                        {
-                            "question": "What AI features does Blue offer for process management?",
-                            "answer": "Blue offers three main AI features: conversation summarization for extracting action points from long discussions, automatic categorization and tagging of work items, and semantic search that understands context and meaning."
-                        },
-                        {
-                            "question": "How does Blue's AI summarize conversations?",
-                            "answer": "Blue's AI analyzes chat conversations and discussions to extract key points, decisions, and action items. It provides a concise summary that helps team members quickly understand what was discussed and what needs to be done."
-                        },
-                        {
-                            "question": "Can you explain how Blue's AI performs automatic categorization and tagging?",
-                            "answer": "Blue's AI analyzes the content and context of records, tasks, and projects to automatically apply relevant tags. It understands the nature of the work and categorizes items based on patterns it recognizes, helping keep your workspace organized without manual effort."
-                        },
-                        {
-                            "question": "What is semantic search in Blue, and how does it differ from regular search?",
-                            "answer": "Semantic search understands the meaning and context of your query, not just matching keywords. For example, searching for 'budget issues' might also find records about 'financial constraints' or 'cost overruns' because the AI understands these concepts are related."
-                        }
-                    ]
-                },
-                {
-                    "name": "Privacy & Cost",
-                    "questions": [
-                        {
-                            "question": "Are there any limitations to Blue's AI capabilities?",
-                            "answer": "Blue's AI is designed for process management contexts and works best with business-related content. It may have limitations with highly technical or specialized domain-specific content. The AI features are also dependent on having sufficient context to provide accurate results."
-                        },
-                        {
-                            "question": "How does Blue ensure the privacy and security of data processed by its AI?",
-                            "answer": "Blue prioritizes data privacy through secure processing agreements with AI providers, on-premise search indexing, anonymized data processing, and compliance with data residency requirements. Your data is never used for model training."
-                        },
-                        {
-                            "question": "Can users customize or train the AI to better suit their specific needs?",
-                            "answer": "Currently, Blue's AI uses pre-trained models optimized for process management. While you cannot directly train the AI, it learns from usage patterns to improve categorization and search relevance over time."
-                        },
-                        {
-                            "question": "Is there an additional cost for using AI features in Blue?",
-                            "answer": "No, AI features are included in all Blue plans at no extra cost. We believe AI should be accessible to all teams to improve productivity."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "ai.faq_ai_features_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "ai.faq_what_features_q")
+                            "answer" (t "ai.faq_what_features_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_summarize_q")
+                            "answer" (t "ai.faq_summarize_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_categorization_q")
+                            "answer" (t "ai.faq_categorization_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_semantic_search_q")
+                            "answer" (t "ai.faq_semantic_search_a")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "ai.faq_privacy_cost_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "ai.faq_limitations_q")
+                            "answer" (t "ai.faq_limitations_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_privacy_q")
+                            "answer" (t "ai.faq_privacy_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_customize_q")
+                            "answer" (t "ai.faq_customize_a")
+                        )
+                        (dict
+                            "question" (t "ai.faq_cost_q")
+                            "answer" (t "ai.faq_cost_a")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Discover AI powered process management.",
-        "Description": "Try Blue to automate process management and improve efficiency. Automatically categorize your work items and summarize discussions into action points.",
-        "SecondaryText": "Sign Up FREE",
-        "SecondaryUrl": "https://app.blue.cc",
-        "PrimaryText": "Sign Up FREE",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := dict
+        "Title" (t "ai.cta_title")
+        "Description" (t "ai.cta_description")
+        "SecondaryText" (t "ai.cta_signup")
+        "SecondaryUrl" "https://app.blue.cc"
+        "PrimaryText" (t "ai.cta_signup")
+        "PrimaryUrl" "https://app.blue.cc"
+    }}
     {{template "dual-button-cta" $ctaData}}

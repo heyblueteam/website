@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Imagine having a complete record of every action." 
-            "Subtitle" "With Audit Trails, this is reality. Track every action, ensure accountability, and maintain compliance across all your projects." 
+            "Title" (t "audit-trails.page_title") 
+            "Subtitle" (t "audit-trails.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -15,94 +15,94 @@
     }}
 
     <!-- Value Propositions Section -->
-    {{$valuePropsData := parseJSON `{
-        "Title": "Guaranteed Accountability.",
-        "Description": "Audit trails ensure that every task, edit, and decision is attributable, enhancing trust and transparency across your projects.",
-        "ValueProps": [
-            {
-                "Title": "Regulatory Compliance",
-                "Description": "Stay compliant with ease. Our detailed records support compliance with industry regulations by documenting every change and action."
-            },
-            {
-                "Title": "Operational Transparency",
-                "Description": "Gain complete visibility into project changes and team activities. Audit trails provide transparency that helps identify process efficiencies and areas for improvement."
-            },
-            {
-                "Title": "Accountability Enforcement",
-                "Description": "Ensure accountability at every level. Audit trails help pinpoint responsibility for actions, supporting effective management and oversight."
-            }
-        ]
-    }`}}
+    {{$valuePropsData := dict
+        "Title" (t "audit-trails.accountability_title")
+        "Description" (t "audit-trails.accountability_description")
+        "ValueProps" (slice
+            (dict
+                "Title" (t "audit-trails.regulatory_compliance_title")
+                "Description" (t "audit-trails.regulatory_compliance_description")
+            )
+            (dict
+                "Title" (t "audit-trails.operational_transparency_title")
+                "Description" (t "audit-trails.operational_transparency_description")
+            )
+            (dict
+                "Title" (t "audit-trails.accountability_enforcement_title")
+                "Description" (t "audit-trails.accountability_enforcement_description")
+            )
+        )
+    }}
     {{template "value-propositions" $valuePropsData}}
 
     <!-- Cross-Project Activity Section -->
-    {{$crossProjectFeature := parseJSON `{
-        "Title": "Comprehensive audit trails for cross-project activities.",
-        "Description": "Experience the power of complete transparency with our robust tracking system, designed for ease and efficiency.",
-        "VideoUrl": "https://media.blue.cc/audit-trails-org.mp4",
-        "VideoPosition": "right"
-    }`}}
+    {{$crossProjectFeature := dict
+        "Title" (t "audit-trails.cross_project_title")
+        "Description" (t "audit-trails.cross_project_description")
+        "VideoUrl" "https://media.blue.cc/audit-trails-org.mp4"
+        "VideoPosition" "right"
+    }}
     {{template "feature-video" $crossProjectFeature}}
 
     <!-- Cross-Project Benefits Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {{$crossProjectBenefits := parseJSON `{
-            "Benefits": [
-                {
-                    "Title": "Time Machine",
-                    "Description": "Step back into any project phase. Review all activities exactly as they occurred."
-                },
-                {
-                    "Title": "Immutable Logs",
-                    "Description": "Entries are permanent and unchangeable, ensuring data integrity."
-                },
-                {
-                    "Title": "Advanced Filtering",
-                    "Description": "Quickly find specific activities using filters for people and tags."
-                }
-            ],
-            "MarginBottom": "mb-20"
-        }`}}
+        {{$crossProjectBenefits := dict
+            "Benefits" (slice
+                (dict
+                    "Title" (t "audit-trails.time_machine_title")
+                    "Description" (t "audit-trails.time_machine_description")
+                )
+                (dict
+                    "Title" (t "audit-trails.immutable_logs_title")
+                    "Description" (t "audit-trails.immutable_logs_description")
+                )
+                (dict
+                    "Title" (t "audit-trails.advanced_filtering_title")
+                    "Description" (t "audit-trails.advanced_filtering_description")
+                )
+            )
+            "MarginBottom" "mb-20"
+        }}
         {{template "feature-benefits-grid" $crossProjectBenefits}}
     </div>
 
     <!-- Granular Change Logs Section -->
-    {{$granularLogsFeature := parseJSON `{
-        "Title": "Granular change logs for changes in records.",
-        "Description": "Experience the ultimate in detail and precision with our meticulous tracking system, ensuring no change goes unnoticed.",
-        "VideoUrl": "https://media.blue.cc/audit-trails-record.mp4",
-        "VideoPosition": "left"
-    }`}}
+    {{$granularLogsFeature := dict
+        "Title" (t "audit-trails.granular_logs_title")
+        "Description" (t "audit-trails.granular_logs_description")
+        "VideoUrl" "https://media.blue.cc/audit-trails-record.mp4"
+        "VideoPosition" "left"
+    }}
     {{template "feature-video" $granularLogsFeature}}
 
     <!-- Granular Logs Benefits Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {{$granularBenefits := parseJSON `{
-            "Benefits": [
-                {
-                    "Title": "Full Context",
-                    "Description": "Ensure every change is tracked with unmatched precision."
-                },
-                {
-                    "Title": "Detailed Tracking",
-                    "Description": "Log every change, including custom fields and deletions."
-                },
-                {
-                    "Title": "Immutable Logs",
-                    "Description": "Entries are permanent and unchangeable."
-                }
-            ],
-            "MarginBottom": "mb-20"
-        }`}}
+        {{$granularBenefits := dict
+            "Benefits" (slice
+                (dict
+                    "Title" (t "audit-trails.full_context_title")
+                    "Description" (t "audit-trails.full_context_description")
+                )
+                (dict
+                    "Title" (t "audit-trails.detailed_tracking_title")
+                    "Description" (t "audit-trails.detailed_tracking_description")
+                )
+                (dict
+                    "Title" (t "audit-trails.immutable_logs_title")
+                    "Description" (t "audit-trails.immutable_logs_desc_2")
+                )
+            )
+            "MarginBottom" "mb-20"
+        }}
         {{template "feature-benefits-grid" $granularBenefits}}
     </div>
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Boost your productivity. Start using Blue today.",
-        "SecondaryText": "Get started",
-        "SecondaryUrl": "https://app.blue.cc",
-        "PrimaryText": "Get started",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := dict
+        "Title" (t "audit-trails.cta_title")
+        "SecondaryText" (t "audit-trails.cta_get_started")
+        "SecondaryUrl" "https://app.blue.cc"
+        "PrimaryText" (t "audit-trails.cta_get_started")
+        "PrimaryUrl" "https://app.blue.cc"
+    }}
     {{template "dual-button-cta" $ctaData}}

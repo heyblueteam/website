@@ -1,53 +1,53 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Professional Services & Agency Solutions" 
-            "Subtitle" "Built by a professional services agency, for agencies and service firms. Manage clients, projects, and processes in one unified platform." 
+            "Title" (t "professional-services.page_title") 
+            "Subtitle" (t "professional-services.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- Problem Agitation Section -->
     <div class="mb-20">
-        {{$professionalServicesProblems := parseJSON `{
-            "Title": "Agencies and professional services firms deserve<br>better management tools.",
-            "Description": "Traditional project management tools weren't built for the unique needs of service-based businesses.",
-            "ValueProps": [
-                {
-                    "Title": "Management can't see what's really happening",
-                    "Description": "Leaders struggle to get visibility into project status, deadlines, and remaining work. Critical information is scattered across emails, spreadsheets, and team members' heads."
-                },
-                {
-                    "Title": "Disconnected processes create chaos",
-                    "Description": "Sales, hiring, marketing, and project delivery all happen in separate systems. No single view of your entire business operations and client relationships."
-                },
-                {
-                    "Title": "Client communication is fragmented",
-                    "Description": "Important updates get lost in email threads. Clients can't easily see project progress, and you spend hours creating status reports instead of doing billable work."
-                }
-            ]
-        }`}}
+        {{$professionalServicesProblems := dict
+            "Title" (t "professional-services.problems_title")
+            "Description" (t "professional-services.problems_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "professional-services.problem_1_title")
+                    "Description" (t "professional-services.problem_1_description")
+                )
+                (dict
+                    "Title" (t "professional-services.problem_2_title")
+                    "Description" (t "professional-services.problem_2_description")
+                )
+                (dict
+                    "Title" (t "professional-services.problem_3_title")
+                    "Description" (t "professional-services.problem_3_description")
+                )
+            )
+        }}
         {{template "value-propositions" $professionalServicesProblems}}
     </div>
 
     <!-- Key Reasons Section -->
     <div class="mb-20">
-        {{$professionalServicesFeatures := parseJSON `{
-            "Title": "Why agencies and professional services firms choose Blue",
-            "Features": [
-                {
-                    "Title": "Built by a professional services agency",
-                    "Description": "Blue was originally built as an in-house tool for a professional services agency. We understand your challenges because we lived them."
-                },
-                {
-                    "Title": "Unified view of your entire business",
-                    "Description": "See all your processes - sales, hiring, marketing, and project delivery - in one platform. No more switching between disconnected systems."
-                },
-                {
-                    "Title": "Client portal with white-label options",
-                    "Description": "Invite clients into their own workspace where they can see progress, upload files, and stay updated. Available with full white-label branding."
-                }
-            ]
-        }`}}
+        {{$professionalServicesFeatures := dict
+            "Title" (t "professional-services.why_choose_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "professional-services.feature_1_title")
+                    "Description" (t "professional-services.feature_1_description")
+                )
+                (dict
+                    "Title" (t "professional-services.feature_2_title")
+                    "Description" (t "professional-services.feature_2_description")
+                )
+                (dict
+                    "Title" (t "professional-services.feature_3_title")
+                    "Description" (t "professional-services.feature_3_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $professionalServicesFeatures}}
     </div>
 
@@ -56,17 +56,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <h2 class="text-4xl font-bold tracking-tight text-gray-900 mb-6">
-                    We literally wrote the book on agency success.
+                    {{t "professional-services.playbook_title"}}
                 </h2>
                 <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                    We've been in your shoes, and we know what it takes to grow your agency or practice. We've distilled a decade of agency leadership experience to help you scale. Learn to master cash-flow, project management, client relationships, proposal writing — and more.
+                    {{t "professional-services.playbook_description"}}
                 </p>
                 <div>
                     <a href="/resources/TheAgencySuccessPlaybook.pdf" 
                        class="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-semibold rounded-lg hover:bg-brand-blue/90 transition-colors"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Download eBook
+                        {{t "professional-services.playbook_button"}}
                         <svg class="w-4 h-4 ml-2" fill="currentColor">
                             <use href="/icons/sprite.svg#download"></use>
                         </svg>
@@ -75,7 +75,7 @@
             </div>
             <div class="relative">
                 <img src="/resources/agency-success-cover.png" 
-                     alt="The Agency Success Playbook book cover" 
+                     alt="{{t "professional-services.playbook_alt"}}" 
                      class="w-full max-w-sm mx-auto rounded-lg shadow-lg">
             </div>
         </div>
@@ -86,68 +86,68 @@
         {{template "testimonial-single" 
             dict 
                 "ImageUrl" "/testimonials/lorenzohickey.jpeg"
-                "Quote" "After 30 years in project management I have discovered Blue —and it is blowing me away. The user interface is fantastic, simple to use and so easy to understand."
-                "Name" "Lorenzo Hickey"
-                "Title" "CEO of Shapeshift World"
+                "Quote" (t "professional-services.testimonial_quote")
+                "Name" (t "professional-services.testimonial_name")
+                "Title" (t "professional-services.testimonial_title")
         }}
     </div>
 
     <!-- Professional Services Use Cases Section Header -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Agency and professional services use cases</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "professional-services.use_cases_title"}}</h2>
     </div>
 
     <!-- Sales CRM Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$salesCrmData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "https://media.blue.cc/database-group-example.mp4",
-            "Title": "Sales CRM & Client Management",
-            "Description": "Track leads, manage proposals, and close deals with a powerful CRM built for professional services. Link opportunities to clients and see your entire sales pipeline in one view.",
-            "Button": {
-                "Text": "Learn about Sales CRM",
-                "Url": "/solutions/use-case/sales-crm"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Formula Fields", "Description": "calculate deal probabilities and weighted pipeline values", "Url": "/docs/custom-fields/formula" },
-                    { "Text": "Templates", "Description": "standardize proposals and sales processes", "Url": "/platform/features/templates" },
-                    { "Text": "Activity View", "Description": "track real-time sales activities and client interactions", "Url": "/platform/features/views/activity" }
-                ]
-            }
-        }`}}
+        {{$salesCrmData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "https://media.blue.cc/database-group-example.mp4"
+            "Title" (t "professional-services.sales_crm_title")
+            "Description" (t "professional-services.sales_crm_description")
+            "Button" (dict
+                "Text" (t "professional-services.sales_crm_button")
+                "Url" "/solutions/use-case/sales-crm"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "professional-services.sales_crm_link_1") "Description" (t "professional-services.sales_crm_link_1_desc") "Url" "/docs/custom-fields/formula")
+                    (dict "Text" (t "professional-services.sales_crm_link_2") "Description" (t "professional-services.sales_crm_link_2_desc") "Url" "/platform/features/templates")
+                    (dict "Text" (t "professional-services.sales_crm_link_3") "Description" (t "professional-services.sales_crm_link_3_desc") "Url" "/platform/features/views/activity")
+                )
+            )
+        }}
         {{template "feature-video" $salesCrmData}}
     </div>
 
     <!-- Project Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$projectManagementData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "/product/project-settings.mp4",
-            "Title": "Project Management & Delivery",
-            "Description": "Keep projects on track with clear workflows, deadlines, and deliverables. Management gets real-time visibility into project status, remaining work, and team capacity.",
-            "Button": {
-                "Text": "Explore Project Management",
-                "Url": "/solutions/use-case/project-management"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Timeline & Gantt Charts", "Description": "visualize project schedules and resource allocation", "Url": "/docs/views/timeline-gantt-charts" },
-                    { "Text": "Workspaces", "Description": "organize client projects into separate collaborative areas", "Url": "/platform/features/workspaces" },
-                    { "Text": "Duration Fields", "Description": "track time spent on tasks and project phases", "Url": "/docs/custom-fields/duration" }
-                ]
-            }
-        }`}}
+        {{$projectManagementData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "/product/project-settings.mp4"
+            "Title" (t "professional-services.project_management_title")
+            "Description" (t "professional-services.project_management_description")
+            "Button" (dict
+                "Text" (t "professional-services.project_management_button")
+                "Url" "/solutions/use-case/project-management"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "professional-services.project_management_link_1") "Description" (t "professional-services.project_management_link_1_desc") "Url" "/docs/views/timeline-gantt-charts")
+                    (dict "Text" (t "professional-services.project_management_link_2") "Description" (t "professional-services.project_management_link_2_desc") "Url" "/platform/features/workspaces")
+                    (dict "Text" (t "professional-services.project_management_link_3") "Description" (t "professional-services.project_management_link_3_desc") "Url" "/docs/custom-fields/duration")
+                )
+            )
+        }}
         {{template "feature-video" $projectManagementData}}
     </div>
 
     <!-- Client Portal & Collaboration Section -->
     <section id="client-portal" class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Client Portal & Collaboration</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "professional-services.client_portal_section_title"}}</h2>
         
         <div class="max-w-7xl mx-auto mb-8">
             <div class="mb-8">
-                <p class="text-lg text-gray-600 max-w-3xl">Invite clients into their own workspace where they can see project progress, upload files, and stay updated. Available with full white-label branding options for a seamless client experience.</p>
+                <p class="text-lg text-gray-600 max-w-3xl">{{t "professional-services.client_portal_description"}}</p>
             </div>
             
             {{template "hero-video" 
@@ -159,7 +159,7 @@
             
             <div class="text-center mt-8">
                 <a href="/solutions/use-case/client-portal" class="inline-flex items-center px-6 py-3 bg-brand-blue text-white font-medium rounded-lg hover:bg-brand-blue/90 transition-colors">
-                    See Client Portal Features
+                    {{t "professional-services.client_portal_button"}}
                     <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                     </svg>
@@ -172,51 +172,51 @@
 
     <!-- Business Intelligence Feature -->
     <div class="mb-20">
-        {{$biData := parseJSON `{
-            "ImagePosition": "right",
-            "ImageUrl": "/product/stats-cards.png",
-            "Title": "Business Intelligence & Analytics",
-            "Description": "Get insights into your entire business with cross-project dashboards. Track pipeline value, close rates, revenue goals, and team performance in real-time.",
-            "Button": {
-                "Text": "View Analytics Capabilities",
-                "Url": "/platform/features/dashboards"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Search", "Description": "quickly find projects, clients, and financial data", "Url": "/platform/features/search" },
-                    { "Text": "Audit Trails", "Description": "track all changes for accountability and compliance", "Url": "/platform/features/audit-trails" },
-                    { "Text": "API Access", "Description": "integrate with BI tools and reporting platforms", "Url": "/platform/api" }
-                ]
-            }
-        }`}}
+        {{$biData := dict
+            "ImagePosition" "right"
+            "ImageUrl" "/product/stats-cards.png"
+            "Title" (t "professional-services.bi_title")
+            "Description" (t "professional-services.bi_description")
+            "Button" (dict
+                "Text" (t "professional-services.bi_button")
+                "Url" "/platform/features/dashboards"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "professional-services.bi_link_1") "Description" (t "professional-services.bi_link_1_desc") "Url" "/platform/features/search")
+                    (dict "Text" (t "professional-services.bi_link_2") "Description" (t "professional-services.bi_link_2_desc") "Url" "/platform/features/audit-trails")
+                    (dict "Text" (t "professional-services.bi_link_3") "Description" (t "professional-services.bi_link_3_desc") "Url" "/platform/api")
+                )
+            )
+        }}
         {{template "feature-image" $biData}}
     </div>
 
     <!-- Professional Services Stats Section -->
     <div class="mb-20">
-        {{$professionalServicesStatsData := parseJSON `{
-            "Title": "Agencies and professional services firms trust Blue to scale their operations",
-            "Stats": [
-                {
-                    "Number": "50+",
-                    "Description": "team members supported per firm"
-                },
-                {
-                    "Number": "100%",
-                    "Description": "white-label client portal available"
-                },
-                {
-                    "Number": "24/7",
-                    "Description": "client visibility into project progress"
-                }
-            ]
-        }`}}
+        {{$professionalServicesStatsData := dict
+            "Title" (t "professional-services.stats_title")
+            "Stats" (slice
+                (dict
+                    "Number" (t "professional-services.stat_1_number")
+                    "Description" (t "professional-services.stat_1_description")
+                )
+                (dict
+                    "Number" (t "professional-services.stat_2_number")
+                    "Description" (t "professional-services.stat_2_description")
+                )
+                (dict
+                    "Number" (t "professional-services.stat_3_number")
+                    "Description" (t "professional-services.stat_3_description")
+                )
+            )
+        }}
         {{template "stats-section" $professionalServicesStatsData}}
     </div>
 
     <!-- FAQ Section -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Common questions from agencies and professional services firms</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "professional-services.faq_title"}}</h2>
         
         {{$professionalServicesFaqData := parseJSON `{
             "categories": [

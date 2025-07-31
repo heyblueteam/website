@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Government Solutions" 
-            "Subtitle" "Streamline government processes and improve citizen services with Blue's secure, compliant platform." 
+            "Title" (t "government.page_title") 
+            "Subtitle" (t "government.page_subtitle") 
             "MarginBottom" "mb-8"
     }}
 
@@ -26,24 +26,24 @@
 
     <!-- Problem Agitation Section -->
     <div class="mb-20">
-        {{$governmentProblems := parseJSON `{
-            "Title": "Government agencies deserve<br>modern process management.",
-            "Description": "Citizens expect efficient services, but outdated systems and budget constraints hold agencies back.",
-            "ValueProps": [
-                {
-                    "Title": "Legacy systems that can't keep up",
-                    "Description": "Decades-old software creates bottlenecks, forces manual workarounds, and prevents agencies from delivering the modern services citizens expect."
-                },
-                {
-                    "Title": "Compliance requirements that slow everything down",
-                    "Description": "Strict regulatory constraints and audit requirements mean every process takes longer, with staff spending more time on paperwork than serving citizens."
-                },
-                {
-                    "Title": "Budget constraints limiting modernization",
-                    "Description": "Limited public budgets make it difficult to invest in new systems, forcing agencies to make do with inadequate tools that waste time and taxpayer money."
-                }
-            ]
-        }`}}
+        {{$governmentProblems := dict
+            "Title" (t "government.problems_title")
+            "Description" (t "government.problems_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "government.problem_1_title")
+                    "Description" (t "government.problem_1_description")
+                )
+                (dict
+                    "Title" (t "government.problem_2_title")
+                    "Description" (t "government.problem_2_description")
+                )
+                (dict
+                    "Title" (t "government.problem_3_title")
+                    "Description" (t "government.problem_3_description")
+                )
+            )
+        }}
         {{template "value-propositions" $governmentProblems}}
     </div>
 
@@ -52,40 +52,40 @@
         {{template "testimonial-single" 
             dict 
                 "ImageUrl" "/testimonials/kyriacos.jpeg"
-                "Quote" "Blue has massively helped us manage our data work, ensuring that our teams are clear on what they need to do, and why. It's a great tool for us."
-                "Name" "Kyriacos Koupparis, PhD"
-                "Title" "Head of Unit, Early Warning and Forecasting, World Food Programme."
+                "Quote" (t "government.testimonial_quote")
+                "Name" (t "government.testimonial_name")
+                "Title" (t "government.testimonial_title")
         }}
     </div>
 
     <!-- Key Reasons Section -->
     <div class="mb-20">
-        {{$governmentFeatures := parseJSON `{
-            "Title": "Why government agencies choose Blue",
-            "Features": [
-                {
-                    "Title": "Cost-effective for public budgets",
-                    "Description": "Blue delivers enterprise capabilities at a fraction of the cost of traditional government software. No expensive consultants or multi-year implementations."
-                },
-                {
-                    "Title": "Easy adoption with minimal IT",
-                    "Description": "Get up and running in weeks, not years. Blue's intuitive interface means minimal training and quick adoption across departments."
-                },
-                {
-                    "Title": "Transparency and audit capabilities",
-                    "Description": "Built-in audit trails, public portals, and compliance features ensure accountability and meet regulatory requirements."
-                }
-            ]
-        }`}}
+        {{$governmentFeatures := dict
+            "Title" (t "government.why_choose_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "government.feature_1_title")
+                    "Description" (t "government.feature_1_description")
+                )
+                (dict
+                    "Title" (t "government.feature_2_title")
+                    "Description" (t "government.feature_2_description")
+                )
+                (dict
+                    "Title" (t "government.feature_3_title")
+                    "Description" (t "government.feature_3_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $governmentFeatures}}
     </div>
 
     <!-- Audit Trail & Accountability Section -->
     <section class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Built-in accountability that citizens can trust</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">{{t "government.audit_section_title"}}</h2>
         
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-16">
-            Blue automatically tracks every decision and action, ensuring complete transparency and giving you the evidence you need to demonstrate responsible governance.
+            {{t "government.audit_section_description"}}
         </p>
         {{template "hero-video" 
             dict 
@@ -93,23 +93,23 @@
                 "MarginBottom" "mb-20"
         }}
         
-        {{$auditTrailBenefits := parseJSON `{
-            "Benefits": [
-                {
-                    "Title": "Complete Action Tracking",
-                    "Description": "Every edit, view, and change is automatically logged with user identification, timestamps, and detailed action descriptions."
-                },
-                {
-                    "Title": "Regulatory Compliance",
-                    "Description": "Meet government audit requirements with comprehensive trails that track data lifecycle from creation to deletion."
-                },
-                {
-                    "Title": "Public Accountability",
-                    "Description": "Demonstrate transparency to citizens and oversight bodies with detailed records of all government activities and decisions."
-                }
-            ],
-            "MarginBottom": "mb-16"
-        }`}}
+        {{$auditTrailBenefits := dict
+            "Benefits" (slice
+                (dict
+                    "Title" (t "government.audit_benefit_1_title")
+                    "Description" (t "government.audit_benefit_1_description")
+                )
+                (dict
+                    "Title" (t "government.audit_benefit_2_title")
+                    "Description" (t "government.audit_benefit_2_description")
+                )
+                (dict
+                    "Title" (t "government.audit_benefit_3_title")
+                    "Description" (t "government.audit_benefit_3_description")
+                )
+            )
+            "MarginBottom" "mb-16"
+        }}
         {{template "feature-benefits-grid" $auditTrailBenefits}}
         
         
@@ -121,23 +121,23 @@
 
     <!-- Inter-departmental Project Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$projectManagementData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "https://media.blue.cc/government-solution-ministry-selection.mp4",
-            "Title": "Cross-department project coordination",
-            "Description": "Manage complex initiatives that span multiple departments. Track progress, assign responsibilities, and ensure projects stay on schedule and within budget.",
-            "Button": {
-                "Text": "Explore project management",
-                "Url": "/solutions/use-case/project-management"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Timeline & Gantt Charts", "Description": "visualize project schedules and dependencies", "Url": "/docs/views/timeline-gantt-charts" },
-                    { "Text": "Workspaces", "Description": "organize departments into collaborative areas", "Url": "/platform/features/workspaces" },
-                    { "Text": "Reference Fields", "Description": "link projects to budgets and resources", "Url": "/docs/custom-fields/reference" }
-                ]
-            }
-        }`}}
+        {{$projectManagementData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "https://media.blue.cc/government-solution-ministry-selection.mp4"
+            "Title" (t "government.project_management_title")
+            "Description" (t "government.project_management_description")
+            "Button" (dict
+                "Text" (t "government.project_management_button")
+                "Url" "/solutions/use-case/project-management"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "government.project_management_link_1") "Description" (t "government.project_management_link_1_desc") "Url" "/docs/views/timeline-gantt-charts")
+                    (dict "Text" (t "government.project_management_link_2") "Description" (t "government.project_management_link_2_desc") "Url" "/platform/features/workspaces")
+                    (dict "Text" (t "government.project_management_link_3") "Description" (t "government.project_management_link_3_desc") "Url" "/docs/custom-fields/reference")
+                )
+            )
+        }}
         {{template "feature-video" $projectManagementData}}
     </div>
 
@@ -150,115 +150,115 @@
 
     <!-- Government Stats Section -->
     <div class="mb-20">
-        {{$governmentStatsData := parseJSON `{
-            "Title": "Government agencies trust Blue to modernize operations",
-            "Stats": [
-                {
-                    "Number": "60%",
-                    "Description": "reduction in processing time"
-                },
-                {
-                    "Number": "75%",
-                    "Description": "cost savings vs traditional software"
-                },
-                {
-                    "Number": "100%",
-                    "Description": "audit trail compliance"
-                }
-            ]
-        }`}}
+        {{$governmentStatsData := dict
+            "Title" (t "government.stats_title")
+            "Stats" (slice
+                (dict
+                    "Number" (t "government.stat_1_number")
+                    "Description" (t "government.stat_1_description")
+                )
+                (dict
+                    "Number" (t "government.stat_2_number")
+                    "Description" (t "government.stat_2_description")
+                )
+                (dict
+                    "Number" (t "government.stat_3_number")
+                    "Description" (t "government.stat_3_description")
+                )
+            )
+        }}
         {{template "stats-section" $governmentStatsData}}
     </div>
 
     <!-- FAQ Section -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Government agency FAQ</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "government.faq_title"}}</h2>
         
-        {{$governmentFaqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Security & Compliance",
-                    "questions": [
-                        {
-                            "question": "Does Blue meet government security requirements?",
-                            "answer": "Yes, Blue provides enterprise-grade security with encryption at rest and in transit, role-based access controls, and comprehensive audit trails. We work with government agencies to ensure we meet their specific security requirements."
-                        },
-                        {
-                            "question": "How does Blue handle public records requests?",
-                            "answer": "Blue makes it easy to fulfill public records requests with powerful search capabilities, data export options, and audit trails. You can quickly find and export relevant records while maintaining appropriate redactions."
-                        },
-                        {
-                            "question": "Can Blue maintain compliance with retention policies?",
-                            "answer": "Absolutely. Blue allows you to set retention policies for different record types, automatically archive old records, and maintain compliance with government retention requirements. Full audit trails show the complete lifecycle of every record."
-                        }
-                    ]
-                },
-                {
-                    "name": "Budget & Procurement",
-                    "questions": [
-                        {
-                            "question": "How does Blue pricing work for government agencies?",
-                            "answer": "Blue offers transparent, predictable pricing that works within government budgets. We provide volume discounts for larger agencies and can work with your procurement process to ensure compliance with purchasing requirements."
-                        },
-                        {
-                            "question": "What's the typical implementation cost?",
-                            "answer": "Unlike traditional government software that requires expensive consultants, Blue can be implemented by your own staff in weeks. Most agencies are fully operational within 30 days, dramatically reducing implementation costs."
-                        },
-                        {
-                            "question": "Can Blue replace multiple existing systems?",
-                            "answer": "Yes, many agencies use Blue to consolidate multiple outdated systems into one modern platform. This reduces licensing costs, simplifies IT management, and improves efficiency across departments."
-                        }
-                    ]
-                },
-                {
-                    "name": "Implementation & Training",
-                    "questions": [
-                        {
-                            "question": "How quickly can we deploy Blue?",
-                            "answer": "Most government agencies are operational within 2-4 weeks. Blue's intuitive interface means minimal training is required, and our implementation team helps you get started quickly without disrupting ongoing operations."
-                        },
-                        {
-                            "question": "What training is required for staff?",
-                            "answer": "Blue is designed to be intuitive. Most staff need only 1-2 hours of training to become proficient. We provide comprehensive documentation, video tutorials, and ongoing support to ensure successful adoption."
-                        },
-                        {
-                            "question": "Can Blue integrate with our existing systems?",
-                            "answer": "Yes, Blue offers API integration to connect with existing government systems. Whether you need to sync with financial systems, GIS platforms, or other databases, we can help establish the necessary connections."
-                        }
-                    ]
-                },
-                {
-                    "name": "Public Access & Transparency",
-                    "questions": [
-                        {
-                            "question": "Can citizens access Blue directly?",
-                            "answer": "Yes, Blue provides public portal options where citizens can submit requests, track their status, and access public information. The portal can be fully branded with your agency's identity."
-                        },
-                        {
-                            "question": "How do we control what information is public?",
-                            "answer": "Blue's granular permission system lets you control exactly what information is visible to the public, staff, and different user groups. You can ensure sensitive information remains protected while providing appropriate transparency."
-                        },
-                        {
-                            "question": "Can Blue help with meeting transparency requirements?",
-                            "answer": "Absolutely. Blue makes it easy to publish public information, track government activities, and provide citizens with self-service access to appropriate data. Automated reporting helps demonstrate accountability and meet transparency mandates."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$governmentFaqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "government.faq_category_1")
+                    "questions" (slice
+                        (dict
+                            "question" (t "government.faq_1_1_question")
+                            "answer" (t "government.faq_1_1_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_1_2_question")
+                            "answer" (t "government.faq_1_2_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_1_3_question")
+                            "answer" (t "government.faq_1_3_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "government.faq_category_2")
+                    "questions" (slice
+                        (dict
+                            "question" (t "government.faq_2_1_question")
+                            "answer" (t "government.faq_2_1_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_2_2_question")
+                            "answer" (t "government.faq_2_2_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_2_3_question")
+                            "answer" (t "government.faq_2_3_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "government.faq_category_3")
+                    "questions" (slice
+                        (dict
+                            "question" (t "government.faq_3_1_question")
+                            "answer" (t "government.faq_3_1_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_3_2_question")
+                            "answer" (t "government.faq_3_2_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_3_3_question")
+                            "answer" (t "government.faq_3_3_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "government.faq_category_4")
+                    "questions" (slice
+                        (dict
+                            "question" (t "government.faq_4_1_question")
+                            "answer" (t "government.faq_4_1_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_4_2_question")
+                            "answer" (t "government.faq_4_2_answer")
+                        )
+                        (dict
+                            "question" (t "government.faq_4_3_question")
+                            "answer" (t "government.faq_4_3_answer")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $governmentFaqData}}
     </div>
 
     <!-- Final CTA -->
     <div class="px-6 lg:px-8">
-        {{$ctaData := parseJSON `{
-            "Title": "Modernize your agency operations",
-            "SecondaryText": "Schedule a Demo",
-            "SecondaryUrl": "/contact",
-            "PrimaryText": "Start Free Trial",
-            "PrimaryUrl": "/signup"
-        }`}}
+        {{$ctaData := dict
+            "Title" (t "government.cta_title")
+            "SecondaryText" (t "government.cta_secondary_text")
+            "SecondaryUrl" "/contact"
+            "PrimaryText" (t "government.cta_primary_text")
+            "PrimaryUrl" "/signup"
+        }}
         {{template "dual-button-cta" $ctaData}}
     </div>
 

@@ -1,46 +1,46 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Non-Profit Solutions" 
-            "Subtitle" "Maximize mission impact with streamlined grant management, volunteer coordination, and donor tracking." 
+            "Title" (t "non-profits.page_title") 
+            "Subtitle" (t "non-profits.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- Customer Logos Section -->
     <div class="mb-20">
-        {{$nonprofitLogos := parseJSON `{
-            "title": "Helping those who help the world",
-            "logos": [
-                { "name": "World Food Programme", "src": "/customers/wfp.svg" },
-                { "name": "Save the Children", "src": "/customers/savethechildren.svg" },
-                { "name": "International Labour Organization", "src": "/customers/ilo.webp" },
-                { "name": "CARE", "src": "/customers/careimpact.png" },
-                { "name": "Action", "src": "/customers/action.png" },
-                { "name": "IL", "src": "/customers/ilo.webp" }
-            ]
-        }`}}
+        {{$nonprofitLogos := dict
+            "title" (t "non-profits.logo_section_title")
+            "logos" (slice
+                (dict "name" "World Food Programme" "src" "/customers/wfp.svg")
+                (dict "name" "Save the Children" "src" "/customers/savethechildren.svg")
+                (dict "name" "International Labour Organization" "src" "/customers/ilo.webp")
+                (dict "name" "CARE" "src" "/customers/careimpact.png")
+                (dict "name" "Action" "src" "/customers/action.png")
+                (dict "name" "IL" "src" "/customers/ilo.webp")
+            )
+        }}
         {{template "logo-grid" $nonprofitLogos}}
     </div>
 
     <!-- Key Reasons Section -->
     <div class="mb-20">
-        {{$nonprofitFeatures := parseJSON `{
-            "Title": "Why non-profits choose Blue",
-            "Features": [
-                {
-                    "Title": "50% discount on list prices",
-                    "Description": "Special non-profit pricing lets you focus your budget on your mission, not software costs."
-                },
-                {
-                    "Title": "Simplicity",
-                    "Description": "Get teams up and running in hours, not weeks. Higher adoption means more time for mission-critical work."
-                },
-                {
-                    "Title": "Flexibility",
-                    "Description": "Adapts to your unique processes. Stay compliant, start quickly, and expand as you grow."
-                }
-            ]
-        }`}}
+        {{$nonprofitFeatures := dict
+            "Title" (t "non-profits.why_choose_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "non-profits.feature_1_title")
+                    "Description" (t "non-profits.feature_1_description")
+                )
+                (dict
+                    "Title" (t "non-profits.feature_2_title")
+                    "Description" (t "non-profits.feature_2_description")
+                )
+                (dict
+                    "Title" (t "non-profits.feature_3_title")
+                    "Description" (t "non-profits.feature_3_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $nonprofitFeatures}}
     </div>
 
@@ -49,79 +49,79 @@
         {{template "testimonial-single" 
             dict 
                 "ImageUrl" "/testimonials/kyriacos.jpeg"
-                "Quote" "Blue has massively helped us manage our data work, ensuring that our teams are clear on what they need to do, and why. It's a great tool for us."
-                "Name" "Kyriacos Koupparis, PhD"
-                "Title" "Head of Unit, Early Warning and Forecasting, World Food Programme."
+                "Quote" (t "non-profits.testimonial_quote")
+                "Name" (t "non-profits.testimonial_name")
+                "Title" (t "non-profits.testimonial_title")
         }}
     </div>
 
     <!-- Non-profit Use Cases Section Header -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Non-profit use cases</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "non-profits.use_cases_title"}}</h2>
     </div>
 
     <!-- Grant Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$grantManagementData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "https://media.blue.cc/grant-management-example.mp4",
-            "Title": "Grant Application Process",
-            "Description": "Track application stages, automate deadline reminders, and manage documents. Never miss a critical grant deadline again.",
-            "SeeAlso": {
-                "Heading": "See also",
-                "Links": [
-                    { "Text": "Audit Trails", "Description": "maintain compliance with automatic tracking of all changes", "Url": "/platform/features/audit-trails" },
-                    { "Text": "Templates", "Description": "create reusable grant application templates", "Url": "/platform/features/templates" },
-                    { "Text": "Formula Fields", "Description": "calculate grant utilization rates and impact metrics", "Url": "/docs/custom-fields/formula" }
-                ]
-            }
-        }`}}
+        {{$grantManagementData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "https://media.blue.cc/grant-management-example.mp4"
+            "Title" (t "non-profits.grant_management_title")
+            "Description" (t "non-profits.grant_management_description")
+            "SeeAlso" (dict
+                "Heading" (t "non-profits.grant_management_see_also")
+                "Links" (slice
+                    (dict "Text" (t "non-profits.grant_management_link_1") "Description" (t "non-profits.grant_management_link_1_desc") "Url" "/platform/features/audit-trails")
+                    (dict "Text" (t "non-profits.grant_management_link_2") "Description" (t "non-profits.grant_management_link_2_desc") "Url" "/platform/features/templates")
+                    (dict "Text" (t "non-profits.grant_management_link_3") "Description" (t "non-profits.grant_management_link_3_desc") "Url" "/docs/custom-fields/formula")
+                )
+            )
+        }}
         {{template "feature-video" $grantManagementData}}
     </div>
 
     <!-- Project Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$projectManagementData := parseJSON `{
-            "ImagePosition": "right",
-            "ImageUrl": "/product/project-management-database.png",
-            "Title": "Project and Program Management",
-            "Description": "Deliver projects on time and within budget. Monitor progress, allocate resources, and maintain transparency for stakeholders and funders.",
-            "Button": {
-                "Text": "Explore Project Management",
-                "Url": "/solutions/use-case/project-management"
-            },
-            "SeeAlso": {
-                "Heading": "See also",
-                "Links": [
-                    { "Text": "Timeline & Gantt Charts", "Description": "visualize program roadmaps and project dependencies", "Url": "/docs/views/timeline-gantt-charts" },
-                    { "Text": "Workspaces", "Description": "organize different programs into separate collaborative spaces", "Url": "/platform/features/workspaces" },
-                    { "Text": "Dashboards", "Description": "monitor real-time progress and impact metrics", "Url": "/platform/features/dashboards" }
-                ]
-            }
-        }`}}
+        {{$projectManagementData := dict
+            "ImagePosition" "right"
+            "ImageUrl" "/product/project-management-database.png"
+            "Title" (t "non-profits.project_management_title")
+            "Description" (t "non-profits.project_management_description")
+            "Button" (dict
+                "Text" (t "non-profits.project_management_button")
+                "Url" "/solutions/use-case/project-management"
+            )
+            "SeeAlso" (dict
+                "Heading" (t "non-profits.project_management_see_also")
+                "Links" (slice
+                    (dict "Text" (t "non-profits.project_management_link_1") "Description" (t "non-profits.project_management_link_1_desc") "Url" "/docs/views/timeline-gantt-charts")
+                    (dict "Text" (t "non-profits.project_management_link_2") "Description" (t "non-profits.project_management_link_2_desc") "Url" "/platform/features/workspaces")
+                    (dict "Text" (t "non-profits.project_management_link_3") "Description" (t "non-profits.project_management_link_3_desc") "Url" "/platform/features/dashboards")
+                )
+            )
+        }}
         {{template "feature-image" $projectManagementData}}
     </div>
 
     <!-- Volunteer Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$volunteerManagementData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "https://media.blue.cc/volunteer-custom-role.mp4",
-            "Title": "Volunteer Management",
-            "Description": "Create custom roles, manage permissions, and coordinate volunteer activities. Maximize every volunteer's contribution to your mission.",
-            "Button": {
-                "Text": "Learn about User Management",
-                "Url": "/platform/features/user-permissions"
-            },
-            "SeeAlso": {
-                "Heading": "See also",
-                "Links": [
-                    { "Text": "User Permissions", "Description": "create custom roles for different volunteer levels", "Url": "/platform/features/user-permissions" },
-                    { "Text": "Forms", "Description": "collect volunteer applications and availability schedules", "Url": "/platform/features/forms" },
-                    { "Text": "Chat", "Description": "enables real-time coordination between volunteers and staff", "Url": "/platform/features/chat" }
-                ]
-            }
-        }`}}
+        {{$volunteerManagementData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "https://media.blue.cc/volunteer-custom-role.mp4"
+            "Title" (t "non-profits.volunteer_management_title")
+            "Description" (t "non-profits.volunteer_management_description")
+            "Button" (dict
+                "Text" (t "non-profits.volunteer_management_button")
+                "Url" "/platform/features/user-permissions"
+            )
+            "SeeAlso" (dict
+                "Heading" (t "non-profits.volunteer_management_see_also")
+                "Links" (slice
+                    (dict "Text" (t "non-profits.volunteer_management_link_1") "Description" (t "non-profits.volunteer_management_link_1_desc") "Url" "/platform/features/user-permissions")
+                    (dict "Text" (t "non-profits.volunteer_management_link_2") "Description" (t "non-profits.volunteer_management_link_2_desc") "Url" "/platform/features/forms")
+                    (dict "Text" (t "non-profits.volunteer_management_link_3") "Description" (t "non-profits.volunteer_management_link_3_desc") "Url" "/platform/features/chat")
+                )
+            )
+        }}
         {{template "feature-video" $volunteerManagementData}}
     </div>
 
@@ -129,23 +129,23 @@
 
     <!-- Non-Profit Stats Section -->
     <div class="mb-20">
-        {{$nonprofitStatsData := parseJSON `{
-            "Title": "Trusted by mission-driven organizations worldwide",
-            "Stats": [
-                {
-                    "Number": "2B+",
-                    "Description": "in grants managed successfully"
-                },
-                {
-                    "Number": "500K+",
-                    "Description": "volunteers coordinated"
-                },
-                {
-                    "Number": "95%",
-                    "Description": "grant deadlines met on time"
-                }
-            ]
-        }`}}
+        {{$nonprofitStatsData := dict
+            "Title" (t "non-profits.stats_title")
+            "Stats" (slice
+                (dict
+                    "Number" (t "non-profits.stat_1_number")
+                    "Description" (t "non-profits.stat_1_description")
+                )
+                (dict
+                    "Number" (t "non-profits.stat_2_number")
+                    "Description" (t "non-profits.stat_2_description")
+                )
+                (dict
+                    "Number" (t "non-profits.stat_3_number")
+                    "Description" (t "non-profits.stat_3_description")
+                )
+            )
+        }}
         {{template "stats-section" $nonprofitStatsData}}
     </div>
 
@@ -154,14 +154,14 @@
         <div class="mx-auto max-w-4xl rounded-3xl ring-1 ring-gray-200 lg:flex lg:max-w-none">
             <div class="p-8 sm:p-10 lg:flex-auto">
                 <div class="flex items-center gap-3 mb-4">
-                    <h3 class="text-3xl font-semibold tracking-tight text-gray-900">Special Non-Profit Pricing</h3>
+                    <h3 class="text-3xl font-semibold tracking-tight text-gray-900">{{t "non-profits.pricing_section_title"}}</h3>
                     <span class="inline-flex items-center rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800">
-                        50% Off
+                        {{t "non-profits.pricing_discount_badge"}}
                     </span>
                 </div>
-                <p class="mt-6 text-base/7 text-gray-600">Everything you need to manage grants, volunteers, and programs with special pricing for registered non-profits.</p>
+                <p class="mt-6 text-base/7 text-gray-600">{{t "non-profits.pricing_description"}}</p>
                 <div class="mt-10 flex items-center gap-x-4">
-                    <h4 class="flex-none text-sm/6 font-semibold text-brand-blue">What's included</h4>
+                    <h4 class="flex-none text-sm/6 font-semibold text-brand-blue">{{t "non-profits.pricing_whats_included"}}</h4>
                     <div class="h-px flex-auto bg-gray-100"></div>
                 </div>
                 <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm/6 text-gray-600 sm:grid-cols-2 sm:gap-6">
@@ -169,37 +169,37 @@
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        Unlimited Projects & Programs
+                        {{t "non-profits.pricing_feature_1"}}
                     </li>
                     <li class="flex gap-x-3">
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        FREE for volunteers & donors
+                        {{t "non-profits.pricing_feature_2"}}
                     </li>
                     <li class="flex gap-x-3">
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        Grant tracking & automation
+                        {{t "non-profits.pricing_feature_3"}}
                     </li>
                     <li class="flex gap-x-3">
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        Donor management & reporting
+                        {{t "non-profits.pricing_feature_4"}}
                     </li>
                     <li class="flex gap-x-3">
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        Board reporting & transparency
+                        {{t "non-profits.pricing_feature_5"}}
                     </li>
                     <li class="flex gap-x-3">
                         <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor">
                             <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                         </svg>
-                        Mobile apps & API access
+                        {{t "non-profits.pricing_feature_6"}}
                     </li>
                 </ul>
             </div>
@@ -208,7 +208,7 @@
                     <div class="mx-auto max-w-xs px-8">
                         <!-- Monthly/Yearly Toggle -->
                         <div class="flex items-center justify-center mb-6">
-                            <span class="text-sm font-medium text-gray-600 mr-3" :class="{ 'text-gray-900': !isYearly }">Monthly</span>
+                            <span class="text-sm font-medium text-gray-600 mr-3" :class="{ 'text-gray-900': !isYearly }">{{t "non-profits.pricing_monthly"}}</span>
                             <button @click="isYearly = !isYearly"
                                     class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none"
                                     :class="isYearly ? 'bg-brand-blue' : 'bg-gray-200'">
@@ -216,24 +216,24 @@
                                 <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
                                       :class="isYearly ? 'translate-x-6' : 'translate-x-1'"></span>
                             </button>
-                            <span class="text-sm font-medium text-gray-600 ml-3" :class="{ 'text-gray-900': isYearly }">Yearly</span>
+                            <span class="text-sm font-medium text-gray-600 ml-3" :class="{ 'text-gray-900': isYearly }">{{t "non-profits.pricing_yearly"}}</span>
                         </div>
                         
                         <!-- Price Display -->
                         <div x-show="!isYearly" class="flex items-baseline justify-center gap-x-2">
-                            <span class="text-6xl font-semibold tracking-tight text-gray-900">$3.5</span>
-                            <span class="text-sm/6 font-semibold tracking-wide text-gray-600">/user</span>
+                            <span class="text-6xl font-semibold tracking-tight text-gray-900">{{t "non-profits.pricing_monthly_price"}}</span>
+                            <span class="text-sm/6 font-semibold tracking-wide text-gray-600">{{t "non-profits.pricing_per_user"}}</span>
                         </div>
                         
                         <div x-show="isYearly" class="flex items-baseline justify-center gap-x-2">
-                            <span class="text-6xl font-semibold tracking-tight text-gray-900">$35</span>
-                            <span class="text-sm/6 font-semibold tracking-wide text-gray-600">/user</span>
+                            <span class="text-6xl font-semibold tracking-tight text-gray-900">{{t "non-profits.pricing_yearly_price"}}</span>
+                            <span class="text-sm/6 font-semibold tracking-wide text-gray-600">{{t "non-profits.pricing_per_user"}}</span>
                         </div>
                         
                         <a href="mailto:support@blue.cc?subject=Application for Non-Profit Blue License" class="mt-10 block w-full rounded-md bg-brand-blue px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-brand-blue-hover transition-colors">
-                            Apply for Non-Profit Pricing
+                            {{t "non-profits.pricing_cta_button"}}
                         </a>
-                        <p class="mt-6 text-xs/5 text-gray-400">Requires 501(c)(3) verification</p>
+                        <p class="mt-6 text-xs/5 text-gray-400">{{t "non-profits.pricing_verification_note"}}</p>
                     </div>
                 </div>
             </div>
@@ -242,75 +242,75 @@
 
     <!-- FAQ Section -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Non-Profit FAQ</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "non-profits.faq_title"}}</h2>
         
-        {{$nonprofitFaqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Non-Profit Pricing & Qualification",
-                    "questions": [
-                        {
-                            "question": "How do I qualify for the 50% non-profit discount?",
-                            "answer": "We offer 50% off for registered 501(c)(3) organizations in the US and equivalent charitable organizations internationally. Simply email us at support@blue.cc with your tax-exempt documentation, and we'll verify your status and apply the discount within 24 hours."
-                        },
-                        {
-                            "question": "What does $3.50 per user actually cost for my organization?",
-                            "answer": "For a small non-profit with 5 staff members, you'd pay just $17.50/month. A medium organization with 15 staff pays $52.50/month. Volunteers, donors, and board members can access the system for free without counting toward your user limit."
-                        },
-                        {
-                            "question": "Can volunteers and donors access Blue without affecting our bill?",
-                            "answer": "Yes! Volunteers, donors, and external stakeholders can be given 'Client' role access at no charge. Only your core staff members who need full system access count toward your billing."
-                        },
-                        {
-                            "question": "Is there a setup fee or long-term contract required?",
-                            "answer": "No setup fees, no contracts. You can start with our 7-day free trial and cancel anytime. We believe in earning your business through great service, not binding contracts."
-                        }
-                    ]
-                },
-                {
-                    "name": "Grant Management & Compliance",
-                    "questions": [
-                        {
-                            "question": "How does Blue help with grant application deadlines?",
-                            "answer": "Blue's automation engine can send email and mobile notifications at custom intervals before grant deadlines. Set up workflows that remind your team 30 days, 7 days, and 1 day before applications are due, ensuring you never miss funding opportunities."
-                        },
-                        {
-                            "question": "Can Blue track grant requirements and reporting obligations?",
-                            "answer": "Absolutely. Use custom fields to track grant amounts, reporting requirements, spending restrictions, and outcome metrics. Automated reminders ensure you submit required reports on time, and our audit trail provides the documentation needed for compliance."
-                        },
-                        {
-                            "question": "How does Blue help with board reporting and transparency?",
-                            "answer": "Blue's dashboard and reporting features make board meetings effortless. Generate real-time reports on program progress, grant status, volunteer engagement, and budget utilization. Board members can access view-only dashboards to stay informed between meetings."
-                        },
-                        {
-                            "question": "What kind of financial tracking can Blue handle?",
-                            "answer": "While Blue isn't accounting software, it excels at budget tracking and grant allocation. Use currency fields to track grant amounts, program budgets, and spending categories. Generate reports showing how funds are being utilized across different programs and initiatives."
-                        }
-                    ]
-                },
-                {
-                    "name": "Volunteer & Donor Management",
-                    "questions": [
-                        {
-                            "question": "How can Blue streamline volunteer coordination?",
-                            "answer": "Create volunteer roles with specific permissions, track volunteer hours and contributions, schedule events and activities, and maintain communication through built-in chat. Public forms allow volunteers to sign up for events and indicate their availability and skills."
-                        },
-                        {
-                            "question": "Can Blue help manage donor relationships and communications?",
-                            "answer": "Yes! Track donor contact information, giving history, communication preferences, and engagement levels. Set up automated thank-you emails, donation reminders, and campaign updates. Custom fields can track donor interests, capacity, and cultivation status."
-                        },
-                        {
-                            "question": "Is volunteer and donor data secure in Blue?",
-                            "answer": "Blue provides enterprise-grade security with encryption, role-based access controls, and comprehensive audit trails. Your donor and volunteer data is protected with the same security standards used by Fortune 500 companies."
-                        },
-                        {
-                            "question": "How quickly can volunteers learn to use Blue?",
-                            "answer": "Blue is designed for simplicity. Most volunteers can navigate their assigned tasks within 15-30 minutes of basic orientation. The intuitive interface means less training time and higher adoption rates among your volunteer team."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$nonprofitFaqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "non-profits.faq_category_1")
+                    "questions" (slice
+                        (dict
+                            "question" (t "non-profits.faq_1_1_question")
+                            "answer" (t "non-profits.faq_1_1_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_1_2_question")
+                            "answer" (t "non-profits.faq_1_2_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_1_3_question")
+                            "answer" (t "non-profits.faq_1_3_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_1_4_question")
+                            "answer" (t "non-profits.faq_1_4_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "non-profits.faq_category_2")
+                    "questions" (slice
+                        (dict
+                            "question" (t "non-profits.faq_2_1_question")
+                            "answer" (t "non-profits.faq_2_1_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_2_2_question")
+                            "answer" (t "non-profits.faq_2_2_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_2_3_question")
+                            "answer" (t "non-profits.faq_2_3_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_2_4_question")
+                            "answer" (t "non-profits.faq_2_4_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "non-profits.faq_category_3")
+                    "questions" (slice
+                        (dict
+                            "question" (t "non-profits.faq_3_1_question")
+                            "answer" (t "non-profits.faq_3_1_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_3_2_question")
+                            "answer" (t "non-profits.faq_3_2_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_3_3_question")
+                            "answer" (t "non-profits.faq_3_3_answer")
+                        )
+                        (dict
+                            "question" (t "non-profits.faq_3_4_question")
+                            "answer" (t "non-profits.faq_3_4_answer")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $nonprofitFaqData}}
     </div>
@@ -319,10 +319,10 @@
     <div class="px-6 lg:px-8">
         {{template "dual-button-cta" 
             dict 
-                "Title" "Ready to maximize your non-profit's impact?"
-                "SecondaryText" "Schedule a Demo"
+                "Title" (t "non-profits.cta_title")
+                "SecondaryText" (t "non-profits.cta_secondary_text")
                 "SecondaryUrl" "/contact"
-                "PrimaryText" "Start Free Trial"
+                "PrimaryText" (t "non-profits.cta_primary_text")
                 "PrimaryUrl" "/signup"
         }}
     </div>
