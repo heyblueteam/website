@@ -1,37 +1,37 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Education Solutions" 
-            "Subtitle" "Streamline student records, faculty coordination, and administrative workflows with purpose-built education tools." 
+            "Title" (t "education.page_title") 
+            "Subtitle" (t "education.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
     <!-- Problem Agitation Section -->
     <div class="mb-20">
-        {{$educationProblems := parseJSON `{
-            "Title": "Stop struggling with outdated<br>education administration.",
-            "Description": "Educational institutions waste countless hours on manual processes that modern tools can handle automatically.",
-            "ValueProps": [
-                {
-                    "Title": "Information scattered across multiple systems",
-                    "Description": "Student data trapped in spreadsheets, emails, and separate databases makes it impossible to get a complete picture or respond quickly to requests."
-                },
-                {
-                    "Title": "Compliance deadlines that keep you up at night",
-                    "Description": "Scrambling to gather required documentation for state reports and accreditation because information isn't organized or easily accessible."
-                },
-                {
-                    "Title": "Manual processes eating your time",
-                    "Description": "Hours spent on tasks like enrollment tracking, schedule coordination, and report generation that should take minutes with the right system."
-                }
-            ]
-        }`}}
+        {{$educationProblems := dict
+            "Title" (t "education.problems_title")
+            "Description" (t "education.problems_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "education.problem_1_title")
+                    "Description" (t "education.problem_1_description")
+                )
+                (dict
+                    "Title" (t "education.problem_2_title")
+                    "Description" (t "education.problem_2_description")
+                )
+                (dict
+                    "Title" (t "education.problem_3_title")
+                    "Description" (t "education.problem_3_description")
+                )
+            )
+        }}
         {{template "value-propositions" $educationProblems}}
     </div>
     
     <!-- Educational Institutions List -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-12">Trusted by educational institutions worldwide.</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-12">{{t "education.institutions_title"}}</h2>
         {{$educationCustomers := parseJSON `{
             "customers": [
                 {"name": "Harvard University", "url": "https://college.harvard.edu"},
@@ -234,116 +234,116 @@
 
     <!-- Key Reasons Section -->
     <div class="mb-20">
-        {{$educationFeatures := parseJSON `{
-            "Title": "Why educational institutions choose Blue",
-            "Features": [
-                {
-                    "Title": "Streamlined Student Records",
-                    "Description": "Centralize student information from application to graduation. Track enrollment, grades, and attendance with custom fields."
-                },
-                {
-                    "Title": "Faculty & Resource Coordination",
-                    "Description": "Schedule classes, manage faculty workloads, and allocate resources across departments with automated workflows."
-                },
-                {
-                    "Title": "Compliance & Reporting",
-                    "Description": "Generate required state reports and maintain detailed audit trails. Never miss accreditation deadlines."
-                }
-            ]
-        }`}}
+        {{$educationFeatures := dict
+            "Title" (t "education.why_choose_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "education.feature_1_title")
+                    "Description" (t "education.feature_1_description")
+                )
+                (dict
+                    "Title" (t "education.feature_2_title")
+                    "Description" (t "education.feature_2_description")
+                )
+                (dict
+                    "Title" (t "education.feature_3_title")
+                    "Description" (t "education.feature_3_description")
+                )
+            )
+        }}
         {{template "features-grid-simple" $educationFeatures}}
     </div>
 
     <!-- Education Use Cases Section Header -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Education use cases</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "education.use_cases_title"}}</h2>
     </div>
 
     <!-- Student Records Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$studentRecordsData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "/product/custom-fields.mp4",
-            "Title": "Student Records & Enrollment Management",
-            "Description": "Centralize student information from application to graduation. Track enrollment status, academic progress, and attendance with custom fields tailored to your needs.",
-            "Button": {
-                "Text": "Learn about Student Management",
-                "Url": "/docs/use-cases/student-management"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Database View", "Description": "manage student records in spreadsheet-like format", "Url": "/platform/features/database" },
-                    { "Text": "Reference Fields", "Description": "link students to courses and academic programs", "Url": "/docs/custom-fields/reference" },
-                    { "Text": "API Access", "Description": "integrate with existing student information systems", "Url": "/platform/api" }
-                ]
-            }
-        }`}}
+        {{$studentRecordsData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "/product/custom-fields.mp4"
+            "Title" (t "education.student_records_title")
+            "Description" (t "education.student_records_description")
+            "Button" (dict
+                "Text" (t "education.student_records_button")
+                "Url" "/docs/use-cases/student-management"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "education.student_records_link_1") "Description" (t "education.student_records_link_1_desc") "Url" "/platform/features/database")
+                    (dict "Text" (t "education.student_records_link_2") "Description" (t "education.student_records_link_2_desc") "Url" "/docs/custom-fields/reference")
+                    (dict "Text" (t "education.student_records_link_3") "Description" (t "education.student_records_link_3_desc") "Url" "/platform/api")
+                )
+            )
+        }}
         {{template "feature-video" $studentRecordsData}}
     </div>
 
     <!-- Course & Faculty Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$courseManagementData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "/product/kanban-board.mp4",
-            "Title": "Course Management & Faculty Scheduling",
-            "Description": "Coordinate course offerings, manage faculty assignments, and track classroom resources. Automatically detect schedule conflicts across departments.",
-            "Button": {
-                "Text": "Explore Course Management",
-                "Url": "/solutions/use-case/resource-management"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Calendar View", "Description": "visualize course schedules and academic calendars", "Url": "/platform/features/calendar" },
-                    { "Text": "Workspaces", "Description": "organize departments into separate collaborative areas", "Url": "/platform/features/workspaces" },
-                    { "Text": "Timeline & Gantt Charts", "Description": "plan semester schedules and resource allocation", "Url": "/docs/views/timeline-gantt-charts" }
-                ]
-            }
-        }`}}
+        {{$courseManagementData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "/product/kanban-board.mp4"
+            "Title" (t "education.course_management_title")
+            "Description" (t "education.course_management_description")
+            "Button" (dict
+                "Text" (t "education.course_management_button")
+                "Url" "/solutions/use-case/resource-management"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "education.course_management_link_1") "Description" (t "education.course_management_link_1_desc") "Url" "/platform/features/calendar")
+                    (dict "Text" (t "education.course_management_link_2") "Description" (t "education.course_management_link_2_desc") "Url" "/platform/features/workspaces")
+                    (dict "Text" (t "education.course_management_link_3") "Description" (t "education.course_management_link_3_desc") "Url" "/docs/views/timeline-gantt-charts")
+                )
+            )
+        }}
         {{template "feature-video" $courseManagementData}}
     </div>
 
     <!-- Academic Compliance Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$complianceData := parseJSON `{
-            "VideoPosition": "left",
-            "VideoUrl": "/product/reporting.mp4",
-            "Title": "Academic Compliance & Reporting",
-            "Description": "Generate required state reports and track graduation requirements. Automated reporting ensures you never miss critical accreditation deadlines.",
-            "Button": {
-                "Text": "See Compliance Features",
-                "Url": "/docs/reporting"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Audit Trails", "Description": "track all data changes for compliance requirements", "Url": "/platform/features/audit-trails" },
-                    { "Text": "PDF Generation", "Description": "create official transcripts and compliance reports", "Url": "/platform/features/pdf-generation" },
-                    { "Text": "CSV Export", "Description": "export data for state reporting requirements", "Url": "/docs/integrations/csv-export" }
-                ]
-            }
-        }`}}
+        {{$complianceData := dict
+            "VideoPosition" "left"
+            "VideoUrl" "/product/reporting.mp4"
+            "Title" (t "education.compliance_title")
+            "Description" (t "education.compliance_description")
+            "Button" (dict
+                "Text" (t "education.compliance_button")
+                "Url" "/docs/reporting"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "education.compliance_link_1") "Description" (t "education.compliance_link_1_desc") "Url" "/platform/features/audit-trails")
+                    (dict "Text" (t "education.compliance_link_2") "Description" (t "education.compliance_link_2_desc") "Url" "/platform/features/pdf-generation")
+                    (dict "Text" (t "education.compliance_link_3") "Description" (t "education.compliance_link_3_desc") "Url" "/docs/integrations/csv-export")
+                )
+            )
+        }}
         {{template "feature-video" $complianceData}}
     </div>
 
     <!-- Student Services Management Feature -->
     <div class="mb-20 px-6 lg:px-8">
-        {{$studentServicesData := parseJSON `{
-            "VideoPosition": "right",
-            "VideoUrl": "/product/forms.mp4",
-            "Title": "Student Services & Administrative Requests",
-            "Description": "Streamline student service requests including transcripts, room assignments, and academic appeals. Track request status and automate approvals.",
-            "Button": {
-                "Text": "Learn about Student Services",
-                "Url": "/docs/forms"
-            },
-            "SeeAlso": {
-                "Links": [
-                    { "Text": "Wiki & Docs", "Description": "create knowledge bases for student resources", "Url": "/docs/wiki" },
-                    { "Text": "Templates", "Description": "standardize common administrative processes", "Url": "/platform/features/templates" },
-                    { "Text": "Search", "Description": "quickly find student records and documents", "Url": "/docs/projects/search" }
-                ]
-            }
-        }`}}
+        {{$studentServicesData := dict
+            "VideoPosition" "right"
+            "VideoUrl" "/product/forms.mp4"
+            "Title" (t "education.student_services_title")
+            "Description" (t "education.student_services_description")
+            "Button" (dict
+                "Text" (t "education.student_services_button")
+                "Url" "/docs/forms"
+            )
+            "SeeAlso" (dict
+                "Links" (slice
+                    (dict "Text" (t "education.student_services_link_1") "Description" (t "education.student_services_link_1_desc") "Url" "/docs/wiki")
+                    (dict "Text" (t "education.student_services_link_2") "Description" (t "education.student_services_link_2_desc") "Url" "/platform/features/templates")
+                    (dict "Text" (t "education.student_services_link_3") "Description" (t "education.student_services_link_3_desc") "Url" "/docs/projects/search")
+                )
+            )
+        }}
         {{template "feature-video" $studentServicesData}}
     </div>
 
@@ -352,106 +352,106 @@
         {{template "testimonial-single" 
             dict 
                 "ImageUrl" "/testimonials/education-administrator.png"
-                "Quote" "Blue eliminated our enrollment bottlenecks and cut compliance reporting time by 80%. Our registrar staff can now focus on students instead of spreadsheets."
-                "Name" "Dr. Jennifer Wilson"
-                "Title" "Registrar, Metro Community College"
+                "Quote" (t "education.testimonial_quote")
+                "Name" (t "education.testimonial_name")
+                "Title" (t "education.testimonial_title")
         }}
     </div>
 
     <!-- Education Stats Section -->
     <div class="mb-20">
-        {{$educationStatsData := parseJSON `{
-            "Title": "Trusted by educational institutions nationwide",
-            "Stats": [
-                {
-                    "Number": "2.5M+",
-                    "Description": "student records managed"
-                },
-                {
-                    "Number": "15000+",
-                    "Description": "hours saved monthly"
-                },
-                {
-                    "Number": "99%",
-                    "Description": "compliance deadlines met"
-                }
-            ]
-        }`}}
+        {{$educationStatsData := dict
+            "Title" (t "education.stats_title")
+            "Stats" (slice
+                (dict
+                    "Number" (t "education.stat_1_number")
+                    "Description" (t "education.stat_1_description")
+                )
+                (dict
+                    "Number" (t "education.stat_2_number")
+                    "Description" (t "education.stat_2_description")
+                )
+                (dict
+                    "Number" (t "education.stat_3_number")
+                    "Description" (t "education.stat_3_description")
+                )
+            )
+        }}
         {{template "stats-section" $educationStatsData}}
     </div>
 
     <!-- FAQ Section -->
     <div class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">Education FAQ</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 mb-16">{{t "education.faq_title"}}</h2>
         
-        {{$educationFaqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Student Data & Privacy",
-                    "questions": [
-                        {
-                            "question": "How does Blue protect student data and ensure FERPA compliance?",
-                            "answer": "Blue provides enterprise-grade security with role-based access controls, audit trails, and data encryption. Our platform helps institutions maintain FERPA compliance by controlling exactly who can access student information and tracking all data interactions."
-                        },
-                        {
-                            "question": "Can we control access to sensitive student information?",
-                            "answer": "Yes, Blue's granular permission system allows you to control access at the record level. You can ensure that only authorized staff can view sensitive student data, and external users like parents or part-time faculty only see what they need."
-                        },
-                        {
-                            "question": "How are student record changes tracked for compliance?",
-                            "answer": "Blue maintains comprehensive audit trails showing who accessed or modified student records, when changes occurred, and what was changed. This detailed logging helps with compliance audits and ensures accountability."
-                        }
-                    ]
-                },
-                {
-                    "name": "Implementation & Training",
-                    "questions": [
-                        {
-                            "question": "How quickly can we implement Blue for our institution?",
-                            "answer": "Most educational institutions are up and running within 2-4 weeks. Our implementation team helps with data migration, workflow setup, and staff training to ensure a smooth transition from your current systems."
-                        },
-                        {
-                            "question": "What training is required for faculty and staff?",
-                            "answer": "Blue is designed for ease of use. Most staff need just 1-2 hours of training to become proficient. We provide comprehensive training materials, video tutorials, and ongoing support to ensure successful adoption."
-                        },
-                        {
-                            "question": "Can Blue integrate with our existing student information system?",
-                            "answer": "Yes, Blue offers API integration capabilities and works with common SIS platforms. We can help establish data synchronization to ensure Blue complements your existing educational technology stack."
-                        }
-                    ]
-                },
-                {
-                    "name": "Academic Operations",
-                    "questions": [
-                        {
-                            "question": "Can Blue handle academic calendars and course scheduling?",
-                            "answer": "Absolutely. Blue's calendar and timeline views are perfect for academic scheduling. You can manage course schedules, track academic deadlines, coordinate faculty assignments, and visualize the entire academic calendar."
-                        },
-                        {
-                            "question": "How does Blue manage enrollment periods and registration?",
-                            "answer": "Blue streamlines enrollment with automated workflows that move students through registration stages, check prerequisites, manage waitlists, and send notifications. Custom fields track enrollment status and requirements."
-                        },
-                        {
-                            "question": "Can we track graduation requirements and academic progress?",
-                            "answer": "Yes, custom fields and automation rules can track credit accumulation, GPA calculations, and graduation requirements. Blue can automatically flag students who are off-track and generate progress reports for advisors."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$educationFaqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "education.faq_category_1")
+                    "questions" (slice
+                        (dict
+                            "question" (t "education.faq_1_1_question")
+                            "answer" (t "education.faq_1_1_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_1_2_question")
+                            "answer" (t "education.faq_1_2_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_1_3_question")
+                            "answer" (t "education.faq_1_3_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "education.faq_category_2")
+                    "questions" (slice
+                        (dict
+                            "question" (t "education.faq_2_1_question")
+                            "answer" (t "education.faq_2_1_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_2_2_question")
+                            "answer" (t "education.faq_2_2_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_2_3_question")
+                            "answer" (t "education.faq_2_3_answer")
+                        )
+                    )
+                )
+                (dict
+                    "name" (t "education.faq_category_3")
+                    "questions" (slice
+                        (dict
+                            "question" (t "education.faq_3_1_question")
+                            "answer" (t "education.faq_3_1_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_3_2_question")
+                            "answer" (t "education.faq_3_2_answer")
+                        )
+                        (dict
+                            "question" (t "education.faq_3_3_question")
+                            "answer" (t "education.faq_3_3_answer")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $educationFaqData}}
     </div>
 
     <!-- Final CTA -->
     <div class="px-6 lg:px-8">
-        {{$ctaData := parseJSON `{
-            "Title": "Cut administration by 50%",
-            "SecondaryText": "Schedule a Demo",
-            "SecondaryUrl": "/contact/sales",
-            "PrimaryText": "Get Started Free",
-            "PrimaryUrl": "https://app.blue.cc"
-        }`}}
+        {{$ctaData := dict
+            "Title" (t "education.cta_title")
+            "SecondaryText" (t "education.cta_secondary_text")
+            "SecondaryUrl" "/contact/sales"
+            "PrimaryText" (t "education.cta_primary_text")
+            "PrimaryUrl" "https://app.blue.cc"
+        }}
         {{template "dual-button-cta" $ctaData}}
     </div>
 

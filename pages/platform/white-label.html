@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "Make Blue your own" 
-            "Subtitle" "Transform Blue into your own branded platform. Remove all Blue branding and create a seamless experience for your customers." 
+            "Title" (t "white-label.page_title") 
+            "Subtitle" (t "white-label.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -25,10 +25,10 @@
                     <!-- Content with higher z-index -->
                     <div class="relative z-10">
                         <h3 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
-                            Our technology.<br>Your brand.
+                            {{t "white-label.our_technology_title"}}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400 text-lg mt-6">
-                            Leverage Blue's powerful platform without worrying about infrastructure, maintenance, or uptime. Focus on your customers while we handle the technology.
+                            {{t "white-label.our_technology_description"}}
                         </p>
                     </div>
                 </div>
@@ -36,16 +36,16 @@
                 <!-- Right Side: Value Props Stacked -->
                 <div class="space-y-8 p-8 md:pl-12">
                     <div class="space-y-3">
-                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">Complete brand control</h4>
-                        <p class="text-gray-600 dark:text-gray-400">Custom logos, colors, domains, and email templates make Blue invisible to your users.</p>
+                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">{{t "white-label.complete_brand_control_title"}}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">{{t "white-label.complete_brand_control_description"}}</p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">Enterprise infrastructure included</h4>
-                        <p class="text-gray-600 dark:text-gray-400">99.9% uptime, automatic updates, and security patches without any technical overhead.</p>
+                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">{{t "white-label.enterprise_infrastructure_title"}}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">{{t "white-label.enterprise_infrastructure_description"}}</p>
                     </div>
                     <div class="space-y-3">
-                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">Seamless user experience</h4>
-                        <p class="text-gray-600 dark:text-gray-400">From login to notifications, every touchpoint reflects your brand identity.</p>
+                        <h4 class="text-xl font-medium text-gray-900 dark:text-gray-100">{{t "white-label.seamless_experience_title"}}</h4>
+                        <p class="text-gray-600 dark:text-gray-400">{{t "white-label.seamless_experience_description"}}</p>
                     </div>
                 </div>
             </div>
@@ -59,10 +59,10 @@
                 <!-- Left Side: Text Content -->
                 <div class="space-y-6">
                     <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100">
-                        Your logo & colors everywhere
+                        {{t "white-label.logo_colors_title"}}
                     </h2>
                     <p class="text-lg text-gray-600 dark:text-gray-400">
-                        Upload your logo and set your brand colors once. They'll automatically appear across web, desktop, and mobile apps, creating a cohesive experience for your users.
+                        {{t "white-label.logo_colors_description"}}
                     </p>
                 </div>
                 
@@ -87,11 +87,11 @@
                             </svg>
                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
                                 <label for="logo-upload" class="font-medium text-brand-blue hover:text-brand-blue-hover cursor-pointer">
-                                    Upload a logo
+                                    {{t "white-label.upload_logo"}}
                                 </label>
-                                <span> or drag and drop</span>
+                                <span> {{t "white-label.drag_drop"}}</span>
                             </p>
-                            <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">PNG, JPG, SVG up to 500KB</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">{{t "white-label.file_types"}}</p>
                         </div>
                         
                         <!-- Hidden File Input -->
@@ -104,11 +104,11 @@
                         <!-- Actions when logo is uploaded -->
                         <div x-show="previewUrl" class="mt-4 space-y-2">
                             <label for="logo-upload" class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer transition-colors">
-                                Change Logo
+                                {{t "white-label.change_logo"}}
                             </label>
                             <button @click="resetLogo()" 
                                     class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 ml-2 transition-colors">
-                                Reset to Default
+                                {{t "white-label.reset_default"}}
                             </button>
                         </div>
                         
@@ -122,7 +122,7 @@
                     <!-- Info Box -->
                     <div class="mt-4 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
                         <p class="text-sm text-blue-900 dark:text-blue-200">
-                            <strong>Try it out!</strong> Upload your logo here to see how it looks in the navigation bar. This is a demo - your changes are saved locally in your browser.
+                            <strong>{{t "white-label.demo_notice"}}</strong>
                         </p>
                     </div>
                 </div>
@@ -132,23 +132,23 @@
 
     <!-- Custom Domain Section -->
     <section class="mb-20">
-        {{$domainData := parseJSON `{
-            "Title": "Your own custom domain",
-            "Description": "Run Blue on your own domain like app.yourcompany.com. Custom domains work for the main application, public forms, and file sharing links.",
-            "ImageUrl": "/product/white-label-domain.png",
-            "ImagePosition": "left"
-        }`}}
+        {{$domainData := dict
+            "Title" (t "white-label.custom_domain_title")
+            "Description" (t "white-label.custom_domain_description")
+            "ImageUrl" "/product/white-label-domain.png"
+            "ImagePosition" "left"
+        }}
         {{template "feature-image" $domainData}}
     </section>
 
     <!-- Email Customization Section -->
     <section class="mb-20">
-        {{$emailData := parseJSON `{
-            "Title": "Email notifications from your domain",
-            "Description": "Configure your own SMTP server to send all system emails from your domain. Customize email templates, sender names, and content to match your brand voice.",
-            "ImageUrl": "/product/white-label-email.png",
-            "ImagePosition": "right"
-        }`}}
+        {{$emailData := dict
+            "Title" (t "white-label.email_notifications_title")
+            "Description" (t "white-label.email_notifications_description")
+            "ImageUrl" "/product/white-label-email.png"
+            "ImagePosition" "right"
+        }}
         {{template "feature-image" $emailData}}
     </section>
 
@@ -159,11 +159,11 @@
             <div class="mx-auto max-w-2xl rounded-3xl ring-1 ring-gray-200 lg:mx-0 lg:flex lg:max-w-none">
                 <div class="p-8 sm:p-10 lg:flex-auto">
                     <div class="flex items-center gap-3 mb-4">
-                        <h3 class="text-3xl font-semibold tracking-tight text-gray-900">White-Label Add-On</h3>
+                        <h3 class="text-3xl font-semibold tracking-tight text-gray-900">{{t "white-label.pricing_title"}}</h3>
                     </div>
-                    <p class="mt-6 text-base/7 text-gray-600">Transform Blue into your own branded platform. Remove all Blue branding and create a seamless experience for your customers.</p>
+                    <p class="mt-6 text-base/7 text-gray-600">{{t "white-label.pricing_description"}}</p>
                     <div class="mt-10 flex items-center gap-x-4">
-                        <h4 class="flex-none text-sm/6 font-semibold text-brand-blue">What's included</h4>
+                        <h4 class="flex-none text-sm/6 font-semibold text-brand-blue">{{t "white-label.whats_included"}}</h4>
                         <div class="h-px flex-auto bg-gray-100"></div>
                     </div>
                     <ul role="list" class="mt-8 grid grid-cols-1 gap-4 text-sm/6 text-gray-600 sm:grid-cols-2 sm:gap-6">
@@ -171,37 +171,37 @@
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            Remove Blue Branding
+                            {{t "white-label.remove_branding"}}
                         </li>
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            Custom Onboarding Emails
+                            {{t "white-label.custom_onboarding"}}
                         </li>
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            Branded Desktop App
+                            {{t "white-label.branded_desktop"}}
                         </li>
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            Custom Logo & Colors
+                            {{t "white-label.custom_logo_colors"}}
                         </li>
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            Emails from your domain
+                            {{t "white-label.emails_from_domain"}}
                         </li>
                         <li class="flex gap-x-3">
                             <svg class="h-6 w-5 flex-none text-brand-blue" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
                                 <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
                             </svg>
-                            White Label Documentation
+                            {{t "white-label.white_label_docs"}}
                         </li>
                     </ul>
                 </div>
@@ -211,7 +211,7 @@
                         <div class="mx-auto max-w-xs px-8">
                             <!-- Monthly/Yearly Toggle -->
                             <div class="flex items-center justify-center mb-6">
-                                <span class="text-sm font-medium text-gray-600 mr-3" :class="{ 'text-gray-900': !isYearly }">Monthly</span>
+                                <span class="text-sm font-medium text-gray-600 mr-3" :class="{ 'text-gray-900': !isYearly }">{{t "white-label.monthly"}}</span>
                                 <button @click="isYearly = !isYearly"
                                         class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none"
                                         :class="isYearly ? 'bg-brand-blue' : 'bg-gray-200'">
@@ -219,24 +219,24 @@
                                     <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform"
                                           :class="isYearly ? 'translate-x-6' : 'translate-x-1'"></span>
                                 </button>
-                                <span class="text-sm font-medium text-gray-600 ml-3" :class="{ 'text-gray-900': isYearly }">Yearly</span>
+                                <span class="text-sm font-medium text-gray-600 ml-3" :class="{ 'text-gray-900': isYearly }">{{t "white-label.yearly"}}</span>
                             </div>
                             
                             <!-- Price Display -->
                             <div x-show="!isYearly" class="flex items-baseline justify-center gap-x-2">
                                 <span class="text-6xl font-semibold tracking-tight text-gray-900">$20</span>
-                                <span class="text-sm/6 font-semibold tracking-wide text-gray-600">/company</span>
+                                <span class="text-sm/6 font-semibold tracking-wide text-gray-600">{{t "white-label.per_company"}}</span>
                             </div>
                             
                             <div x-show="isYearly" class="flex items-baseline justify-center gap-x-2">
                                 <span class="text-6xl font-semibold tracking-tight text-gray-900">$200</span>
-                                <span class="text-sm/6 font-semibold tracking-wide text-gray-600">/company</span>
+                                <span class="text-sm/6 font-semibold tracking-wide text-gray-600">{{t "white-label.per_company"}}</span>
                             </div>
                             
                             <a href="https://app.blue.cc" class="mt-10 block w-full rounded-md bg-brand-blue px-3 py-2 text-center text-sm font-semibold text-white shadow-xs hover:bg-brand-blue-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue transition-colors">
-                                Get started with white label
+                                {{t "white-label.get_started"}}
                             </a>
-                            <p class="mt-6 text-xs/5 text-gray-400">Add-on to Core Subscription</p>
+                            <p class="mt-6 text-xs/5 text-gray-400">{{t "white-label.addon_note"}}</p>
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
 
     <!-- FAQ Section -->
     <section class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">White Label FAQ</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "white-label.faq_title"}}</h2>
         
         {{$faqData := parseJSON `{
             "categories": [
