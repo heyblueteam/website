@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "The best management software for Solopreneurs." 
-            "Subtitle" "Streamline your business with a single solution that meets all your needs, freeing up time for growth-focused activities and reducing operational complexity." 
+            "Title" (t "solopreneurs.page_title") 
+            "Subtitle" (t "solopreneurs.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -14,12 +14,12 @@
 
     <!-- Eran Bucai Testimonial -->
     <div class="mb-16">
-        {{$testimonialData := parseJSON `{
-            "ImageUrl": "/testimonials/eran-bucai.jpg",
-            "Quote": "Blue is my go-to process management tool for managing virtual assistants, video production workflows, and even for my sales CRM.",
-            "Name": "Eran Bucai",
-            "Title": "Founder of DotComTruths.com"
-        }`}}
+        {{$testimonialData := dict
+            "ImageUrl" "/testimonials/eran-bucai.jpg"
+            "Quote" (t "solopreneurs.testimonial_quote")
+            "Name" (t "solopreneurs.testimonial_name")
+            "Title" (t "solopreneurs.testimonial_title")
+        }}
         
         {{template "testimonial-single" $testimonialData}}
     </div>
@@ -27,71 +27,71 @@
 
     <!-- Reminders Feature -->
     <div class="mb-16">
-        {{$remindersData := parseJSON `{
-            "Title": "Reminder yourself what to do and when to do it.",
-            "Description": "Never let a task slip through the cracks. Blue helps you remember when you need to get things done.",
-            "VideoUrl": "/product/reminders.mp4",
-            "VideoPosition": "left",
-            "SeeAlso": {
-                "Heading": "Learn more:",
-                "Links": [
-                    {
-                        "Text": "Reminders",
-                        "Url": "/docs/records/reminders",
-                        "Description": "can trigger email and mobile notifications"
-                    },
-                    {
-                        "Text": "Repeating records", 
-                        "Url": "/docs/records/repeat",
-                        "Description": "can be used to automate recurring tasks"
-                    }
-                ]
-            }
-        }`}}
+        {{$remindersData := dict
+            "Title" (t "solopreneurs.reminders_title")
+            "Description" (t "solopreneurs.reminders_description")
+            "VideoUrl" "/product/reminders.mp4"
+            "VideoPosition" "left"
+            "SeeAlso" (dict
+                "Heading" (t "solopreneurs.reminders_see_also_heading")
+                "Links" (slice
+                    (dict
+                        "Text" (t "solopreneurs.reminders_link_1_text")
+                        "Url" "/docs/records/reminders"
+                        "Description" (t "solopreneurs.reminders_link_1_description")
+                    )
+                    (dict
+                        "Text" (t "solopreneurs.reminders_link_2_text")
+                        "Url" "/docs/records/repeat"
+                        "Description" (t "solopreneurs.reminders_link_2_description")
+                    )
+                )
+            )
+        }}
         
         {{template "feature-video" $remindersData}}
     </div>
 
     <!-- Automations Feature -->
     <div class="mb-16">
-        {{$automationsData := parseJSON `{
-            "Title": "Automations ensure you focus on what matters.",
-            "Description": "Time is money, especially as a Solopreneur. Blue helps you save time, so you can focus on making money — even while you sleep.",
-            "VideoUrl": "/product/automation.mp4",
-            "VideoPosition": "right",
-            "Button": {
-                "Text": "Learn about automations",
-                "Url": "/docs/automations/introduction"
-            }
-        }`}}
+        {{$automationsData := dict
+            "Title" (t "solopreneurs.automations_title")
+            "Description" (t "solopreneurs.automations_description")
+            "VideoUrl" "/product/automation.mp4"
+            "VideoPosition" "right"
+            "Button" (dict
+                "Text" (t "solopreneurs.automations_button_text")
+                "Url" "/docs/automations/introduction"
+            )
+        }}
         
         {{template "feature-video" $automationsData}}
     </div>
 
     <!-- FAQ Section -->
     <div class="mb-16">
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "id": "FAQ",
-                    "name": "Frequently Asked Questions",
-                    "questions": [
-                        {
-                            "question": "Is Blue suitable for solo entrepreneurs?",
-                            "answer": "Absolutely! Blue is designed to scale with your business. Whether you're managing projects alone or planning to grow your team, our platform adapts to your needs with flexible pricing and features that grow with you."
-                        },
-                        {
-                            "question": "How quickly can I set up Blue for my business?",
-                            "answer": "Most solopreneurs are up and running within 15 minutes. Our intuitive interface and pre-built templates for common workflows mean you can start managing your projects immediately without a steep learning curve."
-                        },
-                        {
-                            "question": "Can I use Blue for multiple types of projects?",
-                            "answer": "Yes! Blue is versatile enough to handle everything from client projects and content calendars to sales pipelines and personal productivity. One platform for all your business needs."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "id" "FAQ"
+                    "name" (t "solopreneurs.faq_category_name")
+                    "questions" (slice
+                        (dict
+                            "question" (t "solopreneurs.faq_question_1")
+                            "answer" (t "solopreneurs.faq_answer_1")
+                        )
+                        (dict
+                            "question" (t "solopreneurs.faq_question_2")
+                            "answer" (t "solopreneurs.faq_answer_2")
+                        )
+                        (dict
+                            "question" (t "solopreneurs.faq_question_3")
+                            "answer" (t "solopreneurs.faq_answer_3")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </div>

@@ -1,8 +1,8 @@
 <!-- Main content -->
     {{template "page-heading" 
         dict 
-            "Title" "One source of truth for any process." 
-            "Subtitle" "The fundamental building blocks of Blue. Track tasks, customers, deals, tickets — anything your business needs in one flexible system." 
+            "Title" (t "records.page_title") 
+            "Subtitle" (t "records.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -16,147 +16,147 @@
     <!-- Custom Fields Section -->
     <section class="mt-20 mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Use Custom Fields to make Records tailored for your organization.</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Blue has dozens of fields available to ensure you can match your specific data type.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "records.custom_fields_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "records.custom_fields_description"}}</p>
             
             <!-- Custom Fields Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Single Line Text -->
                 <a href="/docs/custom-fields/single-line-text" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Single Line Text</h3>
-                    <p class="text-gray-600 dark:text-gray-400">A free text field to add any data you need.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_single_line_text"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_single_line_text_desc"}}</p>
                 </a>
 
                 <!-- Multiple Line Text -->
                 <a href="/docs/custom-fields/multiple-line-text" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Multiple Line Text</h3>
-                    <p class="text-gray-600 dark:text-gray-400">A large space to add multi-line text descriptions.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_multiple_line_text"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_multiple_line_text_desc"}}</p>
                 </a>
 
                 <!-- URL Link -->
                 <a href="/docs/custom-fields/url-link" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">URL Link</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add any URL you need and open it in a new tab in one click.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_url_link"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_url_link_desc"}}</p>
                 </a>
 
                 <!-- Currency -->
                 <a href="/docs/custom-fields/currency" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Currency</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Choose from dozens of currencies to track your money.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_currency"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_currency_desc"}}</p>
                 </a>
 
                 <!-- Country -->
                 <a href="/docs/custom-fields/country" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Country</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Get a list of countries that you can select.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_country"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_country_desc"}}</p>
                 </a>
 
                 <!-- Date -->
                 <a href="/docs/custom-fields/date" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Date</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Pick any start and end date. Add time and show it on a calendar.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_date"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_date_desc"}}</p>
                 </a>
 
                 <!-- Formula -->
                 <a href="/docs/custom-fields/formula" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Formula</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Create calculated fields with powerful formulas and expressions.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_formula"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_formula_desc"}}</p>
                 </a>
 
                 <!-- File -->
                 <a href="/docs/custom-fields/file" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">File</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add multiple files to have a more structured data set.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_file"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_file_desc"}}</p>
                 </a>
 
                 <!-- Single Select -->
                 <a href="/docs/custom-fields/single-select" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Single Select</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Create a list and select one option for each record.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_single_select"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_single_select_desc"}}</p>
                 </a>
 
                 <!-- Multiple Select -->
                 <a href="/docs/custom-fields/multiple-select" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Multiple Select</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Create a list and select multiple options for each record.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_multiple_select"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_multiple_select_desc"}}</p>
                 </a>
 
                 <!-- Location Map -->
                 <a href="/docs/custom-fields/location-map" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Location Map</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add location data that will then show up on the map view.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_location_map"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_location_map_desc"}}</p>
                 </a>
 
                 <!-- Phone Number -->
                 <a href="/docs/custom-fields/phone-number" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Phone Number</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Automatically formatted phone numbers and one-click calls.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_phone_number"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_phone_number_desc"}}</p>
                 </a>
 
                 <!-- Email -->
                 <a href="/docs/custom-fields/email" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Email</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add structured emails into our dedicated email field.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_email"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_email_desc"}}</p>
                 </a>
 
                 <!-- Star Rating -->
                 <a href="/docs/custom-fields/star-rating" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Star Rating</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Rate items with customizable star ratings for reviews and feedback.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_star_rating"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_star_rating_desc"}}</p>
                 </a>
 
                 <!-- Checkbox -->
                 <a href="/docs/custom-fields/checkbox" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Checkbox</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add a checkbox that you can use for approvals.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_checkbox"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_checkbox_desc"}}</p>
                 </a>
 
                 <!-- Number -->
                 <a href="/docs/custom-fields/number" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Number</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add numbers with min and max values.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_number"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_number_desc"}}</p>
                 </a>
 
                 <!-- Percent -->
                 <a href="/docs/custom-fields/percent" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Percent</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add a percentage indicator to any record in Blue.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_percent"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_percent_desc"}}</p>
                 </a>
 
                 <!-- Unique ID -->
                 <a href="/docs/custom-fields/unique-id" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Unique ID</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Create a unique ID that you can use to reference records.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_unique_id"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_unique_id_desc"}}</p>
                 </a>
 
                 <!-- Reference -->
                 <a href="/docs/custom-fields/reference" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Reference</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Reference records from other projects.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_reference"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_reference_desc"}}</p>
                 </a>
 
                 <!-- Lookup -->
                 <a href="/docs/custom-fields/lookup" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Lookup</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Lookup data from other records in reference fields.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_lookup"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_lookup_desc"}}</p>
                 </a>
 
                 <!-- Duration -->
                 <a href="/docs/custom-fields/duration" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Duration</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Calculate the duration of time between events.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_duration"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_duration_desc"}}</p>
                 </a>
 
                 <!-- Button -->
                 <a href="/docs/custom-fields/button" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Button</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Add action buttons to trigger automations and workflows.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_button"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_button_desc"}}</p>
                 </a>
 
                 <!-- Time in List -->
                 <a href="/docs/custom-fields/time-in-list" class="block p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-brand-blue dark:hover:border-brand-blue transition-colors">
-                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Time in List</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Automatically track how long records spend in each list or stage.</p>
+                    <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">{{t "records.field_time_in_list"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">{{t "records.field_time_in_list_desc"}}</p>
                 </a>
             </div>
         </div>
@@ -165,177 +165,177 @@
     <!-- Go Beyond the Spreadsheet Section -->
     <section class="mb-20">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Go beyond the spreadsheet.</h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">We get it — everyone is different. That's why Blue offers multiple options for viewing your data, from traditional databases to calendars, gantt charts, maps, lists, and kanban boards.</p>
+            <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">{{t "records.beyond_spreadsheet_title"}}</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">{{t "records.beyond_spreadsheet_description"}}</p>
         </div>
 
         <!-- Board View -->
         <div class="mb-20">
-            {{$boardData := parseJSON `{
-                "Title": "Create standardized processes with Boards.",
-                "Description": "Organize your workplace quickly and easily with process boards — ensuring steps are clear and simple to follow.",
-                "VideoUrl": "https://media.blue.cc/grant-management-example.mp4",
-                "VideoPosition": "right",
-                "Features": [
-                    {
-                        "Title": "Scalable.",
-                        "Description": "Up to 100,000 records per list to track data and process at scale."
-                    },
-                    {
-                        "Title": "Visual.",
-                        "Description": "Drag and drop records to organize work across all your devices."
-                    },
-                    {
-                        "Title": "Precise.",
-                        "Description": "Advanced filters, keywords, and tags search keep records organized."
-                    }
-                ]
-            }`}}
+            {{$boardData := dict 
+                "Title" (t "records.board_view_title")
+                "Description" (t "records.board_view_description")
+                "VideoUrl" "https://media.blue.cc/grant-management-example.mp4"
+                "VideoPosition" "right"
+                "Features" (slice 
+                    (dict 
+                        "Title" (t "records.board_feature_1_title")
+                        "Description" (t "records.board_feature_1_description")
+                    )
+                    (dict 
+                        "Title" (t "records.board_feature_2_title")
+                        "Description" (t "records.board_feature_2_description")
+                    )
+                    (dict 
+                        "Title" (t "records.board_feature_3_title")
+                        "Description" (t "records.board_feature_3_description")
+                    )
+                )
+            }}
             {{template "feature-video" $boardData}}
         </div>
 
         <!-- Database View -->
         <div class="mb-20">
-            {{$databaseData := parseJSON `{
-                "Title": "Manage data at scale with Visual Database.",
-                "Description": "Eliminate the tedious details and explore your database. Visualize and dissect your data quickly to find what you need.",
-                "VideoUrl": "https://media.blue.cc/database-group-example.mp4",
-                "VideoPosition": "left",
-                "Features": [
-                    {
-                        "Title": "Organized.",
-                        "Description": "Organize your data into meaningful groups right away."
-                    },
-                    {
-                        "Title": "Filterable.",
-                        "Description": "Filter and logically analyze data like a pro — without any hassle."
-                    },
-                    {
-                        "Title": "Editable.",
-                        "Description": "Edit records directly from the database and log all changes meticulously."
-                    }
-                ]
-            }`}}
+            {{$databaseData := dict 
+                "Title" (t "records.database_view_title")
+                "Description" (t "records.database_view_description")
+                "VideoUrl" "https://media.blue.cc/database-group-example.mp4"
+                "VideoPosition" "left"
+                "Features" (slice 
+                    (dict 
+                        "Title" (t "records.database_feature_1_title")
+                        "Description" (t "records.database_feature_1_description")
+                    )
+                    (dict 
+                        "Title" (t "records.database_feature_2_title")
+                        "Description" (t "records.database_feature_2_description")
+                    )
+                    (dict 
+                        "Title" (t "records.database_feature_3_title")
+                        "Description" (t "records.database_feature_3_description")
+                    )
+                )
+            }}
             {{template "feature-video" $databaseData}}
         </div>
 
         <!-- Calendar View -->
         <div class="mb-20">
-            {{$calendarData := parseJSON `{
-                "Title": "Ensure you're always up to date with Calendars.",
-                "Description": "Plan your projects and processes with Blue calendars to get a clear overview of what's happening in your organization — then identify bottlenecks before they arise.",
-                "VideoUrl": "https://media.blue.cc/calendar-overview.mp4",
-                "VideoPosition": "right",
-                "Features": [
-                    {
-                        "Title": "Cross-Workspace.",
-                        "Description": "View a unified organization calendar to gain a 30,000 foot perspective."
-                    },
-                    {
-                        "Title": "Drag & Drop.",
-                        "Description": "Drag and drop to quickly change dates and keep your project schedule up-to-date."
-                    },
-                    {
-                        "Title": "Sync your Calendar.",
-                        "Description": "Sync all Blue events instantly with your work calendar. We support Outlook, Google Calendar, and iCal."
-                    }
-                ]
-            }`}}
+            {{$calendarData := dict 
+                "Title" (t "records.calendar_view_title")
+                "Description" (t "records.calendar_view_description")
+                "VideoUrl" "https://media.blue.cc/calendar-overview.mp4"
+                "VideoPosition" "right"
+                "Features" (slice 
+                    (dict 
+                        "Title" (t "records.calendar_feature_1_title")
+                        "Description" (t "records.calendar_feature_1_description")
+                    )
+                    (dict 
+                        "Title" (t "records.calendar_feature_2_title")
+                        "Description" (t "records.calendar_feature_2_description")
+                    )
+                    (dict 
+                        "Title" (t "records.calendar_feature_3_title")
+                        "Description" (t "records.calendar_feature_3_description")
+                    )
+                )
+            }}
             {{template "feature-video" $calendarData}}
         </div>
 
         <!-- Activity & Audit Trails -->
         <div class="mb-20">
-            {{$auditData := parseJSON `{
-                "Title": "Monitor everything with Activity & Audit Trails.",
-                "Description": "Blue creates transparency on what's happened. Monitor activities across workspaces and hold people responsible.",
-                "VideoUrl": "https://media.blue.cc/audit-trails-org.mp4",
-                "VideoPosition": "left",
-                "Features": [
-                    {
-                        "Title": "Time Machine.",
-                        "Description": "Instantly go back and see what happened on a given date range."
-                    },
-                    {
-                        "Title": "Organizational Activity.",
-                        "Description": "See a comprehensive overview of activity across all workplaces."
-                    },
-                    {
-                        "Title": "Individual Activity.",
-                        "Description": "Everyone has an individual activity, so you can see who did what."
-                    }
-                ]
-            }`}}
+            {{$auditData := dict 
+                "Title" (t "records.audit_trails_title")
+                "Description" (t "records.audit_trails_description")
+                "VideoUrl" "https://media.blue.cc/audit-trails-org.mp4"
+                "VideoPosition" "left"
+                "Features" (slice 
+                    (dict 
+                        "Title" (t "records.audit_feature_1_title")
+                        "Description" (t "records.audit_feature_1_description")
+                    )
+                    (dict 
+                        "Title" (t "records.audit_feature_2_title")
+                        "Description" (t "records.audit_feature_2_description")
+                    )
+                    (dict 
+                        "Title" (t "records.audit_feature_3_title")
+                        "Description" (t "records.audit_feature_3_description")
+                    )
+                )
+            }}
             {{template "feature-video" $auditData}}
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="mb-20">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">Frequently asked questions</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-16">{{t "records.faq_title"}}</h2>
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Records Basics",
-                    "questions": [
-                        {
-                            "question": "What is a record in Blue?",
-                            "answer": "A record is the fundamental unit of data in Blue. It can represent anything - a task, customer, deal, employee, asset, or any other business entity you need to track. Each record can have multiple custom fields to capture specific information relevant to your use case."
-                        },
-                        {
-                            "question": "How do records improve data organization?",
-                            "answer": "Records provide a structured way to organize all your business data in one place. Instead of scattered spreadsheets and disconnected tools, records give you a single source of truth with consistent structure, searchability, and relationships between different data types."
-                        },
-                        {
-                            "question": "What are some key features of records in Blue?",
-                            "answer": "Key features include 24 custom field types, multiple view options (Board, Calendar, Database, Timeline, Map, List), unlimited records per workspace, drag-and-drop organization, advanced filtering and search, and comprehensive audit trails for every change."
-                        }
-                    ]
-                },
-                {
-                    "name": "Use Cases",
-                    "questions": [
-                        {
-                            "question": "How can I use records for task and project management?",
-                            "answer": "Create records for tasks with custom fields for assignees, due dates, priorities, and status. Use Board view for kanban-style workflows, Calendar view for scheduling, and Timeline view for project planning. Set up automations to notify team members and update related records."
-                        },
-                        {
-                            "question": "Can records be used for managing a sales pipeline?",
-                            "answer": "Absolutely. Create records for deals with fields for deal value, stage, probability, and contact information. Use Board view to visualize your pipeline stages, set up automations for follow-ups, and create dashboards to track sales metrics and forecasts."
-                        },
-                        {
-                            "question": "How do records function in a support ticket system?",
-                            "answer": "Records work perfectly for support tickets. Add fields for ticket priority, category, customer information, and resolution status. Use automations to assign tickets, send notifications, and escalate based on SLA rules. Track response times and satisfaction with built-in reporting."
-                        },
-                        {
-                            "question": "Can records be used in recruitment?",
-                            "answer": "Yes, records are ideal for recruitment. Track candidates with fields for resume, interview notes, ratings, and hiring stage. Use Board view to move candidates through your hiring pipeline, automate communication, and collaborate with hiring teams on feedback."
-                        }
-                    ]
-                },
-                {
-                    "name": "Technical Questions",
-                    "questions": [
-                        {
-                            "question": "Can records in Blue be integrated with other tools?",
-                            "answer": "Yes, Blue offers extensive integration options. Connect with 5,000+ tools through Zapier, Make.com, and other platforms. Use our GraphQL API for custom integrations, webhooks for real-time updates, and CSV import/export for data migration."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict 
+            "categories" (slice 
+                (dict 
+                    "name" (t "records.faq_category_records_basics")
+                    "questions" (slice 
+                        (dict 
+                            "question" (t "records.faq_question_1")
+                            "answer" (t "records.faq_answer_1")
+                        )
+                        (dict 
+                            "question" (t "records.faq_question_2")
+                            "answer" (t "records.faq_answer_2")
+                        )
+                        (dict 
+                            "question" (t "records.faq_question_3")
+                            "answer" (t "records.faq_answer_3")
+                        )
+                    )
+                )
+                (dict 
+                    "name" (t "records.faq_category_use_cases")
+                    "questions" (slice 
+                        (dict 
+                            "question" (t "records.faq_question_4")
+                            "answer" (t "records.faq_answer_4")
+                        )
+                        (dict 
+                            "question" (t "records.faq_question_5")
+                            "answer" (t "records.faq_answer_5")
+                        )
+                        (dict 
+                            "question" (t "records.faq_question_6")
+                            "answer" (t "records.faq_answer_6")
+                        )
+                        (dict 
+                            "question" (t "records.faq_question_7")
+                            "answer" (t "records.faq_answer_7")
+                        )
+                    )
+                )
+                (dict 
+                    "name" (t "records.faq_category_technical")
+                    "questions" (slice 
+                        (dict 
+                            "question" (t "records.faq_question_8")
+                            "answer" (t "records.faq_answer_8")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
 
     <!-- Call to Action -->
-    {{$ctaData := parseJSON `{
-        "Title": "Ready to organize your data with Records?",
-        "SecondaryText": "View documentation",
-        "SecondaryUrl": "/docs/records",
-        "PrimaryText": "Start free trial",
-        "PrimaryUrl": "https://app.blue.cc"
-    }`}}
+    {{$ctaData := dict 
+        "Title" (t "records.cta_title")
+        "SecondaryText" (t "records.cta_secondary_text")
+        "SecondaryUrl" "/docs/records"
+        "PrimaryText" (t "records.cta_primary_text")
+        "PrimaryUrl" "https://app.blue.cc"
+    }}
     {{template "dual-button-cta" $ctaData}}
 

@@ -102,98 +102,98 @@
 
 
   <!-- FAQ Section -->
-  {{$faqData := parseJSON `{
-    "categories": [
-      {
-        "name": "General",
-        "questions": [
-          {
-            "question": "What are forms in Blue?",
-            "answer": "Forms in Blue are customizable data collection tools that integrate seamlessly with your projects. They allow you to gather information from internal teams or external users through beautiful, branded interfaces."
-          },
-          {
-            "question": "Who can create and modify forms?",
-            "answer": "Forms can be created and modified by users with appropriate permissions in the project. Admins and project owners have full control, while members may have limited editing capabilities based on their role."
-          },
-          {
-            "question": "How are forms linked to projects?",
-            "answer": "Forms are directly connected to specific projects in Blue. When someone submits a form, the data automatically flows into the designated project, creating new records or updating existing ones."
-          }
-        ]
-      },
-      {
-        "name": "Sharing & Access",
-        "questions": [
-          {
-            "question": "Can forms be shared with external users?",
-            "answer": "Yes! Forms can be shared with anyone via public links, QR codes, or embedded on websites. External users don't need a Blue account to submit forms."
-          },
-          {
-            "question": "Are forms public?",
-            "answer": "Forms are private by default. You control who can access them by sharing specific links or embedding them on your website. Only those with the link can view and submit the form."
-          },
-          {
-            "question": "How can forms be shared?",
-            "answer": "Forms can be shared through multiple channels: shareable links, downloadable QR codes, website embedding via HTML snippet, or direct integration into your existing workflows."
-          },
-          {
-            "question": "Can forms be embedded on a website?",
-            "answer": "Absolutely! Blue provides a simple embed code that you can add to any website. The form will appear seamlessly on your site while submissions flow directly into Blue."
-          }
-        ]
-      },
-      {
-        "name": "Building Forms",
-        "questions": [
-          {
-            "question": "How do you build forms in Blue?",
-            "answer": "Building forms is simple with our drag-and-drop interface. Choose from various field types, arrange them as needed, customize the design, and publish - all without writing a single line of code."
-          },
-          {
-            "question": "What custom fields are available?",
-            "answer": "Blue offers extensive field types including text inputs, dropdowns, checkboxes, radio buttons, file uploads, date pickers, signatures, ratings, and more. Each field can be customized with validation rules."
-          },
-          {
-            "question": "Can forms have logos and descriptions?",
-            "answer": "Yes! Forms can be fully branded with your logo, custom colors, header images, and detailed descriptions. Make each form feel like a natural extension of your brand."
-          },
-          {
-            "question": "Can you customize the form's appearance?",
-            "answer": "Absolutely. Customize colors, fonts, button styles, field layouts, and more. Our theme editor gives you complete control over the form's look and feel."
-          }
-        ]
-      },
-      {
-        "name": "Management & Automation",
-        "questions": [
-          {
-            "question": "How are submitted forms managed?",
-            "answer": "Form submissions are automatically organized in your project. View them in lists, kanban boards, or custom views. Each submission becomes a record you can track, assign, and manage."
-          },
-          {
-            "question": "Can forms trigger automations?",
-            "answer": "Yes! Form submissions can trigger powerful automations like sending emails, creating tasks, updating fields, or notifying team members. Build complex workflows that start with a simple form submission."
-          },
-          {
-            "question": "Can you copy forms to other projects?",
-            "answer": "Forms can be duplicated within or across projects. This makes it easy to reuse successful form templates while maintaining project-specific customizations."
-          },
-          {
-            "question": "Can you send confirmation emails?",
-            "answer": "Yes, Blue can automatically send customized confirmation emails to form submitters. Include submission details, next steps, or any other relevant information."
-          }
-        ]
-      }
-    ]
-  }`}}
+  {{$faqData := dict
+    "categories" (slice
+      (dict
+        "name" (t "forms.faq_category_general")
+        "questions" (slice
+          (dict
+            "question" (t "forms.faq_question_1")
+            "answer" (t "forms.faq_answer_1")
+          )
+          (dict
+            "question" (t "forms.faq_question_2")
+            "answer" (t "forms.faq_answer_2")
+          )
+          (dict
+            "question" (t "forms.faq_question_3")
+            "answer" (t "forms.faq_answer_3")
+          )
+        )
+      )
+      (dict
+        "name" (t "forms.faq_category_sharing_access")
+        "questions" (slice
+          (dict
+            "question" (t "forms.faq_question_4")
+            "answer" (t "forms.faq_answer_4")
+          )
+          (dict
+            "question" (t "forms.faq_question_5")
+            "answer" (t "forms.faq_answer_5")
+          )
+          (dict
+            "question" (t "forms.faq_question_6")
+            "answer" (t "forms.faq_answer_6")
+          )
+          (dict
+            "question" (t "forms.faq_question_7")
+            "answer" (t "forms.faq_answer_7")
+          )
+        )
+      )
+      (dict
+        "name" (t "forms.faq_category_building_forms")
+        "questions" (slice
+          (dict
+            "question" (t "forms.faq_question_8")
+            "answer" (t "forms.faq_answer_8")
+          )
+          (dict
+            "question" (t "forms.faq_question_9")
+            "answer" (t "forms.faq_answer_9")
+          )
+          (dict
+            "question" (t "forms.faq_question_10")
+            "answer" (t "forms.faq_answer_10")
+          )
+          (dict
+            "question" (t "forms.faq_question_11")
+            "answer" (t "forms.faq_answer_11")
+          )
+        )
+      )
+      (dict
+        "name" (t "forms.faq_category_management_automation")
+        "questions" (slice
+          (dict
+            "question" (t "forms.faq_question_12")
+            "answer" (t "forms.faq_answer_12")
+          )
+          (dict
+            "question" (t "forms.faq_question_13")
+            "answer" (t "forms.faq_answer_13")
+          )
+          (dict
+            "question" (t "forms.faq_question_14")
+            "answer" (t "forms.faq_answer_14")
+          )
+          (dict
+            "question" (t "forms.faq_question_15")
+            "answer" (t "forms.faq_answer_15")
+          )
+        )
+      )
+    )
+  }}
   {{template "faq-sections" $faqData}}
 
   <!-- Call to Action -->
-  {{$ctaData := parseJSON `{
-    "Title": "Start collecting data with forms today.",
-    "SecondaryText": "View documentation",
-    "SecondaryUrl": "/docs/forms",
-    "PrimaryText": "Get Started Free",
-    "PrimaryUrl": "https://app.blue.cc"
-  }`}}
+  {{$ctaData := dict
+    "Title" (t "forms.cta_title")
+    "SecondaryText" (t "forms.cta_secondary_text")
+    "SecondaryUrl" "/docs/forms"
+    "PrimaryText" (t "forms.cta_primary_text")
+    "PrimaryUrl" "https://app.blue.cc"
+  }}
   {{template "dual-button-cta" $ctaData}}
