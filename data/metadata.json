@@ -1335,6 +1335,88 @@
         "keywords": ["ការជ្រើសរើសបុគ្គលិក", "ការជ្រើសរើស", "ដំណើរការជ្រើសរើស", "ការតាមដានបេក្ខជន", "ការចូលធ្វើការ", "បំពង់ជ្រើសរើស", "blue"]
       }
     },
+    "solutions/use-case/asset-management": {
+      "en": {
+        "title": "Asset Management",
+        "description": "Blue's flexible database and powerful automation helps you track, manage, and optimize any type of asset—from IT equipment to heavy machinery.",
+        "keywords": ["asset management", "asset tracking", "equipment management", "IT assets", "machinery tracking", "maintenance scheduling", "inventory management", "blue"]
+      },
+      "es": {
+        "title": "Gestión de Activos",
+        "description": "La base de datos flexible de Blue y la automatización potente te ayuda a rastrear, gestionar y optimizar cualquier tipo de activo—desde equipos de TI hasta maquinaria pesada.",
+        "keywords": ["gestión de activos", "seguimiento de activos", "gestión de equipos", "activos de TI", "seguimiento de maquinaria", "programación de mantenimiento", "gestión de inventario", "blue"]
+      },
+      "zh": {
+        "title": "资产管理",
+        "description": "Blue 的灵活数据库和强大自动化功能帮助您跟踪、管理和优化任何类型的资产——从 IT 设备到重型机械。",
+        "keywords": ["资产管理", "资产跟踪", "设备管理", "IT 资产", "机械跟踪", "维护计划", "库存管理", "blue"]
+      },
+      "fr": {
+        "title": "Gestion des Actifs",
+        "description": "La base de données flexible de Blue et l'automatisation puissante vous aident à suivre, gérer et optimiser tout type d'actif—des équipements informatiques aux machines lourdes.",
+        "keywords": ["gestion des actifs", "suivi des actifs", "gestion d'équipements", "actifs informatiques", "suivi de machines", "planification de maintenance", "gestion d'inventaire", "blue"]
+      },
+      "de": {
+        "title": "Asset-Management",
+        "description": "Blues flexible Datenbank und leistungsstarke Automatisierung hilft Ihnen dabei, jede Art von Asset zu verfolgen, zu verwalten und zu optimieren—von IT-Ausrüstung bis hin zu schweren Maschinen.",
+        "keywords": ["asset-management", "asset-verfolgung", "ausrüstungsmanagement", "it-assets", "maschinenverfolgung", "wartungsplanung", "bestandsverwaltung", "blue"]
+      },
+      "ja": {
+        "title": "資産管理",
+        "description": "Blueの柔軟なデータベースと強力な自動化により、IT機器から重機まで、あらゆる種類の資産を追跡、管理、最適化できます。",
+        "keywords": ["資産管理", "資産追跡", "機器管理", "IT資産", "機械追跡", "メンテナンススケジュール", "在庫管理", "blue"]
+      },
+      "pt": {
+        "title": "Gestão de Ativos",
+        "description": "O banco de dados flexível do Blue e a automação poderosa ajudam você a rastrear, gerenciar e otimizar qualquer tipo de ativo—desde equipamentos de TI até maquinário pesado.",
+        "keywords": ["gestão de ativos", "rastreamento de ativos", "gestão de equipamentos", "ativos de TI", "rastreamento de maquinário", "agendamento de manutenção", "gestão de inventário", "blue"]
+      },
+      "ru": {
+        "title": "Управление активами",
+        "description": "Гибкая база данных Blue и мощная автоматизация помогают вам отслеживать, управлять и оптимизировать любые типы активов—от IT-оборудования до тяжелой техники.",
+        "keywords": ["управление активами", "отслеживание активов", "управление оборудованием", "IT-активы", "отслеживание техники", "планирование обслуживания", "управление запасами", "blue"]
+      },
+      "ko": {
+        "title": "자산 관리",
+        "description": "Blue의 유연한 데이터베이스와 강력한 자동화 기능으로 IT 장비부터 중장비까지 모든 유형의 자산을 추적, 관리 및 최적화할 수 있습니다.",
+        "keywords": ["자산 관리", "자산 추적", "장비 관리", "IT 자산", "기계 추적", "유지보수 일정", "재고 관리", "blue"]
+      },
+      "it": {
+        "title": "Gestione degli Asset",
+        "description": "Il database flessibile di Blue e la potente automazione ti aiutano a tracciare, gestire e ottimizzare qualsiasi tipo di asset—dalle apparecchiature IT ai macchinari pesanti.",
+        "keywords": ["gestione degli asset", "tracciamento degli asset", "gestione delle apparecchiature", "asset IT", "tracciamento dei macchinari", "programmazione della manutenzione", "gestione dell'inventario", "blue"]
+      },
+      "id": {
+        "title": "Manajemen Aset",
+        "description": "Database fleksibel Blue dan otomasi yang kuat membantu Anda melacak, mengelola, dan mengoptimalkan segala jenis aset—dari peralatan IT hingga mesin berat.",
+        "keywords": ["manajemen aset", "pelacakan aset", "manajemen peralatan", "aset IT", "pelacakan mesin", "penjadwalan pemeliharaan", "manajemen inventori", "blue"]
+      },
+      "nl": {
+        "title": "Asset Management",
+        "description": "Blue's flexibele database en krachtige automatisering helpt u bij het volgen, beheren en optimaliseren van elk type asset—van IT-apparatuur tot zware machines.",
+        "keywords": ["asset management", "asset tracking", "apparatuurbeheer", "IT-assets", "machine tracking", "onderhoudsplanning", "voorraadbeheer", "blue"]
+      },
+      "pl": {
+        "title": "Zarządzanie Aktywami",
+        "description": "Elastyczna baza danych Blue i potężna automatyzacja pomaga śledzić, zarządzać i optymalizować dowolny typ aktywów—od sprzętu IT po ciężkie maszyny.",
+        "keywords": ["zarządzanie aktywami", "śledzenie aktywów", "zarządzanie sprzętem", "aktywa IT", "śledzenie maszyn", "planowanie konserwacji", "zarządzanie zapasami", "blue"]
+      },
+      "zh-TW": {
+        "title": "資產管理",
+        "description": "Blue 的靈活資料庫和強大自動化功能幫助您追蹤、管理和優化任何類型的資產——從 IT 設備到重型機械。",
+        "keywords": ["資產管理", "資產追蹤", "設備管理", "IT 資產", "機械追蹤", "維護計劃", "庫存管理", "blue"]
+      },
+      "sv": {
+        "title": "Tillgångshantering",
+        "description": "Blues flexibla databas och kraftfulla automatisering hjälper dig att spåra, hantera och optimera alla typer av tillgångar—från IT-utrustning till tunga maskiner.",
+        "keywords": ["tillgångshantering", "tillgångsspårning", "utrustningshantering", "IT-tillgångar", "maskinspårning", "underhållsplanering", "lagerhantering", "blue"]
+      },
+      "km": {
+        "title": "ការគ្រប់គ្រងទ្រព្យសម្បត្តិ",
+        "description": "មូលដ្ឋានទិន្នន័យដែលអាចបត់បែនបាន និងស្វ័យប្រវត្តិកម្មដ៏មានអានុភាពរបស់ Blue ជួយអ្នកតាមដាន គ្រប់គ្រង និងបង្កើនប្រសិទ្ធភាពទ្រព្យសម្បត្តិគ្រប់ប្រភេទ—ពីឧបករណ៍ IT ដល់ម៉ាស៊ីនធុនធ្ងន់។",
+        "keywords": ["ការគ្រប់គ្រងទ្រព្យសម្បត្តិ", "ការតាមដានទ្រព្យសម្បត្តិ", "ការគ្រប់គ្រងឧបករណ៍", "ទ្រព្យសម្បត្តិ IT", "ការតាមដានម៉ាស៊ីន", "ការកំណត់ពេលថែទាំ", "ការគ្រប់គ្រងស្តុក", "blue"]
+      }
+    },
     "solutions/use-case/process-management": {
       "en": {
         "title": "Process Management",
