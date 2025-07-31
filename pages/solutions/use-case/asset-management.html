@@ -8,9 +8,8 @@
 
     {{template "hero-video" 
         dict 
-            "VideoUrl" "/testvideo2.mp4"
-            "ShowUnmuteButton" true
-            "Id" "asset-management"
+            "VideoUrl" "/asset-database.mp4"
+            "HideControls" true
     }}
 
     <!-- Customer Logos -->
@@ -60,7 +59,7 @@
             {{$assetDatabaseData := parseJSON `{
                 "Title": "Build the perfect asset database for your needs.",
                 "Description": "Create custom fields for serial numbers, purchase dates, locations, and any data you need. Track IT equipment, vehicles, machinery, or furniture with the same flexible system. Blue generates serial numbers automatically or import your existing ones.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "/asset-database.mp4",
                 "VideoPosition": "right",
                 "Button": {
                     "Text": "Learn about custom fields",
@@ -91,7 +90,7 @@
             {{$maintenanceData := parseJSON `{
                 "Title": "Never miss maintenance again.",
                 "Description": "Set up recurring maintenance schedules that automatically create tasks and assign them to the right team members. Track maintenance history, costs, and compliance requirements with complete audit trails.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "/asset-repeat.mp4",
                 "VideoPosition": "left",
                 "SeeAlso": {
                     "Heading": "Maintenance features",
@@ -123,7 +122,7 @@
             {{$assignmentData := parseJSON `{
                 "Title": "Smart asset allocation with approval workflows.",
                 "Description": "Assign assets to employees or departments with built-in approval processes. Use button fields for manager confirmation or checkbox workflows for equipment requests. Track who has what, when, and why.",
-                "VideoUrl": "/testvideo2.mp4",
+                "VideoUrl": "/request-asset.mp4",
                 "VideoPosition": "right",
                 "SeeAlso": {
                     "Heading": "Assignment tools",
@@ -335,7 +334,6 @@
         {{$faqData := parseJSON `{
             "categories": [
                 {
-                    "id": "FAQ",
                     "name": "Frequently asked questions",
                     "questions": [
                         {
