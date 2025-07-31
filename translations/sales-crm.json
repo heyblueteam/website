@@ -135,7 +135,10 @@
     "testimonial_2_title": "CEO of Comin Asia",
     "testimonial_3_name": "Dan Deigan",
     "testimonial_3_quote": "We are saving each sales rep in our team 9 hours a week with Blue.",
-    "testimonial_3_title": "Sales Director at Pinnacle Logistics"
+    "testimonial_3_title": "Sales Director at Pinnacle Logistics",
+    "api_example_1_label": "Query Sales Data",
+    "api_example_2_label": "Create Sales Task",
+    "api_example_3_label": "Real-time Sales Updates"
   },
   "es": {
     "api_description": "Blue proporciona una cobertura del 100% de la API a través de GraphQL, lo que permite a su equipo de ventas automatizar la gestión de leads, sincronizar acuerdos e integrar cada etapa de su embudo de ventas con sus herramientas existentes. Cree paneles de ventas personalizados, automatice los seguimientos y conecte Blue a su conjunto de marketing para un flujo de trabajo de ventas sin interrupciones.",

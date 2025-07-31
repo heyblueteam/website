@@ -91,45 +91,45 @@
 
          <!-- Ivan Keogh Testimonial -->
    <div class="mb-16">
-    {{$testimonialData := parseJSON `{
-        "ImageUrl": "/customers/ivan-keogh.jpeg",
-        "Quote": "Comin Asia (part of RMA Group) has relied on Blue for nearly six years as our core CRM platform. We chose Blue for its intuitive interface, real‑time dashboards, and flexible automation—boosting our sales visibility and reducing manual administration and helping Comin Asia scale across Cambodia, Vietnam, Thailand, Laos, and Myanmar. We work closely with the Blue team to develop bespoke customization that enhances our ability to apply data driven decision making across our business operations.",
-        "Name": "Ivan Keogh",
-        "Title": "CEO of Comin Asia",
-        "DesktopFontSize": "lg:text-3xl"
-    }`}}
+    {{$testimonialData := dict
+        "ImageUrl" "/customers/ivan-keogh.jpeg"
+        "Quote" (t "sales-crm.testimonial_2_quote")
+        "Name" "Ivan Keogh"
+        "Title" (t "sales-crm.testimonial_2_title")
+        "DesktopFontSize" "lg:text-3xl"
+    }}
     
     {{template "testimonial-single" $testimonialData}}
 </div>
         
         <!-- Custom Fields Feature Video -->
         <div class="mb-16">
-            {{$customFieldsData := parseJSON `{
-                "Title": "Your dream sales database.",
-                "Description": "Blue adapts to your data structure, not the other way around. Visually design the fields you need. Combine custom fields for advanced use cases such as cross-references and automatic calculations. Set permissions on a per-field basis to only show your team what you want them to see.",
-                "VideoUrl": "https://media.blue.cc/database-group-example.mp4",
-                "VideoPosition": "right",
-                "SeeAlso": {
-                    "Heading": "Learn more",
-                    "Links": [
-                        {
-                            "Text": "Formula fields",
-                            "Url": "/docs/custom-fields/formula",
-                            "Description": "to automatically calculate margins and P/L"
-                        },
-                        {
-                            "Text": "Reference fields",
-                            "Url": "/docs/custom-fields/reference",
-                            "Description": "to link contact, customers, and opportunities."
-                        },
-                        {
-                            "Text": "Currency fields",
-                            "Url": "/docs/custom-fields/currency",
-                            "Description": "easily support multiple currencies."
-                        }
-                    ]
-                }
-            }`}}
+            {{$customFieldsData := dict
+                "Title" (t "sales-crm.custom_fields_title")
+                "Description" (t "sales-crm.custom_fields_description")
+                "VideoUrl" "https://media.blue.cc/database-group-example.mp4"
+                "VideoPosition" "right"
+                "SeeAlso" (dict
+                    "Heading" (t "sales-crm.custom_fields_see_also_heading")
+                    "Links" (slice
+                        (dict
+                            "Text" (t "sales-crm.custom_fields_link_1_text")
+                            "Url" "/docs/custom-fields/formula"
+                            "Description" (t "sales-crm.custom_fields_link_1_description")
+                        )
+                        (dict
+                            "Text" (t "sales-crm.custom_fields_link_2_text")
+                            "Url" "/docs/custom-fields/reference"
+                            "Description" (t "sales-crm.custom_fields_link_2_description")
+                        )
+                        (dict
+                            "Text" (t "sales-crm.custom_fields_link_3_text")
+                            "Url" "/docs/custom-fields/currency"
+                            "Description" (t "sales-crm.custom_fields_link_3_description")
+                        )
+                    )
+                )
+            }}
             
             {{template "feature-video" $customFieldsData}}
         </div>
@@ -139,11 +139,11 @@
            <section class="mb-16">        
             {{template "testimonial-single" 
                 dict 
-                    "Quote" "We are saving each sales rep in our team 9 hours a week with Blue."
+                    "Quote" (t "sales-crm.testimonial_3_quote")
                     "VideoUrl" "https://media.blue.cc/dandeigan.mp4"
                     "PosterUrl" "/testimonials/dandeigan.jpg"
                     "Name" "Dan Deigan"
-                    "Title" "Sales Director at Pinnacle Logistics"
+                    "Title" (t "sales-crm.testimonial_3_title")
             }}
         </section>
 
@@ -153,50 +153,50 @@
         
         <!-- API-First Architecture for Sales CRM -->
         <div class="max-w-4xl mx-auto mb-16">
-            {{$apiData := parseJSON `{
-                "Title": "API-First Architecture for Sales CRM",
-                "Description": "Blue provides 100% API coverage through GraphQL, enabling your sales team to automate lead management, sync deals, and integrate every stage of your sales pipeline with your existing tools. Build custom sales dashboards, automate follow-ups, and connect Blue to your marketing stack for a seamless sales workflow.",
-                "Examples": [
-                    {
-                        "Type": "query",
-                        "Label": "Query Sales Data",
-                        "Language": "graphql",
-                        "Code": "query GetProjects {\n  projectList(filter: { companyIds: [\"your-company-id\"] }) {\n    items {\n      id\n      name\n      updatedAt\n      recordCount\n    }\n  }\n}"
-                    },
-                    {
-                        "Type": "mutation",
-                        "Label": "Create Sales Task",
-                        "Language": "graphql", 
-                        "Code": "mutation CreateRecord {\n  createTodo(input: {\n    todoListId: \"list-id\"\n    title: \"New Task\"\n    position: 65535\n  }) {\n    id\n    title\n    position\n  }\n}"
-                    },
-                    {
-                        "Type": "subscription",
-                        "Label": "Real-time Sales Updates",
-                        "Language": "graphql",
-                        "Code": "subscription ProjectUpdates {\n  projectUpdated {\n    id\n    name\n    updatedAt\n    lastActivity\n  }\n}"
-                    }
-                ],
-                "Link": {
-                    "Text": "Explore Sales CRM API Documentation",
-                    "Url": "/api/"
-                }
-            }`}}
+            {{$apiData := dict
+                "Title" (t "sales-crm.api_title")
+                "Description" (t "sales-crm.api_description")
+                "Examples" (slice
+                    (dict
+                        "Type" "query"
+                        "Label" (t "sales-crm.api_example_1_label")
+                        "Language" "graphql"
+                        "Code" "query GetProjects {\n  projectList(filter: { companyIds: [\"your-company-id\"] }) {\n    items {\n      id\n      name\n      updatedAt\n      recordCount\n    }\n  }\n}"
+                    )
+                    (dict
+                        "Type" "mutation"
+                        "Label" (t "sales-crm.api_example_2_label")
+                        "Language" "graphql"
+                        "Code" "mutation CreateRecord {\n  createTodo(input: {\n    todoListId: \"list-id\"\n    title: \"New Task\"\n    position: 65535\n  }) {\n    id\n    title\n    position\n  }\n}"
+                    )
+                    (dict
+                        "Type" "subscription"
+                        "Label" (t "sales-crm.api_example_3_label")
+                        "Language" "graphql"
+                        "Code" "subscription ProjectUpdates {\n  projectUpdated {\n    id\n    name\n    updatedAt\n    lastActivity\n  }\n}"
+                    )
+                )
+                "Link" (dict
+                    "Text" (t "sales-crm.api_link_text")
+                    "Url" "/api/"
+                )
+            }}
             {{template "technical-capability-card" $apiData}}
         </div>
 
         <!-- Integration Partners for Sales CRM -->
         <div class="mb-16">
-            {{$integrationData := parseJSON `{
-                "title": "Connect your sales CRM with 7,000+ tools",
-                "subtitle": "Integrate Blue with your favorite sales and marketing platforms—automate lead capture, sync contacts, trigger follow-ups, and more.",
-                "logos": [
-                    { "name": "Zapier", "src": "/images/zapier.svg" },
-                    { "name": "Make.com", "src": "/images/make.svg" },
-                    { "name": "Pabbly Connect", "src": "/images/pabbly.svg" },
-                    { "name": "Albato", "src": "/images/albato.png" },
-                    { "name": "Boost.space", "src": "/images/boost-space.svg" }
-                ]
-            }`}}
+            {{$integrationData := dict
+                "title" (t "sales-crm.integrations_title")
+                "subtitle" (t "sales-crm.integrations_subtitle")
+                "logos" (slice
+                    (dict "name" "Zapier" "src" "/images/zapier.svg")
+                    (dict "name" "Make.com" "src" "/images/make.svg")
+                    (dict "name" "Pabbly Connect" "src" "/images/pabbly.svg")
+                    (dict "name" "Albato" "src" "/images/albato.png")
+                    (dict "name" "Boost.space" "src" "/images/boost-space.svg")
+                )
+            }}
             {{template "logo-grid" $integrationData}}
         </div>
 
