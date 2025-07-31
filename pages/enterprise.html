@@ -1,8 +1,8 @@
 <!-- Enterprise Page -->
     {{template "page-heading" 
         dict 
-            "Title" "Enterprise-grade process management without the complexity." 
-            "Subtitle" "Dedicated infrastructure, custom development, and white-label solutions for organizations that need serious scale with refreshing simplicity." 
+            "Title" (t "enterprise.page_title") 
+            "Subtitle" (t "enterprise.page_subtitle") 
             "MarginBottom" "mb-16"
     }}
 
@@ -17,33 +17,33 @@
     <section class="mb-16">        
         {{template "testimonial-single" 
             dict 
-                "Quote" "We are saving each sales rep in our team 9 hours a week with Blue."
+                "Quote" (t "enterprise.testimonial_quote")
                 "VideoUrl" "https://media.blue.cc/dandeigan.mp4"
                 "PosterUrl" "/testimonials/dandeigan.jpg"
-                "Name" "Dan Deigan"
-                "Title" "Sales Director at Pinnacle Logistics"
+                "Name" (t "enterprise.testimonial_name")
+                "Title" (t "enterprise.testimonial_title")
         }}
     </section>
 
     <!-- Enterprise Stats -->
     <section class="mb-16">
-        {{$statsData := parseJSON `{
-            "Title": "Trusted at enterprise scale",
-            "Stats": [
-                {
-                    "Number": "1000000000+",
-                    "Description": "API calls per year"
-                },
-                {
-                    "Number": "17000+",
-                    "Description": "teams worldwide"
-                },
-                {
-                    "Number": "30",
-                    "Description": "days average deployment time"
-                }
-            ]
-        }`}}
+        {{$statsData := dict
+            "Title" (t "enterprise.stats_title")
+            "Stats" (slice
+                (dict
+                    "Number" "1000000000+"
+                    "Description" (t "enterprise.api_calls")
+                )
+                (dict
+                    "Number" "17000+"
+                    "Description" (t "enterprise.teams_worldwide")
+                )
+                (dict
+                    "Number" "30"
+                    "Description" (t "enterprise.deployment_time")
+                )
+            )
+        }}
         
         {{template "stats-section" $statsData}}
     </section>
@@ -56,30 +56,30 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
                 <!-- Text Content -->
                 <div class="space-y-4 order-1 lg:order-1">
-                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">Your own dedicated Blue infrastructure.</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Isolated deployment with dedicated database, backend services, frontend servers, and background processing. Get ultimate performance with complete data residency—even we can't access your database unless you specifically authorize it.</p>
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{t "enterprise.dedicated_infrastructure_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "enterprise.dedicated_infrastructure_description"}}</p>
                     
                     <!-- See Also Section -->
                     <div class="pt-4">
-                        <h5 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Enterprise security</h5>
+                        <h5 class="text-sm font-medium text-gray-900 dark:text-white mb-3">{{t "enterprise.enterprise_security_heading"}}</h5>
                         <ul class="space-y-2">
                             <li>
                                 <a href="/platform/security" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                    End-to-end encryption
+                                    {{t "enterprise.end_to_end_encryption"}}
                                 </a>
-                                <span class="text-sm text-gray-500 dark:text-gray-400"> for complete data protection</span>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "enterprise.end_to_end_encryption_description"}}</span>
                             </li>
                             <li>
                                 <a href="/legal/gdpr" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                    GDPR & HIPAA compliance
+                                    {{t "enterprise.gdpr_hipaa_compliance"}}
                                 </a>
-                                <span class="text-sm text-gray-500 dark:text-gray-400"> for regulated industries</span>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "enterprise.gdpr_hipaa_compliance_description"}}</span>
                             </li>
                             <li>
                                 <a href="/platform/features/audit-trails" class="text-sm text-brand-blue hover:text-brand-blue/80 transition-colors">
-                                    Complete audit trails
+                                    {{t "enterprise.complete_audit_trails"}}
                                 </a>
-                                <span class="text-sm text-gray-500 dark:text-gray-400"> for compliance and accountability</span>
+                                <span class="text-sm text-gray-500 dark:text-gray-400"> {{t "enterprise.complete_audit_trails_description"}}</span>
                             </li>
                         </ul>
                     </div>
@@ -457,8 +457,8 @@
                 
                 <!-- Text Content -->
                 <div class="space-y-4 order-2 lg:order-2">
-                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">Custom features built specifically for you.</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Do you see Blue as 90% perfect, but need a specific feature for your organization that would be a game changer? We estimate development costs and assign dedicated engineers to build exactly what you need. No upfront costs—everything is included in your monthly payments.</p>
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{t "enterprise.custom_features_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "enterprise.custom_features_description"}}</p>
                 </div>
             </div>
         </div>
@@ -469,8 +469,8 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-16">
                 <!-- Text Content -->
                 <div class="space-y-4 order-1 lg:order-1">
-                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">Data migration concierge.</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Dedicated success manager, technical live chat, user support chat, and regular custom training for new features. We handle migration assistance including data cleanup and import—because you're not just another account.</p>
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{t "enterprise.data_migration_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "enterprise.data_migration_description"}}</p>
                 </div>
                 
                 <!-- Stacking Animation -->
@@ -688,13 +688,13 @@
                 
                 <!-- Text Content -->
                 <div class="space-y-4 order-2 lg:order-2">
-                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">Battle-tested platform, your brand.</h3>
-                    <p class="text-gray-600 dark:text-gray-300">Complete white-label solution included with enterprise plans. Our infrastructure handles billions of API calls annually, and every feature is used by thousands of companies. You get enterprise reliability with startup agility.</p>
+                    <h3 class="text-2xl font-medium text-gray-900 dark:text-gray-100">{{t "enterprise.battle_tested_platform_title"}}</h3>
+                    <p class="text-gray-600 dark:text-gray-300">{{t "enterprise.battle_tested_platform_description"}}</p>
                     
                     <!-- Button -->
                     <div class="pt-2">
                         <a href="/platform/white-label" class="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out">
-                            Learn about white-label
+                            {{t "enterprise.learn_about_white_label"}}
                             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>
@@ -707,24 +707,24 @@
 
     <!-- Enterprise Value Proposition -->
     <section class="mb-16">
-        {{$valuePropsData := parseJSON `{
-            "Title": "Why enterprises choose Blue over the giants",
-            "Description": "Replace complex, expensive enterprise software with a platform that's powerful but refreshingly simple.",
-            "ValueProps": [
-                {
-                    "Title": "Lightning-fast deployment",
-                    "Description": "Live in less than 30 days vs. months of implementation. Fraction of the cost with better usability."
-                },
-                {
-                    "Title": "Enterprise power, startup simplicity",
-                    "Description": "Get enterprise capabilities without the complexity. Your team will actually want to use it."
-                },
-                {
-                    "Title": "Built for your unique processes",
-                    "Description": "Configure for your specific workflows instead of being forced into generic 'best practices.'"
-                }
-            ]
-        }`}}
+        {{$valuePropsData := dict
+            "Title" (t "enterprise.value_props_title")
+            "Description" (t "enterprise.value_props_description")
+            "ValueProps" (slice
+                (dict
+                    "Title" (t "enterprise.lightning_fast_deployment_title")
+                    "Description" (t "enterprise.lightning_fast_deployment_description")
+                )
+                (dict
+                    "Title" (t "enterprise.enterprise_power_startup_simplicity_title")
+                    "Description" (t "enterprise.enterprise_power_startup_simplicity_description")
+                )
+                (dict
+                    "Title" (t "enterprise.built_for_unique_processes_title")
+                    "Description" (t "enterprise.built_for_unique_processes_description")
+                )
+            )
+        }}
         
         {{template "value-propositions" $valuePropsData}}
     </section>
@@ -735,13 +735,13 @@
         <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 md:p-12">
             <div class="max-w-4xl mx-auto text-center">
                 <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-6">
-                    "Instead of spending $100K upfront on Salesforce with months of implementation, we chose Blue."
+                    {{t "enterprise.customer_story_quote"}}
                 </h3>
                 <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                    "We were live in less than a month at a fraction of the cost. Now we're tracking hundreds of millions of dollars in our CRM pipeline with a system that actually works the way we think."
+                    {{t "enterprise.customer_story_description"}}
                 </p>
                 <div class="flex items-center justify-center space-x-4">
-                    <div class="text-sm font-medium text-gray-900 dark:text-gray-100">Enterprise Manufacturing Customer</div>
+                    <div class="text-sm font-medium text-gray-900 dark:text-gray-100">{{t "enterprise.customer_story_author"}}</div>
                 </div>
             </div>
         </div>
@@ -749,60 +749,60 @@
 
     <!-- Enterprise Features Grid -->
     <section class="mb-16">
-        {{$featuresData := parseJSON `{
-            "Title": "Enterprise features that actually matter",
-            "Features": [
-                {
-                    "Title": "Dedicated Infrastructure",
-                    "Description": "Isolated deployment with dedicated servers and database for ultimate performance and security."
-                },
-                {
-                    "Title": "Custom Development",
-                    "Description": "Engineers assigned to build the exact features you need, amortized into your monthly license."
-                },
-                {
-                    "Title": "Enterprise Security",
-                    "Description": "End-to-end encryption, GDPR/HIPAA compliance, and complete data residency control."
-                },
-                {
-                    "Title": "Dedicated Support",
-                    "Description": "Success manager, technical chat, user support, and custom training programs."
-                },
-                {
-                    "Title": "White Label Included",
-                    "Description": "Complete branding customization included with enterprise plans at no extra cost."
-                },
-                {
-                    "Title": "Battle-Tested Scale",
-                    "Description": "Over 1 billion API calls annually with features used by thousands of companies."
-                },
-                {
-                    "Title": "Migration Assistance",
-                    "Description": "We handle data cleanup, import, and migration from any existing system."
-                },
-                {
-                    "Title": "Unlimited Users",
-                    "Description": "Fixed pricing regardless of user count—scale your team without scaling your costs."
-                },
-                {
-                    "Title": "Rapid Deployment",
-                    "Description": "Live in less than 30 days vs. months with traditional enterprise solutions."
-                }
-            ]
-        }`}}
+        {{$featuresData := dict
+            "Title" (t "enterprise.features_title")
+            "Features" (slice
+                (dict
+                    "Title" (t "enterprise.dedicated_infrastructure_feature_title")
+                    "Description" (t "enterprise.dedicated_infrastructure_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.custom_development_feature_title")
+                    "Description" (t "enterprise.custom_development_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.enterprise_security_feature_title")
+                    "Description" (t "enterprise.enterprise_security_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.dedicated_support_feature_title")
+                    "Description" (t "enterprise.dedicated_support_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.white_label_included_feature_title")
+                    "Description" (t "enterprise.white_label_included_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.battle_tested_scale_feature_title")
+                    "Description" (t "enterprise.battle_tested_scale_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.migration_assistance_feature_title")
+                    "Description" (t "enterprise.migration_assistance_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.unlimited_users_feature_title")
+                    "Description" (t "enterprise.unlimited_users_feature_description")
+                )
+                (dict
+                    "Title" (t "enterprise.rapid_deployment_feature_title")
+                    "Description" (t "enterprise.rapid_deployment_feature_description")
+                )
+            )
+        }}
 
         {{template "features-grid-simple" $featuresData}}
     </section>
 
     <!-- Enterprise CTA -->
     <section class="mb-16">
-        {{$enterpriseCTA := parseJSON `{
-            "Title": "Ready to transform your operations?",
-            "SecondaryText": "Schedule demo",
-            "SecondaryUrl": "/contact",
-            "PrimaryText": "Contact sales",
-            "PrimaryUrl": "/contact"
-        }`}}
+        {{$enterpriseCTA := dict
+            "Title" (t "enterprise.cta_title")
+            "SecondaryText" (t "enterprise.schedule_demo")
+            "SecondaryUrl" "/contact"
+            "PrimaryText" (t "enterprise.contact_sales")
+            "PrimaryUrl" "/contact"
+        }}
         
         {{template "dual-button-cta" $enterpriseCTA}}
     </section>
@@ -810,51 +810,51 @@
     <!-- Enterprise FAQ -->
     <section class="mb-16">
         
-        {{$faqData := parseJSON `{
-            "categories": [
-                {
-                    "name": "Frequently asked questions",
-                    "questions": [
-                        {
-                            "question": "How does Blue's enterprise infrastructure work?",
-                            "answer": "Enterprise customers get isolated deployments with dedicated database, backend services, frontend servers, and background processing. Everything runs on our infrastructure but is completely dedicated to you. Optionally, the database can run on your own servers for ultimate data control."
-                        },
-                        {
-                            "question": "What custom features can you build for our organization?",
-                            "answer": "We can customize dashboards, extend the API, build multi-homing record capabilities, create custom forms, and develop any features needed for your specific workflows. Development ranges from weeks for smaller features to 1-2 months for major capabilities."
-                        },
-                        {
-                            "question": "How much does enterprise custom development cost?",
-                            "answer": "We estimate development costs and amortize them into your multi-year license (3-5 years). No upfront costs—you pay monthly while we assign dedicated engineers to build exactly what you need."
-                        },
-                        {
-                            "question": "How long does enterprise migration and deployment take?",
-                            "answer": "Most enterprise deployments are live in less than 30 days. We handle data cleanup, migration from existing systems, and training. This is dramatically faster than traditional enterprise solutions that take months to implement."
-                        },
-                        {
-                            "question": "What level of support do enterprise customers receive?",
-                            "answer": "Enterprise customers get a dedicated success manager, technical live chat, user support chat, regular custom training for new features, and migration assistance. You're not just another account—you get the personal attention your organization deserves."
-                        },
-                        {
-                            "question": "Can Blue handle our compliance requirements?",
-                            "answer": "Yes, Blue is GDPR and HIPAA compliant with complete audit trails, end-to-end encryption, and enterprise-grade security. With dedicated infrastructure and optional on-premises database, you maintain complete control over your data."
-                        },
-                        {
-                            "question": "Is white-label branding included with enterprise plans?",
-                            "answer": "Yes, complete white-label customization is included with enterprise plans at no additional cost. Make Blue look and feel like your own internal platform."
-                        },
-                        {
-                            "question": "How does enterprise pricing work?",
-                            "answer": "Enterprise pricing is fixed regardless of user count, based on support levels and customizations required. This lets you scale your team without worrying about per-user costs escalating."
-                        },
-                        {
-                            "question": "Can you migrate us from our current enterprise system?",
-                            "answer": "Absolutely. We handle migrations from Salesforce, ServiceNow, Monday.com, Asana, Trello, and industry-specific tools. We'll clean up your data, import it properly, and ensure a smooth transition with minimal disruption."
-                        }
-                    ]
-                }
-            ]
-        }`}}
+        {{$faqData := dict
+            "categories" (slice
+                (dict
+                    "name" (t "enterprise.faq_category")
+                    "questions" (slice
+                        (dict
+                            "question" (t "enterprise.faq_infrastructure_question")
+                            "answer" (t "enterprise.faq_infrastructure_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_custom_features_question")
+                            "answer" (t "enterprise.faq_custom_features_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_development_cost_question")
+                            "answer" (t "enterprise.faq_development_cost_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_migration_time_question")
+                            "answer" (t "enterprise.faq_migration_time_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_support_level_question")
+                            "answer" (t "enterprise.faq_support_level_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_compliance_question")
+                            "answer" (t "enterprise.faq_compliance_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_white_label_question")
+                            "answer" (t "enterprise.faq_white_label_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_pricing_question")
+                            "answer" (t "enterprise.faq_pricing_answer")
+                        )
+                        (dict
+                            "question" (t "enterprise.faq_migration_question")
+                            "answer" (t "enterprise.faq_migration_answer")
+                        )
+                    )
+                )
+            )
+        }}
         
         {{template "faq-sections" $faqData}}
     </section>
