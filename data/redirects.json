@@ -83,7 +83,7 @@
     "/platform/activity-audit-trails": "/platform/features/audit-trails",
     "/platform/ai": "/platform/features/ai",
     "/platform/calendar": "/platform/features/views",
-    "/platform/chat": "/platform/features/chat",
+    "/platform/chat": "/docs/projects/chat",
     "/platform/custom-fields": "/docs/custom-fields/introduction",
     "/platform/dashboards": "/platform/features/dashboards",
     "/platform/database": "/platform/features/database",

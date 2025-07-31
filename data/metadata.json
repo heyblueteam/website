@@ -843,6 +843,88 @@
         "keywords": ["ទិដ្ឋភាពផែនទី", "ការតាមដានទីតាំង", "ទិន្នន័យភូមិសាស្ត្រ", "ការតាមដានទ្រព្យសម្បត្តិ", "ផែនទីពេលវេលាជាក់ស្តែង", "blue"]
       }
     },
+    "platform/features/pdf-generation": {
+      "en": {
+        "title": "PDF Generation",
+        "description": "Transform your records into polished documents. Create invoices, work orders, reports, and more with customizable PDF templates.",
+        "keywords": ["PDF generation", "document creation", "invoices", "reports", "templates", "blue"]
+      },
+      "es": {
+        "title": "Generación de PDF",
+        "description": "Transforma tus registros en documentos pulidos. Crea facturas, órdenes de trabajo, informes y más con plantillas PDF personalizables.",
+        "keywords": ["generación de PDF", "creación de documentos", "facturas", "informes", "plantillas", "blue"]
+      },
+      "zh": {
+        "title": "PDF 生成",
+        "description": "将您的记录转换为精美的文档。使用可定制的 PDF 模板创建发票、工单、报告等。",
+        "keywords": ["PDF生成", "文档创建", "发票", "报告", "模板", "blue"]
+      },
+      "fr": {
+        "title": "Génération de PDF",
+        "description": "Transformez vos enregistrements en documents soignés. Créez des factures, des bons de travail, des rapports et plus encore avec des modèles PDF personnalisables.",
+        "keywords": ["génération PDF", "création de documents", "factures", "rapports", "modèles", "blue"]
+      },
+      "de": {
+        "title": "PDF-Generierung",
+        "description": "Verwandeln Sie Ihre Datensätze in professionelle Dokumente. Erstellen Sie Rechnungen, Arbeitsaufträge, Berichte und mehr mit anpassbaren PDF-Vorlagen.",
+        "keywords": ["PDF-Generierung", "Dokumentenerstellung", "Rechnungen", "Berichte", "Vorlagen", "blue"]
+      },
+      "ja": {
+        "title": "PDF生成",
+        "description": "レコードを洗練されたドキュメントに変換します。カスタマイズ可能なPDFテンプレートで請求書、作業指示書、レポートなどを作成できます。",
+        "keywords": ["PDF生成", "文書作成", "請求書", "レポート", "テンプレート", "blue"]
+      },
+      "pt": {
+        "title": "Geração de PDF",
+        "description": "Transforme seus registros em documentos refinados. Crie faturas, ordens de serviço, relatórios e muito mais com modelos PDF personalizáveis.",
+        "keywords": ["geração de PDF", "criação de documentos", "faturas", "relatórios", "modelos", "blue"]
+      },
+      "ru": {
+        "title": "Генерация PDF",
+        "description": "Превращайте ваши записи в профессиональные документы. Создавайте счета, рабочие заказы, отчеты и многое другое с настраиваемыми PDF-шаблонами.",
+        "keywords": ["генерация PDF", "создание документов", "счета", "отчеты", "шаблоны", "blue"]
+      },
+      "ko": {
+        "title": "PDF 생성",
+        "description": "레코드를 세련된 문서로 변환하세요. 사용자 정의 가능한 PDF 템플릿으로 송장, 작업 주문서, 보고서 등을 작성할 수 있습니다.",
+        "keywords": ["PDF 생성", "문서 작성", "송장", "보고서", "템플릿", "blue"]
+      },
+      "it": {
+        "title": "Generazione PDF",
+        "description": "Trasforma i tuoi record in documenti raffinati. Crea fatture, ordini di lavoro, report e altro con modelli PDF personalizzabili.",
+        "keywords": ["generazione PDF", "creazione documenti", "fatture", "report", "modelli", "blue"]
+      },
+      "id": {
+        "title": "Pembuatan PDF",
+        "description": "Ubah catatan Anda menjadi dokumen yang sempurna. Buat faktur, perintah kerja, laporan, dan lainnya dengan template PDF yang dapat disesuaikan.",
+        "keywords": ["pembuatan PDF", "pembuatan dokumen", "faktur", "laporan", "template", "blue"]
+      },
+      "nl": {
+        "title": "PDF-generatie",
+        "description": "Transformeer uw records naar gepolijste documenten. Maak facturen, werkorders, rapporten en meer met aanpasbare PDF-sjablonen.",
+        "keywords": ["PDF-generatie", "documentcreatie", "facturen", "rapporten", "sjablonen", "blue"]
+      },
+      "pl": {
+        "title": "Generowanie PDF",
+        "description": "Przekształć swoje rekordy w dopracowane dokumenty. Twórz faktury, zlecenia pracy, raporty i więcej za pomocą konfigurowalnych szablonów PDF.",
+        "keywords": ["generowanie PDF", "tworzenie dokumentów", "faktury", "raporty", "szablony", "blue"]
+      },
+      "zh-TW": {
+        "title": "PDF 生成",
+        "description": "將您的記錄轉換為精美的文件。使用可自訂的 PDF 範本建立發票、工單、報告等。",
+        "keywords": ["PDF生成", "文件建立", "發票", "報告", "範本", "blue"]
+      },
+      "sv": {
+        "title": "PDF-generering",
+        "description": "Förvandla dina poster till professionella dokument. Skapa fakturor, arbetsorder, rapporter och mer med anpassningsbara PDF-mallar.",
+        "keywords": ["PDF-generering", "dokumentskapande", "fakturor", "rapporter", "mallar", "blue"]
+      },
+      "km": {
+        "title": "ការបង្កើត PDF",
+        "description": "បំប្លែងកំណត់ត្រារបស់អ្នកទៅជាឯកសារដែលបានបញ្ចប់យ៉ាងល្អ។ បង្កើតវិក្កយបត្រ បញ្ជាការងារ របាយការណ៍ និងច្រើនទៀតជាមួយនឹងគំរូ PDF ដែលអាចប្តូរបាន។",
+        "keywords": ["ការបង្កើត PDF", "ការបង្កើតឯកសារ", "វិក្កយបត្រ", "របាយការណ៍", "គំរូ", "blue"]
+      }
+    },
     "platform/features/records": {
       "en": {
         "title": "Records",

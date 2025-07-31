@@ -1,6 +1,6 @@
   {{template "page-heading" dict 
-    "Title" "Advanced User Permissions" 
-    "Subtitle" "Create granular access controls down to individual fields and columns." 
+    "Title" (t "user-permissions.page_title") 
+    "Subtitle" (t "user-permissions.page_subtitle") 
     "MarginBottom" "mb-16"
   }}
 
@@ -8,39 +8,39 @@
   <!-- User Roles Section -->
   <section class="mb-20">
     <div class="mb-12 text-left">
-      <h2 class="text-4xl font-semibold text-gray-900 mb-4">User Roles</h2>
-      <p class="text-xl text-gray-600">Blue comes with six pre-defined user roles that cover most organizational needs, from full system administrators to read-only stakeholders. </p>
+      <h2 class="text-4xl font-semibold text-gray-900 mb-4">{{t "user-permissions.user_roles_title"}}</h2>
+      <p class="text-xl text-gray-600">{{t "user-permissions.user_roles_description"}}</p>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {{$rolesBenefits := parseJSON `{
-        "Benefits": [
-          {
-            "Title": "Organization Admin",
-            "Description": "Full system control including billing, user management, and all organizational settings."
-          },
-          {
-            "Title": "Workspace Admin",
-            "Description": "Manages all aspects of the workspace, including settings, permissions, and data oversight."
-          },
-          {
-            "Title": "Team Member",
-            "Description": "Can create, edit, and delete workspace content within assigned permissions to actively drive workspace progress."
-          },
-          {
-            "Title": "Client",
-            "Description": "Can create new items and monitor workspace progress, can't delete or modify the workspace's structure."
-          },
-          {
-            "Title": "Comment-Only",
-            "Description": "Can view content and add comments for collaboration, perfect for stakeholders who need visibility."
-          },
-          {
-            "Title": "View-Only",
-            "Description": "Provides access to observe workspace information and status updates without any editing privileges."
-          }
-        ]
-      }`}}
+      {{$rolesBenefits := dict
+        "Benefits" (slice
+          (dict
+            "Title" (t "user-permissions.role_org_admin_title")
+            "Description" (t "user-permissions.role_org_admin_description")
+          )
+          (dict
+            "Title" (t "user-permissions.role_workspace_admin_title")
+            "Description" (t "user-permissions.role_workspace_admin_description")
+          )
+          (dict
+            "Title" (t "user-permissions.role_team_member_title")
+            "Description" (t "user-permissions.role_team_member_description")
+          )
+          (dict
+            "Title" (t "user-permissions.role_client_title")
+            "Description" (t "user-permissions.role_client_description")
+          )
+          (dict
+            "Title" (t "user-permissions.role_comment_only_title")
+            "Description" (t "user-permissions.role_comment_only_description")
+          )
+          (dict
+            "Title" (t "user-permissions.role_view_only_title")
+            "Description" (t "user-permissions.role_view_only_description")
+          )
+        )
+      }}
       {{template "feature-benefits-grid" $rolesBenefits}}
     </div>
   </section>
@@ -48,40 +48,40 @@
   <!-- Custom Roles Section -->
   <section class="mb-20">
     <div class="mb-12 text-left">
-      <h2 class="text-4xl font-semibold text-gray-900 mb-4">Custom Roles</h2>
-      <p class="text-xl text-gray-600">Go beyond pre-defined roles with granular permission controls that let you create exactly the access levels your organization needs.</p>
+      <h2 class="text-4xl font-semibold text-gray-900 mb-4">{{t "user-permissions.custom_roles_title"}}</h2>
+      <p class="text-xl text-gray-600">{{t "user-permissions.custom_roles_description"}}</p>
     </div>
 
-    {{$customRolesData := parseJSON `{
-      "Title": "Custom Role Management",
-      "Description": "Define precise access levels and permissions for your team members. Create roles that align perfectly with your organizational structure and security requirements.",
-      "VideoUrl": "https://media.blue.cc/user-permissions-create-role.mp4",
-      "VideoPosition": "right"
-    }`}}
+    {{$customRolesData := dict
+      "Title" (t "user-permissions.custom_role_management_title")
+      "Description" (t "user-permissions.custom_role_management_description")
+      "VideoUrl" "https://media.blue.cc/user-permissions-create-role.mp4"
+      "VideoPosition" "right"
+    }}
     {{template "feature-video" $customRolesData}}
 
-    {{$listPermissionsData := parseJSON `{
-      "Title": "List-Level Permissions",
-      "Description": "Assign permissions to view, edit, or delete specific lists within workspaces. This level of detail allows roles to be precisely managed according to the unique needs of each workspace phase.",
-      "VideoUrl": "https://media.blue.cc/user-permissions-list.mp4",
-      "VideoPosition": "left"
-    }`}}
+    {{$listPermissionsData := dict
+      "Title" (t "user-permissions.list_permissions_title")
+      "Description" (t "user-permissions.list_permissions_description")
+      "VideoUrl" "https://media.blue.cc/user-permissions-list.mp4"
+      "VideoPosition" "left"
+    }}
     {{template "feature-video" $listPermissionsData}}
 
-    {{$fieldPermissionsData := parseJSON `{
-      "Title": "Custom Field Permissions",
-      "Description": "Control access to sensitive data by managing view and edit permissions for each custom field. Perfect for protecting confidential information like financial data or personal details.",
-      "VideoUrl": "https://media.blue.cc/user-permissions-custom-fields.mp4",
-      "VideoPosition": "right"
-    }`}}
+    {{$fieldPermissionsData := dict
+      "Title" (t "user-permissions.field_permissions_title")
+      "Description" (t "user-permissions.field_permissions_description")
+      "VideoUrl" "https://media.blue.cc/user-permissions-custom-fields.mp4"
+      "VideoPosition" "right"
+    }}
     {{template "feature-video" $fieldPermissionsData}}
 
-    {{$recordVisibilityData := parseJSON `{
-      "Title": "Record-Level Visibility",
-      "Description": "Enhance focus and productivity by limiting users to only see records assigned to them. Perfect for sales teams managing their own leads or support staff handling their specific cases.",
-      "VideoUrl": "https://media.blue.cc/user-permissions-records.mp4",
-      "VideoPosition": "left"
-    }`}}
+    {{$recordVisibilityData := dict
+      "Title" (t "user-permissions.record_visibility_title")
+      "Description" (t "user-permissions.record_visibility_description")
+      "VideoUrl" "https://media.blue.cc/user-permissions-records.mp4"
+      "VideoPosition" "left"
+    }}
     {{template "feature-video" $recordVisibilityData}}
   </section>
 
@@ -89,105 +89,105 @@
 
 
 
-  {{$ctaData := parseJSON `{
-    "Title": "Secure your data with advanced permissions.",
-    "PrimaryText": "Get Started Free",
-    "PrimaryUrl": "https://app.blue.cc",
-    "SecondaryText": "View documentation",
-    "SecondaryUrl": "/docs/user-management/permissions"
-  }`}}
+  {{$ctaData := dict
+    "Title" (t "user-permissions.cta_title")
+    "PrimaryText" (t "user-permissions.cta_primary_text")
+    "PrimaryUrl" "https://app.blue.cc"
+    "SecondaryText" (t "user-permissions.cta_secondary_text")
+    "SecondaryUrl" "/docs/user-management/permissions"
+  }}
   {{template "dual-button-cta" $ctaData}}
 
-  {{$faqData := parseJSON `{
-    "categories": [
-      {
-        "name": "General Questions",
-        "questions": [
-          {
-            "question": "What are the different user roles in Blue?",
-            "answer": "Blue offers six pre-defined roles: Organization Administrator (full system access), Workspace Administrator (manages workspaces), Team Member (creates and edits content), Client (monitors progress), Vendor (limited creation rights), Comment-Only (can only comment), and View-Only (read-only access). You can also create unlimited custom roles."
-          },
-          {
-            "question": "What permissions does an Organization Administrator have?",
-            "answer": "Organization Administrators have complete control over the Blue workspace. They can manage billing, create and delete workspaces, invite users, configure integrations, access all workspaces and data, and modify organization-wide settings. This is the highest level of access in Blue."
-          },
-          {
-            "question": "What can a Workspace Administrator do?",
-            "answer": "Workspace Administrators have full control within their assigned workspaces. They can manage workspace settings, invite and remove team members, configure permissions, create and modify all content, set up automations, and access workspace analytics. They cannot access organization-level settings or billing."
-          },
-          {
-            "question": "What are the capabilities and restrictions of a Team Member?",
-            "answer": "Team Members can create, edit, and delete records within their permission scope. They can collaborate on tasks, upload files, participate in discussions, and view workspace progress. They cannot modify workspace settings, manage other users, or access administrative features."
-          },
-          {
-            "question": "What can a Client User do in Blue?",
-            "answer": "Client Users have limited but important access. They can view workspace progress, create new items like tasks or requests, comment on existing items, and receive notifications. They cannot delete content, modify workspace structure, or access internal team discussions."
-          },
-          {
-            "question": "What are the roles and limitations of a Comment-Only User?",
-            "answer": "Comment-Only Users can view all content they have access to and add comments for collaboration. They cannot create new records, edit existing content, or delete anything. This role is perfect for stakeholders who need visibility and the ability to provide feedback without making changes."
-          }
-        ]
-      },
-      {
-        "name": "Role Management",
-        "questions": [
-          {
-            "question": "How do I assign a user role in Blue?",
-            "answer": "To assign a role, go to the People tab in your workspace, click on a user's name, and select their role from the dropdown menu. Organization Administrators can assign any role, while Workspace Administrators can only assign roles within their workspaces. Changes take effect immediately."
-          },
-          {
-            "question": "Can user roles be changed after they are assigned?",
-            "answer": "Yes, user roles can be changed at any time by administrators. Simply navigate to the user's profile in the People tab and select a new role. The user will immediately gain or lose permissions based on their new role assignment."
-          },
-          {
-            "question": "What happens when a user is removed from a workspace?",
-            "answer": "When removed from a workspace, users immediately lose access to all workspace data, including records, files, and discussions. Their historical contributions (comments, created records) remain but are attributed to their name. They can be re-added at any time with the same or different permissions."
-          },
-          {
-            "question": "Can I have different roles in different workspaces?",
-            "answer": "Yes, Blue supports workspace-specific roles. You might be a Workspace Administrator in one workspace but a Team Member in another. This flexibility allows organizations to maintain proper access control across different teams and initiatives."
-          }
-        ]
-      },
-      {
-        "name": "Custom Roles",
-        "questions": [
-          {
-            "question": "What are custom user roles in Blue?",
-            "answer": "Custom roles allow you to create permission sets tailored to your organization's specific needs. You can define exactly what users can see and do, from list-level access to individual field permissions, creating roles that perfectly match your workflow and security requirements."
-          },
-          {
-            "question": "How do I create a custom user role?",
-            "answer": "Navigate to Settings > User Roles and click 'Create New Role'. Name your role, then configure permissions including: list access (view/edit/delete), custom field visibility, record-level restrictions, and specific feature access. Save the role to make it available for assignment."
-          },
-          {
-            "question": "What are the benefits of using custom user roles?",
-            "answer": "Custom roles provide precise access control, enhanced security for sensitive data, improved focus by showing only relevant information, compliance with data protection regulations, and the flexibility to match your exact organizational structure. They eliminate the compromise of using generic roles."
-          },
-          {
-            "question": "Can users be assigned multiple roles in the same workspace?",
-            "answer": "No, each user can only have one role per workspace in Blue. However, custom roles can combine permissions from multiple standard roles, giving you the flexibility to create hybrid roles that meet complex permission requirements."
-          }
-        ]
-      },
-      {
-        "name": "Administration",
-        "questions": [
-          {
-            "question": "What is the 'People' tab in Blue?",
-            "answer": "The People tab is your central hub for user management within a workspace. It displays all workspace members, their roles, last active status, and allows administrators to invite new users, modify permissions, or remove access. It's accessible from the workspace sidebar."
-          },
-          {
-            "question": "Who can invite new users to a workspace?",
-            "answer": "Organization Administrators and Workspace Administrators can invite new users to workspaces. They can send invitations via email, set initial roles, and optionally include a welcome message. Team Members and other roles cannot invite new users."
-          },
-          {
-            "question": "Who can remove users from a workspace?",
-            "answer": "Only Organization Administrators and Workspace Administrators can remove users from workspaces. Organization Administrators can remove anyone, while Workspace Administrators can only remove users from workspaces they manage. Users cannot remove themselves from workspaces."
-          }
-        ]
-      }
-    ]
-  }`}}
+  {{$faqData := dict
+    "categories" (slice
+      (dict
+        "name" (t "user-permissions.faq_category_general")
+        "questions" (slice
+          (dict
+            "question" (t "user-permissions.faq_q1")
+            "answer" (t "user-permissions.faq_a1")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q2")
+            "answer" (t "user-permissions.faq_a2")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q3")
+            "answer" (t "user-permissions.faq_a3")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q4")
+            "answer" (t "user-permissions.faq_a4")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q5")
+            "answer" (t "user-permissions.faq_a5")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q6")
+            "answer" (t "user-permissions.faq_a6")
+          )
+        )
+      )
+      (dict
+        "name" (t "user-permissions.faq_category_role_management")
+        "questions" (slice
+          (dict
+            "question" (t "user-permissions.faq_q7")
+            "answer" (t "user-permissions.faq_a7")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q8")
+            "answer" (t "user-permissions.faq_a8")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q9")
+            "answer" (t "user-permissions.faq_a9")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q10")
+            "answer" (t "user-permissions.faq_a10")
+          )
+        )
+      )
+      (dict
+        "name" (t "user-permissions.faq_category_custom_roles")
+        "questions" (slice
+          (dict
+            "question" (t "user-permissions.faq_q11")
+            "answer" (t "user-permissions.faq_a11")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q12")
+            "answer" (t "user-permissions.faq_a12")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q13")
+            "answer" (t "user-permissions.faq_a13")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q14")
+            "answer" (t "user-permissions.faq_a14")
+          )
+        )
+      )
+      (dict
+        "name" (t "user-permissions.faq_category_administration")
+        "questions" (slice
+          (dict
+            "question" (t "user-permissions.faq_q15")
+            "answer" (t "user-permissions.faq_a15")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q16")
+            "answer" (t "user-permissions.faq_a16")
+          )
+          (dict
+            "question" (t "user-permissions.faq_q17")
+            "answer" (t "user-permissions.faq_a17")
+          )
+        )
+      )
+    )
+  }}
   {{template "faq-sections" $faqData}}

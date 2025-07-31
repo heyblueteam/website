@@ -1,154 +1,154 @@
 <!-- Main content -->
 {{template "page-heading" 
     dict 
-        "Title" "Unlock new perspectives with map view" 
-        "Subtitle" "Visualize your data on a world map. Track customers, delivery addresses, and other real-world items with ease." 
+        "Title" (t "map.page_title") 
+        "Subtitle" (t "map.page_subtitle") 
         "MarginBottom" "mb-16"
 }}
 
 
 
 <!-- Real-Time Location Tracking Feature -->
-{{$trackingFeature := parseJSON `{
-    "Title": "Track everything in real time.",
-    "Description": "Always know where your assets, shipments, or team members are. Map view updates automatically as location data changes, giving you instant visibility across your operations.",
-    "ImageUrl": "/product/map.png",
-    "ImagePosition": "right"
-}`}}
+{{$trackingFeature := dict
+    "Title" (t "map.tracking_title")
+    "Description" (t "map.tracking_description")
+    "ImageUrl" "/product/map.png"
+    "ImagePosition" "right"
+}}
 {{template "feature-image" $trackingFeature}}
 
 <!-- Real-Time Location Tracking Benefits Grid -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {{$trackingBenefits := parseJSON `{
-        "Benefits": [
-            {
-                "Title": "Live updates",
-                "Description": "See location changes as they happen with automatic map updates."
-            },
-            {
-                "Title": "Asset visibility",
-                "Description": "Track vehicles, equipment, and inventory across your entire operation."
-            },
-            {
-                "Title": "Team coordination",
-                "Description": "Know where your team members are and optimize their routes."
-            }
-        ],
-        "MarginBottom": "mb-20"
-    }`}}
+    {{$trackingBenefits := dict
+        "Benefits" (slice
+            (dict
+                "Title" (t "map.tracking_benefit_1_title")
+                "Description" (t "map.tracking_benefit_1_description")
+            )
+            (dict
+                "Title" (t "map.tracking_benefit_2_title")
+                "Description" (t "map.tracking_benefit_2_description")
+            )
+            (dict
+                "Title" (t "map.tracking_benefit_3_title")
+                "Description" (t "map.tracking_benefit_3_description")
+            )
+        )
+        "MarginBottom" "mb-20"
+    }}
     {{template "feature-benefits-grid" $trackingBenefits}}
 </div>
 
 {{template "call-out-text" 
     dict 
-        "Text" "Location data reveals patterns you can't see in spreadsheets. Map view transforms coordinates into actionable insights." 
+        "Text" (t "map.callout_text") 
         "MarginBottom" "mb-16"
 }}
 
 <!-- Geographical Insights Feature -->
-{{$insightsFeature := parseJSON `{
-    "Title": "Discover hidden patterns in your data.",
-    "Description": "Uncover trends and relationships that are invisible in traditional views. Map view reveals geographical patterns that help you make better decisions and identify new opportunities.",
-    "ImageUrl": "/product/map-org.png",
-    "ImagePosition": "left"
-}`}}
+{{$insightsFeature := dict
+    "Title" (t "map.insights_title")
+    "Description" (t "map.insights_description")
+    "ImageUrl" "/product/map-org.png"
+    "ImagePosition" "left"
+}}
 {{template "feature-image" $insightsFeature}}
 
 <!-- Geographical Insights Benefits Grid -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    {{$insightsBenefits := parseJSON `{
-        "Benefits": [
-            {
-                "Title": "Pattern recognition",
-                "Description": "Identify clusters, gaps, and trends in your geographical data."
-            },
-            {
-                "Title": "Market analysis",
-                "Description": "Visualize customer distribution and market penetration across regions."
-            },
-            {
-                "Title": "Strategic planning",
-                "Description": "Make data-driven decisions about expansion and resource allocation."
-            }
-        ],
-        "MarginBottom": "mb-20"
-    }`}}
+    {{$insightsBenefits := dict
+        "Benefits" (slice
+            (dict
+                "Title" (t "map.insights_benefit_1_title")
+                "Description" (t "map.insights_benefit_1_description")
+            )
+            (dict
+                "Title" (t "map.insights_benefit_2_title")
+                "Description" (t "map.insights_benefit_2_description")
+            )
+            (dict
+                "Title" (t "map.insights_benefit_3_title")
+                "Description" (t "map.insights_benefit_3_description")
+            )
+        )
+        "MarginBottom" "mb-20"
+    }}
     {{template "feature-benefits-grid" $insightsBenefits}}
 </div>
 
 
 <!-- Call to Action -->
-{{$ctaData := parseJSON `{
-    "Title": "Ready to see your data on a map?",
-    "PrimaryText": "Get Started Free",
-    "PrimaryUrl": "https://app.blue.cc",
-    "SecondaryText": "View documentation",
-    "SecondaryUrl": "/docs/views/map"
-}`}}
+{{$ctaData := dict
+    "Title" (t "map.cta_title")
+    "PrimaryText" (t "map.cta_primary_text")
+    "PrimaryUrl" "https://app.blue.cc"
+    "SecondaryText" (t "map.cta_secondary_text")
+    "SecondaryUrl" "/docs/views/map"
+}}
 {{template "dual-button-cta" $ctaData}}
 
 <!-- FAQ Section -->
-{{$faqData := parseJSON `{
-    "categories": [
-        {
-            "name": "Map Features",
-            "questions": [
-                {
-                    "question": "What is the Map View?",
-                    "answer": "Map View visually plots records containing location data onto an interactive world map. This geographic perspective delivers unique insights and analysis opportunities that aren't visible in traditional list or table views."
-                },
-                {
-                    "question": "What features are available on the map?",
-                    "answer": "Map View includes zoom controls, filtering capabilities, instant search for records, and real-time updates. You can click on any point to view record details, use filters to show specific data sets, and search for records across the globe."
-                },
-                {
-                    "question": "Does the Map work in Dark Mode?",
-                    "answer": "Yes, Map View fully supports dark mode. The map tiles, interface elements, and all visual components automatically adapt to your theme preference, providing a consistent experience across all viewing modes."
-                },
-                {
-                    "question": "How do I add location data to my records?",
-                    "answer": "Use the Location custom field type in your record structure. You can enter coordinates manually, paste Google Maps links, or search for locations by name. The field automatically captures and validates location data for map display."
-                }
-            ]
-        },
-        {
-            "name": "Use Cases & Applications",
-            "questions": [
-                {
-                    "question": "What are some use cases for the Map View?",
-                    "answer": "Common use cases include asset tracking (vehicles, equipment), logistics optimization (delivery routes, supply chains), territory management (sales regions, service areas), and market analysis (customer distribution, market penetration)."
-                },
-                {
-                    "question": "Can I track moving assets in real-time?",
-                    "answer": "Yes, Map View updates automatically as location data changes. When you update coordinates in your records, the map reflects those changes immediately, allowing you to track moving assets, shipments, or team members in real-time."
-                },
-                {
-                    "question": "How does cross-project visualization work?",
-                    "answer": "Map View can display location data from multiple projects simultaneously. This allows you to see connections and patterns across different teams, departments, and initiatives that might not be visible when viewing projects in isolation."
-                },
-                {
-                    "question": "Can I export map data for external analysis?",
-                    "answer": "Yes, Blue provides a powerful API that allows you to read location data, update locations, and stream real-time updates to external applications for further analysis, visualization, or integration with geospatial tools."
-                }
-            ]
-        },
-        {
-            "name": "Technical Details",
-            "questions": [
-                {
-                    "question": "What location formats does Blue support?",
-                    "answer": "Blue supports latitude/longitude coordinates, Google Maps links, and location search by name. The Location custom field automatically validates and standardizes location data for consistent map display."
-                },
-                {
-                    "question": "How accurate is the location tracking?",
-                    "answer": "Location accuracy depends on the data source. GPS coordinates provide the highest accuracy, while location search results use standard mapping service accuracy. All location changes are logged with timestamps for audit purposes."
-                },
-                {
-                    "question": "Can I build custom geospatial applications with Blue?",
-                    "answer": "Yes, Blue's API provides full access to location data. You can retrieve location data, update locations, and receive real-time updates to build custom geospatial applications, dashboards, or integrate with external mapping tools."
-                }
-            ]
-        }
-    ]
-}`}}
+{{$faqData := dict
+    "categories" (slice
+        (dict
+            "name" (t "map.faq_category_features")
+            "questions" (slice
+                (dict
+                    "question" (t "map.faq_q1")
+                    "answer" (t "map.faq_a1")
+                )
+                (dict
+                    "question" (t "map.faq_q2")
+                    "answer" (t "map.faq_a2")
+                )
+                (dict
+                    "question" (t "map.faq_q3")
+                    "answer" (t "map.faq_a3")
+                )
+                (dict
+                    "question" (t "map.faq_q4")
+                    "answer" (t "map.faq_a4")
+                )
+            )
+        )
+        (dict
+            "name" (t "map.faq_category_use_cases")
+            "questions" (slice
+                (dict
+                    "question" (t "map.faq_q5")
+                    "answer" (t "map.faq_a5")
+                )
+                (dict
+                    "question" (t "map.faq_q6")
+                    "answer" (t "map.faq_a6")
+                )
+                (dict
+                    "question" (t "map.faq_q7")
+                    "answer" (t "map.faq_a7")
+                )
+                (dict
+                    "question" (t "map.faq_q8")
+                    "answer" (t "map.faq_a8")
+                )
+            )
+        )
+        (dict
+            "name" (t "map.faq_category_technical")
+            "questions" (slice
+                (dict
+                    "question" (t "map.faq_q9")
+                    "answer" (t "map.faq_a9")
+                )
+                (dict
+                    "question" (t "map.faq_q10")
+                    "answer" (t "map.faq_a10")
+                )
+                (dict
+                    "question" (t "map.faq_q11")
+                    "answer" (t "map.faq_a11")
+                )
+            )
+        )
+    )
+}}
 {{template "faq-sections" $faqData}}
