@@ -35,61 +35,68 @@
     x-init="$nextTick(() => updateUnderline())"
     @resize.window="updateUnderline()">
         <!-- Category Navigation -->
-        <div class="mb-8 sm:mb-12">
-            <nav x-ref="tabNav" class="relative flex flex-wrap gap-3 sm:gap-8 text-sm sm:text-lg">
-                <button @click="selectCategory('all')" 
-                        data-category="all"
-                        :class="activeCategory === 'all' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.all"}}
-                </button>
-                <button @click="selectCategory('product-updates')" 
-                        data-category="product-updates"
-                        :class="activeCategory === 'product-updates' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.product-updates"}}
-                </button>
-                <button @click="selectCategory('engineering')" 
-                        data-category="engineering"
-                        :class="activeCategory === 'engineering' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.engineering"}}
-                </button>
-                <button @click="selectCategory('ceo-blog')" 
-                        data-category="ceo-blog"
-                        :class="activeCategory === 'ceo-blog' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.ceo-blog"}}
-                </button>
-                <button @click="selectCategory('best-practices')" 
-                        data-category="best-practices"
-                        :class="activeCategory === 'best-practices' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.best-practices"}}
-                </button>
-                <button @click="selectCategory('modern-work-practices')" 
-                        data-category="modern-work-practices"
-                        :class="activeCategory === 'modern-work-practices' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.modern-work-practices"}}
-                </button>
-                <button @click="selectCategory('news')" 
-                        data-category="news"
-                        :class="activeCategory === 'news' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.news"}}
-                </button>
-                <button @click="selectCategory('faq')" 
-                        data-category="faq"
-                        :class="activeCategory === 'faq' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
-                    {{t "insights.categories.faq"}}
-                </button>
-                
-                <!-- Animated underline -->
-                <div class="absolute bottom-0 h-0.5 bg-brand-blue transition-all duration-300 ease-out"
-                     :style="`left: ${underlineLeft}px; width: ${underlineWidth}px;`"></div>
-            </nav>
+        <div class="mb-8 sm:mb-12 -mx-4 sm:-mx-6 lg:mx-0">
+            <div class="overflow-x-auto scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <style>
+                    .scrollbar-hide::-webkit-scrollbar {
+                        display: none;
+                    }
+                </style>
+                <nav x-ref="tabNav" class="relative flex gap-3 sm:gap-8 text-sm sm:text-lg px-4 sm:px-6 lg:px-0 min-w-max pb-2">
+                    <button @click="selectCategory('all')" 
+                            data-category="all"
+                            :class="activeCategory === 'all' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.all"}}
+                    </button>
+                    <button @click="selectCategory('product-updates')" 
+                            data-category="product-updates"
+                            :class="activeCategory === 'product-updates' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.product-updates"}}
+                    </button>
+                    <button @click="selectCategory('engineering')" 
+                            data-category="engineering"
+                            :class="activeCategory === 'engineering' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.engineering"}}
+                    </button>
+                    <button @click="selectCategory('ceo-blog')" 
+                            data-category="ceo-blog"
+                            :class="activeCategory === 'ceo-blog' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.ceo-blog"}}
+                    </button>
+                    <button @click="selectCategory('best-practices')" 
+                            data-category="best-practices"
+                            :class="activeCategory === 'best-practices' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.best-practices"}}
+                    </button>
+                    <button @click="selectCategory('modern-work-practices')" 
+                            data-category="modern-work-practices"
+                            :class="activeCategory === 'modern-work-practices' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.modern-work-practices"}}
+                    </button>
+                    <button @click="selectCategory('news')" 
+                            data-category="news"
+                            :class="activeCategory === 'news' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.news"}}
+                    </button>
+                    <button @click="selectCategory('faq')" 
+                            data-category="faq"
+                            :class="activeCategory === 'faq' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                            class="pb-0.5 sm:pb-1 cursor-pointer relative whitespace-nowrap">
+                        {{t "insights.categories.faq"}}
+                    </button>
+                    
+                    <!-- Animated underline -->
+                    <div class="absolute bottom-0 h-0.5 bg-brand-blue transition-all duration-300 ease-out"
+                         :style="`left: ${underlineLeft}px; width: ${underlineWidth}px;`"></div>
+                </nav>
+            </div>
         </div>
 
         <!-- Insights Content Grid -->
