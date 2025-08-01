@@ -35,14 +35,14 @@
     x-init="$nextTick(() => updateUnderline())"
     @resize.window="updateUnderline()">
         <!-- Category Navigation -->
-        <div class="mb-8 sm:mb-12 -mx-4 sm:-mx-6 lg:mx-0">
+        <div class="mb-8 sm:mb-12">
             <div class="overflow-x-auto scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
                 <style>
                     .scrollbar-hide::-webkit-scrollbar {
                         display: none;
                     }
                 </style>
-                <nav x-ref="tabNav" class="relative flex gap-3 sm:gap-8 text-sm sm:text-lg px-4 sm:px-6 lg:px-0 min-w-max pb-2">
+                <nav x-ref="tabNav" class="relative flex gap-3 sm:gap-8 text-sm sm:text-lg min-w-max pb-2">
                     <button @click="selectCategory('all')" 
                             data-category="all"
                             :class="activeCategory === 'all' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
