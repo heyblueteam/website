@@ -347,17 +347,6 @@
         {{template "feature-video" $studentServicesData}}
     </div>
 
-    <!-- Testimonial Section -->
-    <div class="mb-20 px-6 lg:px-8">
-        {{template "testimonial-single" 
-            dict 
-                "ImageUrl" "/testimonials/education-administrator.png"
-                "Quote" (t "education.testimonial_quote")
-                "Name" (t "education.testimonial_name")
-                "Title" (t "education.testimonial_title")
-        }}
-    </div>
-
     <!-- Education Stats Section -->
     <div class="mb-20">
         {{$educationStatsData := dict
