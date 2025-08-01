@@ -327,6 +327,15 @@ func createTestRouter(testDir string) *Router {
 }
 
 func createTestFile(t *testing.T, path, content string) {
+	// Ensure directory exists
+	dir := filepath.Dir(path)
+	if err := os.MkdirAll(dir, 0755); err != nil {
+		if t != nil {
+			t.Fatalf("Failed to create directory %s: %v", dir, err)
+		}
+		panic(err)
+	}
+	
 	if err := os.WriteFile(path, []byte(content), 0644); err != nil {
 		if t != nil {
 			t.Fatalf("Failed to create test file %s: %v", path, err)

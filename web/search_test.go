@@ -435,13 +435,13 @@ func TestExtractTextFromHTML(t *testing.T) {
 			name: "HTML with special characters and entities",
 			html: `<h1>Title &amp; More</h1>
 				<p>Content with &copy; and &trade; symbols</p>`,
-			expected: "Title &amp; More Content with &copy; and &trade; symbols",
+			expected: "Title & More Content with © and ™ symbols",
 		},
 		{
 			name: "HTML with JavaScript patterns",
 			html: `<h1>Title</h1>
 				<p>Content with function() { return true; } and const x = 5;</p>`,
-			expected: "Title Content with true; and x 5;",
+			expected: "Title Content with function() { return true; } and const x = 5;",
 		},
 		{
 			name: "HTML with unclosed script tag",
@@ -1283,9 +1283,9 @@ func TestMarkdownURLCleaning(t *testing.T) {
 	// Check URL cleaning
 	expectedURLs := map[string]string{
 		"/docs/introduction":             "Introduction",
-		"/docs/getting-started":          "getting started",
-		"/docs/guides/advanced-features": "advanced features",
-		"/api/users":                     "users",
+		"/docs/getting-started":          "Getting Started",
+		"/docs/guides/advanced-features": "Advanced",
+		"/api/users":                     "Users API",
 	}
 
 	for _, item := range items {

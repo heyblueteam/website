@@ -11,14 +11,15 @@ func TestContentServiceFindMarkdownFile(t *testing.T) {
 	testDir := t.TempDir()
 	contentDir := filepath.Join(testDir, "content")
 	
-	// Create test directory structure
-	os.MkdirAll(filepath.Join(contentDir, "about"), 0755)
-	os.MkdirAll(filepath.Join(contentDir, "blog"), 0755)
+	// Create test directory structure with language subdirectory
+	langDir := filepath.Join(contentDir, "en") // Default language
+	os.MkdirAll(filepath.Join(langDir, "about"), 0755)
+	os.MkdirAll(filepath.Join(langDir, "blog"), 0755)
 	
-	// Create test files
-	createTestFile(t, filepath.Join(contentDir, "about.md"), "# About")
-	createTestFile(t, filepath.Join(contentDir, "blog", "index.md"), "# Blog")
-	createTestFile(t, filepath.Join(contentDir, "blog", "post.md"), "# Post")
+	// Create test files in language directory
+	createTestFile(t, filepath.Join(langDir, "about.md"), "# About")
+	createTestFile(t, filepath.Join(langDir, "blog", "index.md"), "# Blog")
+	createTestFile(t, filepath.Join(langDir, "blog", "post.md"), "# Post")
 	
 	cs := NewContentService(contentDir)
 	
@@ -31,25 +32,25 @@ func TestContentServiceFindMarkdownFile(t *testing.T) {
 		{
 			name:        "Direct file match",
 			path:        "/about",
-			wantFile:    filepath.Join(contentDir, "about.md"),
+			wantFile:    filepath.Join(contentDir, "en", "about.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Directory with index",
 			path:        "/blog",
-			wantFile:    filepath.Join(contentDir, "blog", "index.md"),
+			wantFile:    filepath.Join(contentDir, "en", "blog", "index.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Nested file",
 			path:        "/blog/post",
-			wantFile:    filepath.Join(contentDir, "blog", "post.md"),
+			wantFile:    filepath.Join(contentDir, "en", "blog", "post.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Path with trailing slash",
 			path:        "/about/",
-			wantFile:    filepath.Join(contentDir, "about.md"),
+			wantFile:    filepath.Join(contentDir, "en", "about.md"),
 			shouldExist: true,
 		},
 		{
@@ -98,8 +99,8 @@ func TestContentServiceFindNumberedFiles(t *testing.T) {
 	os.Chdir(testDir)
 	defer os.Chdir(originalWd)
 	
-	// Create the expected directory structure
-	docsDir := filepath.Join("content", "docs")
+	// Create the expected directory structure with language subdirectory
+	docsDir := filepath.Join("content", "en", "docs")
 	os.MkdirAll(docsDir, 0755)
 	
 	// Create docs structure with numbered files
@@ -125,31 +126,31 @@ func TestContentServiceFindNumberedFiles(t *testing.T) {
 		{
 			name:        "Find numbered file by slug",
 			path:        "/docs/introduction",
-			wantFile:    filepath.Join("content", "docs", "01.introduction.md"),
+			wantFile:    filepath.Join("content", "en", "docs", "01.introduction.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Find numbered file with hyphens",
 			path:        "/docs/getting-started",
-			wantFile:    filepath.Join("content", "docs", "02.getting-started.md"),
+			wantFile:    filepath.Join("content", "en", "docs", "02.getting-started.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Find numbered directory index",
 			path:        "/docs/api",
-			wantFile:    filepath.Join("content", "docs", "03.api", "index.md"),
+			wantFile:    filepath.Join("content", "en", "docs", "03.api", "index.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Find file in numbered directory",
 			path:        "/docs/api/authentication",
-			wantFile:    filepath.Join("content", "docs", "03.api", "01.authentication.md"),
+			wantFile:    filepath.Join("content", "en", "docs", "03.api", "01.authentication.md"),
 			shouldExist: true,
 		},
 		{
 			name:        "Two-digit numbered file",
 			path:        "/docs/advanced-features",
-			wantFile:    filepath.Join("content", "docs", "10.advanced-features.md"),
+			wantFile:    filepath.Join("content", "en", "docs", "10.advanced-features.md"),
 			shouldExist: true,
 		},
 	}
@@ -183,8 +184,8 @@ func TestContentServiceCaseInsensitiveSearch(t *testing.T) {
 	os.Chdir(testDir)
 	defer os.Chdir(originalWd)
 	
-	// Create the expected directory structure
-	docsDir := filepath.Join("content", "docs")
+	// Create the expected directory structure with language subdirectory
+	docsDir := filepath.Join("content", "en", "docs")
 	os.MkdirAll(docsDir, 0755)
 	
 	// Create files with different casing

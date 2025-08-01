@@ -6,6 +6,40 @@ import (
 	"time"
 )
 
+// Helper function to create a NavigationService with test data
+func createTestNavigationService() *NavigationService {
+	ns := &NavigationService{
+		seoService: NewSEOService(),
+		navigation: &Navigation{
+			Sections: []NavItem{
+				{
+					ID:   "home",
+					Name: "Home",
+					Href: "/",
+				},
+				{
+					ID:   "features",
+					Name: "Features",
+					Href: "/features",
+				},
+				{
+					ID:   "docs",
+					Name: "Documentation",
+					Href: "/docs",
+					Children: []NavItem{
+						{
+							ID:   "introduction",
+							Name: "Introduction",
+							Href: "/docs/introduction",
+						},
+					},
+				},
+			},
+		},
+	}
+	return ns
+}
+
 // TestIsTOCExcluded tests the TOC exclusion logic
 func TestIsTOCExcluded(t *testing.T) {
 	router := &Router{
@@ -65,7 +99,7 @@ func TestPreparePageData(t *testing.T) {
 		tocExcludedPaths:  []string{"/changelog"},
 		seoService:        NewSEOService(),
 		markdownService:   NewMarkdownService(),
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -146,16 +180,18 @@ func TestInsightsSorting(t *testing.T) {
 		},
 	}
 
-	// Add insights to cache
+	// Add insights to cache with language prefix
 	for path, content := range insights {
-		markdownService.cache.Set(path, content)
+		// Cache keys need to be in format "lang:path"
+		cacheKey := "en:" + path
+		markdownService.cache.Set(cacheKey, content)
 	}
 
 	router := &Router{
 		tocExcludedPaths:  []string{},
 		seoService:        NewSEOService(),
 		markdownService:   markdownService,
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -204,7 +240,7 @@ func TestTOCGeneration(t *testing.T) {
 		tocExcludedPaths:  []string{"/excluded"},
 		seoService:        NewSEOService(),
 		markdownService:   NewMarkdownService(),
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -271,7 +307,7 @@ func TestPNGGeneration(t *testing.T) {
 	markdownService := NewMarkdownService()
 
 	// Add a test insight
-	markdownService.cache.Set("/insights/test-article", &CachedContent{
+	markdownService.cache.Set("en:/insights/test-article", &CachedContent{
 		Frontmatter: &Frontmatter{
 			Title:       "Test Article",
 			Description: "Test description",
@@ -285,7 +321,7 @@ func TestPNGGeneration(t *testing.T) {
 		tocExcludedPaths:  []string{},
 		seoService:        NewSEOService(),
 		markdownService:   markdownService,
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -337,14 +373,16 @@ func TestInsightCategoryExtraction(t *testing.T) {
 	}
 
 	for path, content := range testCases {
-		markdownService.cache.Set(path, content)
+		// Add language prefix to cache key
+		cacheKey := "en:" + path
+		markdownService.cache.Set(cacheKey, content)
 	}
 
 	router := &Router{
 		tocExcludedPaths:  []string{},
 		seoService:        NewSEOService(),
 		markdownService:   markdownService,
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -390,7 +428,7 @@ func TestSchemaDataGeneration(t *testing.T) {
 		tocExcludedPaths:  []string{},
 		seoService:        NewSEOService(),
 		markdownService:   NewMarkdownService(),
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
@@ -445,7 +483,7 @@ func BenchmarkInsightsSorting(b *testing.B) {
 		tocExcludedPaths:  []string{},
 		seoService:        NewSEOService(),
 		markdownService:   markdownService,
-		navigationService: NewNavigationService(NewSEOService()),
+		navigationService: createTestNavigationService(),
 		schemaService:     NewSchemaService(nil, "https://example.com"),
 	}
 
