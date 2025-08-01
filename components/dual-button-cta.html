@@ -29,7 +29,7 @@ DATA STRUCTURE:
 }
 
 FEATURES:
-- Responsive layout: Stacked on mobile, side-by-side on desktop
+- Responsive layout: Stacked on mobile/tablet/small laptops, side-by-side on large desktops
 - Blue background with rounded corners
 - Primary button with arrow icon
 - Secondary button with outline style
@@ -43,7 +43,7 @@ LAYOUT:
 - Button gap: 4 units (1rem)
 
 STYLING:
-- Title: 2xl-3xl font size, medium weight
+- Title: Responsive font size (2xl mobile, 3xl tablet, 2xl small laptop, 3xl large desktop)
 - Primary button: Brand blue background, white text, arrow icon
 - Secondary button: Blue outline, transparent background
 - Hover states for both buttons
@@ -83,9 +83,9 @@ USE CASES:
         }
     }
 }">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col xl:flex-row items-center justify-between gap-6">
         <!-- Title -->
-        <h3 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-gray-100 flex-1">
+        <h3 class="text-2xl md:text-3xl lg:text-2xl xl:text-3xl font-medium text-gray-900 dark:text-gray-100 flex-1">
             <span x-show="authState && authState.isLoggedIn">Ready to get back to work?</span>
             <span x-show="!authState || !authState.isLoggedIn">{{.Title}}</span>
         </h3>
