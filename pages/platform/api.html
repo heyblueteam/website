@@ -52,7 +52,8 @@
                 </div>
             </div>
             
-            <div class="space-y-6" x-data="StatusUtils.createApiStatusData()" x-init="loadData()">
+            <!-- Status monitoring temporarily disabled during migration to static generation -->
+            <div class="space-y-6" style="display: none;" x-data="StatusUtils.createApiStatusData()" x-init="loadData()">
                 <template x-if="apiService">
                     <div>
                         <div class="flex justify-between items-center mb-4">

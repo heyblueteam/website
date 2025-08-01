@@ -1,51 +1,4 @@
 <!-- Main content -->
-<!-- Store translations in data attributes for SPA compatibility -->
-<div id="status-translations" style="display: none;"
-     data-uptime-percentage="{{t "status.uptimePercentage"}}"
-     data-loading="{{t "status.loading"}}"
-     data-error="{{t "status.error"}}"
-     data-status-operational="{{t "status.statuses.operational"}}"
-     data-status-degraded="{{t "status.statuses.degraded"}}"
-     data-status-outage="{{t "status.statuses.outage"}}"
-     data-status-up="{{t "status.statuses.up"}}"
-     data-status-down="{{t "status.statuses.down"}}"
-     data-status-unknown="{{t "status.statuses.unknown"}}"
-     data-lang="{{.Language}}">
-</div>
-
-<script>
-    // Function to setup translations from data attributes
-    function setupStatusTranslations() {
-        const translationEl = document.getElementById('status-translations');
-        if (translationEl) {
-            window.blueData = window.blueData || {};
-            window.blueData.translations = window.blueData.translations || {};
-            window.blueData.translations.status = {
-                uptimePercentage: translationEl.dataset.uptimePercentage,
-                loading: translationEl.dataset.loading,
-                error: translationEl.dataset.error,
-                statuses: {
-                    operational: translationEl.dataset.statusOperational,
-                    degraded: translationEl.dataset.statusDegraded,
-                    outage: translationEl.dataset.statusOutage,
-                    up: translationEl.dataset.statusUp,
-                    down: translationEl.dataset.statusDown,
-                    unknown: translationEl.dataset.statusUnknown
-                }
-            };
-            window.blueData.lang = translationEl.dataset.lang;
-        }
-    }
-    
-    // Setup on initial load
-    setupStatusTranslations();
-    
-    // Re-setup after SPA navigation
-    document.addEventListener('DOMContentLoaded', setupStatusTranslations);
-    
-    // Also listen for Alpine initialization (for SPA updates)
-    document.addEventListener('alpine:init', setupStatusTranslations);
-</script>
 
     {{template "page-heading" 
         dict 
@@ -101,58 +54,82 @@
                 </div>
             </div>
             
-            <div class="space-y-6" x-data="StatusUtils.createStatusPageData()" x-init="setupStatusTranslations(); loadData()">
-                <template x-for="service in services" :key="service.name">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <div class="flex items-center">
-                                <span class="relative flex h-3 w-3 mr-3">
-                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" :class="getPulseColor(service.currentStatus)"></span>
-                                    <span class="relative inline-flex rounded-full h-3 w-3" :class="getStatusDotColor(service.currentStatus)"></span>
-                                </span>
-                                <h3 class="text-lg font-medium text-gray-900 dark:text-white" x-text="service.name"></h3>
-                            </div>
-                            <span class="text-sm text-gray-500 dark:text-gray-400" x-text="formatUptimePercentage(service.uptime)"></span>
+            <div class="space-y-6">
+                {{if .StatusData}}
+                {{range .StatusData.Services}}
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="flex items-center">
+                            <span class="relative flex h-3 w-3 mr-3">
+                                {{/* Current status indicator - we'll use the last day's status as current */}}
+                                {{$currentStatus := "operational"}}
+                                {{if gt (len .Days) 0}}
+                                    {{$lastIndex := 0}}
+                                    {{range $i, $day := .Days}}
+                                        {{$lastIndex = $i}}
+                                    {{end}}
+                                    {{$lastDay := index .Days $lastIndex}}
+                                    {{$currentStatus = $lastDay.Status}}
+                                {{end}}
+                                {{if eq $currentStatus "operational"}}
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-green-500"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                {{else if eq $currentStatus "degraded"}}
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-yellow-500"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                                {{else if eq $currentStatus "outage"}}
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-red-500"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                                {{else}}
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-gray-400"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-gray-400"></span>
+                                {{end}}
+                            </span>
+                            <h3 class="text-lg font-medium text-gray-900 dark:text-white">{{.Name}}</h3>
                         </div>
-                        <div class="hidden lg:flex space-x-1">
-                            <template x-for="day in service.days" :key="day.date">
-                                <div 
-                                    x-data="{
-                                        tooltipVisible: false,
-                                        tooltipText: formatTooltip(day),
-                                    }"
-                                    @mouseenter="tooltipVisible = true"
-                                    @mouseleave="tooltipVisible = false"
-                                    class="relative">
-                                    
-                                    <div x-show="tooltipVisible" 
-                                         x-transition
-                                         class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50">
-                                        <div class="relative px-2 py-1 text-white bg-gray-900 rounded text-xs whitespace-nowrap">
-                                            <span x-html="tooltipText"></span>
-                                            <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
-                                                <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-900"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="w-2 h-8 rounded-sm cursor-pointer hover:opacity-80 hover:scale-y-110 hover:-translate-y-1 transition-all duration-200 ease-in-out transform-gpu" :class="getStatusColor(day.status)"></div>
-                                </div>
-                            </template>
-                        </div>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{{printf "%.2f" .Uptime}}% {{t "status.uptime"}}</span>
                     </div>
-                </template>
-                
-                <!-- Loading state -->
-                <div x-show="loading" class="text-center py-8">
-                    <div class="text-gray-500 dark:text-gray-400" x-text="getLoadingMessage()"></div>
+                    <div class="hidden lg:flex space-x-1">
+                        {{range .Days}}
+                        <div 
+                            x-data="{ tooltipVisible: false }"
+                            @mouseenter="tooltipVisible = true"
+                            @mouseleave="tooltipVisible = false"
+                            class="relative">
+                            
+                            <div x-show="tooltipVisible" 
+                                 x-cloak
+                                 x-transition
+                                 class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50">
+                                <div class="relative px-2 py-1 text-white bg-gray-900 rounded text-xs whitespace-nowrap">
+                                    {{.Date}}<br>
+                                    {{if eq .Status "operational"}}{{t "status.statuses.operational"}}{{else if eq .Status "degraded"}}{{t "status.statuses.degraded"}}{{else if eq .Status "outage"}}{{t "status.statuses.outage"}}{{else}}{{t "status.statuses.unknown"}}{{end}} ({{printf "%.1f" .Uptime}}%)
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 -mt-px">
+                                        <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-gray-900"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="w-2 h-8 rounded-sm cursor-pointer hover:opacity-80 hover:scale-y-110 hover:-translate-y-1 transition-all duration-200 ease-in-out transform-gpu {{if eq .Status "operational"}}bg-green-500{{else if eq .Status "degraded"}}bg-yellow-500{{else if eq .Status "outage"}}bg-red-500{{else}}bg-gray-300{{end}}"></div>
+                        </div>
+                        {{end}}
+                    </div>
                 </div>
-                
-                <!-- Error state -->
-                <div x-show="error" class="text-center py-8">
-                    <div class="text-red-500 dark:text-red-400" x-text="getErrorMessage(error)"></div>
+                {{end}}
+                {{else}}
+                <!-- No data state -->
+                <div class="text-center py-8">
+                    <div class="text-gray-500 dark:text-gray-400">{{t "status.noData"}}</div>
                 </div>
+                {{end}}
             </div>
         </div>
+        
+        {{if .StatusData}}
+        <!-- Last updated -->
+        <div class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+            {{t "status.lastUpdated"}}: {{.StatusData.Generated.Format "Jan 2, 2006 15:04:05 MST"}}
+        </div>
+        {{end}}
     </div>
         

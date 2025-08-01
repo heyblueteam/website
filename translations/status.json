@@ -37,7 +37,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "uptime",
+    "noData": "No status data available",
+    "lastUpdated": "Last updated"
   },
   "es": {
     "title": "Estado del Sistema",
@@ -77,7 +80,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "disponibilidad",
+    "noData": "No hay datos de estado disponibles",
+    "lastUpdated": "Última actualización"
   },
   "fr": {
     "title": "État du Système",
@@ -117,7 +123,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "disponibilité",
+    "noData": "Aucune donnée d'état disponible",
+    "lastUpdated": "Dernière mise à jour"
   },
   "de": {
     "title": "Systemstatus",
@@ -157,7 +166,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "Verfügbarkeit",
+    "noData": "Keine Statusdaten verfügbar",
+    "lastUpdated": "Zuletzt aktualisiert"
   },
   "ja": {
     "title": "システムステータス",
@@ -197,7 +209,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "稼働時間",
+    "noData": "ステータスデータがありません",
+    "lastUpdated": "最終更新"
   },
   "pt": {
     "title": "Status do Sistema",
@@ -237,7 +252,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "disponibilidade",
+    "noData": "Nenhum dado de status disponível",
+    "lastUpdated": "Última atualização"
   },
   "ru": {
     "title": "Статус системы",
@@ -277,7 +295,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "время работы",
+    "noData": "Нет данных о статусе",
+    "lastUpdated": "Последнее обновление"
   },
   "ko": {
     "title": "시스템 상태",
@@ -317,7 +338,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "가동 시간",
+    "noData": "상태 데이터가 없습니다",
+    "lastUpdated": "마지막 업데이트"
   },
   "it": {
     "title": "Stato del Sistema",
@@ -357,7 +381,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "disponibilità",
+    "noData": "Nessun dato di stato disponibile",
+    "lastUpdated": "Ultimo aggiornamento"
   },
   "id": {
     "title": "Status Sistem",
@@ -397,7 +424,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "waktu aktif",
+    "noData": "Tidak ada data status yang tersedia",
+    "lastUpdated": "Terakhir diperbarui"
   },
   "nl": {
     "title": "Systeemstatus",
@@ -437,7 +467,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "beschikbaarheid",
+    "noData": "Geen statusgegevens beschikbaar",
+    "lastUpdated": "Laatst bijgewerkt"
   },
   "pl": {
     "title": "Status Systemu",
@@ -477,7 +510,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "dostępność",
+    "noData": "Brak danych o statusie",
+    "lastUpdated": "Ostatnia aktualizacja"
   },
   "zh-TW": {
     "title": "系統狀態",
@@ -517,7 +553,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "正常運作時間",
+    "noData": "無可用的狀態資料",
+    "lastUpdated": "最後更新"
   },
   "sv": {
     "title": "Systemstatus",
@@ -557,7 +596,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "drifttid",
+    "noData": "Inga statusdata tillgängliga",
+    "lastUpdated": "Senast uppdaterad"
   },
   "km": {
     "title": "ស្ថានភាពប្រព័ន្ធ",
@@ -597,7 +639,10 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "ពេលវេលាដំណើរការ",
+    "noData": "គ្មានទិន្នន័យស្ថានភាពទេ",
+    "lastUpdated": "ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ"
   },
   "zh": {
     "title": "系统状态",
@@ -637,6 +682,9 @@
       "year": "numeric",
       "month": "long",
       "day": "numeric"
-    }
+    },
+    "uptime": "正常运行时间",
+    "noData": "无可用的状态数据",
+    "lastUpdated": "最后更新"
   }
 }

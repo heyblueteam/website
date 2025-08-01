@@ -19,6 +19,7 @@ type HTMLService struct {
 	componentsDir   string
 	markdownService *MarkdownService
 	schemaService   *SchemaService
+	statusChecker   *HealthChecker
 }
 
 // NewHTMLService creates a new HTML service
@@ -38,6 +39,11 @@ func (hs *HTMLService) SetSchemaService(schemaService *SchemaService) {
 	hs.schemaService = schemaService
 }
 
+// SetStatusChecker sets the status checker for the HTML service
+func (hs *HTMLService) SetStatusChecker(statusChecker *HealthChecker) {
+	hs.statusChecker = statusChecker
+}
+
 // getCacheKey generates a language-specific cache key
 func (hs *HTMLService) getCacheKey(lang, path string) string {
 	return lang + ":" + path
@@ -55,7 +61,7 @@ type htmlTask struct {
 func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationService, seoService *SEOService) error {
 	// List of pages to exclude from pre-rendering (dynamic content)
 	excludedPages := []string{
-		"/platform/status", // Dynamic status page (truly dynamic - status changes)
+		// Note: /platform/status is now pre-rendered with status data baked in
 		// Note: /insights is now pre-rendered with insights data baked in
 	}
 
@@ -310,6 +316,62 @@ func (hs *HTMLService) GetCacheSize() int {
 	return hs.cache.Size()
 }
 
+// RegenerateStatusPages regenerates the status page for all languages with fresh data
+func (hs *HTMLService) RegenerateStatusPages(router *Router) error {
+	// Status page file path
+	statusPagePath := filepath.Join(hs.pagesDir, "platform", "status.html")
+	statusURLPath := "/platform/status"
+	
+	// Check if status page exists
+	if _, err := os.Stat(statusPagePath); os.IsNotExist(err) {
+		return fmt.Errorf("status page not found: %s", statusPagePath)
+	}
+	
+	// Get file info for modification time
+	info, err := os.Stat(statusPagePath)
+	if err != nil {
+		return fmt.Errorf("failed to stat status page: %w", err)
+	}
+	
+	// Load component templates once
+	componentFiles, err := hs.loadComponentTemplates()
+	if err != nil {
+		return fmt.Errorf("failed to load component templates: %w", err)
+	}
+	
+	// Regenerate for each language
+	for _, lang := range SupportedLanguages {
+		// Render the status page with current data
+		html, err := hs.renderHTMLPageWithComponents(
+			statusPagePath, 
+			statusURLPath, 
+			router.navigationService, 
+			router.seoService, 
+			lang, 
+			componentFiles,
+		)
+		if err != nil {
+			log.Printf("Failed to regenerate status page for language %s: %v", lang, err)
+			continue // Continue with other languages
+		}
+		
+		// Cache the rendered content
+		cachedContent := &CachedContent{
+			HTML:        html,
+			Frontmatter: nil,
+			ModTime:     info.ModTime(),
+			FilePath:    statusPagePath,
+		}
+		
+		cacheKey := hs.getCacheKey(lang, statusURLPath)
+		hs.cache.Set(cacheKey, cachedContent)
+		
+		log.Printf("Regenerated status page for language: %s", lang)
+	}
+	
+	return nil
+}
+
 // preparePageData creates PageData with metadata for the given path
 // This is a wrapper around the shared page data preparation logic
 func (hs *HTMLService) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigationService *NavigationService, seoService *SEOService, lang string) PageData {
@@ -320,6 +382,7 @@ func (hs *HTMLService) preparePageData(path string, content template.HTML, isMar
 		seoService:        seoService,
 		navigationService: navigationService,
 		schemaService:     hs.schemaService,
+		statusChecker:     hs.statusChecker,
 		tocExcludedPaths:  []string{"/changelog", "/roadmap", "/platform/status"},
 	}
 

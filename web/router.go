@@ -113,6 +113,10 @@ func NewRouter(pagesDir string, logger *Logger) *Router {
 // SetStatusChecker sets the status checker for the router
 func (r *Router) SetStatusChecker(checker *HealthChecker) {
 	r.statusChecker = checker
+	// Also set it on the HTML service for status page rendering
+	if r.htmlService != nil {
+		r.htmlService.SetStatusChecker(checker)
+	}
 }
 
 
@@ -124,17 +128,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	// Handle status API routes with security middleware
-	if r.statusChecker != nil {
-		switch req.URL.Path {
-		case "/api/status/current":
-			SecurityHeadersMiddleware(RateLimitMiddleware(LoggingMiddleware(CurrentStatusAPIHandler(r.statusChecker))))(w, req)
-			return
-		case "/api/status/history":
-			SecurityHeadersMiddleware(RateLimitMiddleware(LoggingMiddleware(HistoricalDataAPIHandler(r.statusChecker))))(w, req)
-			return
-		}
-	}
+	// Status API endpoints removed - status is now served as static pre-rendered pages
 
 	// Skip favicon requests early
 	if req.URL.Path == "/favicon.ico" {

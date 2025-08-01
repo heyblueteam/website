@@ -109,6 +109,12 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		schemaData = r.schemaService.GenerateSchema(pageType, path, frontmatter)
 	}
 	
+	// Prepare status data if on status page
+	var statusData *StatusPageData
+	if path == "/platform/status" && r.statusChecker != nil {
+		statusData = r.statusChecker.GetStatusPageData()
+	}
+	
 	// Return PageData with all components
 	return PageData{
 		Title:              title,
@@ -128,5 +134,6 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		Language:           lang,
 		LanguageLocale:     GetLocaleForLanguage(lang),
 		SupportedLanguages: SupportedLanguages,
+		StatusData:         statusData,
 	}
 }

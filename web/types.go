@@ -1,6 +1,9 @@
 package web
 
-import "html/template"
+import (
+	"html/template"
+	"time"
+)
 
 // InsightData represents an insight for template rendering
 type InsightData struct {
@@ -11,6 +14,12 @@ type InsightData struct {
 	PNGPath     string `json:"png_path"`
 	Date        string `json:"date"`
 	URL         string `json:"url"`
+}
+
+// StatusPageData represents status information for template rendering
+type StatusPageData struct {
+	Services  []ServiceHistory `json:"services"`
+	Generated time.Time        `json:"generated"`
 }
 
 // PageData holds data for template rendering
@@ -32,4 +41,5 @@ type PageData struct {
 	Language           string
 	LanguageLocale     string
 	SupportedLanguages []string
+	StatusData         *StatusPageData
 }

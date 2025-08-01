@@ -158,6 +158,7 @@ type HealthChecker struct {
 	d1Client      *D1Client
 	cache         *sync.Map // Thread-safe map for caching
 	lastCheckTime *sync.Map // Last check time for each service
+	router        *Router   // Router reference for triggering status page regeneration
 }
 
 // NewHealthChecker creates a new health checker
@@ -166,7 +167,13 @@ func NewHealthChecker(d1Client *D1Client) *HealthChecker {
 		d1Client:      d1Client,
 		cache:         &sync.Map{},
 		lastCheckTime: &sync.Map{},
+		router:        nil, // Will be set later via SetRouter
 	}
+}
+
+// SetRouter sets the router reference for status page regeneration
+func (h *HealthChecker) SetRouter(router *Router) {
+	h.router = router
 }
 
 // Initialize sets up the database and loads historical data
@@ -186,6 +193,14 @@ func (h *HealthChecker) Initialize() error {
 	if err := h.loadHistoricalData(); err != nil {
 		log.Printf("Failed to load historical data: %v", err)
 		// Continue with empty cache
+	}
+	
+	// Regenerate status pages after loading historical data
+	if h.router != nil && h.router.htmlService != nil {
+		log.Printf("Regenerating status pages with loaded historical data")
+		if err := h.router.htmlService.RegenerateStatusPages(h.router); err != nil {
+			log.Printf("Failed to regenerate status pages after initialization: %v", err)
+		}
 	}
 
 	return nil
@@ -362,6 +377,12 @@ func (h *HealthChecker) hasRecentCheck() bool {
 func (h *HealthChecker) CheckAllServicesIfNeeded(logger *Logger) {
 	if h.hasRecentCheck() {
 		logger.Log(LogMonitor, "⏭️", "Info", "Recent checks found, skipping initial health check")
+		// Even if we skip checks, regenerate status pages in case they show "no data"
+		if h.router != nil && h.router.htmlService != nil {
+			if err := h.router.htmlService.RegenerateStatusPages(h.router); err != nil {
+				log.Printf("Failed to regenerate status pages: %v", err)
+			}
+		}
 		return
 	}
 
@@ -380,6 +401,13 @@ func (h *HealthChecker) CheckAllServices() {
 		}(service)
 	}
 	wg.Wait()
+	
+	// After all checks complete, regenerate status pages
+	if h.router != nil && h.router.htmlService != nil {
+		if err := h.router.htmlService.RegenerateStatusPages(h.router); err != nil {
+			log.Printf("Failed to regenerate status pages: %v", err)
+		}
+	}
 }
 
 // GetCurrentStatus returns the current status of all services
@@ -515,49 +543,12 @@ func formatDuration(d time.Duration) string {
 	return "More than a day ago"
 }
 
-// HTTP Handlers
-
-// StatusPageHandler handles the main status page
-func StatusPageHandler(checker *HealthChecker) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		// The page will be rendered by the existing template system
-		// This handler is just a placeholder for any server-side logic
-		http.ServeFile(w, r, "pages/platform/status.html")
+// GetStatusPageData returns all status data needed for rendering the status page
+func (h *HealthChecker) GetStatusPageData() *StatusPageData {
+	return &StatusPageData{
+		Services:  h.GetHistoricalData(),
+		Generated: time.Now().UTC(),
 	}
 }
 
-// CurrentStatusAPIHandler returns current status as JSON
-func CurrentStatusAPIHandler(checker *HealthChecker) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-
-		statuses := checker.GetCurrentStatus()
-
-		response := map[string]interface{}{
-			"services": statuses,
-		}
-
-		if err := json.NewEncoder(w).Encode(response); err != nil {
-			log.Printf("Failed to encode current status response: %v", err)
-			http.Error(w, "Internal server error", http.StatusInternalServerError)
-		}
-	}
-}
-
-// HistoricalDataAPIHandler returns historical data as JSON
-func HistoricalDataAPIHandler(checker *HealthChecker) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-
-		histories := checker.GetHistoricalData()
-
-		response := map[string]interface{}{
-			"services": histories,
-		}
-
-		if err := json.NewEncoder(w).Encode(response); err != nil {
-			log.Printf("Failed to encode historical data response: %v", err)
-			http.Error(w, "Internal server error", http.StatusInternalServerError)
-		}
-	}
-}
+// HTTP Handlers removed - status is now served as static pre-rendered pages

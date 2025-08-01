@@ -158,8 +158,11 @@ func main() {
 			} else {
 				logger.Log(web.LogMonitor, "✅", "Completed", "Status monitoring ready", time.Since(statusStart))
 
-				// Set the health checker in the router
+				// Set the health checker in the router (this also sets it on HTMLService)
 				router.SetStatusChecker(healthChecker)
+				
+				// Set the router reference in health checker for status page regeneration
+				healthChecker.SetRouter(router)
 
 				// Start background health checks
 				go func() {
