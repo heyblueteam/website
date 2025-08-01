@@ -9,53 +9,84 @@
     <!-- Changelog with Year Tabs -->
     <div x-data="{ 
         activeYear: '2025',
+        underlineLeft: 0,
+        underlineWidth: 0,
         filterByYear(year, itemYear) {
             return itemYear === year;
+        },
+        updateUnderline() {
+            this.$nextTick(() => {
+                const activeButton = this.$refs.tabNav.querySelector(`[data-year='${this.activeYear}']`);
+                if (activeButton) {
+                    const navRect = this.$refs.tabNav.getBoundingClientRect();
+                    const buttonRect = activeButton.getBoundingClientRect();
+                    this.underlineLeft = buttonRect.left - navRect.left;
+                    this.underlineWidth = buttonRect.width;
+                }
+            });
+        },
+        selectYear(year) {
+            this.activeYear = year;
+            this.updateUnderline();
         }
-    }">
+    }"
+    x-init="$nextTick(() => updateUnderline())"
+    @resize.window="updateUnderline()">
         <!-- Year Navigation Tabs -->
         <div class="mb-12">
-            <nav class="flex flex-wrap gap-3 sm:gap-8 text-sm sm:text-lg">
-                <button @click="activeYear = '2025'" 
-                        :class="activeYear === '2025' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+            <nav x-ref="tabNav" class="relative flex flex-wrap gap-3 sm:gap-8 text-sm sm:text-lg">
+                <button @click="selectYear('2025')" 
+                        data-year="2025"
+                        :class="activeYear === '2025' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2025
                 </button>
-                <button @click="activeYear = '2024'" 
-                        :class="activeYear === '2024' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2024')" 
+                        data-year="2024"
+                        :class="activeYear === '2024' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2024
                 </button>
-                <button @click="activeYear = '2023'" 
-                        :class="activeYear === '2023' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2023')" 
+                        data-year="2023"
+                        :class="activeYear === '2023' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2023
                 </button>
-                <button @click="activeYear = '2022'" 
-                        :class="activeYear === '2022' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2022')" 
+                        data-year="2022"
+                        :class="activeYear === '2022' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2022
                 </button>
-                <button @click="activeYear = '2021'" 
-                        :class="activeYear === '2021' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2021')" 
+                        data-year="2021"
+                        :class="activeYear === '2021' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2021
                 </button>
-                <button @click="activeYear = '2020'" 
-                        :class="activeYear === '2020' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2020')" 
+                        data-year="2020"
+                        :class="activeYear === '2020' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2020
                 </button>
-                <button @click="activeYear = '2019'" 
-                        :class="activeYear === '2019' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2019')" 
+                        data-year="2019"
+                        :class="activeYear === '2019' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2019
                 </button>
-                <button @click="activeYear = '2018'" 
-                        :class="activeYear === '2018' ? 'text-brand-blue font-medium border-b-2 border-brand-blue' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
-                        class="pb-0.5 sm:pb-1 cursor-pointer">
+                <button @click="selectYear('2018')" 
+                        data-year="2018"
+                        :class="activeYear === '2018' ? 'text-brand-blue font-medium' : 'text-gray-500 hover:text-brand-blue transition-colors duration-200'"
+                        class="pb-0.5 sm:pb-1 cursor-pointer relative">
                     2018
                 </button>
+                
+                <!-- Animated underline -->
+                <div class="absolute bottom-0 h-0.5 bg-brand-blue transition-all duration-300 ease-out"
+                     :style="`left: ${underlineLeft}px; width: ${underlineWidth}px;`"></div>
             </nav>
         </div>
 
