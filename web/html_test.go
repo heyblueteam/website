@@ -137,15 +137,20 @@ func TestPreRenderAllHTMLPages(t *testing.T) {
 	}
 
 	// Check cache - adjust expected paths based on actual generateURLPath behavior
+	// With multi-language support: 3 pages × 16 languages = 48 cached entries
 	expectedPages := []string{"/index", "/about", "/blog/post"}
-	if htmlService.GetCacheSize() != len(expectedPages) {
-		t.Errorf("Expected %d cached pages, got %d", len(expectedPages), htmlService.GetCacheSize())
+	expectedTotalPages := len(expectedPages) * len(SupportedLanguages)
+	if htmlService.GetCacheSize() != expectedTotalPages {
+		t.Errorf("Expected %d cached pages, got %d", expectedTotalPages, htmlService.GetCacheSize())
 	}
 
-	// Verify each page is cached
+	// Verify each page is cached for each language
 	for _, path := range expectedPages {
-		if _, found := htmlService.GetCachedContent(path); !found {
-			t.Errorf("Expected to find %s in cache", path)
+		for _, lang := range SupportedLanguages {
+			cacheKey := lang + ":" + path
+			if _, found := htmlService.GetCachedContent(cacheKey); !found {
+				t.Errorf("Expected to find %s in cache", cacheKey)
+			}
 		}
 	}
 }
