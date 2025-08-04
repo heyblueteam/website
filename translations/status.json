@@ -38,7 +38,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "uptime",
+    "uptimeLabel": "uptime",
     "noData": "No status data available",
     "lastUpdated": "Last updated"
   },
@@ -81,7 +81,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "disponibilidad",
+    "uptimeLabel": "disponibilidad",
     "noData": "No hay datos de estado disponibles",
     "lastUpdated": "Última actualización"
   },
@@ -124,7 +124,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "disponibilité",
+    "uptimeLabel": "disponibilité",
     "noData": "Aucune donnée d'état disponible",
     "lastUpdated": "Dernière mise à jour"
   },
@@ -167,7 +167,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "Verfügbarkeit",
+    "uptimeLabel": "Verfügbarkeit",
     "noData": "Keine Statusdaten verfügbar",
     "lastUpdated": "Zuletzt aktualisiert"
   },
@@ -210,7 +210,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "稼働時間",
+    "uptimeLabel": "稼働時間",
     "noData": "ステータスデータがありません",
     "lastUpdated": "最終更新"
   },
@@ -253,7 +253,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "disponibilidade",
+    "uptimeLabel": "disponibilidade",
     "noData": "Nenhum dado de status disponível",
     "lastUpdated": "Última atualização"
   },
@@ -296,7 +296,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "время работы",
+    "uptimeLabel": "время работы",
     "noData": "Нет данных о статусе",
     "lastUpdated": "Последнее обновление"
   },
@@ -339,7 +339,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "가동 시간",
+    "uptimeLabel": "가동 시간",
     "noData": "상태 데이터가 없습니다",
     "lastUpdated": "마지막 업데이트"
   },
@@ -382,7 +382,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "disponibilità",
+    "uptimeLabel": "disponibilità",
     "noData": "Nessun dato di stato disponibile",
     "lastUpdated": "Ultimo aggiornamento"
   },
@@ -425,7 +425,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "waktu aktif",
+    "uptimeLabel": "waktu aktif",
     "noData": "Tidak ada data status yang tersedia",
     "lastUpdated": "Terakhir diperbarui"
   },
@@ -468,7 +468,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "beschikbaarheid",
+    "uptimeLabel": "beschikbaarheid",
     "noData": "Geen statusgegevens beschikbaar",
     "lastUpdated": "Laatst bijgewerkt"
   },
@@ -511,7 +511,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "dostępność",
+    "uptimeLabel": "dostępność",
     "noData": "Brak danych o statusie",
     "lastUpdated": "Ostatnia aktualizacja"
   },
@@ -554,7 +554,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "正常運作時間",
+    "uptimeLabel": "正常運作時間",
     "noData": "無可用的狀態資料",
     "lastUpdated": "最後更新"
   },
@@ -597,7 +597,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "drifttid",
+    "uptimeLabel": "drifttid",
     "noData": "Inga statusdata tillgängliga",
     "lastUpdated": "Senast uppdaterad"
   },
@@ -640,7 +640,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "ពេលវេលាដំណើរការ",
+    "uptimeLabel": "ពេលវេលាដំណើរការ",
     "noData": "គ្មានទិន្នន័យស្ថានភាពទេ",
     "lastUpdated": "ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ"
   },
@@ -683,7 +683,7 @@
       "month": "long",
       "day": "numeric"
     },
-    "uptime": "正常运行时间",
+    "uptimeLabel": "正常运行时间",
     "noData": "无可用的状态数据",
     "lastUpdated": "最后更新"
   }
