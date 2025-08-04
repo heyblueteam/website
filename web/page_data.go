@@ -19,6 +19,11 @@ func (r *Router) isTOCExcluded(path string) bool {
 
 // preparePageData creates PageData with metadata for the given path
 func (r *Router) preparePageData(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigation *Navigation, lang string) PageData {
+	return r.preparePageDataWithCache(path, content, isMarkdown, frontmatter, navigation, lang, nil)
+}
+
+// preparePageDataWithCache creates PageData with metadata for the given path, optionally using cached content
+func (r *Router) preparePageDataWithCache(path string, content template.HTML, isMarkdown bool, frontmatter *Frontmatter, navigation *Navigation, lang string, cachedContent *CachedContent) PageData {
 	// Get metadata from SEO service
 	title, description, keywords, pageMeta, siteMeta := r.seoService.PreparePageMetadata(path, isMarkdown, frontmatter, lang)
 
@@ -115,6 +120,15 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		statusData = r.statusChecker.GetStatusPageData()
 	}
 	
+	// Determine if code highlighting is needed
+	needsCodeHighlight := false
+	if cachedContent != nil {
+		needsCodeHighlight = cachedContent.NeedsCodeHighlight
+	} else if string(content) != "" {
+		// If no cached content, detect from current content
+		needsCodeHighlight = DetectCodeBlocks(string(content))
+	}
+	
 	// Return PageData with all components
 	return PageData{
 		Title:              title,
@@ -135,5 +149,6 @@ func (r *Router) preparePageData(path string, content template.HTML, isMarkdown 
 		LanguageLocale:     GetLocaleForLanguage(lang),
 		SupportedLanguages: SupportedLanguages,
 		StatusData:         statusData,
+		NeedsCodeHighlight: needsCodeHighlight,
 	}
 }

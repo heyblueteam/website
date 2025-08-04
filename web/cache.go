@@ -9,10 +9,11 @@ import (
 
 // CachedContent represents pre-rendered markdown content
 type CachedContent struct {
-	HTML        string
-	Frontmatter *Frontmatter
-	ModTime     time.Time
-	FilePath    string
+	HTML               string
+	Frontmatter        *Frontmatter
+	ModTime            time.Time
+	FilePath           string
+	NeedsCodeHighlight bool
 }
 
 // MarkdownCache provides thread-safe caching for pre-rendered markdown content

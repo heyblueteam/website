@@ -87,10 +87,9 @@ window.BlueInit = {
     initHighlightJS() {
         if (typeof hljs !== 'undefined') {
             hljs.highlightAll();
-        } else {
-            // Retry if hljs is still loading
-            setTimeout(() => this.initHighlightJS(), 100);
         }
+        // If hljs is not loaded, skip initialization
+        // It will be loaded dynamically if needed during SPA navigation
     },
     
     /**

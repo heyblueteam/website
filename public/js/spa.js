@@ -97,8 +97,15 @@ window.SPAUtils = {
             const languageAwarePath = this.addLanguagePrefix(targetUrl.pathname);
             targetUrl.pathname = languageAwarePath;
             
-            const response = await fetch(targetUrl.href);
+            const response = await fetch(targetUrl.href, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            });
             if (!response.ok) throw new Error('Network response was not ok');
+            
+            // Check if the page needs code highlighting
+            const needsCodeHighlight = response.headers.get('X-Needs-Code-Highlight') === 'true';
             
             const html = await response.text();
             const parser = new DOMParser();
@@ -106,14 +113,14 @@ window.SPAUtils = {
             
             if (isLanguageSwitch) {
                 // For language switches, update more of the DOM
-                await this.updateFullPageContent(doc, targetUrl);
+                await this.updateFullPageContent(doc, targetUrl, needsCodeHighlight);
             } else {
                 // For regular navigation, just update main content
                 const newMain = doc.querySelector('main');
                 const currentMain = document.querySelector('main');
                 
                 if (newMain && currentMain) {
-                    await this.updatePageContent(newMain, currentMain, targetUrl, doc);
+                    await this.updatePageContent(newMain, currentMain, targetUrl, doc, needsCodeHighlight);
                 } else {
                     window.location.href = targetUrl.href;
                 }
@@ -131,8 +138,9 @@ window.SPAUtils = {
      * Update full page content for language switching
      * @param {Document} doc - Parsed document from response
      * @param {URL} targetUrl - The target URL object
+     * @param {boolean} needsCodeHighlight - Whether the page needs code highlighting
      */
-    async updateFullPageContent(doc, targetUrl) {
+    async updateFullPageContent(doc, targetUrl, needsCodeHighlight) {
         // Preserve current state
         const preservedState = {
             darkMode: localStorage.getItem('theme') === 'dark',
@@ -226,6 +234,11 @@ window.SPAUtils = {
                 }
             });
 
+            // Load Highlight.js if needed before reinitializing
+            if (needsCodeHighlight && typeof HighlightLoader !== 'undefined') {
+                await HighlightLoader.load();
+            }
+            
             // Re-initialize content
             this.reinitializeContent();
             
@@ -246,8 +259,9 @@ window.SPAUtils = {
      * @param {HTMLElement} currentMain - Current main content element
      * @param {URL} targetUrl - The target URL object
      * @param {Document} doc - Parsed document from response
+     * @param {boolean} needsCodeHighlight - Whether the page needs code highlighting
      */
-    async updatePageContent(newMain, currentMain, targetUrl, doc) {
+    async updatePageContent(newMain, currentMain, targetUrl, doc, needsCodeHighlight) {
         // Much faster transition - 50ms total
         currentMain.style.opacity = '0';
         currentMain.style.transition = 'opacity 50ms ease-out';
@@ -282,6 +296,11 @@ window.SPAUtils = {
             // Collapse sidebar menus when navigating to home
             if (pathWithoutLang === '/') {
                 window.dispatchEvent(new CustomEvent('collapse-sidebar-menus'));
+            }
+            
+            // Load Highlight.js if needed before reinitializing
+            if (needsCodeHighlight && typeof HighlightLoader !== 'undefined') {
+                await HighlightLoader.load();
             }
             
             // Re-initialize content

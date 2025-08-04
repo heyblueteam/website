@@ -243,15 +243,23 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	var contentBytes []byte
 	var isMarkdown bool
 	var frontmatter *Frontmatter
+	var cachedContent *CachedContent
 
 	// Check if HTML page file exists
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
 		// HTML page doesn't exist, try cached markdown first
-		if cachedContent, found := r.markdownService.GetCachedContentForLang(path, lang); found {
+		if cached, found := r.markdownService.GetCachedContentForLang(path, lang); found {
 			// Found in cache - use pre-rendered content
-			contentBytes = []byte(cachedContent.HTML)
-			frontmatter = cachedContent.Frontmatter
+			cachedContent = cached
+			contentBytes = []byte(cached.HTML)
+			frontmatter = cached.Frontmatter
 			isMarkdown = true
+			
+			// For SPA requests, we need to pass the code highlight flag
+			// Since we're continuing to render through templates, store it temporarily
+			if req.Header.Get("X-Requested-With") == "XMLHttpRequest" && cached.NeedsCodeHighlight {
+				w.Header().Set("X-Needs-Code-Highlight", "true")
+			}
 			// Cached markdown served
 		} else {
 			// Not in cache, try to find and process markdown file (fallback)
@@ -284,6 +292,14 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		if cachedContent, found := r.htmlService.GetCachedContentForLang(path, lang); found {
 			// Found in cache - use pre-rendered content
 			w.Header().Set("Content-Type", "text/html")
+			
+			// For SPA requests, include code highlight flag in header
+			if req.Header.Get("X-Requested-With") == "XMLHttpRequest" {
+				if cachedContent.NeedsCodeHighlight {
+					w.Header().Set("X-Needs-Code-Highlight", "true")
+				}
+			}
+			
 			_, err := w.Write([]byte(cachedContent.HTML))
 			if err != nil {
 				// Check if the error is due to client disconnect
@@ -380,7 +396,7 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 	}
 
 	// Prepare page data
-	pageData := r.preparePageData(path, template.HTML(contentBytes), isMarkdown, frontmatter, r.navigationService.GetNavigationForPathWithLanguage(path, lang), lang)
+	pageData := r.preparePageDataWithCache(path, template.HTML(contentBytes), isMarkdown, frontmatter, r.navigationService.GetNavigationForPathWithLanguage(path, lang), lang, cachedContent)
 
 	// Set content type and execute main layout
 	w.Header().Set("Content-Type", "text/html")

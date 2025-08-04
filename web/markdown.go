@@ -156,12 +156,16 @@ func (ms *MarkdownService) PreRenderAllMarkdown(contentService *ContentService, 
 					continue // Continue processing other files
 				}
 
+				// Detect if the HTML contains code blocks
+				needsCodeHighlight := DetectCodeBlocks(html)
+
 				// Cache the pre-rendered content with language-specific key
 				cachedContent := &CachedContent{
-					HTML:        html,
-					Frontmatter: frontmatter,
-					ModTime:     task.modTime,
-					FilePath:    task.path,
+					HTML:               html,
+					Frontmatter:        frontmatter,
+					ModTime:            task.modTime,
+					FilePath:           task.path,
+					NeedsCodeHighlight: needsCodeHighlight,
 				}
 
 				// Use language-specific cache key

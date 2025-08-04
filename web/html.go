@@ -138,12 +138,16 @@ func (hs *HTMLService) PreRenderAllHTMLPages(navigationService *NavigationServic
 					continue // Continue processing other tasks
 				}
 
+				// Detect if the HTML contains code blocks
+				needsCodeHighlight := DetectCodeBlocks(html)
+
 				// Cache the pre-rendered content with language-specific key
 				cachedContent := &CachedContent{
-					HTML:        html,
-					Frontmatter: nil, // HTML pages don't have frontmatter
-					ModTime:     task.modTime,
-					FilePath:    task.path,
+					HTML:               html,
+					Frontmatter:        nil, // HTML pages don't have frontmatter
+					ModTime:            task.modTime,
+					FilePath:           task.path,
+					NeedsCodeHighlight: needsCodeHighlight,
 				}
 
 				cacheKey := hs.getCacheKey(task.lang, task.urlPath)
@@ -355,12 +359,16 @@ func (hs *HTMLService) RegenerateStatusPages(router *Router) error {
 			continue // Continue with other languages
 		}
 		
+		// Detect if the HTML contains code blocks
+		needsCodeHighlight := DetectCodeBlocks(html)
+		
 		// Cache the rendered content
 		cachedContent := &CachedContent{
-			HTML:        html,
-			Frontmatter: nil,
-			ModTime:     info.ModTime(),
-			FilePath:    statusPagePath,
+			HTML:               html,
+			Frontmatter:        nil,
+			ModTime:            info.ModTime(),
+			FilePath:           statusPagePath,
+			NeedsCodeHighlight: needsCodeHighlight,
 		}
 		
 		cacheKey := hs.getCacheKey(lang, statusURLPath)

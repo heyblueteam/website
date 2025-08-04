@@ -68,9 +68,11 @@
     <!-- Fuse.js for search -->
     <script async src="/js/vendor/fuse.min.js"></script>
     
+    {{if .NeedsCodeHighlight}}
     <!-- Highlight.js for syntax highlighting -->
     <link rel="stylesheet" href="/css/highlight-github-dark.min.css">
     <script async src="/js/vendor/highlight.min.js"></script>
+    {{end}}
     
     <!-- Alpine.js with plugins -->
     <script defer src="/js/vendor/alpine-bundle.min.js"></script>

@@ -42,4 +42,5 @@ type PageData struct {
 	LanguageLocale     string
 	SupportedLanguages []string
 	StatusData         *StatusPageData
+	NeedsCodeHighlight bool
 }
