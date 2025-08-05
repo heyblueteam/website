@@ -43,6 +43,22 @@
              this.expandActiveParents();
          },
          expandActiveParents() {
+             // Don't expand anything if we're on the home page
+             const pathWithoutLang = this.currentPath.replace(/^\/([a-z]{2}|[a-z]{2}-[A-Z]{2})(\/|$)/, '/');
+             const normalizedPath = pathWithoutLang.replace(/\/$/, '') || '/';
+             if (normalizedPath === '/') {
+                 // Collapse all sections when on home page
+                 this.sections.forEach(section => {
+                     section.expanded = false;
+                     if (section.children) {
+                         section.children.forEach(child => {
+                             if (child.expanded) child.expanded = false;
+                         });
+                     }
+                 });
+                 return;
+             }
+             
              // Auto-expand sections and children that contain the active page
              this.sections.forEach(section => {
                  if (section.children) {
