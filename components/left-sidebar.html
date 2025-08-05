@@ -27,10 +27,16 @@
          legalSection: {{.Navigation.Sections | toJSON}}.find(s => s.id === 'legal'),
          currentPath: window.location.pathname,
          isActive(href) {
-             return this.currentPath === href || this.currentPath === href + '/' || this.currentPath + '/' === href;
+             // Strip language prefix for comparison
+             const pathWithoutLang = this.currentPath.replace(/^\/([a-z]{2}|[a-z]{2}-[A-Z]{2})(\/|$)/, '/');
+             // Normalize both paths (remove trailing slashes for comparison)
+             const normalizedCurrent = pathWithoutLang.replace(/\/$/, '') || '/';
+             const normalizedHref = (href || '').replace(/\/$/, '') || '/';
+             return normalizedCurrent === normalizedHref;
          },
          updateCurrentPath(newPath) {
-             this.currentPath = newPath;
+             // Store the actual current path (which might include language prefix)
+             this.currentPath = window.location.pathname;
              this.expandActiveParents();
          },
          init() {
