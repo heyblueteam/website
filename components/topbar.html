@@ -99,12 +99,15 @@
 </div>
 
 <!-- Top Navigation Bar -->
-<header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl backdrop-saturate-150 fixed z-50 h-16 transition-all duration-300 left-0 right-0 xl:left-1/2 xl:-translate-x-1/2"
+<header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl backdrop-saturate-150 fixed z-50 h-16 transition-all duration-300 left-0"
         :class="[
             hasExternalNewsBar ? 'top-0 lg:top-10' : 'top-0 lg:top-0',
-            scrolled ? (hasExternalNewsBar ? 'xl:top-14' : 'xl:top-4') + ' xl:w-[85%] 2xl:w-[80%] xl:rounded-2xl xl:shadow-lg' : 'xl:w-full'
+            scrolled ? (hasExternalNewsBar ? 'xl:top-14' : 'xl:top-4') + ' xl:rounded-2xl xl:shadow-lg' : '',
+            scrolled && (!$store.aiSidebar || !$store.aiSidebar.open) ? 'xl:w-[85%] 2xl:w-[80%]' : '',
+            (!$store.aiSidebar || !$store.aiSidebar.open) ? 'right-0 xl:left-1/2 xl:-translate-x-1/2' : '',
+            (!scrolled || ($store.aiSidebar && $store.aiSidebar.open)) ? 'xl:w-full' : ''
         ]"
-        :style="scrolled ? 'box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);' : ''"
+        :style="(scrolled ? 'box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);' : '') + ($store.aiSidebar && $store.aiSidebar.open ? ' width: calc(100% - 384px);' : '')"
         @keydown.escape="mobileMenuOpen = false">
     <div class="relative flex items-center justify-between px-4 h-full">
         <!-- Logo and Toggle -->
@@ -132,6 +135,17 @@
         
         <!-- Search Bar Component -->
         {{template "search-bar" .}}
+        
+        <!-- Ask AI Button -->
+        <button @click="$store.aiSidebar.toggle()"
+                class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 ml-2 text-sm font-medium rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 transition-all duration-200 shadow-sm hover:shadow-md"
+                :class="$store.aiSidebar.open ? 'ring-2 ring-purple-400 ring-offset-2' : ''">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span>Ask AI</span>
+            <span class="ml-1 text-xs opacity-75">⌘K</span>
+        </button>
         
         <!-- Right side controls -->
         <div class="hidden lg:flex items-center space-x-0 2xl:space-x-4">
