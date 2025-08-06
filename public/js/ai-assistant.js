@@ -1,6 +1,10 @@
 // AI Assistant enhancement functionality
+console.log('[AI Assistant] Script loading...');
+
 (function() {
     'use strict';
+    
+    console.log('[AI Assistant] Script executing inside IIFE...');
     
     // Enhanced markdown processing with syntax highlighting
     window.formatAIMessage = function(content) {
@@ -178,16 +182,71 @@
         }
     };
     
-    // Add keyboard shortcut to open AI sidebar
-    document.addEventListener('keydown', function(e) {
-        // Cmd+I or Ctrl+I to open AI sidebar
-        if ((e.metaKey || e.ctrlKey) && e.key === 'i') {
-            e.preventDefault();
-            // Toggle the AI sidebar using Alpine store
-            if (window.Alpine && window.Alpine.store('aiSidebar')) {
-                window.Alpine.store('aiSidebar').toggle();
+    // Add keyboard shortcut to open AI sidebar - following the same pattern as topbar.html
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('[AI Assistant] Setting up keyboard shortcuts...');
+        
+        function handleAIKeyPress(event) {
+            // Debug: Log all Cmd/Ctrl key combinations
+            if (event.metaKey || event.ctrlKey) {
+                console.log('[AI Assistant] Key pressed:', event.key, 'Meta:', event.metaKey, 'Ctrl:', event.ctrlKey);
+            }
+            
+            // Check if the active element is an input, textarea, or any element within a form
+            const activeElement = document.activeElement;
+            const isFormElement = activeElement.tagName === 'INPUT' ||
+                                activeElement.tagName === 'TEXTAREA' ||
+                                activeElement.tagName === 'SELECT' ||
+                                activeElement.isContentEditable ||
+                                activeElement.closest('form') !== null;
+
+            // Handle Cmd+I / Ctrl+I for AI sidebar (works globally except in form elements)
+            if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'i') {
+                console.log('[AI Assistant] Cmd/Ctrl+I detected! isFormElement:', isFormElement);
+                
+                // Don't trigger if we're in a form element (to allow italic formatting)
+                if (!isFormElement) {
+                    event.preventDefault();
+                    console.log('[AI Assistant] Attempting to toggle sidebar...');
+                    
+                    // Check if Alpine is available
+                    if (window.Alpine) {
+                        console.log('[AI Assistant] Alpine found');
+                        if (window.Alpine.store('aiSidebar')) {
+                            console.log('[AI Assistant] AI Sidebar store found, toggling...');
+                            window.Alpine.store('aiSidebar').toggle();
+                            console.log('[AI Assistant] Toggle complete, new state:', window.Alpine.store('aiSidebar').open);
+                        } else {
+                            console.error('[AI Assistant] AI Sidebar store NOT found!');
+                            // Try to check if Alpine stores are initialized
+                            console.log('[AI Assistant] Available Alpine stores:', Object.keys(window.Alpine.store()));
+                        }
+                    } else {
+                        console.error('[AI Assistant] Alpine NOT found!');
+                    }
+                }
             }
         }
+
+        document.addEventListener('keydown', handleAIKeyPress);
+        console.log('[AI Assistant] Keyboard listener attached');
+        
+        // Also check Alpine status on load
+        setTimeout(() => {
+            console.log('[AI Assistant] Alpine check after timeout:');
+            console.log('  - Alpine exists:', !!window.Alpine);
+            if (window.Alpine) {
+                console.log('  - Alpine started:', window.Alpine.version);
+                try {
+                    console.log('  - aiSidebar store exists:', !!window.Alpine.store('aiSidebar'));
+                    if (window.Alpine.store('aiSidebar')) {
+                        console.log('  - aiSidebar store state:', window.Alpine.store('aiSidebar').open);
+                    }
+                } catch (e) {
+                    console.error('  - Error accessing store:', e);
+                }
+            }
+        }, 1000);
     });
     
     // Auto-resize textarea
