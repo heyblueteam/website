@@ -68,6 +68,18 @@
                  const container = this.$refs.messagesContainer;
                  container.scrollTop = container.scrollHeight;
              });
+             
+             // Watch for sidebar open state and focus input
+             this.$watch('$store.aiSidebar.open', (isOpen) => {
+                 if (isOpen) {
+                     this.$nextTick(() => {
+                         const textarea = this.$el.querySelector('textarea');
+                         if (textarea) {
+                             textarea.focus();
+                         }
+                     });
+                 }
+             });
          },
          
          getRandomLoadingText() {
