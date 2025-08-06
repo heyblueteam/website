@@ -99,15 +99,14 @@
 </div>
 
 <!-- Top Navigation Bar -->
-<header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl backdrop-saturate-150 fixed z-50 h-16 transition-all duration-300 left-0"
+<header class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl backdrop-saturate-150 fixed z-50 h-16 transition-all duration-300 left-0 right-0 xl:left-1/2 xl:-translate-x-1/2 xl:w-full"
         :class="[
             hasExternalNewsBar ? 'top-0 lg:top-10' : 'top-0 lg:top-0',
             scrolled ? (hasExternalNewsBar ? 'xl:top-14' : 'xl:top-4') + ' xl:rounded-2xl xl:shadow-lg' : '',
-            scrolled && (!$store.aiSidebar || !$store.aiSidebar.open) ? 'xl:w-[85%] 2xl:w-[80%]' : '',
-            (!$store.aiSidebar || !$store.aiSidebar.open) ? 'right-0 xl:left-1/2 xl:-translate-x-1/2' : '',
-            (!scrolled || ($store.aiSidebar && $store.aiSidebar.open)) ? 'xl:w-full' : ''
+            scrolled && !($store.aiSidebar && $store.aiSidebar.open) ? 'xl:w-[85%] 2xl:w-[80%]' : '',
+            $store.aiSidebar && $store.aiSidebar.open ? '!left-0 !right-auto !translate-x-0' : ''
         ]"
-        :style="(scrolled ? 'box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);' : '') + ($store.aiSidebar && $store.aiSidebar.open ? ' width: calc(100% - 384px);' : '')"
+        :style="(scrolled && !($store.aiSidebar && $store.aiSidebar.open) ? 'box-shadow: 0 -10px 15px -3px rgb(0 0 0 / 0.1), 0 -4px 6px -4px rgb(0 0 0 / 0.1), 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);' : '') + ($store.aiSidebar && $store.aiSidebar.open ? ' width: calc(100% - 384px);' : '')"
         @keydown.escape="mobileMenuOpen = false">
     <div class="relative flex items-center justify-between px-4 h-full">
         <!-- Logo and Toggle -->
