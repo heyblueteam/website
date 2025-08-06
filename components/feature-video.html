@@ -67,12 +67,14 @@ DATA STRUCTURE:
 FEATURES:
 - Responsive layout with video/text side-by-side
 - Lazy loading video with intersection observer
-- Autoplay, muted, looping video
+- Autoplay, muted, looping video (with mobile support)
+- Fallback play button if autoplay fails on mobile
 - Optional CTA button with arrow icon
 - Optional "See also" links section
 - Configurable video position (left/right)
 - Placeholder shown while video loads
 - Dark mode support
+- Mobile-optimized with explicit play() handling
 
 LAYOUT:
 - Grid: 2 columns on desktop, stacked on mobile
@@ -89,8 +91,10 @@ STYLING:
 
 INTERACTIVITY:
 - Video loads when scrolled into view
-- Autoplay with muted audio
+- Autoplay with muted audio (explicit play() for mobile)
 - Continuous loop playback
+- Fallback play button appears if autoplay fails
+- Smooth placeholder fade-out when video starts
 - Hover states on interactive elements
 
 USE CASES:
@@ -103,9 +107,38 @@ USE CASES:
 <!-- Feature Video Component -->
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center {{if .MarginBottom}}{{.MarginBottom}}{{else}}mb-16{{end}}"
      x-data="{ 
-         loaded: false
+         loaded: false,
+         videoSrc: '',
+         playFailed: false,
+         playing: false,
+         initVideo() {
+             this.videoSrc = '{{.VideoUrl}}';
+             this.$nextTick(() => {
+                 const video = this.$refs.video;
+                 if (video) {
+                     video.load();
+                     video.play().then(() => {
+                         this.playing = true;
+                         this.playFailed = false;
+                     }).catch(() => {
+                         this.playFailed = true;
+                         this.playing = false;
+                     });
+                 }
+             });
+             this.loaded = true;
+         },
+         playVideo() {
+             const video = this.$refs.video;
+             if (video) {
+                 video.play().then(() => {
+                     this.playing = true;
+                     this.playFailed = false;
+                 });
+             }
+         }
      }"
-     x-intersect.once="loaded = true">
+     x-intersect.once="initVideo()">
     
     <!-- Text Content -->
     <div class="space-y-4 order-1 {{if eq .VideoPosition "left"}}lg:order-2{{else}}lg:order-1{{end}}">
@@ -147,23 +180,42 @@ USE CASES:
     </div>
     
     <!-- Video -->
-    <div class="order-2 {{if eq .VideoPosition "left"}}lg:order-1{{else}}lg:order-2{{end}}">
-        <template x-if="loaded">
-            <video 
-                class="w-full h-auto rounded-2xl border border-gray-200" 
-                autoplay 
-                muted 
-                loop 
-                playsinline
-            >
-                <source src="{{.VideoUrl}}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </template>
+    <div class="order-2 {{if eq .VideoPosition "left"}}lg:order-1{{else}}lg:order-2{{end}} relative">
+        <video 
+            x-ref="video"
+            class="w-full h-auto rounded-2xl border border-gray-200" 
+            :src="videoSrc"
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            webkit-playsinline
+            preload="metadata"
+        >
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Placeholder overlay -->
         <div 
-            x-show="!loaded" 
-            class="w-full aspect-video rounded-2xl border border-gray-200 bg-gray-100"
+            x-show="!playing && !playFailed" 
+            x-transition:leave="transition-opacity duration-300"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+            class="absolute inset-0 w-full aspect-video rounded-2xl border border-gray-200 bg-gray-100"
         ></div>
+        
+        <!-- Play button fallback (shown if autoplay fails) -->
+        <div 
+            x-show="playFailed"
+            @click="playVideo()"
+            class="absolute inset-0 flex items-center justify-center cursor-pointer rounded-2xl bg-black/10 hover:bg-black/20 transition-colors"
+        >
+            <div class="bg-white/90 hover:bg-white rounded-full p-4 shadow-lg transition-all hover:scale-110">
+                <svg class="w-12 h-12 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+        </div>
     </div>
 </div>
 {{end}}
