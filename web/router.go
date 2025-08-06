@@ -128,6 +128,9 @@ func (r *Router) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 		case "/api/assistant":
 			HandleAssistant(w, req)
 			return
+		case "/api/assistant/stream":
+			HandleAssistantStream(w, req)
+			return
 		default:
 			http.Error(w, "API endpoint not found", http.StatusNotFound)
 			return

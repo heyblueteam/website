@@ -17,6 +17,9 @@
          loading: false,
          loadingText: '',
          loadingInterval: null,
+         streamingSupported: true,
+         currentStreamMessage: null,
+         streamingContent: '',
          loadingWords: [
              'Processing...',
              'Thinking...',
@@ -126,6 +129,126 @@
                  container.scrollTop = container.scrollHeight;
              });
              
+             // Use streaming if supported
+             if (this.streamingSupported) {
+                 await this.sendMessageStream(message);
+             } else {
+                 await this.sendMessageNonStream(message);
+             }
+         },
+         
+         async sendMessageStream(message) {
+             console.log('[AI Stream] Starting stream for message:', message);
+             try {
+                 const response = await fetch('/api/assistant/stream', {
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json'
+                     },
+                     body: JSON.stringify({
+                         message: message,
+                         threadId: this.threadId
+                     })
+                 });
+                 
+                 console.log('[AI Stream] Response status:', response.status);
+                 console.log('[AI Stream] Response headers:', response.headers.get('content-type'));
+                 
+                 if (!response.ok) {
+                     console.error('[AI Stream] Response not OK:', response.status, response.statusText);
+                     throw new Error('Stream request failed');
+                 }
+                 
+                 // Stop loading animation once stream starts
+                 this.stopLoadingAnimation();
+                 
+                 // Create assistant message placeholder
+                 this.streamingContent = '';
+                 const assistantMessage = {
+                     role: 'assistant',
+                     content: '',
+                     timestamp: new Date(),
+                     streaming: true
+                 };
+                 this.messages.push(assistantMessage);
+                 this.currentStreamMessage = assistantMessage;
+                 
+                 // Read the stream
+                 const reader = response.body.getReader();
+                 const decoder = new TextDecoder();
+                 let buffer = '';
+                 console.log('[AI Stream] Starting to read stream...');
+                 
+                 while (true) {
+                     const { done, value } = await reader.read();
+                     if (done) {
+                         console.log('[AI Stream] Stream reading complete');
+                         break;
+                     }
+                     
+                     buffer += decoder.decode(value, { stream: true });
+                     const lines = buffer.split('\n');
+                     buffer = lines.pop() || '';
+                     
+                     for (const line of lines) {
+                         if (line.trim() === '') continue; // Skip empty lines
+                         console.log('[AI Stream] Received line:', line);
+                         
+                         if (line.startsWith('data: ')) {
+                             const data = line.slice(6).trim();
+                             if (data === '[DONE]') {
+                                 console.log('[AI Stream] Received DONE signal');
+                                 // Stream complete
+                                 this.currentStreamMessage.streaming = false;
+                                 this.currentStreamMessage = null;
+                                 this.saveSession();
+                             } else {
+                                 try {
+                                     const chunk = JSON.parse(data);
+                                     if (chunk.error) {
+                                         this.currentStreamMessage.content = 'Error: ' + chunk.error;
+                                         this.currentStreamMessage.error = true;
+                                         this.currentStreamMessage.streaming = false;
+                                     } else if (chunk.content) {
+                                         this.streamingContent += chunk.content;
+                                         this.currentStreamMessage.content = this.streamingContent;
+                                         // Scroll to bottom as content streams
+                                         this.$nextTick(() => {
+                                             const container = this.$refs.messagesContainer;
+                                             container.scrollTop = container.scrollHeight;
+                                         });
+                                     }
+                                     if (chunk.threadId && !this.threadId) {
+                                         this.threadId = chunk.threadId;
+                                     }
+                                 } catch (e) {
+                                     console.error('Error parsing chunk:', e);
+                                 }
+                             }
+                         }
+                     }
+                 }
+             } catch (error) {
+                 console.error('Streaming error:', error);
+                 // Fall back to non-streaming
+                 this.streamingSupported = false;
+                 if (this.currentStreamMessage) {
+                     // Remove incomplete streaming message
+                     const index = this.messages.indexOf(this.currentStreamMessage);
+                     if (index > -1) {
+                         this.messages.splice(index, 1);
+                     }
+                 }
+                 await this.sendMessageNonStream(message);
+             } finally {
+                 this.loading = false;
+                 this.stopLoadingAnimation();
+                 this.streamingContent = '';
+                 this.currentStreamMessage = null;
+             }
+         },
+         
+         async sendMessageNonStream(message) {
              try {
                  const response = await fetch('/api/assistant', {
                      method: 'POST',
@@ -244,7 +367,7 @@
                 ]">
                     <div class="text-sm" 
                          x-html="message.role === 'assistant' && !message.error ? formatAIMessage(message.content) : message.content"
-                         x-init="if (message.role === 'assistant' && !message.error) { $nextTick(() => highlightAICode($el)) }"></div>
+                         x-init="if (message.role === 'assistant' && !message.error && !message.streaming) { $nextTick(() => highlightAICode($el)) }"></div>
                     <div class="text-xs mt-1 opacity-70" 
                          x-text="new Date(message.timestamp).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})"></div>
                 </div>
