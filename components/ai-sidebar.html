@@ -172,8 +172,8 @@
                      throw new Error('Stream request failed');
                  }
                  
-                 // Stop loading animation once stream starts
-                 this.stopLoadingAnimation();
+                 // Keep loading animation running until content arrives
+                 // this.stopLoadingAnimation(); // Moved to when first content arrives
                  
                  // Create assistant message placeholder
                  this.streamingContent = '';
@@ -185,6 +185,8 @@
                  };
                  this.messages.push(assistantMessage);
                  this.currentStreamMessage = assistantMessage;
+                 
+                 let firstContentReceived = false;
                  
                  // Read the stream
                  const reader = response.body.getReader();
@@ -206,6 +208,7 @@
                      for (const line of lines) {
                          if (line.trim() === '') continue; // Skip empty lines
                          console.log('[AI Stream] Received line:', line);
+                        console.log('[AI Stream] Line starts with data:', line.startsWith('data: '));
                          
                          if (line.startsWith('data: ')) {
                              const data = line.slice(6).trim();
@@ -218,11 +221,18 @@
                              } else {
                                  try {
                                      const chunk = JSON.parse(data);
+                                    console.log('[AI Stream] Parsed chunk:', JSON.stringify(chunk));
                                      if (chunk.error) {
                                          this.currentStreamMessage.content = '{{tjs "common.ai_error_prefix"}}' + chunk.error;
                                          this.currentStreamMessage.error = true;
                                          this.currentStreamMessage.streaming = false;
                                      } else if (chunk.content) {
+                                         // Stop loading animation on first content
+                                         if (!firstContentReceived) {
+                                             firstContentReceived = true;
+                                             this.stopLoadingAnimation();
+                                         }
+                                         
                                          this.streamingContent += chunk.content;
                                          this.currentStreamMessage.content = this.streamingContent;
                                          // Scroll to bottom as content streams
@@ -421,7 +431,8 @@
         
         <!-- Messages -->
         <template x-for="(message, index) in messages" :key="index">
-            <div :class="message.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
+            <div x-show="!message.streaming || message.content.length > 0" 
+                 :class="message.role === 'user' ? 'flex justify-end' : 'flex justify-start'">
                 <div :class="[
                     'relative max-w-[80%] rounded-lg p-3',
                     message.role === 'user' 
