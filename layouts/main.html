@@ -231,6 +231,7 @@
     <script src="/js/pricing-calculator.js"></script>
     <script src="/js/font-loader.js"></script>
     <script src="/js/highlight-loader.js"></script>
+    <script src="/js/ai-assistant.js"></script>
     <script src="/js/blue-init.js"></script>
     
     <!-- Then initialize with error handling -->
@@ -267,10 +268,25 @@
          @click.outside="$store.aiSidebar.open = false"
          @keydown.escape.window="$store.aiSidebar.open = false"
          x-data="{
-             messages: [],
+             messages: JSON.parse(sessionStorage.getItem('aiMessages') || '[]'),
              input: '',
-             threadId: null,
+             threadId: sessionStorage.getItem('aiThreadId') || null,
              loading: false,
+             
+             init() {
+                 // Restore scroll position
+                 this.$nextTick(() => {
+                     const container = this.$refs.messagesContainer;
+                     container.scrollTop = container.scrollHeight;
+                 });
+             },
+             
+             saveSession() {
+                 sessionStorage.setItem('aiMessages', JSON.stringify(this.messages));
+                 if (this.threadId) {
+                     sessionStorage.setItem('aiThreadId', this.threadId);
+                 }
+             },
              
              async sendMessage() {
                  if (!this.input.trim() || this.loading) return;
@@ -285,6 +301,13 @@
                      content: message,
                      timestamp: new Date()
                  });
+                 this.saveSession();
+                 
+                 // Reset textarea height
+                 const textarea = this.$el.querySelector('textarea');
+                 if (textarea) {
+                     textarea.style.height = 'auto';
+                 }
                  
                  // Scroll to bottom
                  this.$nextTick(() => {
@@ -320,6 +343,7 @@
                              content: data.response,
                              timestamp: new Date()
                          });
+                         this.saveSession();
                      }
                  } catch (error) {
                      this.messages.push({
@@ -340,6 +364,8 @@
              clearConversation() {
                  this.messages = [];
                  this.threadId = null;
+                 sessionStorage.removeItem('aiMessages');
+                 sessionStorage.removeItem('aiThreadId');
              }
          }">
         
@@ -392,7 +418,9 @@
                                 ? 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800'
                                 : 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'
                     ]">
-                        <div class="text-sm whitespace-pre-wrap" x-text="message.content"></div>
+                        <div class="text-sm" 
+                             x-html="message.role === 'assistant' && !message.error ? formatAIMessage(message.content) : message.content"
+                             x-init="if (message.role === 'assistant' && !message.error) { $nextTick(() => highlightAICode($el)) }"></div>
                         <div class="text-xs mt-1 opacity-70" 
                              x-text="new Date(message.timestamp).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})"></div>
                     </div>
@@ -413,14 +441,16 @@
         
         <!-- Input Area -->
         <div class="border-t border-gray-200 dark:border-gray-700 p-4 bg-gray-50 dark:bg-gray-800">
-            <form @submit.prevent="sendMessage()" class="flex gap-2">
-                <input 
-                    type="text"
+            <form @submit.prevent="sendMessage()" class="flex gap-2 items-end">
+                <textarea 
                     x-model="input"
                     :disabled="loading"
                     placeholder="Type your message..."
-                    class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 disabled:opacity-50"
-                    @keydown.enter.prevent="sendMessage()">
+                    class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 disabled:opacity-50 resize-none min-h-[40px] max-h-[200px]"
+                    @input="autoResizeTextarea($el)"
+                    @keydown.enter.prevent="if (!$event.shiftKey) sendMessage()"
+                    @keydown.shift.enter.prevent="input += '\n'; $nextTick(() => autoResizeTextarea($el))"
+                    rows="1"></textarea>
                 <button 
                     type="submit"
                     :disabled="loading || !input.trim()"
@@ -435,7 +465,7 @@
                 </button>
             </form>
             <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                Powered by OpenAI. Press Enter to send.
+                Powered by OpenAI • Enter to send • Shift+Enter for new line • ⌘I to open
             </p>
         </div>
     </div>
