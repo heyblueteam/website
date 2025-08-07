@@ -7,6 +7,7 @@
     scrolled: false,
     customLogoUrl: null,
     authState: null,
+    forceAuthState: {{.ForceAuthState}},
     init() {
         // Initialize dark mode from localStorage
         const savedTheme = localStorage.getItem('theme');
@@ -47,8 +48,11 @@
         window.addEventListener('scroll', this.handleScroll);
         this.handleScroll();
         
-        // Subscribe to auth state changes
-        if (window.AuthStateManager) {
+        // Subscribe to auth state changes or use forced state for testing
+        if (this.forceAuthState) {
+            // Force auth state for testing
+            this.authState = { isLoggedIn: true };
+        } else if (window.AuthStateManager) {
             this.unsubscribe = window.AuthStateManager.subscribe((authState) => {
                 this.authState = authState;
             });
@@ -185,25 +189,48 @@
                 </svg>
             </button>
             
-            <!-- When logged in: Show Go to App button -->
+            <!-- When logged in: Show Profile and Go to App buttons -->
             <template x-if="authState && authState.isLoggedIn">
-                <a href="https://app.blue.cc" 
-                   target="_blank" 
-                   @mousemove="handleMagnetic($event, 'goToApp')"
-                   @mouseleave="goToAppHovering = false; resetMagnetic('goToApp')"
-                   :style="getMagneticStyle('goToApp')"
-                   class="relative px-4 py-2 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition-all duration-200 ease-out flex items-center hover:shadow-lg overflow-hidden"
-                   x-data="{ goToAppHovering: false }"
-                   @mouseenter="goToAppHovering = true">
-                    <span class="relative h-5 overflow-hidden inline-block">
-                        <span class="block transition-transform duration-300"
-                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.go_to_app"}}</span>
-                        <span class="block transition-transform duration-300"
-                              :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.launch_app"}}</span>
-                    </span>
-                    <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-white rounded text-xs font-bold transition-transform duration-200 border" 
-                          :style="`color: #00a0d2; border-color: #00a0d2; ${magneticButtons['goToApp'] ? 'transform: translateX(' + (magneticButtons['goToApp'].x * 0.5) + 'px)' : ''}`">↵</span>
-                </a>
+                <div class="flex items-center space-x-4">
+                    <!-- Profile Button -->
+                    <a href="https://app.blue.cc/account/profile" 
+                       target="_blank" 
+                       @mousemove="handleMagnetic($event, 'profile')"
+                       @mouseleave="profileHovering = false; resetMagnetic('profile')"
+                       :style="getMagneticStyle('profile')"
+                       class="relative px-3 py-2 text-sm font-medium rounded-md border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-all duration-200 ease-out flex items-center overflow-hidden"
+                       x-data="{ profileHovering: false }"
+                       @mouseenter="profileHovering = true">
+                        <span class="relative h-5 overflow-hidden inline-block">
+                            <span class="block transition-transform duration-300"
+                                  :class="profileHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.profile"}}</span>
+                            <span class="block transition-transform duration-300"
+                                  :class="profileHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.account"}}</span>
+                        </span>
+                        <svg class="w-4 h-4 ml-2 text-gray-500 dark:text-gray-400" fill="currentColor">
+                            <use href="/icons/sprite.svg#user"></use>
+                        </svg>
+                    </a>
+                    
+                    <!-- Go to App Button -->
+                    <a href="https://app.blue.cc" 
+                       target="_blank" 
+                       @mousemove="handleMagnetic($event, 'goToApp')"
+                       @mouseleave="goToAppHovering = false; resetMagnetic('goToApp')"
+                       :style="getMagneticStyle('goToApp')"
+                       class="relative px-4 py-2 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition-all duration-200 ease-out flex items-center hover:shadow-lg overflow-hidden"
+                       x-data="{ goToAppHovering: false }"
+                       @mouseenter="goToAppHovering = true">
+                        <span class="relative h-5 overflow-hidden inline-block">
+                            <span class="block transition-transform duration-300"
+                                  :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.go_to_app"}}</span>
+                            <span class="block transition-transform duration-300"
+                                  :class="goToAppHovering ? '-translate-y-5' : 'translate-y-0'">{{t "common.launch_app"}}</span>
+                        </span>
+                        <span class="ml-2 inline-flex items-center justify-center w-5 h-5 bg-white rounded text-xs font-bold transition-transform duration-200 border" 
+                              :style="`color: #00a0d2; border-color: #00a0d2; ${magneticButtons['goToApp'] ? 'transform: translateX(' + (magneticButtons['goToApp'].x * 0.5) + 'px)' : ''}`">↵</span>
+                    </a>
+                </div>
             </template>
             
             <!-- When not logged in: Show existing buttons -->

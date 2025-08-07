@@ -43,4 +43,5 @@ type PageData struct {
 	SupportedLanguages []string
 	StatusData         *StatusPageData
 	NeedsCodeHighlight bool
+	ForceAuthState     bool
 }

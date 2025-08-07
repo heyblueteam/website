@@ -3,6 +3,7 @@ package web
 import (
 	"html/template"
 	"log"
+	"os"
 	"sort"
 	"strings"
 )
@@ -129,6 +130,9 @@ func (r *Router) preparePageDataWithCache(path string, content template.HTML, is
 		needsCodeHighlight = DetectCodeBlocks(string(content))
 	}
 	
+	// Check if auth state should be forced for testing
+	forceAuthState := os.Getenv("FORCE_AUTH_STATE") == "true"
+	
 	// Return PageData with all components
 	return PageData{
 		Title:              title,
@@ -150,5 +154,6 @@ func (r *Router) preparePageDataWithCache(path string, content template.HTML, is
 		SupportedLanguages: SupportedLanguages,
 		StatusData:         statusData,
 		NeedsCodeHighlight: needsCodeHighlight,
+		ForceAuthState:     forceAuthState,
 	}
 }
