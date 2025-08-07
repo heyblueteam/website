@@ -46,20 +46,8 @@
         </div>
     </section>
 
-    <!-- Partner Testimonial -->
-    <section class="mb-16">
-        {{template "testimonial-single" 
-            dict 
-                "ImageUrl" "/customers/ivan-keogh.jpeg"
-                "Quote" "As a Blue partner, we've been able to deliver incredible value to our enterprise clients. The platform's flexibility and Blue's partner support have been game-changing for our consulting practice."
-                "Name" "Ivan Keogh"
-                "Title" "CEO, Digital Transformation Consultancy"
-                "DesktopFontSize" "lg:text-lg"
-        }}
-    </section>
-
     <!-- Value Proposition Section -->
-    <section class="mb-16">
+    <section id="why-partner" class="mb-16">
         {{$valuePropsData := dict
             "Title" "Why become a Blue Certified Partner?"
             "Description" "Join leading consultancies and integrators earning recurring revenue while transforming how enterprises work."
@@ -94,38 +82,26 @@
         {{template "value-propositions" $valuePropsData}}
     </section>
 
-    <!-- Ideal Customer Profile -->
-    <section class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Who benefits from Blue?</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Our sweet spot is organizations with complex processes that need structure and automation.</p>
+    <!-- Customer Logos Section -->
+    <section id="trusted-by" class="mb-16">
+        {{$logoData := dict
+            "title" "Trusted by more than 17,000 teams"
+            "subtitle" "Join our partner network to serve enterprises already using Blue worldwide"
+            "logos" (slice
+                (dict "name" "CBRE" "src" "/customers/cbre.svg")
+                (dict "name" "Cisco" "src" "/customers/cisco.svg")
+                (dict "name" "Deloitte" "src" "/customers/deloitte.svg")
+                (dict "name" "FedEx" "src" "/customers/fedex.svg")
+                (dict "name" "Heineken" "src" "/customers/heineken.svg")
+                (dict "name" "Marriott" "src" "/customers/marriot.svg")
+            )
+        }}
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Company Size</h3>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>50-500 employees (primary focus)</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Growing mid-market companies</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Enterprise departments & divisions</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Distributed & remote teams</li>
-                </ul>
-            </div>
-            
-            <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Key Industries</h3>
-                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Government & Public Sector</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Logistics & Supply Chain</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Construction & Engineering</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Manufacturing & Production</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Marketing Agencies</li>
-                    <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Professional Services</li>
-                </ul>
-            </div>
-        </div>
+        {{template "logo-grid" $logoData}}
     </section>
 
     <!-- Partner Types -->
-    <section class="mb-16">
+    <section id="partner-types" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">What kind of partners are we looking for?</h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">We're seeking experienced professionals who understand enterprise needs and can deliver transformation.</p>
         
@@ -158,7 +134,7 @@
     </section>
 
     <!-- Global Regions Map Section -->
-    <section class="mb-16">
+    <section id="global-regions" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">We're seeking partners globally</h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Blue has customers in 126 countries. We're actively recruiting local partners to support our global expansion.</p>
         
@@ -221,8 +197,87 @@
         </div>
     </section>
 
+    <!-- Integration Partners -->
+    <section id="integration-partners" class="mb-16">
+        {{$integrationData := dict
+            "title" "Connect with 7,000+ tools through our integration partners"
+            "subtitle" "Help your clients integrate Blue with their existing tech stack seamlessly"
+            "logos" (slice
+                (dict "name" "Zapier" "src" "/images/zapier.svg")
+                (dict "name" "Make.com" "src" "/images/make.svg")
+                (dict "name" "Pabbly Connect" "src" "/images/pabbly.svg")
+                (dict "name" "Albato" "src" "/images/albato.png")
+                (dict "name" "Boost.space" "src" "/images/boost-space.svg")
+            )
+        }}
+        {{template "logo-grid" $integrationData}}
+    </section>
+
+    <!-- Key Industries Section -->
+    <section id="key-industries" class="mb-16">
+        {{$industriesData := dict
+            "Title" "Key industries we serve"
+            "Features" (slice
+                (dict
+                    "Title" "Government & Public Sector"
+                    "Description" "Streamline compliance, citizen services, and inter-agency collaboration."
+                )
+                (dict
+                    "Title" "Logistics & Supply Chain"
+                    "Description" "Optimize deliveries, inventory, and vendor management globally."
+                )
+                (dict
+                    "Title" "Construction & Engineering"
+                    "Description" "Manage timelines, resources, and safety across job sites."
+                )
+                (dict
+                    "Title" "Manufacturing & Production"
+                    "Description" "Coordinate schedules, quality control, and equipment maintenance."
+                )
+                (dict
+                    "Title" "Marketing Agencies"
+                    "Description" "Track campaigns, deliverables, and creative workflows."
+                )
+                (dict
+                    "Title" "Consulting & Professional Services"
+                    "Description" "Manage engagements, billable hours, and knowledge sharing."
+                )
+                (dict
+                    "Title" "Healthcare & Life Sciences"
+                    "Description" "Ensure compliance while managing workflows and research protocols."
+                )
+                (dict
+                    "Title" "Financial Services"
+                    "Description" "Maintain audit trails and secure document management."
+                )
+                (dict
+                    "Title" "Non-Profit Organizations"
+                    "Description" "Maximize impact with donor and volunteer coordination."
+                )
+            )
+        }}
+        
+        {{template "features-grid-simple" $industriesData}}
+    </section>
+
+    <!-- Ideal Customer Profile -->
+    <section id="ideal-customers" class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Who benefits from Blue?</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Our sweet spot is organizations with complex processes that need structure and automation.</p>
+        
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Company Size</h3>
+            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>50-500 employees (primary focus)</li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Growing mid-market companies</li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Enterprise departments & divisions</li>
+                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Distributed & remote teams</li>
+            </ul>
+        </div>
+    </section>
+
     <!-- Program Benefits -->
-    <section class="mb-16">
+    <section id="program-benefits" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Program Benefits</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -289,7 +344,7 @@
     </section>
 
     <!-- Training Programs -->
-    <section class="mb-16">
+    <section id="certification-programs" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Certification Programs</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -343,6 +398,18 @@
         </div>
     </section>
 
+    <!-- Partner Testimonial -->
+    <section id="partner-testimonial" class="mb-16">
+        {{template "testimonial-single" 
+            dict 
+                "ImageUrl" "/customers/ivan-keogh.jpeg"
+                "Quote" "As a Blue partner, we've been able to deliver incredible value to our enterprise clients. The platform's flexibility and Blue's partner support have been game-changing for our consulting practice."
+                "Name" "Ivan Keogh"
+                "Title" "CEO, Digital Transformation Consultancy"
+                "DesktopFontSize" "lg:text-lg"
+        }}
+    </section>
+
     <!-- First CTA -->
     <section class="mb-16">
         {{$firstCTA := dict
@@ -356,7 +423,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="mb-16">
+    <section id="faqs" class="mb-16">
         
         {{$faqData := dict
             "categories" (slice
