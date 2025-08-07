@@ -6,6 +6,36 @@
             "MarginBottom" "mb-16"
     }}
 
+    <!-- Awards & Recognition -->
+    <section class="mb-16">
+        
+        {{$awardsData := dict
+            "awards" (slice
+                (dict
+                    "name" "High Performer G2 Winter 2025"
+                    "src" "/awards/high-performer-g2-winter-2025.png"
+                )
+                (dict
+                    "name" "Momentum Leader G2 Winter 2025"
+                    "src" "/awards/momentum-leader-g2-winter-2025.png"
+                )
+                (dict
+                    "name" "Crozdesk Happiest Users"
+                    "src" "/awards/crozdesk-happiest-users-badge.webp"
+                )
+                (dict
+                    "name" "Crozdesk Quality Choice"
+                    "src" "/awards/crozdesk-quality-choice-badge.webp"
+                )
+                (dict
+                    "name" "Crozdesk Trusted Vendor"
+                    "src" "/awards/crozdesk-trusted-vendor-badge.webp"
+                )
+            )
+        }}
+        {{template "awards-grid" $awardsData}}
+    </section>
+
     <!-- Partner Badge Display -->
     <section class="mb-16 text-center">
         <div class="inline-block">
@@ -46,72 +76,39 @@
         </div>
     </section>
 
-    <!-- Awards & Recognition -->
-    <section id="awards-recognition" class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4 text-center">Partner with an award-winning platform</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mb-12 mx-auto text-center">Join a partner program backed by industry recognition and customer satisfaction</p>
-        
-        {{$awardsData := dict
-            "awards" (slice
-                (dict
-                    "name" "High Performer G2 Winter 2025"
-                    "src" "/awards/high-performer-g2-winter-2025.png"
-                )
-                (dict
-                    "name" "Momentum Leader G2 Winter 2025"
-                    "src" "/awards/momentum-leader-g2-winter-2025.png"
-                )
-                (dict
-                    "name" "Crozdesk Happiest Users"
-                    "src" "/awards/crozdesk-happiest-users-badge.webp"
-                )
-                (dict
-                    "name" "Crozdesk Quality Choice"
-                    "src" "/awards/crozdesk-quality-choice-badge.webp"
-                )
-                (dict
-                    "name" "Crozdesk Trusted Vendor"
-                    "src" "/awards/crozdesk-trusted-vendor-badge.webp"
-                )
-            )
-        }}
-        {{template "awards-grid" $awardsData}}
-    </section>
+    
 
     <!-- Value Proposition Section -->
     <section id="why-partner" class="mb-16">
-        {{$valuePropsData := dict
-            "Title" "Why become a Blue Certified Partner?"
-            "Description" "Join leading consultancies and integrators earning recurring revenue while transforming how enterprises work."
-            "ValueProps" (slice
-                (dict
-                    "Title" "50% lifetime revenue share"
-                    "Description" "Earn commissions for the entire customer lifetime, including all expansions and upgrades."
-                )
-                (dict
-                    "Title" "Territory ownership"
-                    "Description" "First-come, first-serve customer ownership - your clients remain yours as long as they're active."
-                )
-                (dict
-                    "Title" "Dedicated engineering support"
-                    "Description" "Get priority support from our engineering team for complex implementations."
-                )
-                (dict
-                    "Title" "White-label options"
-                    "Description" "Offer Blue under your own brand with custom domains and branding."
-                )
-                (dict
-                    "Title" "Early feature access"
-                    "Description" "Get exclusive access to new features before general availability."
-                )
-                (dict
-                    "Title" "Co-marketing opportunities"
-                    "Description" "Joint webinars, case studies, and marketing campaigns to drive growth."
-                )
-            )
-        }}
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Why become a Blue Certified Partner?</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Join leading consultancies and integrators earning recurring revenue while transforming how enterprises work.</p>
         
-        {{template "value-propositions" $valuePropsData}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">50% lifetime revenue share</h3>
+                <p class="text-gray-600 dark:text-gray-400">Earn commissions for the entire customer lifetime, including all expansions and upgrades.</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Territory ownership</h3>
+                <p class="text-gray-600 dark:text-gray-400">First-come, first-serve customer ownership - your clients remain yours as long as they're active.</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Dedicated engineering support</h3>
+                <p class="text-gray-600 dark:text-gray-400">Get priority support from our engineering team for complex implementations.</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">White-label options</h3>
+                <p class="text-gray-600 dark:text-gray-400">Offer Blue under your own brand with custom domains and branding.</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Early feature access</h3>
+                <p class="text-gray-600 dark:text-gray-400">Get exclusive access to new features before general availability.</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Co-marketing opportunities</h3>
+                <p class="text-gray-600 dark:text-gray-400">Joint webinars, case studies, and marketing campaigns to drive growth.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Customer Logos Section -->
@@ -134,41 +131,8 @@
 
     <!-- Partner Types -->
     <section id="partner-types" class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">What kind of partners are we looking for?</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">We're seeking experienced professionals who understand enterprise needs and can deliver transformation.</p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">System Integrators</h3>
-                <p class="text-gray-600 dark:text-gray-400">Large-scale implementation expertise across enterprise systems</p>
-            </div>
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Management Consultancies</h3>
-                <p class="text-gray-600 dark:text-gray-400">Strategic advisors driving organizational transformation</p>
-            </div>
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Digital Transformation Agencies</h3>
-                <p class="text-gray-600 dark:text-gray-400">Modernizing business processes through technology</p>
-            </div>
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Process Improvement Consultants</h3>
-                <p class="text-gray-600 dark:text-gray-400">Six Sigma, Lean, and operational excellence experts</p>
-            </div>
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Industry-Specific Consultants</h3>
-                <p class="text-gray-600 dark:text-gray-400">Deep vertical expertise in regulated industries</p>
-            </div>
-            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">IT Services Firms</h3>
-                <p class="text-gray-600 dark:text-gray-400">Technical implementation and integration specialists</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Regions Map Section -->
-    <section id="global-regions" class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">We're seeking partners globally</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Blue has customers in 126 countries. We're actively recruiting local partners to support our global expansion.</p>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">We're seeking experienced professionals who understand enterprise needs and can deliver transformation.</p>
         
         <div class="relative w-full max-w-6xl mx-auto" x-data="{ 
             regions: [
@@ -209,7 +173,7 @@
             </div>
         </div>
         
-        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="mt-8 mb-16 grid grid-cols-2 md:grid-cols-4 gap-4">
             <div class="text-center">
                 <div class="text-2xl font-bold text-gray-900 dark:text-gray-100">126</div>
                 <div class="text-sm text-gray-600 dark:text-gray-400">Countries with customers</div>
@@ -227,6 +191,38 @@
                 <div class="text-sm text-gray-600 dark:text-gray-400">Global data centers</div>
             </div>
         </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">System Integrators</h3>
+                <p class="text-gray-600 dark:text-gray-400">Large-scale implementation expertise across enterprise systems</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Management Consultancies</h3>
+                <p class="text-gray-600 dark:text-gray-400">Strategic advisors driving organizational transformation</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Digital Transformation Agencies</h3>
+                <p class="text-gray-600 dark:text-gray-400">Modernizing business processes through technology</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Process Improvement Consultants</h3>
+                <p class="text-gray-600 dark:text-gray-400">Six Sigma, Lean, and operational excellence experts</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">Industry-Specific Consultants</h3>
+                <p class="text-gray-600 dark:text-gray-400">Deep vertical expertise in regulated industries</p>
+            </div>
+            <div class="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">IT Services Firms</h3>
+                <p class="text-gray-600 dark:text-gray-400">Technical implementation and integration specialists</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Regions Map Section -->
+    <section class="mb-16">
+        
+        
     </section>
 
     <!-- Integration Partners -->
@@ -292,8 +288,33 @@
         {{template "features-grid-simple" $industriesData}}
     </section>
 
+    <!-- Ideal Customer Profile -->
+    <section id="ideal-customers" class="mb-16">
+        {{$idealCustomerData := dict
+            "Title" "Who benefits from Blue?"
+            "Description" "Our sweet spot is organizations with complex processes that need structure and automation."
+            "Animation" false
+            "ValueProps" (slice
+                (dict
+                    "Title" "Mid-market companies (50-500 employees)"
+                    "Description" "Organizations large enough to need structure but agile enough to implement change quickly."
+                )
+                (dict
+                    "Title" "Growing companies scaling operations"
+                    "Description" "Businesses experiencing rapid growth that need scalable processes and systems."
+                )
+                (dict
+                    "Title" "Enterprise departments & divisions"
+                    "Description" "Large organization teams that need flexibility beyond rigid corporate systems."
+                )
+            )
+        }}
+        
+        {{template "value-propositions" $idealCustomerData}}
+    </section>
+
     <!-- Platform Scale Stats -->
-    <section id="platform-scale" class="mb-16">
+    <section class="mb-16">
         {{$platformStatsData := dict
             "Title" "Built to operate at scale"
             "Stats" (slice
@@ -312,22 +333,6 @@
             )
         }}
         {{template "stats-section" $platformStatsData}}
-    </section>
-
-    <!-- Ideal Customer Profile -->
-    <section id="ideal-customers" class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Who benefits from Blue?</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Our sweet spot is organizations with complex processes that need structure and automation.</p>
-        
-        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Company Size</h3>
-            <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>50-500 employees (primary focus)</li>
-                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Growing mid-market companies</li>
-                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Enterprise departments & divisions</li>
-                <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Distributed & remote teams</li>
-            </ul>
-        </div>
     </section>
 
     <!-- Program Benefits -->
