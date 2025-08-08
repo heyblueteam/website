@@ -85,26 +85,24 @@
         </div>
     </section>
 
-    <!-- Customer Logos Section -->
+    <!-- Integration Partners -->
     <section class="mb-16">
-        {{$logoData := dict
-            "title" "Trusted by more than 70,000 organizations"
-            "subtitle" "Join our partner network to serve enterprises already using Blue worldwide"
+        {{$integrationData := dict
+            "title" "Connect with 7,000+ tools through our integration partners"
+            "subtitle" "Help your clients integrate Blue with their existing tech stack seamlessly"
             "logos" (slice
-                (dict "name" "CBRE" "src" "/customers/cbre.svg")
-                (dict "name" "Cisco" "src" "/customers/cisco.svg")
-                (dict "name" "Deloitte" "src" "/customers/deloitte.svg")
-                (dict "name" "FedEx" "src" "/customers/fedex.svg")
-                (dict "name" "Heineken" "src" "/customers/heineken.svg")
-                (dict "name" "Marriott" "src" "/customers/marriot.svg")
+                (dict "name" "Zapier" "src" "/images/zapier.svg")
+                (dict "name" "Make.com" "src" "/images/make.svg")
+                (dict "name" "Pabbly Connect" "src" "/images/pabbly.svg")
+                (dict "name" "Albato" "src" "/images/albato.png")
+                (dict "name" "Boost.space" "src" "/images/boost-space.svg")
             )
         }}
-        
-        {{template "logo-grid" $logoData}}
+        {{template "logo-grid" $integrationData}}
     </section>
 
     <!-- Partner Types -->
-    <section id="partner-types" class="mb-16">
+    <section class="mb-16">
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">We're seeking partners globally</h2>
         <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">We're seeking experienced professionals who understand enterprise needs and can deliver transformation.</p>
         
@@ -209,26 +207,68 @@
         
     </section>
 
-    <!-- Integration Partners -->
+    <!-- Customer Logos Section -->
     <section class="mb-16">
-        {{$integrationData := dict
-            "title" "Connect with 7,000+ tools through our integration partners"
-            "subtitle" "Help your clients integrate Blue with their existing tech stack seamlessly"
+        {{$logoData := dict
+            "title" "Trusted by more than 17,000+ organizations"
+            "subtitle" "Join our partner network to serve enterprises already using Blue worldwide"
             "logos" (slice
-                (dict "name" "Zapier" "src" "/images/zapier.svg")
-                (dict "name" "Make.com" "src" "/images/make.svg")
-                (dict "name" "Pabbly Connect" "src" "/images/pabbly.svg")
-                (dict "name" "Albato" "src" "/images/albato.png")
-                (dict "name" "Boost.space" "src" "/images/boost-space.svg")
+                (dict "name" "CBRE" "src" "/customers/cbre.svg")
+                (dict "name" "Cisco" "src" "/customers/cisco.svg")
+                (dict "name" "Deloitte" "src" "/customers/deloitte.svg")
+                (dict "name" "FedEx" "src" "/customers/fedex.svg")
+                (dict "name" "Heineken" "src" "/customers/heineken.svg")
+                (dict "name" "Marriott" "src" "/customers/marriot.svg")
             )
         }}
-        {{template "logo-grid" $integrationData}}
+        
+        {{template "logo-grid" $logoData}}
+    </section>
+
+    <!-- Ideal Customer Profile -->
+    <section id="ideal-customers" class="mb-16">
+        {{$idealCustomerData := dict
+            "Title" "Who benefits from Blue?"
+            "Description" "Our sweet spot is organizations with complex processes that need structure and automation."
+            "Animation" false
+            "ValueProps" (slice
+                (dict
+                    "Title" "Mid-market companies (50-500 employees)"
+                    "Description" "Organizations large enough to need structure but agile enough to implement change quickly."
+                )
+                (dict
+                    "Title" "Growing companies scaling operations"
+                    "Description" "Businesses experiencing rapid growth that need scalable processes and systems."
+                )
+                (dict
+                    "Title" "Enterprise departments & divisions"
+                    "Description" "Large organization teams that need flexibility beyond rigid corporate systems."
+                )
+            )
+        }}
+        
+        {{template "value-propositions" $idealCustomerData}}
+    </section>
+
+    <!-- Enterprise Customer Testimonial -->
+    <section class="mb-16">        
+        {{template "testimonial-single" 
+            dict 
+                "ImageUrl" "/customers/ivan-keogh.jpeg"
+                "Quote" "Comin Asia (part of RMA Group) has relied on Blue for nearly six years as our core CRM platform. We chose Blue for its intuitive interface, real-time dashboards, and flexible automation—boosting our sales visibility and reducing manual administration and helping Comin Asia scale across Cambodia, Vietnam, Thailand, Laos, and Myanmar. We work closely with the Blue team to develop bespoke customization that enhances our ability to apply data driven decision making across our business operations."
+                "Name" "Ivan Keogh"
+                "Title" "CEO of Comin Asia"
+                "DesktopFontSize" "lg:text-xl"
+        }}
     </section>
 
     <!-- Key Industries Section -->
-    <section id="key-industries" class="mb-16">
+    <section class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Key industries we serve</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">Our partners have successfully implemented Blue across diverse sectors, each with unique regulatory requirements and operational challenges. From government agencies to global logistics companies, Blue adapts to industry-specific needs.</p>
+        
         {{$industriesData := dict
-            "Title" "Key industries we serve"
+            "Title" ""
             "Features" (slice
                 (dict
                     "Title" "Government & Public Sector"
@@ -272,29 +312,37 @@
         {{template "features-grid-simple" $industriesData}}
     </section>
 
-    <!-- Ideal Customer Profile -->
-    <section id="ideal-customers" class="mb-16">
-        {{$idealCustomerData := dict
-            "Title" "Who benefits from Blue?"
-            "Description" "Our sweet spot is organizations with complex processes that need structure and automation."
-            "Animation" false
-            "ValueProps" (slice
+    <!-- Customer Video Testimonials -->
+    <section class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-4">Hear it from our customers</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">Real stories from clients who have transformed their operations with Blue</p>
+        
+        {{$videoTestimonialData := dict
+            "testimonials" (slice
                 (dict
-                    "Title" "Mid-market companies (50-500 employees)"
-                    "Description" "Organizations large enough to need structure but agile enough to implement change quickly."
+                    "quote" (t "customers.testimonial_8")
+                    "videoUrl" "https://media.blue.cc/dandeigan.mp4"
+                    "posterUrl" "/testimonials/dandeigan.jpg"
                 )
                 (dict
-                    "Title" "Growing companies scaling operations"
-                    "Description" "Businesses experiencing rapid growth that need scalable processes and systems."
+                    "quote" (t "customers.testimonial_3")
+                    "videoUrl" "https://media.blue.cc/ricklews-testimonial.mov"
+                    "posterUrl" "/testimonials/ricklewis.jpg"
                 )
                 (dict
-                    "Title" "Enterprise departments & divisions"
-                    "Description" "Large organization teams that need flexibility beyond rigid corporate systems."
+                    "quote" (t "customers.testimonial_15")
+                    "videoUrl" "https://media.blue.cc/june.mp4"
+                    "posterUrl" "/testimonials/june.jpg"
+                )
+                (dict
+                    "quote" (t "customers.testimonial_5")
+                    "videoUrl" "https://media.blue.cc/pere.mp4"
+                    "posterUrl" "/testimonials/pere.jpg"
                 )
             )
         }}
-        
-        {{template "value-propositions" $idealCustomerData}}
+
+        {{template "testimonial-videos" $videoTestimonialData}}
     </section>
 
     <!-- Platform Scale Stats -->
@@ -321,67 +369,68 @@
 
     <!-- Program Benefits -->
     <section id="program-benefits" class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Program Benefits</h2>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-12">Program Benefits</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Blue Certified Partner Badge</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Display your certification and build trust with prospects</p>
+        <!-- Benefits Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#shield"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Blue Certified Partner Badge</h3>
+                <p class="text-gray-600 dark:text-gray-400">Display your certification and build trust with prospects</p>
             </div>
-            
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Partner Portal Access</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Dedicated portal with resources, training, and deal registration</p>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#mobile"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Partner Portal Access</h3>
+                <p class="text-gray-600 dark:text-gray-400">Dedicated portal with resources, training, and deal registration</p>
             </div>
-            
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Training & Certification Programs</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Comprehensive training on implementation and best practices</p>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#lightbulb"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Training & Certification Programs</h3>
+                <p class="text-gray-600 dark:text-gray-400">Comprehensive training on implementation and best practices</p>
             </div>
-            
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Demo Environment</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Full-featured demo account for presentations and POCs</p>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#magic"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Demo Environment</h3>
+                <p class="text-gray-600 dark:text-gray-400">Full-featured demo account for presentations and POCs</p>
             </div>
-            
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Partner Directory Listing</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Get listed in our partner directory for lead generation</p>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#users"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Partner Directory Listing</h3>
+                <p class="text-gray-600 dark:text-gray-400">Get listed in our partner directory for lead generation</p>
             </div>
-            
-            <div class="flex items-start space-x-3">
-                <svg class="w-6 h-6 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                </svg>
-                <div>
-                    <h3 class="font-semibold text-gray-900 dark:text-gray-100">Dedicated Partner Success Manager</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Personal support for deals, implementations, and growth</p>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-brand-blue/10 dark:bg-brand-blue/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-brand-blue" fill="currentColor">
+                        <use xlink:href="/icons/sprite.svg#headset"></use>
+                    </svg>
                 </div>
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-2">Dedicated Partner Success Manager</h3>
+                <p class="text-gray-600 dark:text-gray-400">Personal support for deals, implementations, and growth</p>
             </div>
         </div>
     </section>
@@ -391,51 +440,72 @@
         <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-gray-100 mb-8">Certification Programs</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6">
-                <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Blue Implementation Specialist</h3>
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Blue Implementation Specialist</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Master the technical implementation of Blue for enterprise clients</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                    <li>• Platform architecture</li>
-                    <li>• API integration</li>
-                    <li>• Security & compliance</li>
-                    <li>• Data migration</li>
+                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Platform architecture</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>API integration</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Security & compliance</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Data migration</span>
+                    </li>
                 </ul>
             </div>
             
-            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6">
-                <div class="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Blue Process Automation Expert</h3>
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Blue Process Automation Expert</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Design and implement complex automation workflows</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                    <li>• Workflow design</li>
-                    <li>• Automation rules</li>
-                    <li>• Custom fields & formulas</li>
-                    <li>• Integration patterns</li>
+                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Workflow design</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Automation rules</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Custom fields & formulas</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Integration patterns</span>
+                    </li>
                 </ul>
             </div>
             
-            <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-6">
-                <div class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Blue Enterprise Architecture</h3>
+            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <h3 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Blue Enterprise Architecture</h3>
                 <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Design enterprise-scale Blue deployments</p>
-                <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
-                    <li>• Solution architecture</li>
-                    <li>• Change management</li>
-                    <li>• Governance models</li>
-                    <li>• ROI optimization</li>
+                <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Solution architecture</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Change management</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>Governance models</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-brand-blue mr-2">•</span>
+                        <span>ROI optimization</span>
+                    </li>
                 </ul>
             </div>
         </div>
