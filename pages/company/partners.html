@@ -19,8 +19,40 @@
             
             <!-- Right side - Partner Badge -->
             <div class="flex justify-center lg:justify-end">
-                <!-- Blue Certified Partner Badge -->
-                <div class="border-4 border-brand-blue rounded-lg shadow-lg overflow-hidden w-64">
+                <!-- Blue Certified Partner Badge with infinity hover animation -->
+                <div class="border-4 border-brand-blue rounded-lg shadow-lg overflow-hidden w-64" 
+                     style="animation: infinityFloat 6s linear infinite;">
+                    <style>
+                        @keyframes infinityFloat {
+                            0% {
+                                transform: translate(0, 0) rotate(0deg);
+                            }
+                            12.5% {
+                                transform: translate(4px, -4px) rotate(0.5deg);
+                            }
+                            25% {
+                                transform: translate(6px, -8px) rotate(1deg);
+                            }
+                            37.5% {
+                                transform: translate(2px, -10px) rotate(0.5deg);
+                            }
+                            50% {
+                                transform: translate(-2px, -10px) rotate(-0.5deg);
+                            }
+                            62.5% {
+                                transform: translate(-6px, -8px) rotate(-1deg);
+                            }
+                            75% {
+                                transform: translate(-4px, -4px) rotate(-0.5deg);
+                            }
+                            87.5% {
+                                transform: translate(-2px, -2px) rotate(0deg);
+                            }
+                            100% {
+                                transform: translate(0, 0) rotate(0deg);
+                            }
+                        }
+                    </style>
                     <!-- Blue Top Section with Logo -->
                     <div class="bg-brand-blue p-6 flex justify-center">
                         <img src="/logo/Blue logo (white).svg" alt="Blue" class="h-12 w-auto">
@@ -84,6 +116,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Partner Success News Bar -->
+    <div class="mb-16">
+        {{$newsBarData := dict
+            "MainText" "🎉 Sumo Group, Inc. generated over $400,000 partnering with Blue."
+            "ButtonText" "Become a Partner"
+            "ButtonUrl" "#start-earning-cta"
+        }}
+        {{template "news-bar" $newsBarData}}
+    </div>
 
     <!-- Integration Partners -->
     <section class="mb-16">
@@ -619,7 +661,7 @@
         {{$firstCTA := dict
             "Title" "Start earning today."
             "Subtitle" "Join thousands of partners earning recurring income with the Blue Partner Program."
-            "PrimaryText" "Contact us"
+            "PrimaryText" "Book Partnership Call with Our CEO"
             "PrimaryUrl" "/contact"
         }}
         
