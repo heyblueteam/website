@@ -27,7 +27,7 @@ Podzielę się niektórymi pomysłami i procesami, które stosuję, aby upewnić
 
 Perfekcja, w końcu, nie jest wymagana, aby odnieść sukces!
 
-Jeśli jesteś [solopreneur](/solutions/industry/solopreneurs) na początku swojej drogi, porady tutaj zaoszczędzą Ci wielu kłopotów. Prowadzi to również do stworzenia udanego biznesu z *zrównoważonym* wzrostem.
+Jeśli jesteś [solopreneur](/solutions/industry/professional-services) na początku swojej drogi, porady tutaj zaoszczędzą Ci wielu kłopotów. Prowadzi to również do stworzenia udanego biznesu z *zrównoważonym* wzrostem.
 
 Przez *zrównoważony* wzrost mam na myśli budowanie firmy, która:
 

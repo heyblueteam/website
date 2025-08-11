@@ -27,7 +27,7 @@ category: "Modern Work Practices"
 
 毕竟，成功并不需要完美！
 
-如果您是一位刚起步的[独立创业者](/solutions/industry/solopreneurs)，这里的建议将为您节省大量的麻烦。它还将引导您创建一个*可持续*增长的成功企业。
+如果您是一位刚起步的[独立创业者](/solutions/industry/professional-services)，这里的建议将为您节省大量的麻烦。它还将引导您创建一个*可持续*增长的成功企业。
 
 我所说的*可持续*增长，是指建立一个：
 

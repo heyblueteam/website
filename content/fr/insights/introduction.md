@@ -27,7 +27,7 @@ Je partagerai certaines des idées et des processus que j'utilise pour m'assurer
 
 La perfection, après tout, n'est pas requise pour réussir !
 
-Si vous êtes un [solopreneur](/solutions/industry/solopreneurs) qui débute, les conseils ici vous éviteront des maux de tête significatifs. Cela vous conduira également à créer une entreprise avec une croissance *durable*.
+Si vous êtes un [solopreneur](/solutions/industry/professional-services) qui débute, les conseils ici vous éviteront des maux de tête significatifs. Cela vous conduira également à créer une entreprise avec une croissance *durable*.
 
 Par croissance *durable*, j'entends construire une entreprise qui :
 

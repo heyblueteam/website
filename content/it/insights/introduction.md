@@ -27,7 +27,7 @@ Condividerò alcune delle idee e dei processi che utilizzo per garantire di pren
 
 La perfezione, dopotutto, non è necessaria per avere successo!
 
-Se sei un [solopreneur](/solutions/industry/solopreneurs) che sta iniziando, i consigli qui ti risparmieranno notevoli mal di testa. Ti porteranno anche a creare un'attività con una crescita *sostenibile*.
+Se sei un [solopreneur](/solutions/industry/professional-services) che sta iniziando, i consigli qui ti risparmieranno notevoli mal di testa. Ti porteranno anche a creare un'attività con una crescita *sostenibile*.
 
 Per crescita *sostenibile*, intendo costruire un'azienda che:
 

@@ -27,7 +27,7 @@ Compartiré algunas de las ideas y procesos que utilizo para asegurarme de tomar
 
 ¡La perfección, después de todo, no es necesaria para tener éxito!
 
-Si eres un [solopreneur](/solutions/industry/solopreneurs) que está comenzando, los consejos aquí te ahorrarán dolores de cabeza significativos. También te llevarán a crear un negocio exitoso con un crecimiento *sostenible*.
+Si eres un [solopreneur](/solutions/industry/professional-services) que está comenzando, los consejos aquí te ahorrarán dolores de cabeza significativos. También te llevarán a crear un negocio exitoso con un crecimiento *sostenible*.
 
 Por *sostenible*, me refiero a construir una empresa que:
 

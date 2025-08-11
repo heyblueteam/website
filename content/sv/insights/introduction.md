@@ -27,7 +27,7 @@ Jag kommer att dela med mig av några av de idéer och processer jag använder f
 
 Perfektion krävs trots allt inte för att vara framgångsrik!
 
-Om du är en [soloprenör](/solutions/industry/solopreneurs) som just har börjat, kommer råden här att spara dig betydande huvudvärk. Det kommer också att leda dig till att skapa ett framgångsrikt företag med *hållbar* tillväxt.
+Om du är en [soloprenör](/solutions/industry/professional-services) som just har börjat, kommer råden här att spara dig betydande huvudvärk. Det kommer också att leda dig till att skapa ett framgångsrikt företag med *hållbar* tillväxt.
 
 Med *hållbar* tillväxt menar jag att bygga ett företag som:
 

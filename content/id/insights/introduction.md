@@ -27,7 +27,7 @@ Saya akan membagikan beberapa ide dan proses yang saya gunakan untuk memastikan 
 
 Kesempurnaan, bagaimanapun, tidak diperlukan untuk menjadi sukses!
 
-Jika Anda seorang [solopreneur](/solutions/industry/solopreneurs) yang baru memulai, saran di sini akan menghemat banyak sakit kepala. Ini juga akan membawa Anda untuk menciptakan bisnis yang memiliki pertumbuhan *berkelanjutan*.
+Jika Anda seorang [solopreneur](/solutions/industry/professional-services) yang baru memulai, saran di sini akan menghemat banyak sakit kepala. Ini juga akan membawa Anda untuk menciptakan bisnis yang memiliki pertumbuhan *berkelanjutan*.
 
 Dengan pertumbuhan *berkelanjutan*, saya maksudkan membangun sebuah perusahaan yang:
 

@@ -27,7 +27,7 @@ Ich werde einige der Ideen und Prozesse teilen, die ich verwende, um sicherzuste
 
 Perfektion ist schließlich nicht erforderlich, um erfolgreich zu sein!
 
-Wenn Sie ein [Solopreneur](/solutions/industry/solopreneurs) sind, der gerade anfängt, wird Ihnen der Rat hier erhebliche Kopfschmerzen ersparen. Er wird Sie auch dazu führen, ein erfolgreiches Unternehmen mit *nachhaltigem* Wachstum zu schaffen.
+Wenn Sie ein [Solopreneur](/solutions/industry/professional-services) sind, der gerade anfängt, wird Ihnen der Rat hier erhebliche Kopfschmerzen ersparen. Er wird Sie auch dazu führen, ein erfolgreiches Unternehmen mit *nachhaltigem* Wachstum zu schaffen.
 
 Mit *nachhaltigem* Wachstum meine ich, ein Unternehmen aufzubauen, das:
 

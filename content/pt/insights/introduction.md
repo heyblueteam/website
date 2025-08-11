@@ -27,7 +27,7 @@ Vou compartilhar algumas das ideias e processos que uso para garantir que tome a
 
 Perfeição, afinal, não é necessária para ter sucesso!
 
-Se você é um [solopreneur](/solutions/industry/solopreneurs) começando, o conselho aqui vai te poupar muitas dores de cabeça. Isso também o levará a criar um negócio com crescimento *sustentável*.
+Se você é um [solopreneur](/solutions/industry/professional-services) começando, o conselho aqui vai te poupar muitas dores de cabeça. Isso também o levará a criar um negócio com crescimento *sustentável*.
 
 Por *crescimento* sustentável, quero dizer construir uma empresa que:
 

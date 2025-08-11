@@ -27,7 +27,7 @@ category: "Modern Work Practices"
 
 畢竟，成功並不需要完美！
 
-如果您是一位剛起步的[獨立創業者](/solutions/industry/solopreneurs)，這裡的建議將為您省去不少麻煩。它還將引導您創建一個具有*可持續*增長的成功企業。
+如果您是一位剛起步的[獨立創業者](/solutions/industry/professional-services)，這裡的建議將為您省去不少麻煩。它還將引導您創建一個具有*可持續*增長的成功企業。
 
 所謂的*可持續*增長，我是指建立一個：
 

@@ -27,7 +27,7 @@ category: "Modern Work Practices"
 
 결국, 성공하기 위해 완벽함은 필요하지 않습니다!
 
-만약 당신이 [솔로프레너](https://www.blue.cc/solutions/industry/solopreneurs)로 시작하는 경우, 여기의 조언은 당신에게 상당한 두통을 덜어줄 것입니다. 또한 지속 가능한 성장을 가진 성공적인 사업을 만드는 데 도움이 될 것입니다.
+만약 당신이 [솔로프레너](https://www.blue.cc/solutions/industry/professional-services)로 시작하는 경우, 여기의 조언은 당신에게 상당한 두통을 덜어줄 것입니다. 또한 지속 가능한 성장을 가진 성공적인 사업을 만드는 데 도움이 될 것입니다.
 
 여기서 *지속 가능한* 성장이라는 것은 다음과 같은 회사를 만드는 것을 의미합니다:
 

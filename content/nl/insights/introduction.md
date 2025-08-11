@@ -27,7 +27,7 @@ Ik zal enkele van de ideeën en processen delen die ik gebruik om ervoor te zorg
 
 Perfectie is tenslotte niet vereist om succesvol te zijn!
 
-Als je een [solopreneur](/solutions/industry/solopreneurs) bent die net begint, zal het advies hier je aanzienlijke hoofdpijn besparen. Het zal je ook helpen om een succesvol bedrijf met *duurzame* groei te creëren.
+Als je een [solopreneur](/solutions/industry/professional-services) bent die net begint, zal het advies hier je aanzienlijke hoofdpijn besparen. Het zal je ook helpen om een succesvol bedrijf met *duurzame* groei te creëren.
 
 Met *duurzame* groei bedoel ik het opbouwen van een bedrijf dat:
 
