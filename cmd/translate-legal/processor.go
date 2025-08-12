@@ -21,8 +21,6 @@ const (
 	PlaceholderURL         PlaceholderType = "URL"
 	PlaceholderEmail       PlaceholderType = "EMAIL"
 	PlaceholderCallout     PlaceholderType = "CALLOUT"
-	PlaceholderLink        PlaceholderType = "LINK"
-	PlaceholderLegalRef    PlaceholderType = "LEGALREF"
 )
 
 // Placeholder represents a masked piece of content
@@ -36,7 +34,7 @@ type Placeholder struct {
 	AfterText    string // Context for recovery
 }
 
-// DocumentProcessor handles the parsing and processing of legal documentation
+// DocumentProcessor handles the parsing and processing of API documentation
 type DocumentProcessor struct {
 	parser goldmark.Markdown
 }
@@ -68,17 +66,14 @@ func (p *DocumentProcessor) ProcessDocument(content string) (string, map[string]
 	// Extract code blocks first (they're the largest structures)
 	bodyContent, codeBlockMap := p.extractCodeBlocks(bodyContent, placeholderMap)
 	
+	// Process tables separately before parsing (easier than using AST for tables)
+	bodyContent, tableMap := p.processTables(bodyContent, placeholderMap)
+	
 	// Extract inline code
 	bodyContent, inlineCodeMap := p.extractInlineCode(bodyContent, placeholderMap)
 	
-	// Extract internal legal documentation links
-	bodyContent, linkMap := p.extractLegalLinks(bodyContent, placeholderMap)
-	
 	// Extract URLs and emails
 	bodyContent = p.extractURLsAndEmails(bodyContent, placeholderMap)
-	
-	// Extract legal references (section numbers, dates, percentages, amounts)
-	bodyContent = p.extractLegalReferences(bodyContent, placeholderMap)
 	
 	// Merge all placeholder maps
 	for k, v := range calloutMap {
@@ -87,10 +82,10 @@ func (p *DocumentProcessor) ProcessDocument(content string) (string, map[string]
 	for k, v := range codeBlockMap {
 		placeholderMap[k] = v
 	}
-	for k, v := range inlineCodeMap {
+	for k, v := range tableMap {
 		placeholderMap[k] = v
 	}
-	for k, v := range linkMap {
+	for k, v := range inlineCodeMap {
 		placeholderMap[k] = v
 	}
 	
@@ -100,345 +95,428 @@ func (p *DocumentProcessor) ProcessDocument(content string) (string, map[string]
 	return finalContent, placeholderMap, nil
 }
 
-// extractFrontmatter separates YAML frontmatter from body content
+// extractFrontmatter separates frontmatter from body content
 func (p *DocumentProcessor) extractFrontmatter(content string) (string, string) {
-	if !strings.HasPrefix(content, "---\n") {
+	// Check if content starts with frontmatter
+	if !strings.HasPrefix(content, "---") {
 		return "", content
 	}
 	
-	// Find the closing --- of the frontmatter
-	endIndex := strings.Index(content[4:], "\n---\n")
-	if endIndex == -1 {
+	// Find the closing frontmatter delimiter
+	lines := strings.Split(content, "\n")
+	closingIndex := -1
+	
+	for i := 1; i < len(lines); i++ {
+		if strings.TrimSpace(lines[i]) == "---" {
+			closingIndex = i
+			break
+		}
+	}
+	
+	if closingIndex == -1 {
+		// No closing delimiter found
 		return "", content
 	}
 	
-	// Add 4 for the opening ---, and 5 for the closing ---\n
-	frontmatterEnd := endIndex + 4 + 5
-	frontmatter := content[:frontmatterEnd]
-	bodyContent := content[frontmatterEnd:]
+	// Extract frontmatter (including delimiters) and body
+	frontmatterLines := lines[:closingIndex+1]
+	bodyLines := lines[closingIndex+1:]
 	
-	return frontmatter, bodyContent
+	// Process frontmatter to ensure it's translatable
+	processedFrontmatter := p.processFrontmatterForTranslation(frontmatterLines)
+	
+	return processedFrontmatter, strings.Join(bodyLines, "\n")
 }
 
-// extractCallouts extracts Blue's callout blocks
+// processFrontmatterForTranslation preserves frontmatter structure exactly
+func (p *DocumentProcessor) processFrontmatterForTranslation(lines []string) string {
+	// Create a version with only translatable parts exposed
+	var translatableVersion []string
+	translatableVersion = append(translatableVersion, "---")
+	
+	for i := 1; i < len(lines)-1; i++ {
+		line := strings.TrimSpace(lines[i])
+		if strings.HasPrefix(line, "title:") {
+			// Extract the title value for translation
+			titleValue := strings.TrimSpace(strings.TrimPrefix(line, "title:"))
+			translatableVersion = append(translatableVersion, fmt.Sprintf("title: %s", titleValue))
+		} else if strings.HasPrefix(line, "description:") {
+			// Extract the description value for translation
+			descValue := strings.TrimSpace(strings.TrimPrefix(line, "description:"))
+			translatableVersion = append(translatableVersion, fmt.Sprintf("description: %s", descValue))
+		}
+	}
+	
+	translatableVersion = append(translatableVersion, "---")
+	
+	// Return the translatable version
+	return strings.Join(translatableVersion, "\n") + "\n"
+}
+
+// extractCallouts handles special ::callout blocks
 func (p *DocumentProcessor) extractCallouts(content string, placeholderMap map[string]Placeholder) (string, map[string]Placeholder) {
-	calloutRegex := regexp.MustCompile(`(?s)::callout\{[^\}]*\}\n(.*?)\n::`)
+	// Match callouts and process their content
+	calloutPattern := regexp.MustCompile(`(?s)(::callout\s*)((?:---\s*[^-]+---\s*)?)(.*?)(::)`)
+	localMap := make(map[string]Placeholder)
 	
-	matches := calloutRegex.FindAllStringSubmatchIndex(content, -1)
-	
-	// Process matches in reverse to maintain positions
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		fullMatch := content[match[0]:match[1]]
-		
-		// Generate placeholder
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderCallout, id, PlaceholderCallout)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderCallout,
-			Content:  fullMatch,
-			Position: match[0],
+	content = calloutPattern.ReplaceAllStringFunc(content, func(match string) string {
+		// Extract the parts of the callout
+		matches := calloutPattern.FindStringSubmatch(match)
+		if len(matches) != 5 {
+			return match
 		}
 		
-		// Replace in content
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		calloutStart := matches[1]  // ::callout
+		frontmatter := matches[2]   // ---\nicon: ...\n---
+		calloutContent := matches[3] // The actual content to translate
+		calloutEnd := matches[4]     // ::
+		
+		// Create placeholders for the callout structure
+		startPlaceholder := p.generatePlaceholder(PlaceholderCallout)
+		startUUID := p.extractPlaceholderID(startPlaceholder)
+		localMap[startUUID] = Placeholder{
+			ID:      startUUID,
+			Type:    PlaceholderCallout,
+			Content: calloutStart,
+		}
+		
+		endPlaceholder := p.generatePlaceholder(PlaceholderCallout)
+		endUUID := p.extractPlaceholderID(endPlaceholder)
+		localMap[endUUID] = Placeholder{
+			ID:      endUUID,
+			Type:    PlaceholderCallout,
+			Content: calloutEnd,
+		}
+		
+		// Handle frontmatter if present
+		result := startPlaceholder
+		if frontmatter != "" {
+			fmPlaceholder := p.generatePlaceholder(PlaceholderCallout)
+			fmUUID := p.extractPlaceholderID(fmPlaceholder)
+			localMap[fmUUID] = Placeholder{
+				ID:      fmUUID,
+				Type:    PlaceholderCallout,
+				Content: frontmatter,
+			}
+			result += fmPlaceholder
+		}
+		
+		// Leave the content for translation but process any nested technical content
+		result += calloutContent + endPlaceholder
+		
+		return result
+	})
 	
-	return content, placeholderMap
+	return content, localMap
 }
 
-// extractCodeBlocks extracts markdown code blocks
+// extractCodeBlocks extracts all code blocks and replaces them with placeholders
 func (p *DocumentProcessor) extractCodeBlocks(content string, placeholderMap map[string]Placeholder) (string, map[string]Placeholder) {
-	// Regex to match code blocks with optional language specifier
-	codeBlockRegex := regexp.MustCompile("(?s)```[^\n]*\n.*?\n```")
+	// Match code blocks with optional language and labels
+	codeBlockPattern := regexp.MustCompile("(?s)```[^`]*```")
+	localMap := make(map[string]Placeholder)
 	
-	matches := codeBlockRegex.FindAllStringSubmatchIndex(content, -1)
-	
-	// Process matches in reverse to maintain positions
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		codeBlock := content[match[0]:match[1]]
-		
-		// Generate placeholder
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderCodeBlock, id, PlaceholderCodeBlock)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderCodeBlock,
-			Content:  codeBlock,
-			Position: match[0],
+	content = codeBlockPattern.ReplaceAllStringFunc(content, func(match string) string {
+		placeholder := p.generatePlaceholder(PlaceholderCodeBlock)
+		uuid := p.extractPlaceholderID(placeholder)
+		localMap[uuid] = Placeholder{
+			ID:      uuid,
+			Type:    PlaceholderCodeBlock,
+			Content: match,
 		}
-		
-		// Replace in content
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		return placeholder
+	})
 	
-	return content, placeholderMap
+	return content, localMap
 }
 
 // extractInlineCode extracts inline code snippets
 func (p *DocumentProcessor) extractInlineCode(content string, placeholderMap map[string]Placeholder) (string, map[string]Placeholder) {
-	// Match inline code that's not part of a code block placeholder
-	inlineCodeRegex := regexp.MustCompile("`[^`]+`")
+	inlineCodePattern := regexp.MustCompile("`([^`]+)`")
+	localMap := make(map[string]Placeholder)
 	
-	matches := inlineCodeRegex.FindAllStringIndex(content, -1)
-	
-	// Process matches in reverse
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		inlineCode := content[match[0]:match[1]]
-		
-		// Skip if this is within a placeholder
-		if strings.Contains(content[max(0, match[0]-10):min(len(content), match[1]+10)], "@@") {
-			continue
+	content = inlineCodePattern.ReplaceAllStringFunc(content, func(match string) string {
+		placeholder := p.generatePlaceholder(PlaceholderInlineCode)
+		uuid := p.extractPlaceholderID(placeholder)
+		localMap[uuid] = Placeholder{
+			ID:      uuid,
+			Type:    PlaceholderInlineCode,
+			Content: match,
 		}
-		
-		// Generate placeholder
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderInlineCode, id, PlaceholderInlineCode)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderInlineCode,
-			Content:  inlineCode,
-			Position: match[0],
-		}
-		
-		// Replace in content
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		return placeholder
+	})
 	
-	return content, placeholderMap
+	return content, localMap
 }
 
-// extractLegalLinks extracts internal legal documentation links
-func (p *DocumentProcessor) extractLegalLinks(content string, placeholderMap map[string]Placeholder) (string, map[string]Placeholder) {
-	// Match markdown links that reference /legal/ paths
-	linkRegex := regexp.MustCompile(`\[[^\]]+\]\(/legal/[^\)]+\)`)
+// processTables handles table parsing with column intelligence
+func (p *DocumentProcessor) processTables(content string, placeholderMap map[string]Placeholder) (string, map[string]Placeholder) {
+	// Simple table detection regex - match tables including trailing newlines
+	tablePattern := regexp.MustCompile(`(?m)(^\|.*\|.*$\n)+`)
+	localMap := make(map[string]Placeholder)
 	
-	matches := linkRegex.FindAllStringIndex(content, -1)
-	
-	// Process matches in reverse
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		link := content[match[0]:match[1]]
-		
-		// Generate placeholder
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderLink, id, PlaceholderLink)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderLink,
-			Content:  link,
-			Position: match[0],
+	content = tablePattern.ReplaceAllStringFunc(content, func(table string) string {
+		// Preserve trailing newlines
+		trailingNewlines := ""
+		for strings.HasSuffix(table, "\n") {
+			trailingNewlines += "\n"
+			table = table[:len(table)-1]
 		}
 		
-		// Replace in content
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		lines := strings.Split(table, "\n")
+		if len(lines) < 2 {
+			return table + trailingNewlines
+		}
+		
+		// Parse headers
+		headers := p.parseTableRow(lines[0])
+		translatableCols := p.classifyColumns(headers)
+		
+		// Process each row
+		var processedLines []string
+		for i, line := range lines {
+			if i == 0 {
+				// Header row - never translate
+				processedLines = append(processedLines, line)
+			} else if strings.Contains(line, "---") {
+				// Separator row
+				processedLines = append(processedLines, line)
+			} else {
+				// Data row
+				cells := p.parseTableRow(line)
+				var processedCells []string
+				
+				for j, cell := range cells {
+					if p.shouldTranslateCell(j, translatableCols, cell) {
+						// This cell should be translated
+						processedCells = append(processedCells, cell)
+					} else {
+						// This cell should be preserved
+						placeholder := p.generatePlaceholder(PlaceholderTableCell)
+						uuid := p.extractPlaceholderID(placeholder)
+						localMap[uuid] = Placeholder{
+							ID:      uuid,
+							Type:    PlaceholderTableCell,
+							Content: cell,
+						}
+						processedCells = append(processedCells, placeholder)
+					}
+				}
+				
+				processedLines = append(processedLines, "| "+strings.Join(processedCells, " | ")+" |")
+			}
+		}
+		
+		return strings.Join(processedLines, "\n") + trailingNewlines
+	})
 	
-	return content, placeholderMap
+	return content, localMap
 }
 
-// extractURLsAndEmails extracts URLs and email addresses
+// parseTableRow splits a table row into cells
+func (p *DocumentProcessor) parseTableRow(row string) []string {
+	row = strings.Trim(row, "|")
+	cells := strings.Split(row, "|")
+	for i := range cells {
+		cells[i] = strings.TrimSpace(cells[i])
+	}
+	return cells
+}
+
+// extractURLsAndEmails finds and masks URLs and email addresses
 func (p *DocumentProcessor) extractURLsAndEmails(content string, placeholderMap map[string]Placeholder) string {
-	// Extract URLs
-	urlRegex := regexp.MustCompile(`https?://[^\s\)]+|www\.[^\s\)]+`)
-	matches := urlRegex.FindAllStringIndex(content, -1)
-	
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		url := content[match[0]:match[1]]
-		
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderURL, id, PlaceholderURL)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderURL,
-			Content:  url,
-			Position: match[0],
+	// Email pattern
+	emailPattern := regexp.MustCompile(`[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}`)
+	content = emailPattern.ReplaceAllStringFunc(content, func(match string) string {
+		placeholder := p.generatePlaceholder(PlaceholderEmail)
+		uuid := p.extractPlaceholderID(placeholder)
+		placeholderMap[uuid] = Placeholder{
+			ID:      uuid,
+			Type:    PlaceholderEmail,
+			Content: match,
 		}
-		
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		return placeholder
+	})
 	
-	// Extract emails
-	emailRegex := regexp.MustCompile(`[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}`)
-	matches = emailRegex.FindAllStringIndex(content, -1)
-	
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		email := content[match[0]:match[1]]
-		
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderEmail, id, PlaceholderEmail)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderEmail,
-			Content:  email,
-			Position: match[0],
+	// URL pattern (http/https)
+	urlPattern := regexp.MustCompile(`https?://[^\s\)]+`)
+	content = urlPattern.ReplaceAllStringFunc(content, func(match string) string {
+		placeholder := p.generatePlaceholder(PlaceholderURL)
+		uuid := p.extractPlaceholderID(placeholder)
+		placeholderMap[uuid] = Placeholder{
+			ID:      uuid,
+			Type:    PlaceholderURL,
+			Content: match,
 		}
-		
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
+		return placeholder
+	})
 	
 	return content
 }
 
-// extractLegalReferences extracts legal-specific references like section numbers, dates, amounts
-func (p *DocumentProcessor) extractLegalReferences(content string, placeholderMap map[string]Placeholder) string {
-	// Extract section numbers (e.g., 1.1, 2.3.4)
-	sectionRegex := regexp.MustCompile(`\b\d+(\.\d+)+\b`)
-	matches := sectionRegex.FindAllStringIndex(content, -1)
+// classifyColumns determines which columns should be translated
+func (p *DocumentProcessor) classifyColumns(headers []string) []int {
+	translatableCols := []int{}
 	
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		section := content[match[0]:match[1]]
-		
-		// Skip if already in a placeholder
-		if strings.Contains(content[max(0, match[0]-10):min(len(content), match[1]+10)], "@@") {
-			continue
-		}
-		
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderLegalRef, id, PlaceholderLegalRef)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderLegalRef,
-			Content:  section,
-			Position: match[0],
-		}
-		
-		content = content[:match[0]] + placeholder + content[match[1]:]
+	translatableHeaders := map[string]bool{
+		"description": true,
+		"purpose":     true,
+		"notes":       true,
+		"explanation": true,
+		"details":     true,
+		"usage":       true,
+		"message":     true,
 	}
 	
-	// Extract monetary amounts (e.g., $200, $1,000)
-	amountRegex := regexp.MustCompile(`\$[\d,]+`)
-	matches = amountRegex.FindAllStringIndex(content, -1)
-	
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		amount := content[match[0]:match[1]]
-		
-		if strings.Contains(content[max(0, match[0]-10):min(len(content), match[1]+10)], "@@") {
-			continue
+	for i, header := range headers {
+		headerLower := strings.ToLower(strings.TrimSpace(header))
+		if translatableHeaders[headerLower] {
+			translatableCols = append(translatableCols, i)
 		}
-		
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderLegalRef, id, PlaceholderLegalRef)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderLegalRef,
-			Content:  amount,
-			Position: match[0],
-		}
-		
-		content = content[:match[0]] + placeholder + content[match[1]:]
 	}
 	
-	// Extract percentages (e.g., 25%, 42%)
-	percentRegex := regexp.MustCompile(`\b\d+%`)
-	matches = percentRegex.FindAllStringIndex(content, -1)
-	
-	for i := len(matches) - 1; i >= 0; i-- {
-		match := matches[i]
-		percent := content[match[0]:match[1]]
-		
-		if strings.Contains(content[max(0, match[0]-10):min(len(content), match[1]+10)], "@@") {
-			continue
-		}
-		
-		id := uuid.New().String()
-		placeholder := fmt.Sprintf("@@%s##%s##%s@@", PlaceholderLegalRef, id, PlaceholderLegalRef)
-		
-		placeholderMap[placeholder] = Placeholder{
-			ID:       id,
-			Type:     PlaceholderLegalRef,
-			Content:  percent,
-			Position: match[0],
-		}
-		
-		content = content[:match[0]] + placeholder + content[match[1]:]
-	}
-	
-	return content
+	return translatableCols
 }
 
-// ValidateTranslation checks if the translation preserved all placeholders
+// shouldTranslateCell determines if a specific cell should be translated
+func (p *DocumentProcessor) shouldTranslateCell(colIndex int, translatableCols []int, content string) bool {
+	// Check if this column is marked as translatable
+	for _, col := range translatableCols {
+		if col == colIndex {
+			// Special case: if content looks like a technical identifier, don't translate
+			if p.isTechnicalIdentifier(content) {
+				return false
+			}
+			return true
+		}
+	}
+	
+	// Special handling for "Required" column - only translate Yes/No
+	contentLower := strings.ToLower(strings.TrimSpace(content))
+	if strings.Contains(contentLower, "yes") || strings.Contains(contentLower, "no") ||
+	   strings.Contains(contentLower, "✅") || strings.Contains(contentLower, "❌") {
+		return true
+	}
+	
+	return false
+}
+
+// isTechnicalIdentifier checks if content looks like a technical identifier
+func (p *DocumentProcessor) isTechnicalIdentifier(content string) bool {
+	// Check for patterns that indicate technical content
+	technicalPatterns := []string{
+		`^[A-Z_]+$`,           // ALL_CAPS
+		`^[a-z]+[A-Z]`,        // camelCase
+		`^\w+_\w+$`,           // snake_case
+		`^[A-Z][A-Z0-9_]*$`,   // CONSTANT_CASE
+		`\$\{.*\}`,            // Template variables
+		`^/.*/$`,              // Regex patterns
+	}
+	
+	for _, pattern := range technicalPatterns {
+		if matched, _ := regexp.MatchString(pattern, strings.TrimSpace(content)); matched {
+			return true
+		}
+	}
+	
+	return false
+}
+
+// generatePlaceholder creates a unique placeholder
+func (p *DocumentProcessor) generatePlaceholder(placeholderType PlaceholderType) string {
+	id := uuid.New().String()
+	return fmt.Sprintf("@@%s##%s##%s@@", placeholderType, id, placeholderType)
+}
+
+// extractPlaceholderID extracts just the UUID from a full placeholder
+func (p *DocumentProcessor) extractPlaceholderID(placeholder string) string {
+	// Extract UUID from format @@TYPE##UUID##TYPE@@
+	parts := strings.Split(strings.Trim(placeholder, "@"), "##")
+	if len(parts) >= 2 {
+		return parts[1]
+	}
+	return ""
+}
+
+// ValidateTranslation checks if all placeholders are preserved correctly
 func (p *DocumentProcessor) ValidateTranslation(original, translated string) error {
-	// Extract all placeholders from original
-	placeholderRegex := regexp.MustCompile(`@@[A-Z]+##[a-f0-9-]+##[A-Z]+@@`)
-	originalPlaceholders := placeholderRegex.FindAllString(original, -1)
-	translatedPlaceholders := placeholderRegex.FindAllString(translated, -1)
+	originalPlaceholders := p.extractPlaceholders(original)
+	translatedPlaceholders := p.extractPlaceholders(translated)
 	
-	// Check if all placeholders are present
+	// Check count
 	if len(originalPlaceholders) != len(translatedPlaceholders) {
-		return fmt.Errorf("placeholder count mismatch: original has %d, translated has %d",
+		return fmt.Errorf("placeholder count mismatch: original=%d, translated=%d", 
 			len(originalPlaceholders), len(translatedPlaceholders))
 	}
 	
-	// Create a map to check presence
-	placeholderMap := make(map[string]bool)
-	for _, p := range originalPlaceholders {
-		placeholderMap[p] = true
-	}
-	
-	// Check each translated placeholder
-	for _, p := range translatedPlaceholders {
-		if !placeholderMap[p] {
-			return fmt.Errorf("placeholder %s not found in original", p)
+	// Check exact matches
+	for _, placeholder := range originalPlaceholders {
+		found := false
+		for _, transPlaceholder := range translatedPlaceholders {
+			if placeholder == transPlaceholder {
+				found = true
+				break
+			}
 		}
-		delete(placeholderMap, p)
-	}
-	
-	// Check if any placeholders are missing
-	if len(placeholderMap) > 0 {
-		var missing []string
-		for p := range placeholderMap {
-			missing = append(missing, p)
+		if !found {
+			return fmt.Errorf("missing or modified placeholder: %s", placeholder)
 		}
-		return fmt.Errorf("missing placeholders in translation: %v", missing)
 	}
 	
 	return nil
 }
 
-// RecoverPlaceholders attempts to recover missing placeholders
-func (p *DocumentProcessor) RecoverPlaceholders(original, translated string) string {
-	// This is a fallback method to try to preserve content structure
-	// In practice, it's better to retry the translation than to use this
-	return translated
+// extractPlaceholders finds all placeholders in content
+func (p *DocumentProcessor) extractPlaceholders(content string) []string {
+	placeholderPattern := regexp.MustCompile(`@@[A-Z]+##[a-f0-9-]+##[A-Z]+@@`)
+	return placeholderPattern.FindAllString(content, -1)
 }
 
-// RestoreContent replaces placeholders with their original content
+// RestoreContent replaces all placeholders with their original content
 func (p *DocumentProcessor) RestoreContent(content string, placeholderMap map[string]Placeholder) string {
-	// Sort placeholders by position to restore in order
-	for placeholder, data := range placeholderMap {
-		content = strings.ReplaceAll(content, placeholder, data.Content)
+	result := content
+	
+	// Restore placeholders by reconstructing the full placeholder format
+	for uuid, data := range placeholderMap {
+		fullPlaceholder := fmt.Sprintf("@@%s##%s##%s@@", data.Type, uuid, data.Type)
+		result = strings.ReplaceAll(result, fullPlaceholder, data.Content)
 	}
 	
-	return content
+	return result
 }
 
-// Helper functions
-func min(a, b int) int {
-	if a < b {
-		return a
+// RecoverPlaceholders attempts to recover corrupted placeholders
+func (p *DocumentProcessor) RecoverPlaceholders(original, corrupted string) string {
+	// Extract all original placeholders
+	originalPlaceholders := p.extractPlaceholders(original)
+	
+	// Try to find and fix corrupted placeholders
+	result := corrupted
+	
+	for _, placeholder := range originalPlaceholders {
+		if !strings.Contains(result, placeholder) {
+			// Try to find partial matches or translations
+			parts := strings.Split(placeholder, "##")
+			if len(parts) == 3 {
+				id := parts[1]
+				// Look for the ID in various forms
+				patterns := []string{
+					fmt.Sprintf("@@%s##%s##%s@@", ".*", id, ".*"),  // Any type with same ID
+					fmt.Sprintf("@@.*##%s##.*@@", id),              // More flexible
+					id,                                               // Just the ID
+				}
+				
+				for _, pattern := range patterns {
+					re := regexp.MustCompile(pattern)
+					if matches := re.FindAllString(result, -1); len(matches) > 0 {
+						// Replace the corrupted version with the correct one
+						result = strings.Replace(result, matches[0], placeholder, 1)
+						break
+					}
+				}
+			}
+		}
 	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+	
+	return result
 }
