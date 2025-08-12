@@ -2,7 +2,7 @@
 title: Från projekt till processer  
 description: Hur vi omvandlar Blue från ett projektledningsverktyg till en omfattande plattform för processhantering, och varför denna förändring är viktig för framtiden för teamwork.
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Hej, det här är Manny, grundaren och VD:n för Blue.
 

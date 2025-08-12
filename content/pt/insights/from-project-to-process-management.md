@@ -4,7 +4,7 @@ title: De Projetos a Processos
 description: Como estamos transformando o Blue de uma ferramenta de gerenciamento de projetos para uma plataforma abrangente de gerenciamento de processos, e por que essa mudança é importante para o futuro do trabalho em equipe.
 ```
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Hey there, este é Manny, o fundador e CEO da Blue.
 

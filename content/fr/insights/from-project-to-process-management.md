@@ -4,7 +4,7 @@ title: Des projets aux processus
 description: Comment nous transformons Blue d'un outil de gestion de projet en une plateforme complète de gestion des processus, et pourquoi ce changement est important pour l'avenir du travail d'équipe.
 ```
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Salut, ici Manny, le fondateur et PDG de Blue.
 

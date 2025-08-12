@@ -2,7 +2,7 @@
 title: Van Projecten naar Processen  
 description: Hoe we Blue transformeren van een projectmanagementtool naar een uitgebreide procesmanagementplatform, en waarom deze verschuiving belangrijk is voor de toekomst van teamwork.
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Hey daar, dit is Manny, de oprichter en CEO van Blue.
 

@@ -2,7 +2,7 @@
 title: From Projects to Processes
 category: "CEO Blog"
 description: How we're transforming Blue from a project management tool to a comprehensive process management platform, and why this shift matters for the future of teamwork.
-date: 2025-01-12
+date: 2025-08-12
 ---
 
 Hey there, this is Manny, the founder and CEO of Blue. 

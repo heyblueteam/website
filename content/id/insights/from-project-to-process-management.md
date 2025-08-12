@@ -2,7 +2,7 @@
 title: Dari Proyek ke Proses  
 description: Bagaimana kami mengubah Blue dari alat manajemen proyek menjadi platform manajemen proses yang komprehensif, dan mengapa perubahan ini penting untuk masa depan kerja sama tim.
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Hey, ini Manny, pendiri dan CEO Blue.
 

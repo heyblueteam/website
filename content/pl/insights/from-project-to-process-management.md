@@ -2,7 +2,7 @@
 title: Od projektów do procesów  
 description: Jak przekształcamy Blue z narzędzia do zarządzania projektami w kompleksową platformę do zarządzania procesami i dlaczego ta zmiana ma znaczenie dla przyszłości pracy zespołowej.
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 Cześć, tu Manny, założyciel i dyrektor generalny Blue.
 

@@ -4,7 +4,7 @@ title: 從專案到流程
 description: 我們如何將 Blue 從一個專案管理工具轉變為一個全面的流程管理平台，以及這一變化對團隊合作未來的重要性。
 ```
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 嘿，大家好，我是Manny，Blue的創始人兼首席執行官。
 

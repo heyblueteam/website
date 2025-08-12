@@ -4,7 +4,7 @@ title: 从项目到流程
 description: 我们如何将 Blue 从一个项目管理工具转变为一个全面的流程管理平台，以及这一转变对未来团队合作的重要性。
 ```
 category: "CEO Blog"
-date: 2025-01-12
+date: 2025-08-12
 ---
 嘿，大家好，我是Manny，Blue的创始人兼首席执行官。
 
