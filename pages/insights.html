@@ -30,9 +30,35 @@
         selectCategory(category) {
             this.activeCategory = category;
             this.updateUnderline();
+            // Update URL with the selected category
+            const url = new URL(window.location);
+            if (category === 'all') {
+                url.searchParams.delete('category');
+            } else {
+                url.searchParams.set('category', category);
+            }
+            // Update browser history without reload
+            window.history.pushState({}, '', url);
+        },
+        initFromURL() {
+            // Read category from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            
+            // Valid categories list
+            const validCategories = ['all', 'product-updates', 'engineering', 'ceo-blog', 
+                                    'best-practices', 'partner-resources', 'news', 'faq'];
+            
+            // Set activeCategory if valid parameter exists
+            if (categoryParam && validCategories.includes(categoryParam)) {
+                this.activeCategory = categoryParam;
+            }
+            
+            // Update underline position for initial category
+            this.updateUnderline();
         }
     }"
-    x-init="$nextTick(() => updateUnderline())"
+    x-init="initFromURL()"
     @resize.window="updateUnderline()">
         <!-- Category Navigation -->
         <div class="mb-8 sm:mb-12">
