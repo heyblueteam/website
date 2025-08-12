@@ -2,7 +2,7 @@
 title: "ICP: Ideal Customer Profile"
 category: "Partner Resources"
 description: "A comprehensive guide for Blue partners to identify and qualify ideal enterprise customers, ensuring focused efforts on organizations where Blue delivers maximum value."
-date: 2025-01-12
+date: 2025-08-12
 CtaHeader: Partner with Blue
 CtaText: Help enterprise customers transform their operations.
 CtaButton: Contact Partnership Team
@@ -214,7 +214,7 @@ Use this scoring system to quickly assess if a prospect is worth pursuing:
 
 ❌ **DON'T Waste Time On:**
 - Companies under 50 employees
-- Organizations requiring specific compliance (HIPAA, etc.)
+- Organizations requiring specific compliance beyond what Blue supports
 - Prospects with no budget or timeline
 - Those seeking only the cheapest option
 - Companies happy with their current solution
