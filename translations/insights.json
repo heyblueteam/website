@@ -9,6 +9,7 @@
       "engineering": "Engineering",
       "ceo-blog": "CEO Blog",
       "best-practices": "Best Practices",
+      "partner-resources": "Partner Resources",
       "news": "News",
       "faq": "FAQ"
     }
@@ -23,6 +24,7 @@
       "engineering": "工程技术",
       "ceo-blog": "CEO博客",
       "best-practices": "最佳实践",
+      "partner-resources": "合作伙伴资源",
       "news": "新闻",
       "faq": "常见问题"
     }
@@ -37,6 +39,7 @@
       "engineering": "Ingeniería",
       "ceo-blog": "Blog del CEO",
       "best-practices": "Mejores Prácticas",
+      "partner-resources": "Recursos para Socios",
       "news": "Noticias",
       "faq": "Preguntas Frecuentes"
     }
@@ -51,6 +54,7 @@
       "engineering": "Ingénierie",
       "ceo-blog": "Blog du PDG",
       "best-practices": "Meilleures pratiques",
+      "partner-resources": "Ressources Partenaires",
       "news": "Actualités",
       "faq": "FAQ"
     }
@@ -65,6 +69,7 @@
       "engineering": "Technik",
       "ceo-blog": "CEO-Blog",
       "best-practices": "Best Practices",
+      "partner-resources": "Partner-Ressourcen",
       "news": "Nachrichten",
       "faq": "Häufige Fragen"
     }
@@ -79,6 +84,7 @@
       "engineering": "エンジニアリング",
       "ceo-blog": "CEOブログ",
       "best-practices": "ベストプラクティス",
+      "partner-resources": "パートナーリソース",
       "news": "ニュース",
       "faq": "よくある質問"
     }
@@ -93,6 +99,7 @@
       "engineering": "Engenharia",
       "ceo-blog": "Blog do CEO",
       "best-practices": "Melhores Práticas",
+      "partner-resources": "Recursos para Parceiros",
       "news": "Notícias",
       "faq": "Perguntas Frequentes"
     }
@@ -107,6 +114,7 @@
       "engineering": "Инженерия",
       "ceo-blog": "Блог CEO",
       "best-practices": "Лучшие практики",
+      "partner-resources": "Ресурсы для партнеров",
       "news": "Новости",
       "faq": "Часто задаваемые вопросы"
     }
@@ -121,6 +129,7 @@
       "engineering": "엔지니어링",
       "ceo-blog": "CEO 블로그",
       "best-practices": "모범 사례",
+      "partner-resources": "파트너 리소스",
       "news": "뉴스",
       "faq": "자주 묻는 질문"
     }
@@ -135,6 +144,7 @@
       "engineering": "Ingegneria",
       "ceo-blog": "Blog del CEO",
       "best-practices": "Best practice",
+      "partner-resources": "Risorse per Partner",
       "news": "Notizie",
       "faq": "Domande frequenti"
     }
@@ -149,6 +159,7 @@
       "engineering": "Teknik",
       "ceo-blog": "Blog CEO",
       "best-practices": "Praktik Terbaik",
+      "partner-resources": "Sumber Daya Mitra",
       "news": "Berita",
       "faq": "Tanya Jawab"
     }
@@ -163,6 +174,7 @@
       "engineering": "Engineering",
       "ceo-blog": "CEO-blog",
       "best-practices": "Best practices",
+      "partner-resources": "Partnerbronnen",
       "news": "Nieuws",
       "faq": "Veelgestelde vragen"
     }
@@ -177,6 +189,7 @@
       "engineering": "Inżynieria",
       "ceo-blog": "Blog CEO",
       "best-practices": "Najlepsze praktyki",
+      "partner-resources": "Zasoby dla Partnerów",
       "news": "Aktualności",
       "faq": "Często zadawane pytania"
     }
@@ -191,6 +204,7 @@
       "engineering": "工程技術",
       "ceo-blog": "CEO部落格",
       "best-practices": "最佳實踐",
+      "partner-resources": "合作夥伴資源",
       "news": "新聞",
       "faq": "常見問題"
     }
@@ -205,6 +219,7 @@
       "engineering": "Teknik",
       "ceo-blog": "VD-blogg",
       "best-practices": "Bästa praxis",
+      "partner-resources": "Partnerresurser",
       "news": "Nyheter",
       "faq": "Vanliga frågor"
     }
@@ -219,6 +234,7 @@
       "engineering": "វិស្វកម្ម",
       "ceo-blog": "ប្លុករបស់ CEO",
       "best-practices": "ការអនុវត្តល្អបំផុត",
+      "partner-resources": "ធនធានដៃគូ",
       "news": "ព័ត៌មាន",
       "faq": "សំណួរដែលសួរញឹកញាប់"
     }
