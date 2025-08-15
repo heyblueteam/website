@@ -10,6 +10,116 @@
     class="bg-white dark:bg-gray-900 overflow-x-hidden transition-colors duration-300"
     data-language="{{.Language}}">
     
+    <!-- Skeleton Loading Screen -->
+    <div id="skeleton-loader" class="skeleton-container">
+        <!-- Skeleton Topbar -->
+        <div class="skeleton-topbar" style="display: flex; align-items: center; padding: 0 1rem; height: 64px;">
+            <!-- Left side: Logo (always visible) -->
+            <div style="display: flex; align-items: center; flex-shrink: 0;">
+                <!-- Logo skeleton -->
+                <div class="skeleton-box" style="width: 100px; height: 32px; margin-left: 0.75rem;"></div>
+                <!-- Toggle sidebar button skeleton (hidden on mobile) -->
+                <div class="skeleton-box skeleton-pulse skeleton-hide-mobile" style="width: 16px; height: 24px; margin-left: 1rem;"></div>
+            </div>
+            
+            <!-- Middle: Search bar (hidden on mobile, visible on desktop) -->
+            <div class="skeleton-hide-mobile" style="flex: 1; display: flex; justify-content: center; padding: 0 2rem;">
+                <div class="skeleton-box" style="width: 100%; max-width: 300px; height: 36px;"></div>
+            </div>
+            
+            <!-- Mobile spacer (only on mobile) -->
+            <div class="skeleton-show-mobile" style="flex: 1;"></div>
+            
+            <!-- Right side: Different for desktop/mobile -->
+            <div style="display: flex; align-items: center; gap: 0.75rem; justify-content: flex-end;">
+                <!-- Desktop buttons (hidden on mobile) -->
+                <div class="skeleton-hide-mobile" style="display: flex; align-items: center; gap: 0.75rem;">
+                    <!-- Icon buttons (AI, Language, Theme) -->
+                    <div class="skeleton-box skeleton-pulse" style="width: 20px; height: 20px; border-radius: 0.25rem;"></div>
+                    <div class="skeleton-box skeleton-pulse" style="width: 20px; height: 20px; border-radius: 0.25rem;"></div>
+                    <div class="skeleton-box skeleton-pulse" style="width: 20px; height: 20px; border-radius: 0.25rem;"></div>
+                    
+                    <!-- Spacer -->
+                    <div style="width: 0.5rem;"></div>
+                    
+                    <!-- Action buttons -->
+                    <div class="skeleton-box" style="width: 90px; height: 36px;"></div>
+                    <div class="skeleton-box" style="width: 90px; height: 36px;"></div>
+                    <div class="skeleton-box" style="width: 100px; height: 36px;"></div>
+                </div>
+                
+                <!-- Mobile buttons (hidden on desktop) -->
+                <div class="skeleton-show-mobile" style="display: flex; align-items: center; gap: 0.5rem;">
+                    <!-- Sign up button -->
+                    <div class="skeleton-box" style="width: 70px; height: 32px;"></div>
+                    <!-- Hamburger menu -->
+                    <div class="skeleton-box skeleton-pulse" style="width: 24px; height: 24px; border-radius: 0.25rem;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content area with sidebars -->
+        <div class="skeleton-main">
+            <!-- Left Sidebar Skeleton -->
+            <div class="skeleton-left-sidebar">
+                <!-- Section headers -->
+                <div class="skeleton-box skeleton-pulse" style="width: 120px; height: 16px; margin-bottom: 1rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 1.5rem;"></div>
+                
+                <div class="skeleton-box skeleton-pulse" style="width: 100px; height: 16px; margin-bottom: 1rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 1.5rem;"></div>
+                
+                <div class="skeleton-box skeleton-pulse" style="width: 140px; height: 16px; margin-bottom: 1rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 32px; margin-bottom: 0.5rem;"></div>
+            </div>
+            
+            <!-- Main Content Skeleton -->
+            <div class="skeleton-content">
+                <!-- Page title -->
+                <div class="skeleton-box skeleton-pulse" style="width: 300px; height: 36px; margin-bottom: 1rem;"></div>
+                <!-- Subtitle -->
+                <div class="skeleton-box" style="width: 500px; height: 20px; margin-bottom: 2rem;"></div>
+                
+                <!-- Content lines -->
+                <div class="skeleton-box" style="width: 100%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 95%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 98%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 85%; height: 16px; margin-bottom: 1.5rem;"></div>
+                
+                <div class="skeleton-box" style="width: 100%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 90%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 95%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 88%; height: 16px; margin-bottom: 1.5rem;"></div>
+                
+                <!-- Image placeholder -->
+                <div class="skeleton-box skeleton-pulse" style="width: 100%; height: 300px; margin-bottom: 1.5rem;"></div>
+                
+                <div class="skeleton-box" style="width: 100%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 93%; height: 16px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 97%; height: 16px; margin-bottom: 0.75rem;"></div>
+            </div>
+            
+            <!-- Right Sidebar Skeleton -->
+            <div class="skeleton-right-sidebar">
+                <!-- TOC heading -->
+                <div class="skeleton-box skeleton-pulse" style="width: 140px; height: 18px; margin-bottom: 1.5rem;"></div>
+                <!-- TOC items -->
+                <div class="skeleton-box" style="width: 100%; height: 28px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 90%; height: 28px; margin-bottom: 0.75rem; margin-left: 1rem;"></div>
+                <div class="skeleton-box" style="width: 85%; height: 28px; margin-bottom: 0.75rem; margin-left: 1rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 28px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 80%; height: 28px; margin-bottom: 0.75rem; margin-left: 1rem;"></div>
+                <div class="skeleton-box" style="width: 100%; height: 28px; margin-bottom: 0.75rem;"></div>
+                <div class="skeleton-box" style="width: 75%; height: 28px; margin-bottom: 0.75rem; margin-left: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Alpine Store for AI Sidebar -->
     <script>
         document.addEventListener('alpine:init', () => {
@@ -240,7 +350,58 @@
     <script src="/js/blue-init.js"></script>
     
     <!-- Then initialize with error handling -->
-    <script>       
+    <script>
+        // Skeleton loader management
+        (function() {
+            let skeletonHidden = false;
+            
+            // Function to hide skeleton
+            function hideSkeleton() {
+                if (skeletonHidden) return;
+                const skeleton = document.getElementById('skeleton-loader');
+                if (skeleton) {
+                    skeleton.classList.add('skeleton-hidden');
+                    // Remove from DOM after transition
+                    setTimeout(() => {
+                        if (skeleton.parentNode) {
+                            skeleton.remove();
+                        }
+                    }, 300);
+                    skeletonHidden = true;
+                }
+            }
+            
+            // Hide skeleton when Alpine is initialized and content is ready
+            document.addEventListener('alpine:initialized', () => {
+                // Small delay to ensure smooth transition after Alpine components are mounted
+                setTimeout(hideSkeleton, 100);
+            });
+            
+            // Fallback: Hide skeleton after max wait time
+            setTimeout(hideSkeleton, 3000);
+            
+            // Also hide on DOMContentLoaded if Alpine loads very quickly
+            if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                // If DOM is already loaded when this script runs
+                setTimeout(hideSkeleton, 500);
+            } else {
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Give Alpine a chance to initialize first
+                    setTimeout(() => {
+                        if (window.Alpine && window.Alpine.version) {
+                            hideSkeleton();
+                        }
+                    }, 200);
+                });
+            }
+            
+            // Hide skeleton immediately if this is a SPA navigation (not initial page load)
+            if (window.performance && window.performance.navigation.type === 2) {
+                // Page was accessed via back/forward buttons
+                hideSkeleton();
+            }
+        })();
+        
         // ASCII Art Console Message
         console.log(`
 ██████╗ ██╗      ██████╗  ██████╗      ██╗███╗   ██╗ ██████╗

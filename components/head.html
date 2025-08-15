@@ -60,6 +60,136 @@
             font-style: italic;
             font-display: swap;
         }
+        
+        /* Skeleton Loading Styles - Inline for instant loading */
+        .skeleton-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 9999;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+        }
+        
+        .skeleton-container.skeleton-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        
+        /* Dark mode skeleton */
+        @media (prefers-color-scheme: dark) {
+            .skeleton-container {
+                background: #111827;
+            }
+            .skeleton-box {
+                background: linear-gradient(90deg, #1f2937 25%, #374151 50%, #1f2937 75%);
+            }
+        }
+        
+        /* Skeleton box with shimmer animation */
+        .skeleton-box {
+            background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
+            background-size: 200% 100%;
+            animation: skeleton-shimmer 1.5s infinite;
+            border-radius: 0.375rem;
+        }
+        
+        @keyframes skeleton-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Skeleton layout structure */
+        .skeleton-topbar {
+            height: 64px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e5e7eb;
+            position: relative;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .skeleton-topbar {
+                background: rgba(17, 24, 39, 0.7);
+                border-bottom-color: #374151;
+            }
+        }
+        
+        .skeleton-main {
+            display: flex;
+            height: calc(100vh - 64px);
+            margin-top: 64px;
+        }
+        
+        .skeleton-left-sidebar {
+            width: 256px;
+            padding: 1.5rem;
+            border-right: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .skeleton-left-sidebar {
+                background: #111827;
+                border-right-color: #374151;
+            }
+        }
+        
+        .skeleton-content {
+            flex: 1;
+            padding: 2rem 3rem;
+            max-width: 1280px;
+        }
+        
+        .skeleton-right-sidebar {
+            width: 256px;
+            padding: 1.5rem;
+            border-left: 1px solid #e5e7eb;
+            background: white;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .skeleton-right-sidebar {
+                background: #111827;
+                border-left-color: #374151;
+            }
+        }
+        
+        /* Responsive utility classes */
+        .skeleton-show-mobile {
+            display: none;
+        }
+        
+        @media (max-width: 1024px) {
+            .skeleton-hide-mobile {
+                display: none !important;
+            }
+            .skeleton-show-mobile {
+                display: block;
+            }
+            .skeleton-left-sidebar {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 1280px) {
+            .skeleton-right-sidebar {
+                display: none;
+            }
+        }
+        
+        /* Skeleton pulse animation for variety */
+        .skeleton-pulse {
+            animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes skeleton-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
     </style>
     
     <!-- TailwindCSS - Generated -->

@@ -263,6 +263,9 @@ window.SPAUtils = {
      * @param {boolean} needsCodeHighlight - Whether the page needs code highlighting
      */
     async updatePageContent(newMain, currentMain, targetUrl, doc, needsCodeHighlight) {
+        // Note: For SPA navigation, we don't show skeleton since it's a quick transition
+        // The 50ms fade provides enough visual feedback without being jarring
+        
         // Much faster transition - 50ms total
         currentMain.style.opacity = '0';
         currentMain.style.transition = 'opacity 50ms ease-out';
