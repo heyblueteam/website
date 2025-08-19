@@ -8,6 +8,10 @@ date: 2025-08-12
 
 Unlike rigid enterprise platforms, Blue offers four deployment models with no feature penalties. Every customer gets the latest updates and full functionality, _regardless_ of how they deploy. This guide helps partners match customers with their ideal deployment architecture.
 
+<video controls>
+  <source src="https://media.blue.cc/options-for-deployment.mp4" type="video/mp4">
+</video>
+
 ## Deployment Models Overview
 
 | **Model** | **Infrastructure** | **Data Location** | **Setup Time** | **Ideal For** |
