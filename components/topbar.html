@@ -274,7 +274,7 @@
                     </a>
                     
                     <!-- Book Demo -->
-                    <a :href="'/demo'" 
+                    <a :href="'/contact/sales'" 
                        @mousemove="handleMagnetic($event, 'bookdemo')"
                        @mouseleave="hovering = false; resetMagnetic('bookdemo')"
                        :style="getMagneticStyle('bookdemo')"
@@ -297,7 +297,7 @@
         <!-- Mobile Sign Up Button and Menu Button -->
         <div class="lg:hidden flex items-center space-x-2">
             <!-- Mobile Book Demo Button -->
-            <a :href="'/demo'" 
+            <a :href="'/contact/sales'" 
                class="px-3 py-1.5 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition-all duration-200">
                 {{t "common.book_demo"}}
             </a>
@@ -330,7 +330,7 @@
                     bookDemoLink.click();
                 } else {
                     // Fallback to direct navigation if link not found
-                    window.location.href = '/demo';
+                    window.location.href = '/contact/sales';
                 }
             }
 
@@ -535,7 +535,7 @@
                    class="block w-full px-4 py-2 text-sm font-semibold text-center rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition duration-150 ease-in-out">
                     {{t "common.log_in"}}
                 </a>
-                <a :href="'/demo'" 
+                <a :href="'/contact/sales'" 
                    @click="mobileMenuOpen = false"
                    class="block w-full px-4 py-2 text-sm font-semibold text-center rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 transition duration-150 ease-in-out">
                     {{t "common.book_demo"}}

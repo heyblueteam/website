@@ -105,7 +105,7 @@ USE CASES:
             </template>
             
             <!-- Primary Button -->
-            <a :href="authState && authState.isLoggedIn ? '/demo' : '{{safeURL .PrimaryUrl}}'" 
+            <a :href="authState && authState.isLoggedIn ? '/contact/sales' : '{{safeURL .PrimaryUrl}}'" 
                {{if .PrimaryExternal}}target="_blank" rel="noopener noreferrer"{{end}}
                class="px-6 py-3 text-sm font-semibold rounded-md border border-transparent bg-brand-blue text-white hover:bg-brand-blue/90 focus:outline-none transition duration-150 ease-in-out flex items-center whitespace-nowrap">
                 <span x-show="authState && authState.isLoggedIn">Book Demo</span>
