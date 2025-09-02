@@ -5,6 +5,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	
+	"blue-website/demo"
 )
 
 // Router handles file-based routing for HTML pages
@@ -22,6 +24,7 @@ type Router struct {
 	statusChecker     *HealthChecker
 	tocExcludedPaths  []string
 	logger            *Logger
+	demoHandler       *demo.Handler
 }
 
 // ServeHTTP implements the http.Handler interface
@@ -100,6 +103,13 @@ func (r *Router) handleAPI(w http.ResponseWriter, req *http.Request) bool {
 		return true
 	case "/api/assistant/stream":
 		HandleAssistantStream(w, req)
+		return true
+	case "/api/demo-request":
+		if r.demoHandler != nil {
+			r.demoHandler.Handle(w, req)
+		} else {
+			http.Error(w, "Demo handler not configured", http.StatusInternalServerError)
+		}
 		return true
 	default:
 		// Not an actual API endpoint, let it fall through to content serving

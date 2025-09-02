@@ -5,6 +5,8 @@ import (
 	"log"
 	"path/filepath"
 	"time"
+	
+	"blue-website/demo"
 )
 
 // NewRouter creates a new router instance with all services initialized
@@ -25,6 +27,9 @@ func NewRouter(pagesDir string, logger *Logger) *Router {
 	// Set schema service on HTML service
 	htmlService.SetSchemaService(schemaService)
 
+	// Initialize demo handler
+	demoHandler := demo.NewHandler()
+	
 	router := &Router{
 		pagesDir:          pagesDir,
 		layoutsDir:        "layouts",
@@ -42,7 +47,8 @@ func NewRouter(pagesDir string, logger *Logger) *Router {
 			"/roadmap",
 			"/platform/status",
 		},
-		logger: logger,
+		logger:      logger,
+		demoHandler: demoHandler,
 	}
 
 	// Pre-render all markdown content at startup

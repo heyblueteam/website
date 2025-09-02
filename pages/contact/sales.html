@@ -19,7 +19,8 @@
                         phone: '',
                         companySize: '',
                         useCase: '',
-                        message: ''
+                        message: '',
+                        url: '' // Honeypot field
                     },
                     errors: {},
                     submitting: false,
@@ -46,12 +47,29 @@
                         // Submit form
                         this.submitting = true;
                         
-                        // Here you would normally submit to your backend
-                        // For now, we'll simulate a submission
-                        await new Promise(resolve => setTimeout(resolve, 1500));
-                        
-                        this.submitted = true;
-                        this.submitting = false;
+                        try {
+                            const response = await fetch('/api/demo-request', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(this.formData)
+                            });
+                            
+                            const data = await response.json();
+                            
+                            if (response.ok && data.success) {
+                                this.submitted = true;
+                            } else {
+                                // Show error message
+                                alert(data.error || 'Something went wrong. Please try again.');
+                            }
+                        } catch (error) {
+                            console.error('Form submission error:', error);
+                            alert('Unable to submit form. Please try again later.');
+                        } finally {
+                            this.submitting = false;
+                        }
                     }
                 }" @submit.prevent="submitForm">
                     
@@ -63,6 +81,12 @@
                     </div>
                     
                     <div x-show="!submitted">
+                        <!-- Honeypot field - hidden from users -->
+                        <div style="position: absolute; left: -9999px;">
+                            <label for="url">Your website URL</label>
+                            <input type="text" id="url" name="url" x-model="formData.url" tabindex="-1" autocomplete="off">
+                        </div>
+                        
                         <!-- Two Column Grid for Form Fields -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                             <!-- Full Name -->
@@ -273,7 +297,6 @@
     {{$demoAgendaData := dict
         "categories" (slice
             (dict
-                "id" "demo-agenda"
                 "name" "What to Expect in Your 60-Minute Demo"
                 "questions" (slice
                     (dict
@@ -312,7 +335,6 @@
     {{$faqData := dict
         "categories" (slice
             (dict
-                "id" "demo-faq"
                 "name" "Frequently Asked Questions"
                 "questions" (slice
                     (dict
