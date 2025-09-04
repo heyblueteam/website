@@ -158,18 +158,74 @@
                                 <label for="companySize" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                                     Company Size <span class="text-red-500">*</span>
                                 </label>
-                                <select 
-                                    id="companySize" 
-                                    x-model="formData.companySize"
-                                    :class="errors.companySize ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'"
-                                    class="w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                                >
-                                    <option value="">Select company size</option>
-                                    <option value="50-250">50-250 employees</option>
-                                    <option value="250-1000">250-1,000 employees</option>
-                                    <option value="1000-5000">1,000-5,000 employees</option>
-                                    <option value="5000+">5,000+ employees</option>
-                                </select>
+                                <div x-data="{ 
+                                    open: false,
+                                    options: [
+                                        { value: '50-250', label: '50-250 employees' },
+                                        { value: '250-1000', label: '250-1,000 employees' },
+                                        { value: '1000-5000', label: '1,000-5,000 employees' },
+                                        { value: '5000+', label: '5,000+ employees' }
+                                    ],
+                                    get selectedLabel() {
+                                        if (!formData.companySize) return 'Select company size';
+                                        const option = this.options.find(o => o.value === formData.companySize);
+                                        return option ? option.label : 'Select company size';
+                                    }
+                                }" 
+                                class="relative">
+                                    <!-- Dropdown Button -->
+                                    <button
+                                        type="button"
+                                        @click="open = !open"
+                                        @click.away="open = false"
+                                        @keydown.escape="open = false"
+                                        :class="[
+                                            'w-full px-3 py-2 text-left border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue flex items-center justify-between',
+                                            errors.companySize ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+                                        ]"
+                                        :aria-expanded="open"
+                                        aria-haspopup="listbox"
+                                    >
+                                        <span x-text="selectedLabel" :class="formData.companySize ? '' : 'text-gray-400 dark:text-gray-500'"></span>
+                                        <svg 
+                                            class="w-5 h-5 text-gray-400 transition-transform duration-200"
+                                            :class="{ 'rotate-180': open }"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown Menu -->
+                                    <div
+                                        x-show="open"
+                                        x-transition:enter="transition ease-out duration-200"
+                                        x-transition:enter-start="opacity-0 scale-95"
+                                        x-transition:enter-end="opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-150"
+                                        x-transition:leave-start="opacity-100 scale-100"
+                                        x-transition:leave-end="opacity-0 scale-95"
+                                        @click.away="open = false"
+                                        class="absolute z-50 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg"
+                                        role="listbox"
+                                    >
+                                        <div class="py-1">
+                                            <template x-for="option in options" :key="option.value">
+                                                <button
+                                                    type="button"
+                                                    @click="formData.companySize = option.value; open = false; delete errors.companySize"
+                                                    class="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-none transition-colors"
+                                                    :class="{ 'bg-brand-blue/10 text-brand-blue': formData.companySize === option.value }"
+                                                    role="option"
+                                                    :aria-selected="formData.companySize === option.value"
+                                                    x-text="option.label"
+                                                ></button>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
                                 <p x-show="errors.companySize" class="mt-1 text-xs text-red-500" x-text="errors.companySize"></p>
                             </div>
                             
@@ -178,21 +234,77 @@
                                 <label for="useCase" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                                     Primary Use Case <span class="text-red-500">*</span>
                                 </label>
-                                <select 
-                                    id="useCase" 
-                                    x-model="formData.useCase"
-                                    :class="errors.useCase ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'"
-                                    class="w-full px-3 py-2 border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue"
-                                >
-                                    <option value="">Select use case</option>
-                                    <option value="process-automation">Process Automation</option>
-                                    <option value="project-management">Project Management</option>
-                                    <option value="client-portal">Client Portal</option>
-                                    <option value="service-tickets">Service Tickets</option>
-                                    <option value="sales-crm">Sales CRM</option>
-                                    <option value="it-operations">IT Operations</option>
-                                    <option value="other">Other</option>
-                                </select>
+                                <div x-data="{ 
+                                    open: false,
+                                    options: [
+                                        { value: 'process-automation', label: 'Process Automation' },
+                                        { value: 'project-management', label: 'Project Management' },
+                                        { value: 'client-portal', label: 'Client Portal' },
+                                        { value: 'service-tickets', label: 'Service Tickets' },
+                                        { value: 'sales-crm', label: 'Sales CRM' },
+                                        { value: 'it-operations', label: 'IT Operations' },
+                                        { value: 'other', label: 'Other' }
+                                    ],
+                                    get selectedLabel() {
+                                        if (!formData.useCase) return 'Select use case';
+                                        const option = this.options.find(o => o.value === formData.useCase);
+                                        return option ? option.label : 'Select use case';
+                                    }
+                                }" 
+                                class="relative">
+                                    <!-- Dropdown Button -->
+                                    <button
+                                        type="button"
+                                        @click="open = !open"
+                                        @click.away="open = false"
+                                        @keydown.escape="open = false"
+                                        :class="[
+                                            'w-full px-3 py-2 text-left border rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-brand-blue flex items-center justify-between',
+                                            errors.useCase ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+                                        ]"
+                                        :aria-expanded="open"
+                                        aria-haspopup="listbox"
+                                    >
+                                        <span x-text="selectedLabel" :class="formData.useCase ? '' : 'text-gray-400 dark:text-gray-500'"></span>
+                                        <svg 
+                                            class="w-5 h-5 text-gray-400 transition-transform duration-200"
+                                            :class="{ 'rotate-180': open }"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    <!-- Dropdown Menu -->
+                                    <div
+                                        x-show="open"
+                                        x-transition:enter="transition ease-out duration-200"
+                                        x-transition:enter-start="opacity-0 scale-95"
+                                        x-transition:enter-end="opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-150"
+                                        x-transition:leave-start="opacity-100 scale-100"
+                                        x-transition:leave-end="opacity-0 scale-95"
+                                        @click.away="open = false"
+                                        class="absolute z-50 w-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg"
+                                        role="listbox"
+                                    >
+                                        <div class="py-1">
+                                            <template x-for="option in options" :key="option.value">
+                                                <button
+                                                    type="button"
+                                                    @click="formData.useCase = option.value; open = false; delete errors.useCase"
+                                                    class="w-full px-4 py-2 text-left text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 focus:bg-gray-100 dark:focus:bg-gray-700 focus:outline-none transition-colors"
+                                                    :class="{ 'bg-brand-blue/10 text-brand-blue': formData.useCase === option.value }"
+                                                    role="option"
+                                                    :aria-selected="formData.useCase === option.value"
+                                                    x-text="option.label"
+                                                ></button>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
                                 <p x-show="errors.useCase" class="mt-1 text-xs text-red-500" x-text="errors.useCase"></p>
                             </div>
                             
