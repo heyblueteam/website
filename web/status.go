@@ -60,7 +60,7 @@ var monitoredServices = []Service{
 	{Name: "White Label Files", URL: "https://wl-files.onrender.com", HealthEndpoint: ""},
 	{Name: "White Label Forms", URL: "https://wl-forms.onrender.com", HealthEndpoint: ""},
 	{Name: "Realtime Engine", URL: "https://collab.blue.cc", HealthEndpoint: ""},
-	{Name: "Search", URL: "https://search.blue.cc", HealthEndpoint: "https://search.blue.cc/health"},
+	{Name: "Search", URL: "https://blue-meili-3r3f.onrender.com", HealthEndpoint: "https://blue-meili-3r3f.onrender.com/health"},
 }
 
 // D1Client handles communication with Cloudflare D1
