@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-在 Blue，我們始終尋找讓客戶生活更輕鬆的方法。我們有[每個功能的詳細文檔](https://documentation.blue.cc)、[YouTube 視頻](https://www.youtube.com/@HeyBlueTeam)、[提示與技巧](/insights/tips-tricks)和[各種支持渠道](/support)。
+在 Blue，我們始終尋找讓客戶生活更輕鬆的方法。我們有[每個功能的詳細文檔](https://documentation.blue.cc)、[YouTube 視頻](https://www.youtube.com/@workwithblue)、[提示與技巧](/insights/tips-tricks)和[各種支持渠道](/support)。
 
 我們一直密切關注 AI（人工智能）的發展，因為我們非常關注[項目管理自動化](/platform/features/automations)。我們還推出了如[AI 自動分類](/insights/ai-auto-categorization)和[AI 摘要](/insights/ai-content-summarization)等功能，以使我們的數千名客戶的工作更輕鬆。
 

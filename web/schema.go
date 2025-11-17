@@ -88,7 +88,7 @@ func (s *SchemaService) generateOrganizationSchema() map[string]interface{} {
 		"sameAs": []string{
 			"https://twitter.com/bluehq",
 			"https://www.linkedin.com/company/blue-teamwork",
-			"https://www.youtube.com/@HeyBlueTeam",
+			"https://www.youtube.com/@workwithblue",
 		},
 		"contactPoint": map[string]interface{}{
 			"@type": "ContactPoint",

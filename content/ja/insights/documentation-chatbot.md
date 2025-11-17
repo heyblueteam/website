@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-Blueでは、常にお客様の生活をより簡単にする方法を模索しています。私たちは[すべての機能の詳細なドキュメンテーション](https://documentation.blue.cc)、[YouTube動画](https://www.youtube.com/@HeyBlueTeam)、[ヒントとコツ](/insights/tips-tricks)、および[さまざまなサポートチャンネル](/support)を提供しています。
+Blueでは、常にお客様の生活をより簡単にする方法を模索しています。私たちは[すべての機能の詳細なドキュメンテーション](https://documentation.blue.cc)、[YouTube動画](https://www.youtube.com/@workwithblue)、[ヒントとコツ](/insights/tips-tricks)、および[さまざまなサポートチャンネル](/support)を提供しています。
 
 私たちは、[プロジェクト管理の自動化](/platform/features/automations)に非常に注力しているため、AI（人工知能）の発展を注意深く見守ってきました。また、数千人のお客様の作業をより簡単にするために、[AI自動分類](/insights/ai-auto-categorization)や[AI要約](/insights/ai-content-summarization)などの機能もリリースしました。
 

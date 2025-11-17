@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-W Blue zawsze szukamy sposobów, aby ułatwić życie naszym klientom. Mamy [szczegółową dokumentację każdej funkcji](https://documentation.blue.cc), [filmy na YouTube](https://www.youtube.com/@HeyBlueTeam), [Porady i wskazówki](/insights/tips-tricks) oraz [różne kanały wsparcia](/support). 
+W Blue zawsze szukamy sposobów, aby ułatwić życie naszym klientom. Mamy [szczegółową dokumentację każdej funkcji](https://documentation.blue.cc), [filmy na YouTube](https://www.youtube.com/@workwithblue), [Porady i wskazówki](/insights/tips-tricks) oraz [różne kanały wsparcia](/support). 
 
 Uważnie obserwujemy rozwój AI (sztucznej inteligencji), ponieważ bardzo interesujemy się [automatyzacją zarządzania projektami](/platform/features/automations). Wprowadziliśmy również funkcje takie jak [AI Auto Kategoryzacja](/insights/ai-auto-categorization) i [AI Podsumowania](/insights/ai-content-summarization), aby ułatwić pracę naszym tysiącom klientów. 
 

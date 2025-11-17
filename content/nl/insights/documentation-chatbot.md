@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-Bij Blue zijn we altijd op zoek naar manieren om het leven van onze klanten gemakkelijker te maken. We hebben [uitgebreide documentatie van elke functie](https://documentation.blue.cc), [YouTube-video's](https://www.youtube.com/@HeyBlueTeam), [Tips & Tricks](/insights/tips-tricks) en [verschillende ondersteuningskanalen](/support). 
+Bij Blue zijn we altijd op zoek naar manieren om het leven van onze klanten gemakkelijker te maken. We hebben [uitgebreide documentatie van elke functie](https://documentation.blue.cc), [YouTube-video's](https://www.youtube.com/@workwithblue), [Tips & Tricks](/insights/tips-tricks) en [verschillende ondersteuningskanalen](/support). 
 
 We hebben de ontwikkeling van AI (kunstmatige intelligentie) nauwlettend in de gaten gehouden, omdat we erg geïnteresseerd zijn in [projectmanagementautomatiseringen](/platform/features/automations). We hebben ook functies zoals [AI Auto Categorization](/insights/ai-auto-categorization) en [AI Samenvattingen](/insights/ai-content-summarization) uitgebracht om het werk gemakkelijker te maken voor onze duizenden klanten. 
 

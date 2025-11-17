@@ -6,7 +6,7 @@ date: 2024-07-09
 ---
 
 
-Di Blue, kami selalu mencari cara untuk mempermudah hidup pelanggan kami. Kami memiliki [dokumentasi mendalam tentang setiap fitur](https://documentation.blue.cc), [Video YouTube](https://www.youtube.com/@HeyBlueTeam), [Tips & Trik](/insights/tips-tricks), dan [berbagai saluran dukungan](/support).
+Di Blue, kami selalu mencari cara untuk mempermudah hidup pelanggan kami. Kami memiliki [dokumentasi mendalam tentang setiap fitur](https://documentation.blue.cc), [Video YouTube](https://www.youtube.com/@workwithblue), [Tips & Trik](/insights/tips-tricks), dan [berbagai saluran dukungan](/support).
 
 Kami telah mengawasi perkembangan AI (Kecerdasan Buatan) dengan seksama karena kami sangat tertarik pada [automasi manajemen proyek](/platform/features/automations). Kami juga merilis fitur seperti [Kategorisasi Otomatis AI](/insights/ai-auto-categorization) dan [Ringkasan AI](/insights/ai-content-summarization) untuk mempermudah pekerjaan ribuan pelanggan kami.
 

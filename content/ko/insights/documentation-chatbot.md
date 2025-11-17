@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-Blue에서는 고객의 삶을 더 쉽게 만들 방법을 항상 찾고 있습니다. 우리는 [모든 기능에 대한 심층 문서](https://documentation.blue.cc), [YouTube 비디오](https://www.youtube.com/@HeyBlueTeam), [팁과 요령](/insights/tips-tricks), 그리고 [다양한 지원 채널](/support)을 제공합니다. 
+Blue에서는 고객의 삶을 더 쉽게 만들 방법을 항상 찾고 있습니다. 우리는 [모든 기능에 대한 심층 문서](https://documentation.blue.cc), [YouTube 비디오](https://www.youtube.com/@workwithblue), [팁과 요령](/insights/tips-tricks), 그리고 [다양한 지원 채널](/support)을 제공합니다. 
 
 우리는 [프로젝트 관리 자동화](/platform/features/automations)에 매우 관심이 많기 때문에 AI(인공지능)의 발전을 주의 깊게 지켜보고 있습니다. 우리는 또한 수천 명의 고객을 위해 작업을 더 쉽게 만들기 위해 [AI 자동 분류](/insights/ai-auto-categorization) 및 [AI 요약](/insights/ai-content-summarization)와 같은 기능을 출시했습니다. 
 

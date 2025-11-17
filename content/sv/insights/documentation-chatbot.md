@@ -7,7 +7,7 @@ date: 2024-07-09
 
 
 
-På Blue letar vi alltid efter sätt att göra livet enklare för våra kunder. Vi har [djupgående dokumentation av varje funktion](https://documentation.blue.cc), [YouTube-videor](https://www.youtube.com/@HeyBlueTeam), [Tips och tricks](/insights/tips-tricks) och [olika supportkanaler](/support). 
+På Blue letar vi alltid efter sätt att göra livet enklare för våra kunder. Vi har [djupgående dokumentation av varje funktion](https://documentation.blue.cc), [YouTube-videor](https://www.youtube.com/@workwithblue), [Tips och tricks](/insights/tips-tricks) och [olika supportkanaler](/support). 
 
 Vi har hållit ett nära öga på utvecklingen av AI (Artificiell Intelligens) eftersom vi är mycket intresserade av [automatiseringar inom projektledning](/platform/features/automations). Vi har också släppt funktioner som [AI Auto Kategorisering](/insights/ai-auto-categorization) och [AI Sammanfattningar](/insights/ai-content-summarization) för att göra arbetet enklare för våra tusentals kunder. 
 

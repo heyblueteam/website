@@ -6,7 +6,7 @@ date: 2024-07-09
 ---
 
 
-នៅ Blue, យើងតែងតែស្វែងរកវិធីដើម្បីធ្វើឱ្យជីវិតកាន់តែងាយស្រួលសម្រាប់អតិថិជនរបស់យើង។ យើងមាន [ឯកសារពិស្តារពីមុខងារទាំងអស់](https://documentation.blue.cc), [វីដេអូ YouTube](https://www.youtube.com/@HeyBlueTeam), [គន្លឹះ និងយុទ្ធសាស្ត្រ](/insights/tips-tricks), និង [ឆានែលគាំទ្រផ្សេងៗ](/support)។
+នៅ Blue, យើងតែងតែស្វែងរកវិធីដើម្បីធ្វើឱ្យជីវិតកាន់តែងាយស្រួលសម្រាប់អតិថិជនរបស់យើង។ យើងមាន [ឯកសារពិស្តារពីមុខងារទាំងអស់](https://documentation.blue.cc), [វីដេអូ YouTube](https://www.youtube.com/@workwithblue), [គន្លឹះ និងយុទ្ធសាស្ត្រ](/insights/tips-tricks), និង [ឆានែលគាំទ្រផ្សេងៗ](/support)។
 
 យើងបានតាមដានការអភិវឌ្ឍន៍ AI (បញ្ញាសិប្បនិម្មិត)យ៉ាងខិតខំ ពីព្រោះយើងចូលចិត្ត [ការប្រព្រឹត្តកម្មវិធីគ្រប់គ្រងគម្រោង](/platform/features/automations)។ យើងក៏បានចេញផ្សាយមុខងារ ដូចជា [AI Auto Categorization](/insights/ai-auto-categorization) និង [AI Summaries](/insights/ai-content-summarization) ដើម្បីធ្វើឱ្យការងារកាន់តែងាយស្រួលសម្រាប់អតិថិជនរាប់ពាន់នាក់របស់យើង។
 

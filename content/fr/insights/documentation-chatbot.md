@@ -6,7 +6,7 @@ date: 2024-07-09
 ---
 
 
-Chez Blue, nous cherchons toujours des moyens de faciliter la vie de nos clients. Nous avons [une documentation approfondie de chaque fonctionnalité](https://documentation.blue.cc), [des vidéos YouTube](https://www.youtube.com/@HeyBlueTeam), [des conseils et astuces](/insights/tips-tricks), et [divers canaux de support](/support).
+Chez Blue, nous cherchons toujours des moyens de faciliter la vie de nos clients. Nous avons [une documentation approfondie de chaque fonctionnalité](https://documentation.blue.cc), [des vidéos YouTube](https://www.youtube.com/@workwithblue), [des conseils et astuces](/insights/tips-tricks), et [divers canaux de support](/support).
 
 Nous avons gardé un œil attentif sur le développement de l'IA (Intelligence Artificielle) car nous sommes très impliqués dans [les automatisations de gestion de projet](/platform/features/automations). Nous avons également lancé des fonctionnalités telles que [la catégorisation automatique par IA](/insights/ai-auto-categorization) et [les résumés par IA](/insights/ai-content-summarization) pour faciliter le travail de nos milliers de clients.
 

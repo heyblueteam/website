@@ -5,7 +5,7 @@ description: We built our own documentation AI Chatbot that is trained on the Bl
 date: 2024-07-09
 ---
 
-At Blue, we're always looking to find ways to make life easier for our customers. We have [in-depth documentation of every feature](https://documentation.blue.cc), [YouTube Videos](https://www.youtube.com/@HeyBlueTeam), [Tips & Tricks](/insights/tips-tricks), and [various support channels](/support). 
+At Blue, we're always looking to find ways to make life easier for our customers. We have [in-depth documentation of every feature](https://documentation.blue.cc), [YouTube Videos](https://www.youtube.com/@workwithblue), [Tips & Tricks](/insights/tips-tricks), and [various support channels](/support). 
 
 We've been keeping a close eye on the development of AI (Artificial Intelligence) as we are very much into [project management automations](/platform/features/automations). We also released features such as [AI Auto Categorization](/insights/ai-auto-categorization) and [AI Summaries](/insights/ai-content-summarization) to make work easier for our thousands of customers. 
 

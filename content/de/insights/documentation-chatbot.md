@@ -5,7 +5,7 @@ description: Wir haben unseren eigenen Dokumentations-AI-Chatbot entwickelt, der
 date: 2024-07-09
 ---
 
-Bei Blue sind wir ständig auf der Suche nach Möglichkeiten, das Leben unserer Kunden zu erleichtern. Wir haben [ausführliche Dokumentationen zu jeder Funktion](https://documentation.blue.cc), [YouTube-Videos](https://www.youtube.com/@HeyBlueTeam), [Tipps & Tricks](/insights/tips-tricks) und [verschiedene Support-Kanäle](/support).
+Bei Blue sind wir ständig auf der Suche nach Möglichkeiten, das Leben unserer Kunden zu erleichtern. Wir haben [ausführliche Dokumentationen zu jeder Funktion](https://documentation.blue.cc), [YouTube-Videos](https://www.youtube.com/@workwithblue), [Tipps & Tricks](/insights/tips-tricks) und [verschiedene Support-Kanäle](/support).
 
 Wir haben die Entwicklung von KI (Künstliche Intelligenz) genau im Auge behalten, da wir sehr an [Projektmanagement-Automatisierungen](/platform/features/automations) interessiert sind. Wir haben auch Funktionen wie [AI Auto-Kategorisierung](/insights/ai-auto-categorization) und [AI-Zusammenfassungen](/insights/ai-content-summarization) veröffentlicht, um die Arbeit für unsere tausenden von Kunden zu erleichtern.
 
