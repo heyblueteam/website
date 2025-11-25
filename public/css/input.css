@@ -197,6 +197,7 @@ main > div > div {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
     overflow-x: hidden !important;
+    max-width: none !important;
   }
   
   .prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
